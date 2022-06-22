@@ -1,0 +1,5 @@
+"Name","DriverName","PortName","Comment","Location"
+"Contoso-MFP-General","TOSHIBA Universal Printer 2","general.contoso.local","Contoso","Main Office"
+"Contoso-MFP-HR","TOSHIBA Universal Printer 2","hr.contoso.local","Contoso","HR"
+"Contoso-PRT-IT","HP Universal Printing PCL 6 (v7.0.0)","it-prt.contoso.local","Contoso","IT"
+"Contoso-MFP-Legal","TOSHIBA Universal Printer 2","legal.contoso.local","Contoso","Legal"
