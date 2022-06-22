@@ -1,2 +1,2 @@
 # Powershellisfun
-Repository with the script that I used in my blogs on https://powershellisfun.com
+Repository with the scripts that I have used in my blogs on https://powershellisfun.com
