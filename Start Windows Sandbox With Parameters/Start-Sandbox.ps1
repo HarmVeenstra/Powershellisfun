@@ -14,14 +14,6 @@ function Start-Sandbox {
         [switch]$VideoInputEnable
     )
 
-    #Validate if Windows Sandbox is installed
-    if ((Get-WindowsOptionalFeature -Online -FeatureName:Containers-DisposableClientVM).State -ne 'Enabled') {
-        Write-Host Windows Sandbox not found, exiting... -ForegroundColor Red
-        Write-Host "Install it using Turn Windows Features on or off" -ForegroundColor Red
-        Write-Host "or using Enable-WindowsOptionalFeature -Online -FeatureName:Containers-DisposableClientVM -NoRestart:$True" -ForegroundColor Red
-        break
-    }
-
     #Validate if $mappedfolder exists
     if ($MappedFolder) {
         if (Test-Path $MappedFolder -ErrorAction SilentlyContinue) {
