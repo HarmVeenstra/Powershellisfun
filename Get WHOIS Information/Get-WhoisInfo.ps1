@@ -3,6 +3,12 @@ function Get-WhoisInfo {
         [parameter(Mandatory = $false)][string]$PublicIPaddressOrName
     )
 
+    #Check if the module PSParseHTML is installed and install
+    #the module if it's not installed
+    if (-not (Get-Command ConvertFrom-HTMLClass -ErrorAction SilentlyContinue)) {
+        Install-Module PSParseHTML -SkipPublisherCheck -Force:$true -Confirm:$false
+    }
+
     try {
         #Get results from your own Public IP Address
         if (-not ($PublicIPaddressOrName)) {
