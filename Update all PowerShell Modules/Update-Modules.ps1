@@ -6,7 +6,7 @@ function Update-Modules {
 
     #Get all installed modules
     Write-Host "Retrieving all installed modules" -ForegroundColor Green
-    $currentmodules = Get-InstalledModule | Select-Object Name, Version | Sort-Object Name
+    $CurrentModules = Get-InstalledModule | Select-Object Name, Version | Sort-Object Name
 
     #Show status of AllowPrerelease Switch
     if ($AllowPrerelease) {
@@ -17,17 +17,17 @@ function Update-Modules {
     }
        
     #Loop through the installed modules and update them if a newer version is available
-    foreach ($module in $currentmodules) {
-        Write-Host "- Checking for updated version of the $($module.Name) module" -ForegroundColor Green
+    foreach ($Module in $CurrentModules) {
+        Write-Host "- Checking for updated version of the $($Module.Name) module" -ForegroundColor Green
         try {
-            update-module -Name $module.Name -AllowPrerelease:$AllowPrerelease -AcceptLicense -Scope:AllUsers 
+            Update-Module -Name $Module.Name -AllowPrerelease:$AllowPrerelease -AcceptLicense -Scope:AllUsers 
         }
         catch {
-            Write-Host "Error updating $($module.Name)" -ForegroundColor Red
+            Write-Host "Error updating $($Module.Name)" -ForegroundColor Red
         }
 
-        #Retrieve newewst version number and remove old(er) version(s) if any
-        $allversions = Get-InstalledModule -Name $module.Name -AllVersions | Sort-Object PublishedDate -Descending
+        #Retrieve newest version number and remove old(er) version(s) if any
+        $AllVersions = Get-InstalledModule -Name $Module.Name -AllVersions | Sort-Object PublishedDate -Descending
         $MostRecentVersion = $AllVersions[0].Version
         if ($AllVersions.Count -gt 1 ) {
             Foreach ($Version in $AllVersions) {
@@ -45,12 +45,12 @@ function Update-Modules {
     }
 
     #Get the new module versions for comparing them to to previous one if updated
-    $newmodules = Get-InstalledModule | Select-Object Name, Version | Sort-Object Name
+    $NewModules = Get-InstalledModule | Select-Object Name, Version | Sort-Object Name
     Write-Host "`nList of updated modules (if any)" -ForegroundColor Green
-    foreach ($module in $newmodules) {
-        $currentversion = $currentmodules | Where-Object Name -match $module.Name
-        if ($currentversion.Version -notlike $module.version) {
-            Write-Host "- Updated $($module.Name) from version $($currentversion.version) to $($module.version)" -ForegroundColor Green
+    foreach ($Module in $NewModules) {
+        $CurrentVersion = $CurrentModules | Where-Object Name -eq $Module.Name
+        if ($CurrentVersion.Version -notlike $Module.Version) {
+            Write-Host "- Updated $($Module.Name) from version $($CurrentVersion.Version) to $($Module.Version)" -ForegroundColor Green
         }
     }
 }
