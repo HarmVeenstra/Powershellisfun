@@ -23,7 +23,7 @@ function Update-Modules {
             Update-Module -Name $Module.Name -AllowPrerelease:$AllowPrerelease -AcceptLicense -Scope:AllUsers -ErrorAction Stop
         }
         catch {
-            Write-Host "Error updating $($Module.Name)" -ForegroundColor Red
+            Write-Host "  Error updating $($Module.Name)" -ForegroundColor Red
         }
 
         #Retrieve newest version number and remove old(er) version(s) if any
