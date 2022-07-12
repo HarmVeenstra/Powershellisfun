@@ -3,8 +3,6 @@ function Update-Modules {
     param (
         [switch]$AllowPrerelease
     )
-    #Configure PSGallery to be trusted
-    Set-PSRepository PSGallery -InstallationPolicy Trusted
 
     #Get all installed modules
     Write-Host "Retrieving all installed modules" -ForegroundColor Green
