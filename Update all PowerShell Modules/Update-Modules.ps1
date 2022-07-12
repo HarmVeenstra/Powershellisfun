@@ -20,7 +20,7 @@ function Update-Modules {
     foreach ($Module in $CurrentModules) {
         Write-Host "- Checking for updated version of the $($Module.Name) module" -ForegroundColor Green
         try {
-            Update-Module -Name $Module.Name -AllowPrerelease:$AllowPrerelease -AcceptLicense -Scope:AllUsers 
+            Update-Module -Name $Module.Name -AllowPrerelease:$AllowPrerelease -AcceptLicense -Scope:AllUsers -ErrorAction Stop
         }
         catch {
             Write-Host "Error updating $($Module.Name)" -ForegroundColor Red
@@ -34,7 +34,7 @@ function Update-Modules {
                 if ($Version.Version -ne $MostRecentVersion) {
                     try {
                         Write-Host "  Uninstalling previous version $($Version.Version) of module $($Module.Name)" -ForegroundColor Gray
-                        Uninstall-Module -Name $Module.Name -RequiredVersion $Version.Version -Force:$True
+                        Uninstall-Module -Name $Module.Name -RequiredVersion $Version.Version -Force:$True -ErrorAction SilentlyContinue
                     }
                     catch {
                         Write-Host "  Error uninstalling previous version $($Version.Version) of module $($Module.Name)" -ForegroundColor Red
