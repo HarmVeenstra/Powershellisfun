@@ -43,7 +43,7 @@ $members = @()
 foreach ($admingroup in $admingroups) {
     Write-Host "- Checking $($admingroup)" -ForegroundColor Green
     try {
-        $admingroupmembers = Get-ADGroupMember -Identity $admingroup -ErrorAction Stop | Sort-Object SamAccountName
+        $admingroupmembers = Get-ADGroupMember -Identity $admingroup -Recursive -ErrorAction Stop | Sort-Object SamAccountName
     }
     catch {
         write-host "Members of $($admingroup) can't be retrieved, skipping..." -ForegroundColor Red
