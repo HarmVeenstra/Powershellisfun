@@ -24,76 +24,76 @@ function Get-SecurityEvents {
 
       #Event id's from https://www.ultimatewindowssecurity.com/securitylog/book/page.aspx?spid=chapter8
       $useraccountmanagementeventids = 
-      4720,
-      4722,
-      4723,
-      4724,
-      4725,
-      4726,
-      4738,
-      4740,
-      4767,
-      4780,
-      4781,
-      4794,
-      5376,
-      5377
+      4720, #A user account was created
+      4722, #A user account was enabled
+      4723, #An attempt was made to change an account's password
+      4724, #An attempt was made to reset an accounts password
+      4725, #A user account was disabled
+      4726, #A user account was deleted
+      4738, #A user account was changed
+      4740, #A user account was locked out
+      4767, #A user account was unlocked
+      4780, #The ACL was set on accounts which are members of administrators groups
+      4781, #The name of an account was changed
+      4794, #n attempt was made to set the Directory Services Restore Mode administrator password
+      5376, #Credential Manager credentials were backed up
+      5377  #redential Manager credentials were restored from a backup
 
       $computeraccountmanagementeventids = 
-      4741,
-      4742,
-      4743
+      4741, #A computer account was created
+      4742, #A computer account was changed
+      4743  #A computer account was deleted
       
       $securitygroupmanagementeventids =
-      4727,
-      4728,
-      4729,
-      4730,
-      4731,
-      4732,
-      4733,
-      4734,
-      4735,
-      4737,
-      4754,
-      4755,
-      4756,
-      4757,
-      4758,
-      4764
+      4727, #A security-enabled global group was created
+      4728, #A member was added to a security-enabled global group
+      4729, #A member was removed from a security-enabled global group
+      4730, #A security-enabled global group was deleted
+      4731, #A security-enabled local group was created
+      4732, #A member was added to a security-enabled local group
+      4733, #A member was removed from a security-enabled local group
+      4734, #A security-enabled local group was deleted
+      4735, #A security-enabled local group was changed
+      4737, #A security-enabled global group was changed
+      4754, #A security-enabled universal group was created
+      4755, #A security-enabled universal group was changed
+      4756, #A member was added to a security-enabled universal group
+      4757, #A member was removed from a security-enabled universal group
+      4758, #A security-enabled universal group was deleted
+      4764 #A groups type was changed
       
       $distributiongroupmanagementeventids =
-      4744,
-      4745,
-      4746,
-      4747,
-      4748,
-      4749,
-      4750,
-      4751,
-      4752,
-      4753,
-      4759,
-      4760,
-      4761,
-      4762,
-      4763
+      4744, #A security-disabled local group was created
+      4745, #A security-disabled local group was changed
+      4746, #A member was added to a security-disabled local group
+      4747, #A member was removed from a security-disabled local group
+      4748, #A security-disabled local group was deleted
+      4749, #A security-disabled global group was created
+      4750, #A security-disabled global group was changed
+      4751, #A member was added to a security-disabled global group
+      4752, #A member was removed from a security-disabled global group
+      4753, #A security-disabled global group was deleted
+      4759, #A security-disabled universal group was created
+      4760, #A security-disabled universal group was changed
+      4761, #A member was added to a security-disabled universal group
+      4762, #A member was removed from a security-disabled universal group
+      4763  #A security-disabled universal group was deleted
 
       $applicationgroupmanagementeventids =
-      4783,
-      4784,
-      4785,
-      4786,
-      4787,
-      4788,
-      4789,
-      4790,
-      4791,
-      4792
+      4783, #A basic application group was created
+      4784, #A basic application group was changed
+      4785, #A member was added to a basic application group
+      4786, #A member was removed from a basic application group
+      4787, #A non-member was added to a basic application group
+      4788, #A non-member was removed from a basic application group
+      4789, #A basic application group was deleted
+      4790, #An LDAP query group was created
+      4791, #A basic application group was changed
+      4792  #An LDAP query group was deleted
 
       $otheraccountmanagementeventids =
-      4739,
-      4793
+      4739, #Domain Policy was changed
+      4793  #The Password Policy Checking API was called
 
 
       #Set empty collection variable, date and eventids
