@@ -59,9 +59,9 @@ function Get-MailDomainInfo {
         'Autodiscover IP-Address' = $autodiscoverA
         'Autodiscover CNAME '     = $autodiscoverCNAME
         'DKIM Record'             = $dkim
-        'DMARC Record'            = $dmarc
+        'DMARC Record'            = "$($dmarc)"
         'MX Record(s)'            = $mx -join ', '
-        'SPF Record'              = $spf
+        'SPF Record'              = "$($spf)"
     }
          
     return $info
