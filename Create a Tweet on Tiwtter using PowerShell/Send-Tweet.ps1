@@ -4,7 +4,7 @@ function Send-Tweet {
     )
     #Validate length of message
     if ($message.Length -gt 140) {
-        Write-Warning ("Length of tweet {0} characters, maximum is 140. Aborting..." -f $Message.Length)
+        Write-Warning ("Length of tweet is {0} characters, maximum amount is 140. Aborting..." -f $Message.Length)
         break
     }
     
