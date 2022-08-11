@@ -13,7 +13,7 @@ function New-Portlistener {
     
     #Exit if both options were used
     if ($TCPPort -and $UDPPort) {
-        Write-Warning "You can only specify one other, use either TCPPort or UDPPort. Aborting..."
+        Write-Warning "You can only specify one option, use either TCPPort or UDPPort. Aborting..."
         break
     }
 
