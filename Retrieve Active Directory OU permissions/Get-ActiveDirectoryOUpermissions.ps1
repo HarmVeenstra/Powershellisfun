@@ -90,7 +90,7 @@ function Get-ActiveDirectoryOUpermissions {
 
     #Custom object for certain Security Identifiers which don't report a friendly name
     #List is from https://docs.microsoft.com/en-us/windows/security/identity-protection/access-control/security-identifiers
-    $customidentifiers = [PSCustomObject]@{
+    $customidentifiers = @{
         'S-1-5-32-544' = 'Administrators'
         'S-1-5-32-545' = 'Users'
         'S-1-5-32-546' = 'Guests'
