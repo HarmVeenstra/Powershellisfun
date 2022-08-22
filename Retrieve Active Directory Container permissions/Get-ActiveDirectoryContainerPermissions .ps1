@@ -157,6 +157,6 @@ function Get-ActiveDirectoryContainerPermissions {
     #Export results to CSV file
     if ($acltotal.count -gt 0) {
         Write-Host ("Exporting {0} results to {1}" -f $acltotal.count, $Output) -ForegroundColor Green
-        $acltotal | Sort-Object OrganizationalUnit, Principal, Rights, AppliesTo, Item, Access, Inheritance, InheritanceFrom | Export-Csv -Path $Output -Encoding UTF8 -Delimiter ';' -NoTypeInformation
+        $acltotal | Sort-Object Container, Principal, Rights, AppliesTo, Item, Access, Inheritance, InheritanceFrom | Export-Csv -Path $Output -Encoding UTF8 -Delimiter ';' -NoTypeInformation
     }
 }
