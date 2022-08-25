@@ -1,5 +1,4 @@
 #Requires -RunAsAdministrator
-#Download anytoiso https://crystalidea.com/anytoiso/download
 
 #ISO Paths
 $ISOPath = 'D:\ISO'
