@@ -19,8 +19,16 @@ catch {
  
 #Display non-resolved Issues sorted on StartDateTime, display error when unable to retrieve
 try {
-Get-MgServiceAnnouncementIssue | Where-Object IsResolved -ne True | Select-Object StartDateTime, Id, ImpactDescription, Feature, Classification, Status | Sort-Object StartDateTime
+    $issues = Get-MgServiceAnnouncementIssue | Where-Object IsResolved -ne True | Select-Object StartDateTime, Id, ImpactDescription, Feature, Classification, Status | Sort-Object StartDateTime
 }
 catch {
-write-host "Error retrieving Announcements, try again later..." -ForegroundColor Red
+    write-host "Error retrieving Announcements, try again later..." -ForegroundColor Red
+}
+
+#Display the issues if found, display no issues found it not
+if ($issues.count -gt 0) {
+    $issues
+}
+else {
+    Write-Host "No 365 Service Health Issues found!" -Foregroundcolor Green
 }
