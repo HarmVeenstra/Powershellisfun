@@ -3,15 +3,24 @@ function Get-MicrosoftEndpoints {
         [parameter(parameterSetName = "CSV")][string]$CSVPath
     )
     
-    #Hide download progress, retrieve all Endpoints and Convert it from JSON format
+    #Hide download progress, get current JSON url, retrieve all Endpoints and Convert it from JSON format
     $ProgressPreference = "SilentlyContinue"
     try {
-        $Endpoints = Invoke-WebRequest -Uri https://endpoints.office.com/endpoints/worldwide?clientrequestid=b10c5ed1-bad1-445f-b386-b919946339a7 -ErrorAction Stop | ConvertFrom-Json
+        $site = Invoke-WebRequest -Uri 'https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide'
+        $jsonlink = ($site.Links | where-Object OuterHTML -match 'JSON formatted').href
+    }
+    catch {
+        Write-Warning ("Error downloading JSON file, please check if https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide is accessible")
+        break 
+    }
+
+    try {
+        $Endpoints = Invoke-WebRequest -Uri $jsonlink -ErrorAction Stop | ConvertFrom-Json
         Write-Host ("Downloading worldwide Microsoft Endpoints") -ForegroundColor Green
     }
     catch {
-        Write-Warning ("Error downloading worldwide Microsoft Endpoints, please check URL in script if it still matches") 
-        Write-Warning ("the one found in this link https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwidein from the JSON formatted link ") 
+        Write-Warning ("Error downloading worldwide Microsoft Endpoints, please check if $($jsonlink) is accessible")
+        break
     }
     
     $Total = @()
