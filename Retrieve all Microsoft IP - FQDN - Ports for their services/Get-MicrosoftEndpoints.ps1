@@ -17,33 +17,41 @@ function Get-MicrosoftEndpoints {
     $Total = @()
     Write-Host ("Processing items...") -ForegroundColor Green
     foreach ($Endpoint in $Endpoints) {
-        #Check if IPs are available for the Endpoint, set to False if not applicable
-        if ($null -eq $Endpoint.ips) {
-            $IPaddresses = 'Not applicable'
+        #Check if IPs are available for the Endpoint, set to not available if not
+        if (-not $Endpoint.ips) {
+            $IPaddresses = 'Not available'
         }
         else {
-            $IPaddresses = "$($Endpoint.ips)" -join ', '
+            $IPaddresses = $Endpoint.ips.split(' ') -join ', '
         }
 
-        #Check if TCP ports are available for the Endpoint, set to False if not applicable
-        if ($Endpoint.tcpPorts.Length -eq 0) {
-            $TCPPorts = 'Not applicable'
+        #Check if TCP ports are available for the Endpoint, set to not available if not
+        if (-not $Endpoint.tcpPorts) {
+            $TCPPorts = 'Not available'
         }
         else {
-            $TCPPorts = $Endpoint.TCPPorts.Split(',') -join ', '
+            $TCPPorts = $Endpoint.TCPPorts.split(',') -join ', '
         }
             
-        #Check if UDP ports are available for the Endpoint, set to False if not applicable
-        if ($Endpoint.udpPorts.length -eq 0) {
-            $UDPPorts = 'Not applicable'
+        #Check if UDP ports are available for the Endpoint, set to not available if not
+        if (-not $Endpoint.udpPorts) {
+            $UDPPorts = 'Not available'
         }
         else {
-            $UDPPorts = $Endpoint.udpPorts.Split(',') -join ', '
+            $UDPPorts = $Endpoint.udpPorts.split(',') -join ', '
         }
 
-        #Check if URLs are available for the Endpoint, set to False if not applicable
-        if ($Endpoint.urls.length -eq 0) {
-            $URLlist = 'Not applicable'
+        #Check if there are notes for the Endpoint, set to not available if not
+        if (-not $Endpoint.notes) {
+            $Notes = 'Not available'
+        }
+        else {
+            $Notes = $Endpoint.Notes
+        }
+
+        #Check if URLs are available for the Endpoint, set to not available if not
+        if (-not $Endpoint.urls) {
+            $URLlist = 'Not available'
         }
         else {
             $URLlist = $Endpoint.urls -join ', '
@@ -56,6 +64,7 @@ function Get-MicrosoftEndpoints {
             ips                    = $IPaddresses
             tcpPorts               = $TCPPorts
             udpPorts               = $UDPPorts
+            notes                  = $notes
             expressRoute           = $Endpoint.expressRoute
             category               = $Endpoint.Category
             required               = $Endpoint.required
