@@ -7,7 +7,7 @@ foreach ($server in Get-ADComputer -Filter * -Properties OperatingSystem | Where
         Write-Host ("Retrieving Scheduled Tasks list for {0}" -f $server.Name) -ForegroundColor Green
     }
     catch {
-        Write-Host ("Unable to retrieve Scheduled Tasks list for {0}" -f $server.Name) -ForegroundColor Red
+        Write-Warning ("Unable to retrieve Scheduled Tasks list for {0}" -f $server.Name)
         $scheduledtasks = $null
     }
 
