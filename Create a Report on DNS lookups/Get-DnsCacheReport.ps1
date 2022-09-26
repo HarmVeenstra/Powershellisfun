@@ -10,7 +10,7 @@ function Get-DnsCacheReport {
             Write-Host ("Path {0} is valid, continuing..." -f $CSVPath) -ForegroundColor Green
         }
         else {
-            Write-Host ("Path {0} is not valid, please check path or permissions. Aborting..." -f $CSVPath) -ForegroundColor Red
+            Write-Warning ("Path {0} is not valid, please check path or permissions. Aborting..." -f $CSVPath)
         }
     }
 
@@ -72,8 +72,8 @@ function Get-DnsCacheReport {
         $remain = ($d - (get-date))
     }
     $host.UI.RawUI.CursorPosition = $origpos
-    Write-Host " * "  -ForegroundColor Green -NoNewline
-    write-host " Finished gathering DNS Cache information, displaying results in a Out-Gridview now..." -ForegroundColor Green
+    Write-Host (" * ")  -ForegroundColor Green -NoNewline
+    write-host (" Finished gathering DNS Cache information, displaying results in a Out-Gridview now...") -ForegroundColor Green
     if ($CSVPath) {
         write-host ("Results are also saved as {0}" -f $CSVPath) -ForegroundColor Green
     }
