@@ -29,7 +29,7 @@ function Compact-VHDX {
     if (-not ($VMName)) {
         if (Hyper-V\Get-VM | Where-Object State -eq Running) {
             Write-Warning ("Hyper-V VM(s) are running, aborting...")
-            Write-Host "Shutdown VM(s):" -ForegroundColor Red
+            Write-Host ("Shutdown VM(s):") -ForegroundColor Red
             hyper-v\get-vm | Where-Object State -eq Running | Select-Object Name, State | Sort-Object Name | Format-Table
             break
         }
@@ -75,7 +75,7 @@ function Compact-VHDX {
 
             try {
                 Optimize-VHD -Path $vhd.Path -Mode Full
-                Write-Host "Compacting VHDX" -ForegroundColor Green
+                Write-Host ("Compacting VHDX") -ForegroundColor Green
             }
             catch {
                 Write-Warning ("Error compacting {0}, dismounting..." -f $vhd.Path)
@@ -85,7 +85,7 @@ function Compact-VHDX {
 
             try { 
                 Dismount-VHD $vhd.Path -ErrorAction Stop
-                Write-Host "Dismounting VHDX`n" -ForegroundColor Green
+                Write-Host ("Dismounting VHDX`n") -ForegroundColor Green
             }
             catch {
                 Write-Warning ("Error dismounting {0}, please check Disk Management and manually dismount..." -f $vhd.Path)
