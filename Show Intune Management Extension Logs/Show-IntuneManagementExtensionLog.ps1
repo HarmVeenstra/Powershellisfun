@@ -75,13 +75,13 @@ function Show-IntuneManagementExtensionLog {
 
     #Warn if not parameter specified
     if (-not ($AgentExecutor.IsPresent -or $All.IsPresent -or $ClientHealth.IsPresent -or $IntuneManagementExtension.IsPresent -or $Sensor.IsPresent)) {
-        Write-Warning "No parameter specified, please use the AgentExecutor, All, ClientHealth, IntuneManagementExtension or Sensor parameter to display the log(s)..."
+        Write-Warning ("No parameter specified, please use the AgentExecutor, All, ClientHealth, IntuneManagementExtension or Sensor parameter to display the log(s)...")
         break
     }
 
     #If all parameter is set, set all switches to True
     if ($all) {
-        Write-Host "Processing all logs..." -ForegroundColor Green
+        Write-Host ("Processing all logs...") -ForegroundColor Green
         $AgentExecutor = $true
         $ClientHealth = $true
         $IntuneManagementExtension = $true
@@ -90,22 +90,22 @@ function Show-IntuneManagementExtensionLog {
 
     #Invoke the Get-IntuneLogContent with the path of the log
     if ($AgentExecutor) {
-        Write-Host "Processing AgentExecutor log" -ForegroundColor Green
+        Write-Host ("Processing AgentExecutor log") -ForegroundColor Green
         Get-IntuneLogContent -FilePath C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\AgentExecutor.log
     }
 
     if ($ClientHealth) {
-        Write-Host "Processing ClientHealth log" -ForegroundColor Green
+        Write-Host ("Processing ClientHealth log") -ForegroundColor Green
         Get-IntuneLogContent -FilePath C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ClientHealth.log
     }
 
     if ($IntuneManagementExtension) {
-        Write-Host "Processing IntuneManagementExtension log" -ForegroundColor Green
+        Write-Host ("Processing IntuneManagementExtension log") -ForegroundColor Green
         Get-IntuneLogContent -FilePath C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\IntuneManagementExtension.log
     }
 
     if ($Sensor) {
-        Write-Host "Processing Sensor log" -ForegroundColor Green
+        Write-Host ("Processing Sensor log") -ForegroundColor Green
         Get-IntuneLogContent -FilePath C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\Sensor.log
     }
 }
