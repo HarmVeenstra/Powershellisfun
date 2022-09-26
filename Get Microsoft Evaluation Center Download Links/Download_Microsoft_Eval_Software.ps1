@@ -49,7 +49,7 @@ foreach ($url in $urls) {
                 -or $_.'aria-label' -match '64-bit edition' }    
         $count = $DownloadLinks.href.Count
         $totalcount += $count
-        Write-host "Processing $($url), Found $($Count) Download(s)..." -ForegroundColor Green
+        Write-host ("Processing {0}, Found {1} Download(s)..." -f $url, $count) -ForegroundColor Green
         foreach ($DownloadLink in $DownloadLinks) {
             $found = [PSCustomObject]@{
                 Title  = $content.ParsedHtml.title.Split('|')[0]
@@ -62,10 +62,10 @@ foreach ($url in $urls) {
         }
     }
     catch {
-        Write-host $url is not accessible -ForegroundColor Red
+        Write-Warning ("{0} is not accessible" -f $url)
     }
 }
  
 #Output total downloads found and exports result to the $outputfile path specified
-Write-Host "Found a total of $($totalcount) Downloads" -ForegroundColor Green
+Write-Host ("Found a total of {0} Downloads" -f $totalcount) -ForegroundColor Green
 $totalfound | Sort-Object Title, Name, Tag, Format | Export-Csv -NoTypeInformation -Encoding UTF8 -Delimiter ';' -Path $outputfile
