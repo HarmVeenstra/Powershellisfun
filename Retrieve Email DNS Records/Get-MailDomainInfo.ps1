@@ -23,7 +23,7 @@ function Get-MailDomainInfo {
     #and stop script if domainname is not valid 
     $errorfinding = 'Not enabled'
     if ($null -eq $domain) {
-        Write-host $DomainName not found -ForegroundColor Red
+        Write-Warning ("{0} not found" -f $DomainName)
         Break
     }
  
