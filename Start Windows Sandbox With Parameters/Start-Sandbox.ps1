@@ -17,10 +17,10 @@ function Start-Sandbox {
     #Validate if $mappedfolder exists
     if ($MappedFolder) {
         if (Test-Path $MappedFolder -ErrorAction SilentlyContinue) {
-            Write-Host "Specified $($MappedFolder) path exists, continuing..." -ForegroundColor Green
+            Write-Host ("Specified {0} path exists, continuing..." -f $MappedFolder) -ForegroundColor Green
         }
         else {
-            Write-Host "Specified $($MappedFolder) path doesn't exist, exiting..." -ForegroundColor Red
+            Write-Host ("Specified {0} path doesn't exist, exiting..." -f $MappedFolder) -ForegroundColor Red
             break
         }
     }
@@ -89,10 +89,10 @@ function Start-Sandbox {
     
     #Create sandbox .wsb file in $env:\temp and start Windows Sandbox using it
     $wsb | Out-File $wsblocation -Force:$true
-    Write-Host Starting Sandbox... -ForegroundColor Green
+    Write-Host ("Starting Sandbox...") -ForegroundColor Green
     Invoke-Item $wsblocation
     #Wait for Windows Sandbox to start and delete the sandbox config file
     Start-Sleep -Seconds 5
     Remove-Item -Force:$true -Confirm:$false -Path $wsblocation
-    Write-Host "Done!" -ForegroundColor Green
+    Write-Host ("Done!") -ForegroundColor Green
 }
