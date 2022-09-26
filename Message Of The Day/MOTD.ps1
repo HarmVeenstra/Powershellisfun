@@ -18,5 +18,5 @@ try {
 }
 #Show an error is there is an issue
 catch {
-    Write-Host "Error retrieving MOTD, please try again later..." -ForegroundColor Red
+    Write-Warning ("Error retrieving MOTD, please try again later...")
 }
