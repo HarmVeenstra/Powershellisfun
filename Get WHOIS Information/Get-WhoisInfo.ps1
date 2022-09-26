@@ -16,7 +16,7 @@ function Get-WhoisInfo {
             $PublicIPaddressOrName = (Invoke-WebRequest -uri https://api.ipify.org?format=json | ConvertFrom-Json -ErrorAction Stop).ip
             $whoiswebresult = Invoke-Restmethod -Uri "https://who.is/whois-ip/ip-address/$($PublicIPaddressOrName)" -ErrorAction SilentlyContinue
             $whoisinfo = ConvertFrom-HTMLClass -Class 'col-md-12 queryResponseBodyKey' -Content $whoiswebresult -ErrorAction SilentlyContinue
-            write-host Getting WHOIS details for $PublicIPaddressOrName -ForegroundColor Green
+            write-host ("Getting WHOIS details for {0}" -f $PublicIPaddressOrName) -ForegroundColor Green
         }
         #Get results from the Public IP or name specified
         else {
@@ -24,18 +24,18 @@ function Get-WhoisInfo {
             if ((($PublicIPaddressOrName).Split('.').Length -eq 4)) {
                 $whoiswebresult = Invoke-Restmethod -Uri "https://who.is/whois-ip/ip-address/$($PublicIPaddressOrName)" -ErrorAction SilentlyContinue
                 $whoisinfo = ConvertFrom-HTMLClass -Class 'col-md-12 queryResponseBodyKey' -Content $whoiswebresult -ErrorAction SilentlyContinue
-                write-host Getting WHOIS details for $PublicIPaddressOrName -ForegroundColor Green
+                write-host ("Getting WHOIS details for {0}" -f $PublicIPaddressOrName) -ForegroundColor Green
             }
             else {
                 $whoiswebresult = Invoke-Restmethod -Uri "https://www.who.is/whois/$($PublicIPaddressOrName)" -ErrorAction SilentlyContinue
                 $whoisinfo = ConvertFrom-HTMLClass -Class 'col-md-12 queryResponseBodyValue' -Content $whoiswebresult -ErrorAction SilentlyContinue
-                write-host Getting WHOIS details for $PublicIPaddressOrName -ForegroundColor Green
+                write-host ("Getting WHOIS details for {0}" -f $PublicIPaddressOrName) -ForegroundColor Green
             }
         }
     
         Return $whoisinfo   
     }
     catch {
-        write-host Error getting WHOIS details -ForegroundColor Red
+        Write-Warning ("Error getting WHOIS details")
     }
 }
