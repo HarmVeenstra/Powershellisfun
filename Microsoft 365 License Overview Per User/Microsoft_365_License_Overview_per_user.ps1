@@ -1,5 +1,5 @@
 #Connect to MSOL if not connected
-Write-Host Checking MSOnline module -ForegroundColor Green
+Write-Host ("Checking MSOnline module") -ForegroundColor Green
 try {
     Get-MsolDomain -ErrorAction Stop | Out-Null
 }
@@ -14,7 +14,7 @@ catch {
 #Create table of users and licenses (https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/licensing-service-plan-reference)
 #Download csv with all SKU's
 $ProgressPreference = "SilentlyContinue"
-Write-Host Downloading license overview from Microsoft -ForegroundColor Green
+Write-Host ("Downloading license overview from Microsoft") -ForegroundColor Green
 $csvlink = ((Invoke-WebRequest -Uri https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/licensing-service-plan-reference).Links | where-Object Href -Match 'CSV').href
 Invoke-WebRequest -Uri $csvlink -OutFile $env:TEMP\licensing.csv
 $skucsv = Import-Csv -Path $env:TEMP\licensing.csv
