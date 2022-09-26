@@ -9,17 +9,17 @@ $stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
 
 #Detect if Hyper-V is installed
 if ((Get-WindowsOptionalFeature -FeatureName Microsoft-Hyper-V-All -Online).State -ne 'Enabled') {
-    Write-host 'Hyper-V Role and/or required PowerShell module is not installed, please install before running this script...' -ForegroundColor Red
+    Write-Warning ("Hyper-V Role and/or required PowerShell module is not installed, please install before running this script...")
 }
 else {
-    Write-host 'Hyper-V Role is installed, continuing...' -ForegroundColor Green
+    Write-host ("Hyper-V Role is installed, continuing...") -ForegroundColor Green
 }
 
 
 #Set VM Parameters
 $VMname = Read-Host 'Please enter the name of the VM to be created, for example W11Intune'
 if ((Get-VM -Name $VMname -ErrorAction SilentlyContinue).count -ge 1) {
-    write-host ("VM {0} already exists on this system, aborting..." -f $VMname) -ForegroundColor Red
+    Write-Warning ("VM {0} already exists on this system, aborting..." -f $VMname)
     break
 }
 
@@ -30,13 +30,13 @@ $VMdir = (get-vmhost).VirtualMachinePath + $VMname
 
 $ISO = Get-Childitem $ISOPath *.ISO | Out-GridView -OutputMode Single -Title 'Please select the ISO from the list and click OK' 
 if (($ISO.FullName).Count -ne '1') {
-    Write-host 'No ISO, script aborted...' -ForegroundColor Red
+    Write-Warning ("No ISO, script aborted...")
     break
 }
 
 $SwitchName = Get-VMSwitch | Out-GridView -OutputMode Single -Title 'Please select the VM Switch and click OK' | Select-Object Name
 if (($SwitchName.Name).Count -ne '1') {
-    Write-host 'No Virtual Switch selected, script aborted...' -ForegroundColor Red
+    Write-Warning ("No Virtual Switch selected, script aborted...")
     break
 }
 
@@ -45,7 +45,7 @@ try {
     New-Item -ItemType Directory -Path $VMdir -Force:$true -ErrorAction SilentlyContinue | Out-Null
 }
 catch {
-    write-host ("Couldn't create {0} folder, please check VM Name for illegal characters or permissions on folder..." -f $VMdir) -ForegroundColor Red
+    Write-Warning ("Couldn't create {0} folder, please check VM Name for illegal characters or permissions on folder..." -f $VMdir)
     break
 }
 finally {
@@ -67,7 +67,7 @@ try {
     | Out-Null  
 }
 catch {
-    Write-Host ("Error creating {0}, please check logs and make sure {0} doesn't already exist..." -f $VMname) -ForegroundColor Red
+    Write-Warning ("Error creating {0}, please check logs and make sure {0} doesn't already exist..." -f $VMname)
     break
 }
 finally {
@@ -112,7 +112,7 @@ try {
     
 }
 catch {
-    Write-Host "Error setting VM parameters, check settings of VM $($VMname) ..." -ForegroundColor Red
+    Write-Warning ("Error setting VM parameters, check settings of VM {0} ..." -f $VMname)
     break
 }
 
