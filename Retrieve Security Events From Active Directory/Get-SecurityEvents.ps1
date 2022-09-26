@@ -10,7 +10,7 @@ function Get-SecurityEvents {
       # Test admin privileges without using -Requires RunAsAdministrator,
       # which causes a nasty error message, if trying to load the function within a PS profile but without admin privileges
       if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
-            Write-Warning ('Function "{0}" needs admin privileges, aborting...' -f $MyInvocation.MyCommand)
+            Write-Warning ("Function {0} needs admin privileges, aborting..." -f $MyInvocation.MyCommand)
             break
       }
 
@@ -19,7 +19,7 @@ function Get-SecurityEvents {
             $domaincontroller = (Get-ADDomain).PDCEmulator
       }
       catch {
-            Write-Warning 'Unable to get Domain information, check ActiveDirectory module installation. Aborting...'
+            Write-Warning ("Unable to get Domain information, check ActiveDirectory module installation. Aborting...")
       }
 
       #Event id's from https://www.ultimatewindowssecurity.com/securitylog/book/page.aspx?spid=chapter8
@@ -143,7 +143,7 @@ function Get-SecurityEvents {
       }
 
       #Retrieve events
-      Write-Host ('Retrieving Security events from {0}...' -f $domaincontroller) -ForegroundColor Green
+      Write-Host ("Retrieving Security events from {0}..." -f $domaincontroller) -ForegroundColor Green
       foreach ($eventids in `
                   $filteruseraccountmanagement, `
                   $filtercomputeraccountmanagement, `
@@ -153,7 +153,7 @@ function Get-SecurityEvents {
                   $filterotheraccountmanagement ) {
             $events = Get-WinEvent -FilterHashtable $eventids -ComputerName $domaincontroller -ErrorAction SilentlyContinue 
             foreach ($event in $events) {
-                  Write-Host ('- Found EventID {0} on {1} and adding to list...' -f $event.id, $event.TimeCreated) -ForegroundColor Green
+                  Write-Host ("- Found EventID {0} on {1} and adding to list..." -f $event.id, $event.TimeCreated) -ForegroundColor Green
                   $eventfound = [PSCustomObject]@{
                         DomainController = $domaincontroller
                         Timestamp        = $event.TimeCreated
@@ -167,7 +167,7 @@ function Get-SecurityEvents {
 
       if ($null -ne $collection) {
             $filenametimestamp = Get-Date -Format 'dd-MM-yyyy-HHmm'
-            Write-Host ('- Saving the {0} events found to {1}...' -f $collection.count, "$($outputfolder)\events_$($filenametimestamp).csv") -ForegroundColor Green
+            Write-Host ("- Saving the {0} events found to {1}..." -f $collection.count, "$($outputfolder)\events_$($filenametimestamp).csv") -ForegroundColor Green
             $collection | Sort-Object TimeStamp, DomainController, EventId | Export-Csv -Delimiter ';' -NoTypeInformation -Path "$($outputfolder)\events_$($filenametimestamp).csv"
       
             if ($to_emailaddress) {
@@ -181,12 +181,12 @@ function Get-SecurityEvents {
                         Subject     = "Security event found"
                         To          = $to_emailaddress
                   }
-                  Write-Host ('- Emailing the {0} events found to {1}...' -f $collection.count, $to_emailaddress) -ForegroundColor Green
+                  Write-Host ("- Emailing the {0} events found to {1}..." -f $collection.count, $to_emailaddress) -ForegroundColor Green
                   try {
                         Send-MailMessage @emailoptions 
                   }
                   catch {
-                        Write-Warning 'Unable to email results, please check the email settings...'
+                        Write-Warning ("Unable to email results, please check the email settings...")
                   }
             }
       }
