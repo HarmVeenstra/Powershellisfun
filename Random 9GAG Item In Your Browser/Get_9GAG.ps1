@@ -57,15 +57,15 @@ $number = Get-Random -Minimum 1 -Maximum 101
 $9gag = ($contents | convertfrom-json).data.posts[$number]
  
 if ($9gag.nsfw -eq '1' ) {
-    Write-Host "Get_9GAG found a NSFW Picture/Movieclip, skipping because NSFW ;)" -ForegroundColor Yellow
+    Write-Host ("Get_9GAG found a NSFW Picture/Movieclip, skipping because NSFW ;)") -ForegroundColor Yellow
     exit
 }
  
-write-host "Get_9GAG found $($9gag.title), launching now..." -ForegroundColor Green
+Write-Host ("Get_9GAG found '{0}', launching now..." -f $9gag.title) -ForegroundColor Green
  
 try {
     Start-Process $9gag.content_url
 }
 catch {
-    write-host Error loading, please try again... -ForegroundColor Red
+    Write-Warning ("Error loading, please try again...")
 } 
