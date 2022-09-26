@@ -10,7 +10,7 @@ if ($null -ne $wlanprofiles) {
     foreach ($wlanprofile in $wlanprofiles | Sort-Object) {
         try {
             $profile_information = netsh wlan show profile name="$($wlanprofile.ToString().Split(':')[1].SubString(1))" key=clear
-            write-host Retrieving password for SSID $wlanprofile.ToString().Split(':')[1].SubString(1) -ForegroundColor Green
+            write-host ("Retrieving password for SSID {0}" -f $wlanprofile.ToString().Split(':')[1].SubString(1)) -ForegroundColor Green
             $password = [PSCustomObject]@{
                 'SSID'                = $wlanprofile.ToString().Split(':')[1].SubString(1)
                 'Authentication Type' = ($profile_information | select-string 'Authentication' | Select-Object -First 1).Tostring().Split(':')[1].Substring(1)
@@ -21,7 +21,7 @@ if ($null -ne $wlanprofiles) {
         catch {
             #If retrieving the password fails, add the reason why to $passwords in the password field
             $authenticationtype = ($profile_information | select-string 'Authentication' | Select-Object -First 1).Tostring().Split(':')[1].Substring(1)
-            write-host "Could not retrieve password for SSID $($wlanprofile.ToString().Split(':')[1].SubString(1)), check $($output)" -ForegroundColor Red
+            Write-Warning ("Could not retrieve password for SSID {0}, check {1}" -f $wlanprofile.ToString().Split(':')[1].SubString(1), $output)
             $password = [PSCustomObject]@{
                 'SSID'                = $wlanprofile.ToString().Split(':')[1].SubString(1)
                 'Authentication Type' = ($profile_information | select-string 'Authentication' | Select-Object -First 1).Tostring().Split(':')[1].Substring(1)
@@ -36,5 +36,5 @@ if ($null -ne $wlanprofiles) {
     Invoke-Item $output
 }
 else {
-    Write-Host "No WLAN profiles found, please check if $($env:COMPUTERNAME) has a Wi-Fi adapter or any saved networks" -ForegroundColor Red
+    Write-Warning ("No WLAN profiles found, please check if {0} has a Wi-Fi adapter or any saved networks" -f $env:COMPUTERNAME)
 }
