@@ -22,7 +22,7 @@ try {
     $issues = Get-MgServiceAnnouncementIssue | Where-Object IsResolved -ne True | Select-Object StartDateTime, Id, ImpactDescription, Feature, Classification, Status | Sort-Object StartDateTime
 }
 catch {
-    write-host "Error retrieving Announcements, try again later..." -ForegroundColor Red
+    Write-Warning ("Error retrieving Announcements, try again later...")
 }
 
 #Display the issues if found, display no issues found it not
@@ -30,5 +30,5 @@ if ($issues.count -gt 0) {
     $issues
 }
 else {
-    Write-Host "No 365 Service Health Issues found!" -Foregroundcolor Green
+    Write-Host ("No 365 Service Health Issues found!") -Foregroundcolor Green
 }
