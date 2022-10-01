@@ -6,7 +6,7 @@ function Get-MicrosoftEndpoints {
     #Hide download progress, get current JSON url, retrieve all Endpoints and Convert it from JSON format
     $ProgressPreference = "SilentlyContinue"
     try {
-        $site = Invoke-WebRequest -Uri 'https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide'
+        $site = Invoke-WebRequest -Uri 'https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide' -UseBasicParsing
         $jsonlink = ($site.Links | where-Object OuterHTML -match 'JSON formatted').href
     }
     catch {
