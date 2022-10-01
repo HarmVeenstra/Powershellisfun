@@ -133,7 +133,7 @@ if ($Apps -or $All) {
         Write-Host ("Checking if {0} is already installed..." -f $App)
         winget.exe list --id $App --accept-source-agreements | Out-Null
         if ($LASTEXITCODE -eq '-1978335212') {
-            Write-Host ("{0) was not found and installing now" -f $App.Split('.')[1]) -ForegroundColor Yellow
+            Write-Host ("{0} was not found and installing now" -f $App.Split('.')[1]) -ForegroundColor Yellow
             winget.exe install $App --silent --force --source winget --accept-package-agreements --accept-source-agreements
             Foreach ($Application in $json.ProcessesToKill) {
                 get-process $Application -ErrorAction SilentlyContinue | Stop-Process -Force:$True -Confirm:$false
