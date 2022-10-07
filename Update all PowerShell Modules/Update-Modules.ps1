@@ -7,7 +7,7 @@ function Update-Modules {
 	# which causes a nasty error message, if trying to load the function within a PS profile but without admin privileges
 	if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
 		Write-Warning ("Function {0} needs admin privileges. Break now." -f $MyInvocation.MyCommand)
-		break
+		return
 	}
 
 	# Get all installed modules
@@ -16,7 +16,7 @@ function Update-Modules {
 
 	if (-not $CurrentModules) {
 		Write-Host ("No modules found.") -ForegroundColor Gray
-		break
+		return
 	}
 	else {
 		$ModulesCount = $CurrentModules.Count
