@@ -11,7 +11,7 @@ function Get-ActiveDirectoryOUpermissions {
     }
     catch {
         Write-Warning ("The output can't be saved as {0}, is specified path accessible?" -f $Output)
-        break
+        return
     }
 
     #Try to detect the Active Directory Domain name before continuing and stop script if it fails
@@ -21,7 +21,7 @@ function Get-ActiveDirectoryOUpermissions {
     }
     catch {
         Write-Warning "Could not retrieve Domain Name, is the ActiveDirectory module installed or are you running this from a non-domain-joined device?"
-        break
+        return
     }
 
     #Continu if Active Directory Domain was detected and retrieve list of OU's from the whole domain
@@ -34,7 +34,7 @@ function Get-ActiveDirectoryOUpermissions {
             }
             catch {
                 Write-Warning ("Could not use {0}, check spelling and format it like 'OU=Servers,DC=domain,DC=Local')" -f $startou)
-                break
+                return
             }
         }
         else {
@@ -122,8 +122,7 @@ function Get-ActiveDirectoryOUpermissions {
     }
 
     #Create empty variable acltotal, loop through all OU's and save the ACL's to $acltotal
-    $acltotal = @()
-    foreach ($ou in $oulist) {
+    $acltotal = foreach ($ou in $oulist) {
         Write-Host ("Processing {0}" -f $ou.DistinguishedName) -ForegroundColor Green
         $acls = (Get-Acl -path "AD:$($ou.DistinguishedName)").Access
         foreach ($acl in $acls) {            
@@ -138,7 +137,7 @@ function Get-ActiveDirectoryOUpermissions {
 
             Write-Host ("- Retrieving {0} details for {1}" -f $acl.ActiveDirectoryRights, $IdentityReference) -ForegroundColor Gray
 
-            $foundacls = [PSCustomObject]@{
+            [PSCustomObject]@{
                 OrganizationalUnit = $ou.DistinguishedName
                 Principal          = $IdentityReference
                 Rights             = $acl.ActiveDirectoryRights
@@ -148,7 +147,6 @@ function Get-ActiveDirectoryOUpermissions {
                 Inheritance        = $acl.InheritanceType
                 InheritanceFrom    = $acl.InheritanceFlags
             }
-            $acltotal += $foundacls
         }
     }
 
