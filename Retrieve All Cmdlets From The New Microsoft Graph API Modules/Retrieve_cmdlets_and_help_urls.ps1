@@ -1,6 +1,3 @@
-#Set Total variable to null
-$total = @()
- 
 #Set CSV location
 $csvlocation = 'd:\temp\Microsoft.Graph.Cmdlets.csv'
  
@@ -41,7 +38,7 @@ Foreach ($Module in $InstalledMicrosoftGraphModules | Sort-Object Name) {
 }
  
 #retrieve all cmdlets together with the synopsis and add them to $total
-foreach ($module in $InstalledMicrosoftGraphModules) { 
+$total = foreach ($module in $InstalledMicrosoftGraphModules) { 
     Write-Host ("Processing {0}..." -f $module.Name) -ForegroundColor Green
     $cmdlets = get-command -Module $module.Name
     foreach ($cmdlet in $cmdlets) {
@@ -55,14 +52,13 @@ foreach ($module in $InstalledMicrosoftGraphModules) {
         #Set Synopsis or URL to "Not Available" when no data is found
         if ($null -eq $synopsis -or $synopsis.Length -le 2 -or $synopsis -match $cmdletoldname -or $synopsis -match $cmdlet.Name) { $synopsis = "Not available" }
         if ($null -eq $url) { $url = "Not available" }
-        $foundcmdlets = [PSCustomObject]@{
+        [PSCustomObject]@{
             Source   = $cmdlet.Source
             Version  = $cmdlet.Version
             Cmdlet   = $cmdlet.Name
             Synopsis = $synopsis
             URL      = $url
         }
-        $total += $foundcmdlets
     }
 }
  
