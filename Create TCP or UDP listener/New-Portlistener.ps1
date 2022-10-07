@@ -14,7 +14,7 @@ function New-Portlistener {
     #Exit if both options were used
     if ($TCPPort -and $UDPPort) {
         Write-Warning ("You can only specify one option, use either TCPPort or UDPPort. Aborting...")
-        break
+        return
     }
 
     #Test if TCP port is already listening port before starting listener
@@ -26,7 +26,7 @@ function New-Portlistener {
         }
         else {
             Write-Warning ("TCP Port {0} is already listening, aborting..." -f $TCPPort)
-            break
+            return
         }
 
         #Start TCP Server
@@ -41,7 +41,7 @@ function New-Portlistener {
                 if ($key.VirtualKeyCode -eq 27 ) {	
                     $listener.stop()
                     Write-Host ("Stopped listening on TCP port {0}" -f $TCPPort) -ForegroundColor Green
-                    break
+                    return
                 }
             }
         }
@@ -70,7 +70,7 @@ function New-Portlistener {
         }
         catch {
             Write-Warning ("UDP Port {0} is already listening, aborting..." -f $UDPPort)
-            break
+            return
         }
 
         #Start UDP Server
@@ -84,7 +84,7 @@ function New-Portlistener {
                 if ($key.VirtualKeyCode -eq 27 ) {	
                     $udpclient.Close()
                     Write-Host ("Stopped listening on UDP port {0}" -f $UDPPort) -ForegroundColor Green
-                    break
+                    return
                 }
             }
 
