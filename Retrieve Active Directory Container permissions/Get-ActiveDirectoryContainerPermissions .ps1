@@ -11,7 +11,7 @@ function Get-ActiveDirectoryContainerPermissions {
     }
     catch {
         Write-Warning ("The output can't be saved as {0}, is specified path accessible?" -f $Output)
-        break
+        return
     }
 
     #Try to detect the Active Directory Domain name before continuing and stop script if it fails
@@ -21,7 +21,7 @@ function Get-ActiveDirectoryContainerPermissions {
     }
     catch {
         Write-Warning "Could not retrieve Domain Name, is the ActiveDirectory module installed or are you running this from a non-domain-joined device?"
-        break
+        return
     }
 
     #Continue if Active Directory Domain was detected and retrieve list of Containers from the whole domain
@@ -35,7 +35,7 @@ function Get-ActiveDirectoryContainerPermissions {
             }
             catch {
                 Write-Warning ("Could not use {0}, check spelling and format it like 'OU=Servers,DC=domain,DC=Local')" -f $StartContainer)
-                break
+                return
             }
         }
         else {
@@ -124,8 +124,7 @@ function Get-ActiveDirectoryContainerPermissions {
     }
 
     #Create empty variable acltotal, loop through all Containers and save the ACL's to $acltotal
-    $acltotal = @()
-    foreach ($container in $containerlist) {
+    $acltotal = foreach ($container in $containerlist) {
         Write-Host ("Processing {0}" -f $container.DistinguishedName) -ForegroundColor Green
         $acls = (Get-Acl -path "AD:$($container.DistinguishedName)").Access
         foreach ($acl in $acls) {            
@@ -140,7 +139,7 @@ function Get-ActiveDirectoryContainerPermissions {
 
             Write-Host ("- Retrieving {0} details for {1}" -f $acl.ActiveDirectoryRights, $IdentityReference) -ForegroundColor Gray
 
-            $foundacls = [PSCustomObject]@{
+            [PSCustomObject]@{
                 Container       = $container.DistinguishedName
                 Principal       = $IdentityReference
                 Rights          = $acl.ActiveDirectoryRights
@@ -150,7 +149,6 @@ function Get-ActiveDirectoryContainerPermissions {
                 Inheritance     = $acl.InheritanceType
                 InheritanceFrom = $acl.InheritanceFlags
             }
-            $acltotal += $foundacls
         }
     }
 
