@@ -13,7 +13,7 @@ function Compact-VHDX {
     if ($VMName) {
         if (-not (Get-VM -Name $VMName -ErrorAction SilentlyContinue)) {
             Write-Warning ("Specified VM {0} was not found, aborting..." -f $VMName)
-            break
+            return
         }
     }
     
@@ -21,7 +21,7 @@ function Compact-VHDX {
     if ($VMName) {
         if ((Get-VM -Name $VMName).State -eq 'Running') {
             Write-Warning ("Specified VM {0} is found but is running, please shutdown VM first. Aborting..." -f $VMName)
-            break
+            return
         }
     }
 
@@ -31,7 +31,7 @@ function Compact-VHDX {
             Write-Warning ("Hyper-V VM(s) are running, aborting...")
             Write-Host ("Shutdown VM(s):") -ForegroundColor Red
             hyper-v\get-vm | Where-Object State -eq Running | Select-Object Name, State | Sort-Object Name | Format-Table
-            break
+            return
         }
     }
     
@@ -48,18 +48,15 @@ function Compact-VHDX {
     }
 
     #Gather current size of VHDX files
-    $oldsize = @()
-    foreach ($vhd in $vhds) {
+    $oldsize = foreach ($vhd in $vhds) {
         if ((get-vhd $vhd.path).VhdType -eq 'Dynamic') {
-            $size = [PSCustomObject]@{
+            [PSCustomObject]@{
                 VHD     = $vhd.Path
                 OldSize = [math]::round((Get-Item $vhd.Path).Length / 1GB, 3)
             }
-            $oldsize += $size
         }
     }
 
-    
     #Compress all files
     foreach ($vhd in $vhds) {
         if ((get-vhd $vhd.path).VhdType -eq 'Dynamic') {
@@ -80,7 +77,7 @@ function Compact-VHDX {
             catch {
                 Write-Warning ("Error compacting {0}, dismounting..." -f $vhd.Path)
                 Dismount-VHD $vhd.Path
-                break
+                return
             }
 
             try { 
@@ -89,23 +86,21 @@ function Compact-VHDX {
             }
             catch {
                 Write-Warning ("Error dismounting {0}, please check Disk Management and manually dismount..." -f $vhd.Path)
-                break
+                return
             }        
         }
     }
 
     #Report on new VHDX sizes
-    $report = @()
-    foreach ($vhd in $vhds) {
+    $report = foreach ($vhd in $vhds) {
         if ((get-vhd $vhd.path).VhdType -eq 'Dynamic') {
-            $newsize = [PSCustomObject]@{
+            [PSCustomObject]@{
                 VM                     = $vhd.VMName
                 VHD                    = $vhd.Path
                 'Old Size (Gb))'       = ($oldsize | Where-Object VHD -eq $vhd.Path).OldSize
                 'New Size (Gb)'        = [math]::round((Get-Item $vhd.Path).Length / 1GB, 3)
                 'Space recovered (Gb)' = ($oldsize | Where-Object VHD -eq $vhd.Path).OldSize - [math]::round((Get-Item $vhd.Path).Length / 1GB, 3)
             }
-            $report += $newsize
         }
     }
     
