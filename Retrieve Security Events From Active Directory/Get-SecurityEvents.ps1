@@ -11,7 +11,7 @@ function Get-SecurityEvents {
       # which causes a nasty error message, if trying to load the function within a PS profile but without admin privileges
       if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
             Write-Warning ("Function {0} needs admin privileges, aborting..." -f $MyInvocation.MyCommand)
-            break
+            return
       }
 
       #Get Domain Controller with PDC FSMO Role to get events from
@@ -96,8 +96,7 @@ function Get-SecurityEvents {
       4793  #The Password Policy Checking API was called
 
 
-      #Set empty collection variable, date and eventids
-      $collection = @()
+      #Set date and eventids
       $date = (Get-Date).AddHours( - $($hours))
             
       $filteruseraccountmanagement = @{
@@ -144,7 +143,7 @@ function Get-SecurityEvents {
 
       #Retrieve events
       Write-Host ("Retrieving Security events from {0}..." -f $domaincontroller) -ForegroundColor Green
-      foreach ($eventids in `
+      $collection = foreach ($eventids in `
                   $filteruseraccountmanagement, `
                   $filtercomputeraccountmanagement, `
                   $filtersecuritygroupmanagement, `
@@ -154,14 +153,13 @@ function Get-SecurityEvents {
             $events = Get-WinEvent -FilterHashtable $eventids -ComputerName $domaincontroller -ErrorAction SilentlyContinue 
             foreach ($event in $events) {
                   Write-Host ("- Found EventID {0} on {1} and adding to list..." -f $event.id, $event.TimeCreated) -ForegroundColor Green
-                  $eventfound = [PSCustomObject]@{
+                  [PSCustomObject]@{
                         DomainController = $domaincontroller
                         Timestamp        = $event.TimeCreated
                         LevelDisplayName = $event.LevelDisplayName
                         EventId          = $event.Id
                         Message          = $event.message -replace '\s+', " "
                   }
-                  $collection += $eventfound
             }
       }
 
