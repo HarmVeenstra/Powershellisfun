@@ -21,7 +21,7 @@ function Start-Sandbox {
         }
         else {
             Write-Host ("Specified {0} path doesn't exist, exiting..." -f $MappedFolder) -ForegroundColor Red
-            break
+            return
         }
     }
     #Set Read-Only or Read-Write
