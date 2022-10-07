@@ -6,13 +6,13 @@ $stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
 #Detect if Hyper-V is installed
 if ((Get-WindowsOptionalFeature -FeatureName Microsoft-Hyper-V-All -Online).State -ne 'Enabled') {
     Write-Warning ("Hyper-V Role and/or required PowerShell module is not installed, please install before running this script...")
+    return
 }
 else {
     Write-Host ("Hyper-V Role is installed, continuing...") -ForegroundColor Green
 }
  
 #Retrieve all Server Operating System VHD links from the Microsoft Evaluation Center
-$totalfound = @()
 $totalcount = $null
  
 $urls = @(
@@ -24,7 +24,7 @@ $urls = @(
   
 #Loop through the urls, search for VHD download links and add to totalfound array and display number of downloads
 $ProgressPreference = "SilentlyContinue"
-foreach ($url in $urls) {
+$totalfound = foreach ($url in $urls) {
     try {
         $content = Invoke-WebRequest -Uri $url -ErrorAction Stop
         $downloadlinks = $content.links | Where-Object { `
@@ -35,19 +35,18 @@ foreach ($url in $urls) {
         $totalcount += $count
         Write-host ("Processing {0}, Found {1} Download(s)..." -f $url, $count) -ForegroundColor Green
         foreach ($DownloadLink in $DownloadLinks) {
-            $found = [PSCustomObject]@{
+            [PSCustomObject]@{
                 Title  = $content.ParsedHtml.title.Split('|')[0]
                 Name   = $DownloadLink.'aria-label'.Replace('Download ', '')
                 Tag    = $DownloadLink.'data-bi-tags'.Split('"')[3].split('-')[0]
                 Format = $DownloadLink.'data-bi-tags'.Split('-')[1].ToUpper()
                 Link   = $DownloadLink.href
             }
-            $totalfound += $found
         }
     }
     catch {
         Write-Warning ("{0} is not accessible" -f $url)
-        break
+        return
     }
 }
  
@@ -55,14 +54,14 @@ foreach ($url in $urls) {
 $VHD = $totalfound | Out-GridView -OutputMode Single -Title 'Please select the VHD file to use and click OK' | Select-Object Name, Link
 if (($VHD.Name).Count -ne '1') {
     Write-Warning ("No VHD file selected, script aborted...")
-    break
+    return
 }
  
 #Set VM Parameters
 $VMname = Read-Host 'Please enter the name of the VM to be created, for example W2K22SRV'
 if ((Get-VM -Name $VMname -ErrorAction SilentlyContinue).count -ge 1) {
     Write-Warning ("{0} already exists on this system, aborting..." -f $VMname)
-    break
+    return
 } 
 $VMCores = Read-Host 'Please enter the amount of cores, for example 2'
 [int64]$VMRAM = 1GB * (read-host "Enter Maximum Memory in Gb's, for example 4")
@@ -70,7 +69,7 @@ $VMdir = (get-vmhost).VirtualMachinePath + $VMname
 $SwitchName = Get-VMSwitch | Out-GridView -OutputMode Single -Title 'Please select the VM Switch and click OK' | Select-Object Name
 if (($SwitchName.Name).Count -ne '1') {
     Write-Warning ("No Virtual Switch selected, script aborted...")
-    break
+    return
 }
  
 #Create VM directory
@@ -79,7 +78,7 @@ try {
 }
 catch {
     Write-Warning ("Couldn't create {0} folder, please check VM Name for illegal characters or permissions on folder..." -f $VMdir)
-    break
+    return
 }
 finally {
     if (test-path -Path $VMdir -ErrorAction SilentlyContinue) { 
@@ -114,7 +113,7 @@ try {
 }
 catch {
     Write-Warning ("Error setting VM parameters, check {0} settings..." -f $VMname)
-    break
+    return
 }
  
 #The end, stop stopwatch and display the time that it took to deploy
