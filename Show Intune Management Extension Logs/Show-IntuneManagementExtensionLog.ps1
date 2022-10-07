@@ -6,11 +6,11 @@ function Get-IntuneLogContent {
     
     if (-not (Test-Path -Path $Filepath -ErrorAction SilentlyContinue)) {
         Write-Warning ("Error accessing {0}, check permissions" -f $false)
+        return
     }
 
     #Start reading logfile
-    $LogTotal = @()
-    foreach ($line in Get-Content -Path $Filepath) {
+    $LogTotal = foreach ($line in Get-Content -Path $Filepath) {
         #Get Time-stamp
         try {
             $time = (Select-String 'time=(.*)' -InputObject $line).Matches.groups[0].value.split('"')[1]
@@ -51,15 +51,13 @@ function Get-IntuneLogContent {
             $text = $line.Split('!><')[3]
         }
 
-
-        #Add line to $logtotal
-        $logline = [PSCustomObject]@{
+        [PSCustomObject]@{
             'Log Text'  = $text
             'Date/Time' = $datetime
             Component   = $component
         }
-        $logTotal += $logline
-    }  
+    } 
+
     #Return found items in a GridView
     $LogTotal | Out-GridView -Title $Filepath
 }
@@ -76,7 +74,7 @@ function Show-IntuneManagementExtensionLog {
     #Warn if not parameter specified
     if (-not ($AgentExecutor.IsPresent -or $All.IsPresent -or $ClientHealth.IsPresent -or $IntuneManagementExtension.IsPresent -or $Sensor.IsPresent)) {
         Write-Warning ("No parameter specified, please use the AgentExecutor, All, ClientHealth, IntuneManagementExtension or Sensor parameter to display the log(s)...")
-        break
+        return
     }
 
     #If all parameter is set, set all switches to True
