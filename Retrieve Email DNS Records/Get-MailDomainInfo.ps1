@@ -24,7 +24,7 @@ function Get-MailDomainInfo {
     $errorfinding = 'Not enabled'
     if ($null -eq $domain) {
         Write-Warning ("{0} not found" -f $DomainName)
-        Break
+        return
     }
  
     if ($null -eq $dkim1 -and $null -eq $dkim2) {
