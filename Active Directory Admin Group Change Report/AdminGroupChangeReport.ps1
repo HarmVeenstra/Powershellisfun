@@ -39,8 +39,7 @@ if (Test-Path -Path "$($logs)\currentmembers.csv" -ErrorAction SilentlyContinue)
 #Retrieve all direct members of the admingroups,
 #store them in the members variable and output
 #them to currentmembers.csv
-$members = @()
-foreach ($admingroup in $admingroups) {
+$members = foreach ($admingroup in $admingroups) {
     Write-Host ("- Checking {0}" -f $admingroup) -ForegroundColor Green
     try {
         $admingroupmembers = Get-ADGroupMember -Identity $admingroup -Recursive -ErrorAction Stop | Sort-Object SamAccountName
@@ -52,11 +51,10 @@ foreach ($admingroup in $admingroups) {
     if ($null -ne $admingroupmembers) {
         foreach ($admingroupmember in $admingroupmembers) {
             Write-Host ("  - Adding {0} to list" -f $admingroupmember.SamAccountName) -ForegroundColor Green
-            $row = [PSCustomObject]@{
+            [PSCustomObject]@{
                 Group  = $admingroup
                 Member = $admingroupmember.SamAccountName
             }
-            $members += $row
         }
     }
 }
@@ -68,29 +66,26 @@ if (-not (Test-Path "$($logs)\previousmembers.csv")) {
     $members | export-csv -Path "$($logs)\previousmembers.csv" -NoTypeInformation -Encoding UTF8 -Delimiter ';'
 }
 
-#Compare currentmembers.csv to the
-#previousmembers.csv
+#Compare currentmembers.csv to the #previousmembers.csv
 $CurrentMembers = Import-Csv -Path "$($logs)\currentmembers.csv" -Delimiter ';'
 $PreviousMembers = Import-Csv -Path "$($logs)\previousmembers.csv" -Delimiter ';'
-$differencetotal = @()
 Write-Host ("- Comparing current members to the previous members") -ForegroundColor Green
 $compare = Compare-Object -ReferenceObject $PreviousMembers -DifferenceObject $CurrentMembers -Property Group, Member
 if ($null -ne $compare) {
-    foreach ($change in $compare) {
-        if ($action = '=>') {
+    $differencetotal = foreach ($change in $compare) {
+        if ($change.SideIndicator -match ">") {
             $action = 'Added'
         }
-        else {
+        if ($change.SideIndicator -match "<") {
             $action = 'Removed'
         }
 
-        $change = [PSCustomObject]@{
+        [PSCustomObject]@{
             Date   = $date
             Group  = $change.Group
             Action = $action
             Member = $change.Member
         }
-        $differencetotal += $change
     }
 
     #Save output to file
