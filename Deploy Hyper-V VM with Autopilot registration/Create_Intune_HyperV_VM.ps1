@@ -20,7 +20,7 @@ else {
 $VMname = Read-Host 'Please enter the name of the VM to be created, for example W11Intune'
 if ((Get-VM -Name $VMname -ErrorAction SilentlyContinue).count -ge 1) {
     Write-Warning ("VM {0} already exists on this system, aborting..." -f $VMname)
-    break
+    return
 }
 
 $VMCores = Read-Host 'Please enter the amount of cores, for example 2'
@@ -31,13 +31,13 @@ $VMdir = (get-vmhost).VirtualMachinePath + $VMname
 $ISO = Get-Childitem $ISOPath *.ISO | Out-GridView -OutputMode Single -Title 'Please select the ISO from the list and click OK' 
 if (($ISO.FullName).Count -ne '1') {
     Write-Warning ("No ISO, script aborted...")
-    break
+    return
 }
 
 $SwitchName = Get-VMSwitch | Out-GridView -OutputMode Single -Title 'Please select the VM Switch and click OK' | Select-Object Name
 if (($SwitchName.Name).Count -ne '1') {
     Write-Warning ("No Virtual Switch selected, script aborted...")
-    break
+    return
 }
 
 #Create VM directory
@@ -46,7 +46,7 @@ try {
 }
 catch {
     Write-Warning ("Couldn't create {0} folder, please check VM Name for illegal characters or permissions on folder..." -f $VMdir)
-    break
+    return
 }
 finally {
     if (test-path -Path $VMdir -ErrorAction SilentlyContinue) { 
@@ -68,7 +68,7 @@ try {
 }
 catch {
     Write-Warning ("Error creating {0}, please check logs and make sure {0} doesn't already exist..." -f $VMname)
-    break
+    return
 }
 finally {
     if (Get-VM -Name $VMname -ErrorAction SilentlyContinue | Out-Null) {
@@ -113,7 +113,7 @@ try {
 }
 catch {
     Write-Warning ("Error setting VM parameters, check settings of VM {0} ..." -f $VMname)
-    break
+    return
 }
 
 #Start VM and wait until VM is at language selection screen
