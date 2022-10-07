@@ -16,7 +16,7 @@ function Test-MicrosoftEndpoints {
     }
     catch {
         Write-Warning ("Error downloading JSON file, please check if https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide is accessible")
-        break 
+        return 
     }
 
     try {
@@ -25,7 +25,7 @@ function Test-MicrosoftEndpoints {
     }
     catch {
         Write-Warning ("Error downloading worldwide Microsoft Endpoints, please check if {0} is accessible" -f $jsonlink)
-        break
+        return
     }
 
     #Search for specified parameter value
@@ -47,13 +47,12 @@ function Test-MicrosoftEndpoints {
 
     if ($null -eq $TestEndpoints) {
         Write-Warning ("No results found...")
-        break
+        return
     }
 
     #Test Microsoft Endpoint Adresses and report if failed or succeeded
-    $total = @() 
     $Global:ProgressPreference = 'SilentlyContinue'
-    foreach ($TestEndpoint in $TestEndpoints) {
+    $total = foreach ($TestEndpoint in $TestEndpoints) {
         if ($TestEndpoint.tcpPorts) {
             foreach ($tcpport in $TestEndpoint.tcpPorts.split(',')) {
                 foreach ($testurl in $TestEndpoint.urls) {
@@ -85,7 +84,7 @@ function Test-MicrosoftEndpoints {
                         $iprange = "Not applicable"
                     }
                     
-                    $info = [PSCustomObject]@{
+                    [PSCustomObject]@{
                         Status          = $Status
                         URL             = $testurl
                         TCPport         = $tcpport
@@ -93,7 +92,6 @@ function Test-MicrosoftEndpoints {
                         Notes           = $notes
                         EndpointIPrange = $iprange
                     }
-                    $total += $info
                 }
             }
         }
