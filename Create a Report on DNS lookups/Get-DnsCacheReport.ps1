@@ -33,8 +33,7 @@ function Get-DnsCacheReport {
         
         #Get DNS Cache and add to $Total variable during the amount of minutes specified
         $dnscache = Get-DnsClientCache
-        $total = @()
-        foreach ($item in $dnscache) {
+        $total = foreach ($item in $dnscache) {
             #Switch table date is from https://www.darkoperator.com/blog/2020/1/14/getting-dns-client-cached-entries-with-cimwmi
             switch ($item.status) {
                 0 { $status = 'Success' }
@@ -60,14 +59,13 @@ function Get-DnsCacheReport {
                 3 { $Section = 'Additional' }
             }
 
-            $cacheditems = [PSCustomObject]@{
+            [PSCustomObject]@{
                 Entry      = $item.Entry
                 RecordType = $Type
                 Status     = $status
                 Section    = $Section
                 Target     = $item.Data            
             }
-            $total += $cacheditems
         }
         $remain = ($d - (get-date))
     }
@@ -84,6 +82,5 @@ function Get-DnsCacheReport {
     }
     
     #Return results in Out-Gridview
-    return $total | Select-Object Entry, RecordType, Status, Section, Target -Unique | Sort-Object Entry | Out-GridView
-    
+    return $total | Select-Object Entry, RecordType, Status, Section, Target -Unique | Sort-Object Entry | Out-GridView  
 }
