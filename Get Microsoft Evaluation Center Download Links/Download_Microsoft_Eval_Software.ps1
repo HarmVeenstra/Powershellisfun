@@ -1,5 +1,4 @@
-#Reset totalfound array and totalcount to null
-$totalfound = @()
+#Reset totalcount to null
 $totalcount = $null
  
 #Set output file location
@@ -40,7 +39,7 @@ $urls = @(
  
 #Loop through the urls, search for download links and add to totalfound array and display number of downloads
 $ProgressPreference = "SilentlyContinue"
-foreach ($url in $urls) {
+$totalfound = foreach ($url in $urls) {
     try {
         $content = Invoke-WebRequest -Uri $url -ErrorAction Stop
         $downloadlinks = $content.links | Where-Object { `
@@ -51,21 +50,21 @@ foreach ($url in $urls) {
         $totalcount += $count
         Write-host ("Processing {0}, Found {1} Download(s)..." -f $url, $count) -ForegroundColor Green
         foreach ($DownloadLink in $DownloadLinks) {
-            $found = [PSCustomObject]@{
-                Title  = $content.ParsedHtml.title.Split('|')[0]
+            [PSCustomObject]@{
+                Title  = $url.split('/')[5].replace('-', ' ').replace('download ', '')
                 Name   = $DownloadLink.'aria-label'.Replace('Download ', '')
                 Tag    = $DownloadLink.'data-bi-tags'.Split('"')[3].split('-')[0]
                 Format = $DownloadLink.'data-bi-tags'.Split('-')[1].ToUpper()
                 Link   = $DownloadLink.href
             }
-            $totalfound += $found
         }
     }
     catch {
         Write-Warning ("{0} is not accessible" -f $url)
     }
 }
- 
+
+
 #Output total downloads found and exports result to the $outputfile path specified
 Write-Host ("Found a total of {0} Downloads" -f $totalcount) -ForegroundColor Green
 $totalfound | Sort-Object Title, Name, Tag, Format | Export-Csv -NoTypeInformation -Encoding UTF8 -Delimiter ';' -Path $outputfile
