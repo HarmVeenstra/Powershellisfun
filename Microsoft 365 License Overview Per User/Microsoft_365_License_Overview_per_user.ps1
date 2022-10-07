@@ -18,19 +18,17 @@ Write-Host ("Downloading license overview from Microsoft") -ForegroundColor Gree
 $csvlink = ((Invoke-WebRequest -Uri https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/licensing-service-plan-reference).Links | where-Object Href -Match 'CSV').href
 Invoke-WebRequest -Uri $csvlink -OutFile $env:TEMP\licensing.csv
 $skucsv = Import-Csv -Path $env:TEMP\licensing.csv
-$UsersLicenses = @()
-foreach ($user in Get-MsolUser -All | Sort-Object UserPrincipalName) {
+$UsersLicenses = foreach ($user in Get-MsolUser -All | Sort-Object UserPrincipalName) {
     if ($user.isLicensed -eq $True) {
         foreach ($License in $User.licenses) {
             $SKUfriendlyname = $skucsv | Where-Object String_Id -Contains $License.AccountSkuId.Split(':')[1] | Select-Object Product_Display_Name -First 1
             $SKUserviceplan = $skucsv | Where-Object String_Id -Contains $License.AccountSkuId.Split(':')[1] | Sort-Object Service_Plans_Included_Friendly_Names
             foreach ($serviceplan in $SKUserviceplan) {
-                $Licenses = [PSCustomObject]@{
+                [PSCustomObject]@{
                     User        = $User.UserPrincipalName
                     LicenseSKU  = $SKUfriendlyname.Product_Display_Name
                     Serviceplan = $serviceplan.Service_Plans_Included_Friendly_Names
                 }
-                $UsersLicenses += $Licenses
             }
         }
     }   
