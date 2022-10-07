@@ -11,7 +11,7 @@ function Get-MicrosoftEndpoints {
     }
     catch {
         Write-Warning ("Error downloading JSON file, please check if https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide is accessible")
-        break 
+        return 
     }
 
     try {
@@ -20,12 +20,11 @@ function Get-MicrosoftEndpoints {
     }
     catch {
         Write-Warning ("Error downloading worldwide Microsoft Endpoints, please check if $($jsonlink) is accessible")
-        break
+        return
     }
     
-    $Total = @()
     Write-Host ("Processing items...") -ForegroundColor Green
-    foreach ($Endpoint in $Endpoints) {
+    $Total = foreach ($Endpoint in $Endpoints) {
         #Check if IPs are available for the Endpoint, set to not available if not
         if (-not $Endpoint.ips) {
             $IPaddresses = 'Not available'
@@ -66,7 +65,7 @@ function Get-MicrosoftEndpoints {
             $URLlist = $Endpoint.urls -join ', '
         }
                         
-        $Item = [PSCustomObject]@{
+        [PSCustomObject]@{
             serviceArea            = $Endpoint.serviceArea
             serviceAreaDisplayName = $Endpoint.serviceAreaDisplayName
             urls                   = $URLlist
@@ -78,7 +77,6 @@ function Get-MicrosoftEndpoints {
             category               = $Endpoint.Category
             required               = $Endpoint.required
         }
-        $Total += $Item
     }
 
     #Export data to specified $CSVPath if specified
