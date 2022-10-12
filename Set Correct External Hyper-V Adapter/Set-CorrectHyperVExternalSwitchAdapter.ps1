@@ -5,7 +5,7 @@ function Set-CorrectHyperVExternalSwitchAdapter {
     
     #retrieve external switch(es) and get Network adapter with Up state
     $externalswitch = Get-VMSwitch | Where-Object Name -eq $SwitchName
-    $connectedadapter = Get-NetAdapter | Where-Object Status -eq Up | Sort-Object ifIndex | Select-Object -First 1
+    $connectedadapter = Get-NetAdapter | Where-Object Status -eq Up | Sort-Object ifIndex | Where-Object {$_.Name -NotMatch 'vEthernet' -and $_.Name -notmatch 'Network Bridge'} | Select-Object -First 1
 
     #Set VMSwitch(es) properties so that the connected adapter is configured
     try {
