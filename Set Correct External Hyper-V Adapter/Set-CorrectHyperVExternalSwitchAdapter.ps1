@@ -3,14 +3,8 @@ function Set-CorrectHyperVExternalSwitchAdapter {
         [parameter(Mandatory = $true)][string]$SwitchName
     )
     
-    #Validate SwitchName
-    if (-not (Get-VMSwitch -Name $SwitchName | Where-Object { $_.SwitchType -eq 'External' -and $_.AllowManagementOS -eq $True })) {
-        Write-Warning ("External Hyper-V Switch {0} can't be found or has no 'Allow management operating system to share this network adapter' enabled, exiting..." -f $SwitchName)
-        return
-    }
-
-    #retrieve external switch(es) with Allow Management OS on and get Network adapter with Up state
-    $externalswitch = Get-VMSwitch | Where-Object { $_.Name -eq $SwitchName -and $_.SwitchType -eq 'External' -and $_.AllowManagementOS -eq $True }
+    #retrieve external switch(es) and get Network adapter with Up state
+    $externalswitch = Get-VMSwitch | Where-Object Name -eq $SwitchName
     $connectedadapter = Get-NetAdapter | Where-Object Status -eq Up | Sort-Object ifIndex | Select-Object -First 1
 
     #Set VMSwitch(es) properties so that the connected adapter is configured
