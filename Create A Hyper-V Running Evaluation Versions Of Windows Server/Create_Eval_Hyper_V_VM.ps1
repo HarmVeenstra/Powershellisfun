@@ -105,11 +105,12 @@ finally {
     }
 }
  
-#Configure settings on the VM, CPU/Memory/Disk/BootOrder
+#Configure settings on the VM, Checkpoints, CPU/Memory/Disk/BootOrder, Integration Services
 try {
     Write-Host ("Configuring settings on {0}..." -f $VMname) -ForegroundColor Green
-    Set-VM -name $VMname -ProcessorCount $VMCores -DynamicMemory -MemoryMinimumBytes 64MB -MemoryMaximumBytes $VMRAM -MemoryStartupBytes 512MB  -ErrorAction SilentlyContinue | Out-Null 
+    Set-VM -name $VMname -ProcessorCount $VMCores -DynamicMemory -MemoryMinimumBytes 64MB -MemoryMaximumBytes $VMRAM -MemoryStartupBytes 512MB -CheckpointType ProductionOnly -AutomaticCheckpointsEnabled:$false 
     Add-VMHardDiskDrive -VMName $VMname -Path $VHDFile -ControllerType IDE -ErrorAction SilentlyContinue | Out-Null
+    Enable-VMIntegrationService -VMName $VMname -Name 'Guest Service Interface' , 'Heartbeat', 'Key-Value Pair Exchange', 'Shutdown', 'Time Synchronization', 'VSS'
 }
 catch {
     Write-Warning ("Error setting VM parameters, check {0} settings..." -f $VMname)
