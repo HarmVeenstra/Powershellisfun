@@ -14,8 +14,8 @@ function Get-LocalGroupMembers {
         Write-Warning ("ActiveDirectory PowerShell Module was not found, please install before running script...")
         return
     }
-    #Retrieve all Domain Member servers and skip Domain Controllers
-    $total = foreach ($server in Get-ADComputer -Filter 'OperatingSystem -like "Windows Server*" -and PrimaryGroupID -ne "516"' | Sort-Object Name) {
+    #Retrieve all Domain Member servers which updated their computer account the last 30 days, skip Domain Controllers
+    $total = foreach ($server in Get-ADComputer -Filter 'OperatingSystem -like "Windows Server*" -and PrimaryGroupID -ne "516"' -Properties LastLogonDate | Where-Object LastLogonDate -gt (Get-Date).AddDays(-31) | Sort-Object Name) {
     
         #Retrieve all local groups on the server and their members
         try {
