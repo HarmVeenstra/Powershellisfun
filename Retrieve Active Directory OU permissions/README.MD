@@ -1,0 +1,1 @@
+Script(s) used in blog post located at https://powershellisfun.com/2022/07/21/report-on-active-directory-ou-permissions-using-powershell/

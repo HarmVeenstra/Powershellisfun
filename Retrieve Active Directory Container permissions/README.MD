@@ -1,0 +1,1 @@
+Script(s) used in blog post located at https://powershellisfun.com/2022/08/22/report-on-active-directory-container-permissions-using-powershell/

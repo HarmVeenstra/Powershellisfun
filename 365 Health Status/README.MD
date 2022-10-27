@@ -1,0 +1,1 @@
+Script(s) used in blog post located at https://powershellisfun.com/2022/05/23/get-365-service-health-status-using-powershell/

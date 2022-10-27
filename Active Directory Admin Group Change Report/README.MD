@@ -1,0 +1,1 @@
+Script(s) used in blog post located at https://powershellisfun.com/2022/07/13/report-on-changed-active-directory-groups-using-powershell/

@@ -1,0 +1,1 @@
+Script(s) used in blog post located at https://powershellisfun.com/2022/10/24/import-exchange-relay-connector-ip-addresses-to-iis-smtp-instance/

@@ -1,0 +1,1 @@
+Script(s) used in blog post located at https://powershellisfun.com/2022/07/04/get-a-message-of-the-day-in-your-powershell-session/

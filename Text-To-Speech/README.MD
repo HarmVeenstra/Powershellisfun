@@ -1,0 +1,1 @@
+Script(s) used in blog post located at https://powershellisfun.com/2022/09/16/text-to-speech-using-powershell/

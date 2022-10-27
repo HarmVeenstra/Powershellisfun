@@ -1,0 +1,1 @@
+Script(s) used in blog post located at https://powershellisfun.com/2022/06/01/creating-a-hyper-v-vm-running-evaluation-versions-of-windows-server-using-powershell/
