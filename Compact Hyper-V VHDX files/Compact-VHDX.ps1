@@ -95,11 +95,11 @@ function Compact-VHDX {
     $report = foreach ($vhd in $vhds) {
         if ((get-vhd $vhd.path).VhdType -eq 'Dynamic') {
             [PSCustomObject]@{
-                VM                     = $vhd.VMName
-                VHD                    = $vhd.Path
                 'Old Size (Gb))'       = ($oldsize | Where-Object VHD -eq $vhd.Path).OldSize
                 'New Size (Gb)'        = [math]::round((Get-Item $vhd.Path).Length / 1GB, 3)
                 'Space recovered (Gb)' = ($oldsize | Where-Object VHD -eq $vhd.Path).OldSize - [math]::round((Get-Item $vhd.Path).Length / 1GB, 3)
+                VM                     = $vhd.VMName
+                VHD                    = $vhd.Path
             }
         }
     }
