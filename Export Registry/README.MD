@@ -1,0 +1,1 @@
+Script(s) used in blog post located at https://powershellisfun.com/2022/06/09/copying-exchange-receive-connector-settings-using-powershell/
