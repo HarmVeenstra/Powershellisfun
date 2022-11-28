@@ -1,0 +1,1 @@
+Script(s) used in blog post located at https://powershellisfun.com/2022/11/28/retrieve-coinmarketcap-information-using-powershell/
