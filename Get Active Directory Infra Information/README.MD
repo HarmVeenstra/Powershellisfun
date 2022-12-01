@@ -1,1 +1,1 @@
-Script(s) used in blog post located at 
+Script(s) used in blog post located at https://powershellisfun.com/2022/12/01/active-directory-infra-check-using-powershell/
