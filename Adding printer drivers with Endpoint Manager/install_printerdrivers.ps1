@@ -1,6 +1,11 @@
 $drivers = Import-Csv .\Drivers.csv -Delimiter ','
 foreach ($driver in $drivers) {
-    C:\Windows\Sysnative\pnputil.exe -a $driver.Path
+    if (Test-Path C:\Windows\Sysnative\pnputil.exe) {
+        C:\Windows\Sysnative\pnputil.exe -a $driver.Path
+    }
+    else {
+        C:\Windows\Sytem32\pnputil.exe -a $driver.Path
+    }
     Start-Sleep -Seconds 5
     Add-PrinterDriver -Name $driver.name
 }
