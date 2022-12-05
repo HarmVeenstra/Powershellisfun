@@ -1,0 +1,1079 @@
+*%  stddtype.gdl - this file contains templates that define all MS standard datatypes
+*%  that appear in GPD and GDL files.
+
+*PreCompiled:  TRUE
+
+
+*% ==================
+*%  ====  Macro Definitions  ====
+*% ==================
+
+*Macros:
+{
+    LIST_OF_COMMAND_NAMES : (
+    *%
+    *%  GENERAL
+    *%
+        *%  the following are not enumerated here because they require
+        *%  the full Command structure.   See Template: ORDERED_COMMAND
+        *%  and its descendants.
+
+        *%  CmdSelect,
+        *%  CmdStartJob,
+        *%  CmdStartDoc,
+        *%  CmdStartPage,
+        *%  CmdEndPage,
+        *%  CmdEndDoc,
+        *%  CmdEndJob,
+        *%  CmdCopies,
+        *%  CmdSleepTimeOut,
+
+    *%
+    *% CURSOR CONTROL
+    *%
+        CmdXMoveAbsolute,
+        CmdXMoveRelLeft,
+        CmdXMoveRelRight,
+        CmdYMoveAbsolute,
+        CmdYMoveRelUp,
+        CmdYMoveRelDown,
+        CmdSetSimpleRotation,
+        CmdSetAnyRotation,
+        CmdUniDirectionOn,
+        CmdUniDirectionOff,
+        CmdSetLineSpacing,
+        CmdPushCursor,
+        CmdPopCursor,
+        CmdBackSpace,
+        CmdFF,
+        CmdCR,
+        CmdLF,
+    *%
+    *% COLOR
+    *%
+      CmdSelectBlackColor,
+      CmdSelectRedColor,
+      CmdSelectGreenColor,
+      CmdSelectYellowColor,
+      CmdSelectBlueColor,
+      CmdSelectMagentaColor,
+      CmdSelectCyanColor,
+      CmdSelectWhiteColor,
+      CmdBeginPaletteDef,
+      CmdEndPaletteDef,
+      CmdDefinePaletteEntry,
+      CmdBeginPaletteReDef,
+      CmdEndPaletteReDef,
+      CmdReDefinePaletteEntry,
+      CmdSelectPaletteEntry,
+      CmdPushPalette,
+      CmdPopPalette,
+    *%
+    *% BRUSH SELECTION
+    *%
+      CmdDownloadPattern,
+      CmdSelectPattern,
+      CmdSelectWhiteBrush,
+      CmdSelectBlackBrush,
+    *%
+    *% DATACOMPRESSION
+    *%
+      CmdEnableTIFF4,
+      CmdEnableDRC,
+      CmdEnableFE_RLE,
+      CmdEnableOEMComp,
+      CmdDisableCompression,
+    *%
+    *%  Raster Data Emission
+    *%
+      CmdBeginRaster,
+      CmdEndRaster,
+      CmdSetDestBmpWidth,
+      CmdSetDestBmpHeight,
+      CmdSetSrcBmpWidth,
+      CmdSetSrcBmpHeight,
+      CmdSendBlockData,
+      CmdEndBlockData,
+      CmdSendRedData,
+      CmdSendGreenData,
+      CmdSendBlueData,
+      CmdSendCyanData,
+      CmdSendMagentaData,
+      CmdSendYellowData,
+      CmdSendBlackData,
+    *%
+    *%  Font Downloading
+    *%
+      CmdSetFontID,
+      CmdSelectFontID,
+      CmdSetCharCode,
+      CmdDeselectFontID,
+      CmdSelectFontHeight,
+      CmdSelectFontWidth,
+      CmdDeleteFont,
+    *%
+    *%  Font Simulation
+    *%
+      CmdSetFontSim,
+      CmdBoldOn,
+      CmdBoldOff,
+      CmdItalicOn,
+      CmdItalicOff,
+      CmdUnderlineOn,
+      CmdUnderlineOff,
+      CmdStrikeThruOn,
+      CmdStrikeThruOff,
+      CmdWhiteTextOn,
+      CmdWhiteTextOff,
+      CmdSelectSingleByteMode,
+      CmdSelectDoubleByteMode,
+      CmdVerticalPrintingOn,
+      CmdVerticalPrintingOff,
+      CmdClearAllFontAttribs,
+    *%
+    *% Misc
+    *%
+      CmdSetTextHTAlgo,
+      CmdSetGraphicsHTAlgo,
+      CmdSetPhotoHTAlgo,
+    *%
+    *%  Vector Printing
+    *%
+
+      CmdSetRectWidth,
+      CmdSetRectHeight,
+      CmdSetRectSize,
+      CmdRectGrayFill,
+      CmdRectWhiteFill,
+      CmdRectBlackFill,
+    )
+}
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_[ElementType]  ====
+*% ==================
+*%  DT_ONE_OR_LIST_OF_[ElementType]  allows the value to be a
+*%  single naked object of that [ElementType]
+*%  or any number of [ElementType] enclosed within a LIST()
+*%  Either type will appear in the Snapshot with a similar format so
+*%  Client code does not need to be aware of the 2 personalities.
+*% ==================
+
+*BlockMacro: DefineListDataType(=ElementType, =ElementTag)
+{
+    *Template:  DT_LIST_OF_=ElementType
+    {
+        *Inherits:  VDT_GENERIC_LIST
+        *ElementType:  =ElementType
+        *ElementTags: =ElementTag
+    }
+    *Template:  DT_LIST_OF_ONE_=ElementType
+    {
+        *Inherits:  VDT_GENERIC_LIST_OF_ONE
+        *ElementType:  =ElementType
+        *ElementTags: =ElementTag
+    }
+    *Template:  DT_ONE_OR_LIST_OF_=ElementType
+    {
+        *Type:  DATATYPE
+        *DataType:   MULTIPLE_PERSONALITY
+        *ElementType:  (DT_LIST_OF_=ElementType, DT_LIST_OF_ONE_=ElementType)
+        *ElementTags: (list_=ElementTag, one_=ElementTag)
+    }
+}
+
+
+*% ==================
+*%  === XML/XSD types :  use prefix XSD ====
+*% ==================
+
+*Template:  XSD_STRING
+{
+    *Type:  DATATYPE
+    *DataType:   XML_TYPE
+    *XMLDataType: "string"
+}
+*Template:  XSD_INT
+{
+    *Type:  DATATYPE
+    *DataType:   XML_TYPE
+    *XMLDataType: "int"
+}
+*Template:  XSD_FLOAT
+{
+    *Type:  DATATYPE
+    *DataType:   XML_TYPE
+    *XMLDataType: "float"
+}
+*Template:  XSD_BASE64
+{
+    *Type:  DATATYPE
+    *DataType:   XML_TYPE
+    *XMLDataType: "base64Binary"
+}
+
+*Template:  DT_TRANSIENT   *%  won't actually appear in Snapshot.
+{
+    *Type:  DATATYPE
+    *DataType:   PASSTHROUGH
+}
+
+
+*% ==================
+*%  === Enumerator types :  use prefix EDT ====
+*% ==================
+
+
+
+*Template:  EDT_BOOLEAN
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_BOOLEAN"
+    *EnumeratorList: (TRUE, FALSE)
+}
+
+*Template:  EDT_PRINTER_TYPE
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_PRINTER_TYPE"
+    *EnumeratorList: (PAGE,  SERIAL,  TTY)
+}
+*Template:  EDT_FEATURETYPE
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_FEATURETYPE"
+    *EnumeratorList: (PARAMETER_PROPERTY, DOC_PROPERTY, JOB_PROPERTY,
+        PRINTER_PROPERTY, SYNTHESIZED_PROPERTY)
+}
+
+*Template:  EDT_UITYPE
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_UITYPE"
+    *EnumeratorList: (PICKMANY, PICKONE)
+}
+
+
+*Template:  EDT_PROMPTTIME
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_PROMPTTIME"
+    *EnumeratorList: (UI_SETUP, PRT_STARTDOC)
+}
+
+*Template:  EDT_PAPERFEED_ORIENT
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_PAPERFEED_ORIENT"
+    *EnumeratorList: (FACEUP_NONE, FACEUP_CENTER, FACEUP_LEFT, FACEUP_RIGHT,
+        FACEDOWN_NONE, FACEDOWN_CENTER, FACEDOWN_LEFT, FACEDOWN_RIGHT)
+}
+
+
+
+
+*Template:  EDT_COLORPLANE
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_COLORPLANE"
+    *EnumeratorList: (YELLOW, MAGENTA, CYAN, BLACK, RED, GREEN, BLUE)
+}
+
+
+*Template:  EDT_RESPONSETYPE
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_RESPONSETYPE"
+    *EnumeratorList: (BIDI_NULL ,BIDI_INT ,BIDI_FLOAT ,BIDI_BOOL ,
+        BIDI_STRING, BIDI_TEXT , BIDI_ENUM  , BIDI_BLOB )
+}
+
+*Template:  EDT_ORDER_SECTION
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_ORDER_SECTION"
+    *EnumeratorList: (JOB_SETUP , DOC_SETUP , PAGE_SETUP ,
+            JOB_FINISH , DOC_FINISH , PAGE_FINISH )
+}
+
+
+*Template:  EDT_RASTERCAPS
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_RASTERCAPS"
+    *EnumeratorList: (AT_PRINTABLE_X_ORIGIN, AT_GRXDATA_ORIGIN)
+}
+
+
+
+*Template:  EDT_TEXTCAPS
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_TEXTCAPS"
+    *EnumeratorList: (TC_OP_CHARACTER, TC_OP_STROKE, TC_CP_STROKE,
+        TC_CR_90, TC_CR_ANY, TC_SF_X_YINDEP, TC_SA_DOUBLE, TC_SA_INTEGER,
+        TC_SA_CONTIN, TC_EA_DOUBLE, TC_IA_ABLE, TC_UA_ABLE, TC_SO_ABLE,
+        TC_RA_ABLE, TC_VA_ABLE)
+}
+
+
+*Template:  EDT_MEMORYUSAGE
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_MEMORYUSAGE"
+    *EnumeratorList: (FONT, RASTER, VECTOR)
+}
+
+
+
+*Template:  EDT_RESELECTFONT
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_RESELECTFONT"
+    *EnumeratorList: (AFTER_GRXDATA, AFTER_XMOVE, AFTER_FF)
+}
+
+
+*Template:  EDT_OEMPRINTINGCALLBACKS
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_OEMPRINTINGCALLBACKS"
+    *EnumeratorList: (OEMDownloadFontheader, OEMDownloadCharGlyph,
+        OEMTTDownloadMethod, OEMOutputCharStr, OEMImageProcessing,
+        OEMCompression, OEMHalftonePattern, OEMFilterGraphics)
+}
+
+*Template:  EDT_CURSORXAFTERCR
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_CURSORXAFTERCR"
+    *EnumeratorList: (AT_PRINTABLE_X_ORIGIN, AT_CURSOR_X_ORIGIN)
+}
+
+*Template:  EDT_BADCURSORMOVEINGRXMODE
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_BADCURSORMOVEINGRXMODE"
+    *EnumeratorList: (X_PORTRAIT, X_LANDSCAPE, Y_PORTRAIT, Y_LANDSCAPE)
+}
+
+
+*Template:  EDT_PALETTESCOPE
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_PALETTESCOPE"
+    *EnumeratorList: (RASTER, TEXT, VECTOR)
+}
+
+*Template:  EDT_OUTPUTDATAFORMAT
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_OUTPUTDATAFORMAT"
+    *EnumeratorList: (H_BYTE, V_BYTE)
+}
+
+
+*Template:  EDT_STRIPBLANKS
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_STRIPBLANKS"
+    *EnumeratorList: (LEADING, ENCLOSED, TRAILING)
+}
+
+
+*Template:  EDT_LANDSCAPEGRXROTATION
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_LANDSCAPEGRXROTATION"
+    *EnumeratorList: (NONE, CC_90, CC_270)
+}
+
+*Template:  EDT_CURSORXAFTERSENDBLOCKDATA
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_CURSORXAFTERSENDBLOCKDATA"
+    *EnumeratorList: (AT_GRXDATA_END, AT_GRXDATA_ORIGIN, AT_CURSOR_X_ORIGIN)
+}
+
+
+*Template:  EDT_CURSORYAFTERSENDBLOCKDATA
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_CURSORYAFTERSENDBLOCKDATA"
+    *EnumeratorList: (NO_MOVE, AUTO_INCREMENT)
+}
+
+*Template:  EDT_CHARPOSITION
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_CHARPOSITION"
+    *EnumeratorList: (UPPERLEFT, BASELINE)
+}
+
+
+*Template:  EDT_FONTFORMAT
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_FONTFORMAT"
+    *EnumeratorList: (HPPCL, HPPCL_RES, HPPCL_OUTLINE, OEM_CALLBACK)
+}
+
+
+*Template:  EDT_QUERYDATATYPE
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_QUERYDATATYPE"
+    *EnumeratorList: (DWORD, CONCATENATED_STRINGS)
+}
+
+
+
+*Template:  EDT_YMOVEATTRIB
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_YMOVEATTRIB"
+    *EnumeratorList: (FAVOR_LF, SEND_CR_FIRST)
+}
+
+
+
+
+*Template:  EDT_DLSYMBOLSET
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_DLSYMBOLSET"
+    *EnumeratorList: (PC_8, ROMAN_8)
+}
+
+
+
+*Template:  EDT_CURXAFTER_RECTFILL
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_CURXAFTER_RECTFILL"
+    *EnumeratorList: (AT_RECT_X_ORIGIN, AT_RECT_X_END)
+}
+
+
+*Template:  EDT_CURYAFTER_RECTFILL
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_CURYAFTER_RECTFILL"
+    *EnumeratorList: (AT_RECT_Y_ORIGIN, AT_RECT_Y_END)
+}
+
+*Template:  EDT_PRINTRATEUNIT
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_PRINTRATEUNIT"
+    *EnumeratorList: (PPM, CPS, LPM, IPM, LPS, IPS)
+}
+
+
+*Template:  EDT_RASTERMODE
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_RASTERMODE"
+    *EnumeratorList: (DIRECT, INDEXED)
+}
+
+
+*Template:  EDT_QUALITYSETTING
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_QUALITYSETTING"
+    *EnumeratorList: (DRAFTQUALITY, BETTERQUALITY, BESTQUALITY)
+}
+
+
+
+*Template:  EDT_STD_VAR
+{           *%  standard_variables
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_STD_VAR"
+    *EnumeratorList: (
+        NumOfDataBytes,
+        RasterDataWidthInBytes,
+        RasterDataHeightInPixels,
+        NumOfCopies,
+        PrintDirInCCDegrees,
+        DestX,
+        DestY,
+        DestXRel,
+        DestYRel,
+        LinefeedSpacing,
+        RectXSize,
+        RectYSize,
+        GrayPercentage,
+        NextFontID,
+        NextGlyph,
+        PhysPaperLength,
+        PhysPaperWidth,
+        FontHeight,
+        FontWidth,
+        FontMaxWidth,
+        FontBold,
+        FontItalic,
+        FontUnderline,
+        FontStrikeThru,
+        CurrentFontID,
+        TextYRes,
+        TextXRes,
+        GraphicsYRes,
+        GraphicsXRes,
+        Rop3,
+        RedValue,
+        GreenValue,
+        BlueValue,
+        PaletteIndexToProgram,
+        CurrentPaletteIndex,
+        PatternBrushType,
+        PatternBrushID,
+        PatternBrushSize,
+        CursorOriginX,
+        CursorOriginY,
+        PageNumber
+    )
+}
+
+*Template:  EDT_CMD_NAME
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_CMD_NAME"
+    *EnumeratorList:  =LIST_OF_COMMAND_NAMES
+}
+
+
+
+
+
+
+
+
+
+*% ==================
+*%  === Filter types :  use prefix GPD ====
+*%  === these represent GPD defined types ====
+*% ==================
+
+*Template:  GPD_INTEGER
+{
+    *Type:  DATATYPE
+    *DataType:   FILTER_TYPE
+    *ElementType:  XSD_INT
+    *FilterTypeName: "HEX_OR_INT"
+}
+
+
+
+*Template:  GPD_POS_INTEGER
+{
+    *Inherits:  GPD_INTEGER
+    *MinValue: 1
+}
+
+*Template:  GPD_NONNEG_INTEGER
+{
+    *Inherits:  GPD_INTEGER
+    *MinValue: 0
+}
+
+*Template:  GPD_SYMBOL
+{
+    *Type:  DATATYPE
+    *DataType:   FILTER_TYPE
+    *ElementType:  XSD_STRING
+    *FilterTypeName: "SYMBOLNAME"
+}
+*Template:  GPD_COMMAND      *%  Only used to represent Command strings
+{
+    *Type:  DATATYPE
+    *DataType:   FILTER_TYPE
+    *ElementType:  XSD_BASE64
+    *FilterTypeName: "COMMAND_STRING"
+}
+
+*Template:  GPD_NORMAL_STRING  *%  ANSI string, no Unicode conversion
+{
+    *Type:  DATATYPE
+    *DataType:   FILTER_TYPE
+    *ElementType:  XSD_STRING
+    *FilterTypeName: "NORMAL_STRING"
+}
+*Template:  GPD_CODEPAGE_STRING       *%  ANSI string, convert to Unicode
+{
+    *Type:  DATATYPE
+    *DataType:   FILTER_TYPE
+    *ElementType:  XSD_STRING
+    *FilterTypeName: "CODEPAGE_STRING"
+}
+*Template:  GPD_DEFAULT_CODEPAGE_STRING  *%  ANSI string, convert to Unicode
+{
+    *Type:  DATATYPE
+    *DataType:   FILTER_TYPE
+    *ElementType:  XSD_STRING
+    *FilterTypeName: "DEFAULT_CODEPAGE_STRING"
+}
+*Template:  GPD_UNICODE_STRING  *%  string already in Unicode
+{
+    *Type:  DATATYPE
+    *DataType:   FILTER_TYPE
+    *ElementType:  XSD_STRING
+    *FilterTypeName: "UNICODE_STRING"
+}
+*Template:  GPD_BINARY_STRING  *%  Binary byte string, emit as Base64
+{
+    *Type:  DATATYPE
+    *DataType:   FILTER_TYPE
+    *ElementType:  XSD_BASE64
+    *FilterTypeName: "BINARY_STRING"
+}
+
+
+
+
+*% ======================
+*% ==== Composite Types  :  use prefix VDT  for Virtual Templates ====
+*% ==== use prefix DT  for Non-Virtual Templates ====
+*% ======================
+
+*%  VDT_GENERIC_ARRAY  defines an array comprised of
+*%  comma delimited elements.  The elements are not yet defined.
+
+*Template:  VDT_GENERIC_ARRAY
+{
+    *Type:  DATATYPE
+    *DataType:   ARRAY
+    *RequiredDelimiter: ","
+    *OptionalDelimiter: "<20 09>"
+    *Virtual:  TRUE
+}
+
+*Template:  VDT_GENERIC_LIST
+{
+    *Inherits:  VDT_GENERIC_ARRAY
+    *ArrayLabel: "LIST"
+    *ArraySize: [*]
+    *Virtual:  TRUE
+}
+
+
+*Template:  VDT_GENERIC_LIST_OF_ONE
+{
+    *Inherits:  VDT_GENERIC_ARRAY
+    *ArraySize: [1]
+    *Virtual:  TRUE
+}
+
+*Template:  VDT_GENERIC_LIST_MIN_2
+{
+    *Inherits:  VDT_GENERIC_ARRAY
+    *ArrayLabel: "LIST"
+    *ArraySize: [2-*]
+    *Virtual:  TRUE
+}
+
+
+*Template:  VDT_GENERIC_PAIR
+{
+    *Inherits:  VDT_GENERIC_ARRAY
+    *ElementType:  GPD_INTEGER
+    *Virtual:  TRUE
+}
+
+*% ==================
+*%  ====  define  DT_PAIR_OF_GPD_INTEGER  ====
+*% ==================
+
+*Template:  DT_PAIR_OF_NUMS
+{
+    *Inherits:  VDT_GENERIC_ARRAY
+    *ArrayLabel: "PAIR"
+    *ElementTags: (width, height)
+    *ArraySize: 2
+    *Virtual:  TRUE
+}
+
+
+*Template:  DT_PAIR_OF_GPD_INTEGER
+{
+    *Inherits:  DT_PAIR_OF_NUMS
+    *ElementType:  GPD_INTEGER
+}
+
+*% ==================
+*%  ====  define  DT_PAIR_OF_GPD_POS_INTEGER  ====
+*% ==================
+
+
+
+*Template:  DT_PAIR_OF_GPD_POS_INTEGER
+{
+    *Inherits:  DT_PAIR_OF_NUMS
+    *ElementType:  GPD_POS_INTEGER
+}
+
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_GPD_INTEGER  ====
+*% ==================
+
+*Macros:
+{
+    ElementType: GPD_INTEGER
+    ElementTag: int
+}
+*InsertBlock: DefineListDataType(=ElementType, =ElementTag)
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_GPD_POS_INTEGER  ====
+*% ==================
+
+
+*Macros:
+{
+    ElementType: GPD_POS_INTEGER
+    ElementTag: int
+}
+*InsertBlock: DefineListDataType(=ElementType, =ElementTag)
+
+
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_GPD_SYMBOL  ====
+*% ==================
+
+*Macros:
+{
+    ElementType: GPD_SYMBOL
+    ElementTag: symbolname
+}
+*InsertBlock: DefineListDataType(=ElementType, =ElementTag)
+
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_GPD_NORMAL_STRING  ====
+*% ==================
+
+*Macros:
+{
+    ElementType: GPD_NORMAL_STRING
+    ElementTag: string
+}
+*InsertBlock: DefineListDataType(=ElementType, =ElementTag)
+
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_EDT_STD_VAR  ====
+*% ==================
+
+*Macros:
+{
+    ElementType: EDT_STD_VAR
+    ElementTag: std_var
+}
+*InsertBlock: DefineListDataType(=ElementType, =ElementTag)
+
+
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_EDT_STRIPBLANKS  ====
+*% ==================
+
+*Macros:
+{
+    ElementType: EDT_STRIPBLANKS
+    ElementTag: eWhen
+}
+*InsertBlock: DefineListDataType(=ElementType, =ElementTag)
+
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_EDT_TEXTCAPS  ====
+*% ==================
+
+*Macros:
+{
+    ElementType: EDT_TEXTCAPS
+    ElementTag: eWhat
+}
+*InsertBlock: DefineListDataType(=ElementType, =ElementTag)
+
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_EDT_RASTERCAPS  ====
+*% ==================
+
+*Macros:
+{
+    ElementType: EDT_RASTERCAPS
+    ElementTag: eWhat
+}
+*InsertBlock: DefineListDataType(=ElementType, =ElementTag)
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_EDT_RESELECTFONT  ====
+*% ==================
+
+*Macros:
+{
+    ElementType: EDT_RESELECTFONT
+    ElementTag: eWhat
+}
+*InsertBlock: DefineListDataType(=ElementType, =ElementTag)
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_EDT_MEMORYUSAGE  ====
+*% ==================
+
+*Macros:
+{
+    ElementType: EDT_MEMORYUSAGE
+    ElementTag: eWhat
+}
+*InsertBlock: DefineListDataType(=ElementType, =ElementTag)
+
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_EDT_BADCURSORMOVEINGRXMODE  ====
+*% ==================
+
+*Macros:
+{
+    ElementType: EDT_BADCURSORMOVEINGRXMODE
+    ElementTag: eWhen
+}
+*InsertBlock: DefineListDataType(=ElementType, =ElementTag)
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_EDT_YMOVEATTRIB  ====
+*% ==================
+
+*Macros:
+{
+    ElementType: EDT_YMOVEATTRIB
+    ElementTag: eWhen
+}
+*InsertBlock: DefineListDataType(=ElementType, =ElementTag)
+
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_EDT_COLORPLANE  ====
+*% ==================
+
+*Macros:
+{
+    ElementType: EDT_COLORPLANE
+    ElementTag: eColors
+}
+*InsertBlock: DefineListDataType(=ElementType, =ElementTag)
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_EDT_OEMPRINTINGCALLBACKS  ====
+*% ==================
+
+*Macros:
+{
+    ElementType: EDT_OEMPRINTINGCALLBACKS
+    ElementTag: eColors
+}
+*InsertBlock: DefineListDataType(=ElementType, =ElementTag)
+
+
+
+
+
+*% ==================
+*%  ====  define  DT_BIDIVALUE  ====
+*% ==================
+
+
+*Template:  DT_TAGGED_INT
+{
+    *Inherits:  GPD_INTEGER
+    *ArrayLabel: "INT"          *%  Ensures Multi Personality template knows this holds an Int.
+}
+
+*Template:  DT_TAGGED_BOOL
+{
+    *Inherits:  EDT_BOOLEAN
+    *ArrayLabel: "BOOL"          *%  Ensures Multi Personality template knows this holds an Int.
+}
+
+*Template:  DT_TAGGED_NORMAL_STRING
+{
+    *Inherits:  GPD_NORMAL_STRING
+    *ArrayLabel: "STRING"          *%  Ensures Multi Personality template knows this holds an Int.
+}
+
+*Template:  DT_TAGGED_FLOAT
+{
+    *Inherits:  XSD_FLOAT
+    *ArrayLabel: "FLOAT"          *%  Ensures Multi Personality template knows this holds an Int.
+}
+
+*Template:  DT_RESPONSEDATA  *%  ResponseData
+{
+    *Inherits:  GPD_SYMBOL
+    *ArrayLabel: "ENUM_OPTION"
+}
+
+
+*Template:  DT_BIDIVALUE
+{
+    *Type:  DATATYPE
+    *DataType:   MULTIPLE_PERSONALITY
+    *ElementType:  (DT_TAGGED_INT, DT_TAGGED_BOOL, DT_TAGGED_NORMAL_STRING,
+        DT_TAGGED_FLOAT)
+    *ElementTags: (BIDI_INT , BIDI_BOOL , BIDI_STRING,
+        BIDI_FLOAT)
+}
+
+*% ==================
+*%  ====  define  DT_ORDER  ====
+*% ==================
+
+
+*Template:  DT_ORDER
+{
+    *Type:  DATATYPE
+    *DataType:   COMPOSITE
+    *ElementType: (EDT_ORDER_SECTION, GPD_NONNEG_INTEGER)
+    *RequiredDelimiter: "."
+    *ElementTags: (section, ordinal)
+}
+
+*% ==================
+*%  ====  define  DT_COMMAND_SHORTCUT  ====
+*% ==================
+
+
+*Template:  DT_COMMAND_SHORTCUT
+{
+    *Type:  DATATYPE
+    *DataType:   COMPOSITE
+    *ElementType: (EDT_CMD_NAME, GPD_COMMAND)
+    *RequiredDelimiter: ":"
+    *OptionalDelimiter: "<20 09>"
+    *ElementTags: (Cmd_Name, Command)
+}
+
+
+*% ==================
+*%  ====  define  DT_QUALNAME  ====
+*%  ====  define  DT_QUALNAME_EX  ====
+*%  ====  define  DT_LIST_MIN_2_OF_DT_QUALNAME  ====
+*%  ====  define  DT_GPD_INTEGER_OR_QUALNAME_EX  ====
+*%  ====  define  DT_POS_GPD_INTEGER_OR_QUALNAME_EX  ====
+*% ==================
+
+*Template:  DT_QUALNAME
+{
+    *Type:  DATATYPE
+    *DataType:   COMPOSITE
+    *ElementType: (GPD_SYMBOL, GPD_SYMBOL)
+    *RequiredDelimiter: "."
+    *ElementTags: (feature, option)
+}
+
+*Template:  DT_LIST_MIN_2_OF_DT_QUALNAME
+{
+    *Inherits:  VDT_GENERIC_LIST_MIN_2
+    *ElementType:  DT_QUALNAME
+    *ElementTags: QualName
+}
+
+*Template:  DT_QUALNAME_EX
+{
+    *Type:  DATATYPE
+    *DataType:   COMPOSITE
+    *ElementType: (GPD_SYMBOL, GPD_SYMBOL, GPD_NONNEG_INTEGER)
+    *RequiredDelimiter: "."
+    *ElementTags: (feature, option, resourceID)
+}
+
+
+*Template:  DT_POS_QUALNAME_EX
+{
+    *Type:  DATATYPE
+    *DataType:   COMPOSITE
+    *ElementType: (GPD_SYMBOL, GPD_SYMBOL, GPD_POS_INTEGER)
+    *RequiredDelimiter: "."
+    *ElementTags: (feature, option, resourceID)
+}
+
+
+*Template:  DT_GPD_INTEGER_OR_QUALNAME_EX
+{
+    *Type:  DATATYPE
+    *DataType:   MULTIPLE_PERSONALITY
+    *ElementType:  (GPD_NONNEG_INTEGER, DT_QUALNAME_EX)
+    *ElementTags: (rcID, QualNameEx)
+}
+
+*Template:  DT_POS_GPD_INTEGER_OR_QUALNAME_EX
+{
+    *Type:  DATATYPE
+    *DataType:   MULTIPLE_PERSONALITY
+    *ElementType:  (GPD_POS_INTEGER, DT_POS_QUALNAME_EX)
+    *ElementTags: (rcID, QualNameEx)
+}
+
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_DT_QUALNAME  ====
+*% ==================
+
+*Macros:
+{
+    ElementType: DT_QUALNAME
+    ElementTag: QualName
+}
+*InsertBlock: DefineListDataType(=ElementType, =ElementTag)
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_DT_GPD_INTEGER_OR_QUALNAME_EX  ====
+*% ==================
+
+*Macros:
+{
+    ElementType: DT_GPD_INTEGER_OR_QUALNAME_EX
+    ElementTag: QualNameEx
+}
+*InsertBlock: DefineListDataType(=ElementType, =ElementTag)
+
+

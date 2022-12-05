@@ -1,0 +1,2537 @@
+; Canon Generic Plus PCL6 printer INF for Microsoft Windows (x64)
+; Copyright CANON INC. 2016
+; (CD-ROM Release)
+; Cnp60MA64.INF
+
+[Version]
+Signature="$Windows NT$"
+Provider=%CANON%
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+Class=Printer
+DriverVer=05/20/2021,2.50.0.0
+CatalogFile=Cnp60M.cat
+
+[Manufacturer]
+%CANON% = Canon,NTamd64,NTamd64.6.0
+
+;64-bit x64
+[Canon.NTamd64]
+"Canon Generic Plus PCL6"               = GPPCL,,1284_CID_CA_PCL6_COLOR_OIP
+"Canon Generic Plus PCL6"               = GPPCL,,1284_CID_CA_PCL6_BW_OIP
+"Canon Generic Plus PCL6"               = GPPCL,CanonGeneric_V3_PrinC2DB
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonGeneric_Plus_PCB22D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\Canoni-SENSYS_X_1643A225
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR2520_(PCL6)EF91
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR2525/2530_(PCEDE0
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR1133_PCL686E1
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR1435_PCL61CA0
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR2006/2206_PCLF6AE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR2425_PCL62CA4
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR2535/2545_(PC6085
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR1730/1740/175A36B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR_C1028/C1030_C034
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR_C1225_PCL6E29F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR_C1325/1335_P924A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR_C3120_PCL6C2C4
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR_C3125_PCL697C4
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR2635/2645_PCL70E8
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR2625/2630_PCLE6C0
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4025/403A243
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4045_PCL939C
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4225/423E044
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4245_PCL8ABC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4525/453988F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4525/453C9DD
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4545_PCLAC5C
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_400/500_DE3F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4045/4058E54
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4245/425AC52
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4545_III81A4
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4545/455D561
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4545/4558E00
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4725/473C3A8
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4745/4758F66
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4745_PCL75DD
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_525_PCL69573
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_525_III_5A7C
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_527_PCL6B6F3
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6000_PCL66C0
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6000i_PC33BE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6055/606CF78
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6055/606C9D2
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_615_PCL68202
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_615_III_BAD7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_617_PCL66203
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6255/62689FE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6255/6269B53
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6555/656F135
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6555/656CD28
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6555_III5939
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6565_III79A8
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6565_III5A3A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6560_PCL3967
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6560_III69B8
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6075_(PCECCC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6075-U1_DEF0
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6275_PCLEA96
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6275-U2_B7FA
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonCanon_iR-ADV_65FAC4
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6575_PCLCC76
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6575_III87AC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonCanon_iR-ADV_656668
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6575_III9B3A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6755/67688B2
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6755-Y3_8084
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6765_PCLB5E6
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6765-Y3_8D76
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6780_PCL4208
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6780-Y3_2828
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6860/68778E2
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_715_PCL64CC3
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_715_III_D98A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_717_PCL6AEC2
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8085/809BEFC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8285/829F4AF
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8585/8593465
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8585/8594828
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8585_III30C8
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8595_III31B1
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8000s-U1F284
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8105_(PC300E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8200s-U2067D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8205_PCL4AAC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonCanon_iR-ADV_85D552
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8505_PCL6C4C
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8505_III7FA0
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonCanon_iR-ADV_85EABC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8505_III38B8
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8705_PCLB5CD
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8705-Y3_477F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8786/87953ED
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8786-Y3_9F4B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8795-Y3_6AAF
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3320_PC3D56
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3320L_P6862
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3320/332295
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3525/35C2AC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3525/355EF6
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3520_PCD657
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3520_IIBEFE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3520/350EBD
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3520/355D33
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C2025_PC0F1A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C2225_PC171A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C2020/201DD6
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C2020i/2217F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C2020L/2A7F5
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C2218_PC73A8
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C2220/228450
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C257/357A323
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR_C3000_Series6054
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3325/33EE86
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C250/350CE93
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C350_PCL21AC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C351_PCLF0AD
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C255/3554BFA
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C256/35676F2
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C256/35650DC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C355_PCLB52D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C356_PCL850D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C356_IIID764
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C357_PCL96AD
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3720/378C1B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3720_PC0EF6
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3725/37998B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C475_IIICBE9
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C477_PCLB0CF
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5030/509B7A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5235/5206E1
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5535/55A7AB
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5535/5535E7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5535_IICD9F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5540_II0F95
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5000s-B5CAF
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5045/50CA79
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5200s-BA856
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5250/52B5E9
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5500s-P5191
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5550/55A391
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5550/552CAA
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5550_IICE95
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5560_IICD96
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C568/4784593
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5735/573C2D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5735-P21702
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5740-P2C674
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5750/57E196
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5750-P2C35C
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5760-P2CCAC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5840/5814F5
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5840-R17B67
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5850-R17E4F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5860/58B357
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5860-R171BF
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5870-R1B4EE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7000s-A1E9B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7055/7011C5
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7500s-N1268
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7565_PC40A1
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7565_IIF8F4
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7565_IIC8FC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7260/7204D4
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C9000s-A908D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C9060/9034B7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C9065_(PE9A7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C9065/900E7B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C9075_(PC1AB
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7200s-AEA62
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7280_PC310F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7580/751276
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7580/75BFCC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7570_II6CE9
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7580_II63E6
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7765_PC9B20
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7765-N26095
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7770-N277FB
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7780/775071
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7780-N2844A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C9200s-A6474
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C9270/92EBCF
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_Server_J100670D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_Server_K100278E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR1110/1125/114E9D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C165_PCL69A4D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C165-M10_PC7CEB
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C170_PCL6CFFC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C170-M10_PCB2DD
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonCanon_iPR_C60-G87B6
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C600_PCL6296A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonCanon_iPR_C600-E0B3
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C6010_PCL6476D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C6010VP_PCL889D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C65-G100_PC5FF1
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C65-G200_PC8A10
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C650_PCL6293F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C650-G100_P7289
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C650-G200_P67C9
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C7010VP_PCLCC98
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C700/800_PC5723
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonCanon_iPR_C700/9FAE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C710/810/9120BC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C710-G250_P916E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C710CA-G250387D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C750_PCL6E5FE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C810-G250_P54DB
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C850_PCL665C7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C750/850-G17F8E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C750/850-G26ACE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C910-G250_P1F78
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonD1600_Series_PC0AB7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF1127C_/_C11271E77
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF1238_/_1238iFBB83
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF230_Series_PC4E22
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF240_Series_PC4905
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF260_Series_PC4B7D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF410_Series_PCF687
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF420_Series_PC4D85
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF440_Series_PC4B83
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF510_Series_PCD5C6
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF520_Series_PC6F3E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF720C_Series_P11D7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF9200_Series_P2771
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF810/820_PCL685A9
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonD570_PCL6B4D3
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP1127C_/_C112E976
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP1238_/_1238P9DD0
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP162_PCL626B2
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP211/212_PCL615AB
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP213_PCL62287
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP214_PCL69586
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP215_PCL68706
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP228_PCL659B7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP227_PCL6A6B7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP226_PCL6B717
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP225_PCL68737
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP223_PCL622B6
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP222_PCL63316
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP251_PCL600C1
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP8750_PCL681AF
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP6650/3470_(PCC21
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP252_PCL6F360
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP253_PCL6E2C0
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP311/312_PCL67A8E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP324/325_PCL67BA2
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR1643P_PCL6F4FF
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP613C_PCL6CA0E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP623C_PCL6DF4E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP653C/654C_PCA610
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP663C_PCL62C4F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP664C_PCL6EC39
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF540_Series_PCA943
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR1643i_PCL69DFA
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF633C/635C_PCL4448
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF643C_PCL6AA6A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF645C_PCL6AA0C
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP6670_PCL6EF03
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP6680/3480_PCA436
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP6750/3560_PCFAF7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP6780/3580_PCE9F5
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP8780_PCL64173
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP8900_PCL60F7B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP351/352_PCL68ADE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP7660C_PCL6603B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP7680C/5280_PAFCC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP843C/841C_PC861E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP852C_PCL69953
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP853C_PCL65941
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP710C_PCL6B831
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP7780C/5480_P87CD
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP712C_PCL67812
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP9950C/9900C_BA00
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF732C/734C/735434B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF742C/744C_PCL759B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF745C/746C_PCLBFCC
+
+;64bit x64 Vista
+[Canon.NTamd64.6.0]
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,,1284_CID_CA_PCL6_COLOR_OIP
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,,1284_CID_CA_PCL6_BW_OIP
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonGeneric_V3_PrinC2DB
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonGeneric_Plus_PCB22D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\Canoni-SENSYS_X_1643A225
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\Canoni-SENSYS_X_1643A225
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,Canoni-SENSYS_X_1643A225
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR2520_(PCL6)EF91
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR2520_(PCL6)EF91
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR2520_(PCL6)EF91
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR2525/2530_(PCEDE0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR2525/2530_(PCEDE0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR2525/2530_(PCEDE0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR1133_PCL686E1
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR1133_PCL686E1
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR1133_PCL686E1
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR1435_PCL61CA0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR1435_PCL61CA0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR1435_PCL61CA0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR2006/2206_PCLF6AE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR2006/2206_PCLF6AE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR2006/2206_PCLF6AE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR2425_PCL62CA4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR2425_PCL62CA4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR2425_PCL62CA4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR2535/2545_(PC6085
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR2535/2545_(PC6085
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR2535/2545_(PC6085
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR1730/1740/175A36B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR1730/1740/175A36B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR1730/1740/175A36B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR_C1028/C1030_C034
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR_C1028/C1030_C034
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR_C1028/C1030_C034
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR_C1225_PCL6E29F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR_C1225_PCL6E29F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR_C1225_PCL6E29F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR_C1325/1335_P924A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR_C1325/1335_P924A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR_C1325/1335_P924A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR_C3120_PCL6C2C4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR_C3120_PCL6C2C4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR_C3120_PCL6C2C4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR_C3125_PCL697C4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR_C3125_PCL697C4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR_C3125_PCL697C4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR2635/2645_PCL70E8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR2635/2645_PCL70E8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR2635/2645_PCL70E8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR2625/2630_PCLE6C0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR2625/2630_PCLE6C0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR2625/2630_PCLE6C0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_4025/403A243
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_4025/403A243
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_4025/403A243
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_4045_PCL939C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_4045_PCL939C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_4045_PCL939C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_4225/423E044
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_4225/423E044
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_4225/423E044
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_4245_PCL8ABC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_4245_PCL8ABC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_4245_PCL8ABC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_4525/453988F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_4525/453988F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_4525/453988F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_4525/453C9DD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_4525/453C9DD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_4525/453C9DD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_4545_PCLAC5C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_4545_PCLAC5C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_4545_PCLAC5C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_400/500_DE3F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_400/500_DE3F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_400/500_DE3F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_4045/4058E54
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_4045/4058E54
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_4045/4058E54
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_4245/425AC52
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_4245/425AC52
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_4245/425AC52
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_4545_III81A4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_4545_III81A4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_4545_III81A4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_4545/455D561
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_4545/455D561
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_4545/455D561
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_4545/4558E00
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_4545/4558E00
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_4545/4558E00
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_4725/473C3A8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_4725/473C3A8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_4725/473C3A8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_4745/4758F66
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_4745/4758F66
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_4745/4758F66
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_4745_PCL75DD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_4745_PCL75DD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_4745_PCL75DD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_525_PCL69573
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_525_PCL69573
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_525_PCL69573
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_525_III_5A7C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_525_III_5A7C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_525_III_5A7C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_527_PCL6B6F3
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_527_PCL6B6F3
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_527_PCL6B6F3
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6000_PCL66C0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6000_PCL66C0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6000_PCL66C0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6000i_PC33BE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6000i_PC33BE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6000i_PC33BE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6055/606CF78
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6055/606CF78
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6055/606CF78
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6055/606C9D2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_615_PCL68202
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_615_PCL68202
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_615_PCL68202
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_615_III_BAD7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_615_III_BAD7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_615_III_BAD7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_617_PCL66203
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_617_PCL66203
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_617_PCL66203
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6255/62689FE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6255/62689FE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6255/62689FE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6255/6269B53
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6555/656F135
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6555/656F135
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6555/656F135
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6555/656CD28
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6555/656CD28
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6555/656CD28
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6555_III5939
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6555_III5939
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6565_III79A8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6565_III79A8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6565_III79A8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6565_III5A3A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6565_III5A3A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6560_PCL3967
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6560_PCL3967
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6560_PCL3967
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6560_III69B8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6560_III69B8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6560_III69B8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6075_(PCECCC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6075_(PCECCC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6075_(PCECCC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6075-U1_DEF0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6275_PCLEA96
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6275_PCLEA96
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6275_PCLEA96
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6275-U2_B7FA
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonCanon_iR-ADV_65FAC4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonCanon_iR-ADV_65FAC4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6575_PCLCC76
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6575_PCLCC76
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6575_PCLCC76
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6575_III87AC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6575_III87AC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6575_III87AC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonCanon_iR-ADV_656668
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonCanon_iR-ADV_656668
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6575_III9B3A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6575_III9B3A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6755/67688B2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6755/67688B2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6755/67688B2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6755-Y3_8084
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6755-Y3_8084
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6765_PCLB5E6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6765_PCLB5E6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6765_PCLB5E6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6765-Y3_8D76
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6765-Y3_8D76
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6780_PCL4208
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6780_PCL4208
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6780_PCL4208
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6780-Y3_2828
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6780-Y3_2828
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_6860/68778E2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_6860/68778E2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_6860/68778E2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_715_PCL64CC3
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_715_PCL64CC3
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_715_PCL64CC3
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_715_III_D98A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_715_III_D98A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_715_III_D98A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_717_PCL6AEC2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_717_PCL6AEC2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_717_PCL6AEC2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8085/809BEFC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_8085/809BEFC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_8085/809BEFC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8285/829F4AF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_8285/829F4AF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_8285/829F4AF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8585/8593465
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_8585/8593465
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_8585/8593465
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8585/8594828
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_8585/8594828
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_8585/8594828
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8585_III30C8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_8585_III30C8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8595_III31B1
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_8595_III31B1
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8000s-U1F284
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8105_(PC300E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_8105_(PC300E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_8105_(PC300E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8200s-U2067D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8205_PCL4AAC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_8205_PCL4AAC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_8205_PCL4AAC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonCanon_iR-ADV_85D552
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonCanon_iR-ADV_85D552
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8505_PCL6C4C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_8505_PCL6C4C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_8505_PCL6C4C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8505_III7FA0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_8505_III7FA0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_8505_III7FA0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonCanon_iR-ADV_85EABC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonCanon_iR-ADV_85EABC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8505_III38B8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_8505_III38B8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8705_PCLB5CD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_8705_PCLB5CD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_8705_PCLB5CD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8705-Y3_477F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_8705-Y3_477F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8786/87953ED
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_8786/87953ED
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_8786/87953ED
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8786-Y3_9F4B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_8786-Y3_9F4B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_8795-Y3_6AAF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_8795-Y3_6AAF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C3320_PC3D56
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C3320_PC3D56
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C3320_PC3D56
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C3320L_P6862
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C3320L_P6862
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C3320L_P6862
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C3320/332295
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C3320/332295
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C3320/332295
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C3525/35C2AC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C3525/35C2AC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C3525/35C2AC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C3525/355EF6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C3525/355EF6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C3525/355EF6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C3520_PCD657
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C3520_PCD657
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C3520_PCD657
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C3520_IIBEFE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C3520_IIBEFE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C3520_IIBEFE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C3520/350EBD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C3520/350EBD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C3520/350EBD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C3520/355D33
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C3520/355D33
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C3520/355D33
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C2025_PC0F1A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C2025_PC0F1A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C2025_PC0F1A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C2225_PC171A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C2225_PC171A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C2225_PC171A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C2020/201DD6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C2020/201DD6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C2020/201DD6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C2020i/2217F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C2020i/2217F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C2020i/2217F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C2020L/2A7F5
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C2020L/2A7F5
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C2020L/2A7F5
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C2218_PC73A8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C2218_PC73A8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C2218_PC73A8
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C2220/228450
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C2220/228450
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C2220/228450
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C257/357A323
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C257/357A323
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C257/357A323
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR_C3000_Series6054
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR_C3000_Series6054
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR_C3000_Series6054
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C3325/33EE86
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C3325/33EE86
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C3325/33EE86
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C250/350CE93
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C250/350CE93
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C250/350CE93
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C350_PCL21AC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C350_PCL21AC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C350_PCL21AC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C351_PCLF0AD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C351_PCLF0AD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C351_PCLF0AD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C255/3554BFA
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C255/3554BFA
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C255/3554BFA
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C256/35676F2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C256/35676F2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C256/35676F2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C256/35650DC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C256/35650DC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C256/35650DC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C355_PCLB52D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C355_PCLB52D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C355_PCLB52D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C356_PCL850D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C356_PCL850D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C356_PCL850D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C356_IIID764
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C356_IIID764
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C356_IIID764
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C357_PCL96AD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C357_PCL96AD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C357_PCL96AD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C3720/378C1B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C3720/378C1B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C3720/378C1B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C3720_PC0EF6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C3720_PC0EF6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C3720_PC0EF6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C3725/37998B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C3725/37998B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C3725/37998B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C475_IIICBE9
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C475_IIICBE9
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C475_IIICBE9
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C477_PCLB0CF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C477_PCLB0CF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C477_PCLB0CF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5030/509B7A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5030/509B7A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C5030/509B7A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5235/5206E1
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5235/5206E1
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C5235/5206E1
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5535/55A7AB
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5535/55A7AB
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C5535/55A7AB
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5535/5535E7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5535/5535E7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C5535/5535E7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5535_IICD9F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5535_IICD9F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5540_II0F95
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5540_II0F95
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5000s-B5CAF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5045/50CA79
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5045/50CA79
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C5045/50CA79
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5200s-BA856
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5250/52B5E9
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5250/52B5E9
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C5250/52B5E9
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5500s-P5191
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5500s-P5191
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5550/55A391
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5550/55A391
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C5550/55A391
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5550/552CAA
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5550/552CAA
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C5550/552CAA
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5550_IICE95
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5550_IICE95
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5560_IICD96
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5560_IICD96
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C568/4784593
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C568/4784593
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C568/4784593
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5735/573C2D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5735/573C2D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C5735/573C2D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5735-P21702
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5735-P21702
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5740-P2C674
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5740-P2C674
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5750/57E196
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5750/57E196
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C5750/57E196
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5750-P2C35C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5750-P2C35C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5760-P2CCAC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5760-P2CCAC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5840/5814F5
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5840/5814F5
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C5840/5814F5
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5840-R17B67
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5840-R17B67
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5850-R17E4F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5850-R17E4F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5860/58B357
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5860/58B357
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C5860/58B357
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5860-R171BF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5860-R171BF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C5870-R1B4EE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C5870-R1B4EE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7000s-A1E9B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7055/7011C5
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C7055/7011C5
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C7055/7011C5
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7500s-N1268
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C7500s-N1268
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7565_PC40A1
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C7565_PC40A1
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C7565_PC40A1
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7565_IIF8F4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C7565_IIF8F4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C7565_IIF8F4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7565_IIC8FC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C7565_IIC8FC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7260/7204D4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C7260/7204D4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C7260/7204D4
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C9000s-A908D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C9060/9034B7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C9060/9034B7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C9060/9034B7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C9065_(PE9A7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C9065_(PE9A7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C9065_(PE9A7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C9065/900E7B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C9065/900E7B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C9065/900E7B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C9075_(PC1AB
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C9075_(PC1AB
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C9075_(PC1AB
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7200s-AEA62
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7280_PC310F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C7280_PC310F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C7280_PC310F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7580/751276
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C7580/751276
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C7580/751276
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7580/75BFCC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C7580/75BFCC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C7580/75BFCC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7570_II6CE9
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C7570_II6CE9
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7580_II63E6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C7580_II63E6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7765_PC9B20
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C7765_PC9B20
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C7765_PC9B20
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7765-N26095
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C7765-N26095
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7770-N277FB
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C7770-N277FB
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7780/775071
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C7780/775071
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C7780/775071
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C7780-N2844A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C7780-N2844A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C9200s-A6474
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR-ADV_C9270/92EBCF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR-ADV_C9270/92EBCF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR-ADV_C9270/92EBCF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_Server_J100670D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_Server_K100278E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR1110/1125/114E9D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR1110/1125/114E9D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniPR1110/1125/114E9D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C165_PCL69A4D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C165_PCL69A4D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniPR_C165_PCL69A4D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C165-M10_PC7CEB
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C165-M10_PC7CEB
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C170_PCL6CFFC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C170_PCL6CFFC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniPR_C170_PCL6CFFC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C170-M10_PCB2DD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C170-M10_PCB2DD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonCanon_iPR_C60-G87B6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonCanon_iPR_C60-G87B6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C600_PCL6296A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C600_PCL6296A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniPR_C600_PCL6296A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonCanon_iPR_C600-E0B3
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonCanon_iPR_C600-E0B3
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C6010_PCL6476D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C6010_PCL6476D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniPR_C6010_PCL6476D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C6010VP_PCL889D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C6010VP_PCL889D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniPR_C6010VP_PCL889D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C65-G100_PC5FF1
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C65-G100_PC5FF1
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C65-G200_PC8A10
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C65-G200_PC8A10
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C650_PCL6293F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C650_PCL6293F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniPR_C650_PCL6293F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C650-G100_P7289
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C650-G100_P7289
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C650-G200_P67C9
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C650-G200_P67C9
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C7010VP_PCLCC98
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C7010VP_PCLCC98
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniPR_C7010VP_PCLCC98
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C700/800_PC5723
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C700/800_PC5723
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniPR_C700/800_PC5723
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonCanon_iPR_C700/9FAE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonCanon_iPR_C700/9FAE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C710/810/9120BC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C710/810/9120BC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C710-G250_P916E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C710-G250_P916E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C710CA-G250387D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C710CA-G250387D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C750_PCL6E5FE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C750_PCL6E5FE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniPR_C750_PCL6E5FE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C810-G250_P54DB
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C810-G250_P54DB
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C850_PCL665C7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C850_PCL665C7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniPR_C850_PCL665C7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C750/850-G17F8E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C750/850-G17F8E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C750/850-G26ACE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C750/850-G26ACE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniPR_C910-G250_P1F78
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniPR_C910-G250_P1F78
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonD1600_Series_PC0AB7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonD1600_Series_PC0AB7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonD1600_Series_PC0AB7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF1127C_/_C11271E77
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF1127C_/_C11271E77
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF1127C_/_C11271E77
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF1238_/_1238iFBB83
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF1238_/_1238iFBB83
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF1238_/_1238iFBB83
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF230_Series_PC4E22
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF230_Series_PC4E22
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF230_Series_PC4E22
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF240_Series_PC4905
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF240_Series_PC4905
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF240_Series_PC4905
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF260_Series_PC4B7D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF260_Series_PC4B7D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF260_Series_PC4B7D
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF410_Series_PCF687
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF410_Series_PCF687
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF410_Series_PCF687
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF420_Series_PC4D85
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF420_Series_PC4D85
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF420_Series_PC4D85
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF440_Series_PC4B83
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF440_Series_PC4B83
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF440_Series_PC4B83
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF510_Series_PCD5C6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF510_Series_PCD5C6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF510_Series_PCD5C6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF520_Series_PC6F3E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF520_Series_PC6F3E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF520_Series_PC6F3E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF720C_Series_P11D7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF720C_Series_P11D7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF720C_Series_P11D7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF9200_Series_P2771
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF9200_Series_P2771
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF9200_Series_P2771
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF810/820_PCL685A9
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF810/820_PCL685A9
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF810/820_PCL685A9
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonD570_PCL6B4D3
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonD570_PCL6B4D3
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonD570_PCL6B4D3
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP1127C_/_C112E976
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP1127C_/_C112E976
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP1127C_/_C112E976
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP1238_/_1238P9DD0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP1238_/_1238P9DD0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP1238_/_1238P9DD0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP162_PCL626B2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP162_PCL626B2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP162_PCL626B2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP211/212_PCL615AB
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP211/212_PCL615AB
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP211/212_PCL615AB
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP213_PCL62287
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP213_PCL62287
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP213_PCL62287
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP214_PCL69586
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP214_PCL69586
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP214_PCL69586
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP215_PCL68706
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP215_PCL68706
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP215_PCL68706
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP228_PCL659B7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP228_PCL659B7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP228_PCL659B7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP227_PCL6A6B7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP227_PCL6A6B7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP227_PCL6A6B7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP226_PCL6B717
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP226_PCL6B717
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP226_PCL6B717
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP225_PCL68737
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP225_PCL68737
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP225_PCL68737
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP223_PCL622B6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP223_PCL622B6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP223_PCL622B6
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP222_PCL63316
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP222_PCL63316
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP222_PCL63316
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP251_PCL600C1
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP251_PCL600C1
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP251_PCL600C1
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP8750_PCL681AF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP8750_PCL681AF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP8750_PCL681AF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP6650/3470_(PCC21
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP6650/3470_(PCC21
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP6650/3470_(PCC21
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP252_PCL6F360
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP252_PCL6F360
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP252_PCL6F360
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP253_PCL6E2C0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP253_PCL6E2C0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP253_PCL6E2C0
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP311/312_PCL67A8E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP311/312_PCL67A8E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP311/312_PCL67A8E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP324/325_PCL67BA2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP324/325_PCL67BA2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP324/325_PCL67BA2
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR1643P_PCL6F4FF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR1643P_PCL6F4FF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR1643P_PCL6F4FF
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP613C_PCL6CA0E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP613C_PCL6CA0E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP613C_PCL6CA0E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP623C_PCL6DF4E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP623C_PCL6DF4E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP623C_PCL6DF4E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP653C/654C_PCA610
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP653C/654C_PCA610
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP653C/654C_PCA610
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP663C_PCL62C4F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP663C_PCL62C4F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP663C_PCL62C4F
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP664C_PCL6EC39
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP664C_PCL6EC39
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP664C_PCL6EC39
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF540_Series_PCA943
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF540_Series_PCA943
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF540_Series_PCA943
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanoniR1643i_PCL69DFA
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanoniR1643i_PCL69DFA
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanoniR1643i_PCL69DFA
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF633C/635C_PCL4448
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF633C/635C_PCL4448
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF633C/635C_PCL4448
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF643C_PCL6AA6A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF643C_PCL6AA6A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF643C_PCL6AA6A
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF645C_PCL6AA0C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF645C_PCL6AA0C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF645C_PCL6AA0C
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP6670_PCL6EF03
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP6670_PCL6EF03
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP6670_PCL6EF03
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP6680/3480_PCA436
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP6680/3480_PCA436
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP6680/3480_PCA436
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP6750/3560_PCFAF7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP6750/3560_PCFAF7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP6750/3560_PCFAF7
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP6780/3580_PCE9F5
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP6780/3580_PCE9F5
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP6780/3580_PCE9F5
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP8780_PCL64173
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP8780_PCL64173
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP8780_PCL64173
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP8900_PCL60F7B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP8900_PCL60F7B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP8900_PCL60F7B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP351/352_PCL68ADE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP351/352_PCL68ADE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP351/352_PCL68ADE
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP7660C_PCL6603B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP7660C_PCL6603B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP7660C_PCL6603B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP7680C/5280_PAFCC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP7680C/5280_PAFCC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP7680C/5280_PAFCC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP843C/841C_PC861E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP843C/841C_PC861E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP843C/841C_PC861E
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP852C_PCL69953
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP852C_PCL69953
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP852C_PCL69953
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP853C_PCL65941
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP853C_PCL65941
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP853C_PCL65941
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP710C_PCL6B831
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP710C_PCL6B831
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP710C_PCL6B831
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP7780C/5480_P87CD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP7780C/5480_P87CD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP7780C/5480_P87CD
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP712C_PCL67812
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP712C_PCL67812
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP712C_PCL67812
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonLBP9950C/9900C_BA00
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonLBP9950C/9900C_BA00
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonLBP9950C/9900C_BA00
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF732C/734C/735434B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF732C/734C/735434B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF732C/734C/735434B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF742C/744C_PCL759B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF742C/744C_PCL759B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF742C/744C_PCL759B
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,USBPRINT\CanonMF745C/746C_PCLBFCC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,WSDPRINT\CanonMF745C/746C_PCLBFCC
+"Canon Generic Plus PCL6"               = GPPCL_AWARE,CanonMF745C/746C_PCLBFCC
+"{A2D6DA3B-3DFC-4E3E-B0FC-9F3763EBB25F}"= {A2D6DA3B-3DFC-4E3E-B0FC-9F3763EBB25F},{A2D6DA3B-3DFC-4E3E-B0FC-9F3763EBB25F}
+"{C962F45E-2FFE-4D54-A5EC-A3A2C2D29034}"= {C962F45E-2FFE-4D54-A5EC-A3A2C2D29034},{C962F45E-2FFE-4D54-A5EC-A3A2C2D29034}
+"{6F18B3CF-6298-4284-8D8A-4F2939ACA1D8}"= {6F18B3CF-6298-4284-8D8A-4F2939ACA1D8},{6F18B3CF-6298-4284-8D8A-4F2939ACA1D8}
+"{C44E8001-5189-487b-9CCE-47AE6EC06F72}"= {C44E8001-5189-487b-9CCE-47AE6EC06F72},{C44E8001-5189-487b-9CCE-47AE6EC06F72}
+"{035F24A5-299C-4888-B8CD-254224C8768B}"= {035F24A5-299C-4888-B8CD-254224C8768B},{035F24A5-299C-4888-B8CD-254224C8768B}
+"{184E31DF-D735-4740-9E77-C17AE1A45398}"= {184E31DF-D735-4740-9E77-C17AE1A45398},{184E31DF-D735-4740-9E77-C17AE1A45398}
+"{CB3BB28E-F208-47bd-8353-4338FF881CE8}"= {CB3BB28E-F208-47bd-8353-4338FF881CE8},{CB3BB28E-F208-47bd-8353-4338FF881CE8}
+"{36800145-1192-4547-9CE7-3FA0B58BB39B}"= {36800145-1192-4547-9CE7-3FA0B58BB39B},{36800145-1192-4547-9CE7-3FA0B58BB39B}
+"{D18B0ED0-9131-41cb-8EE1-EA666D5EA20B}"= {D18B0ED0-9131-41cb-8EE1-EA666D5EA20B},{D18B0ED0-9131-41cb-8EE1-EA666D5EA20B}
+"{7EF6B681-31B3-46ca-A977-E3715E003325}"= {7EF6B681-31B3-46ca-A977-E3715E003325},{7EF6B681-31B3-46ca-A977-E3715E003325}
+"{8DA37973-A074-45f1-8D97-80CBF2C645BE}"= {8DA37973-A074-45f1-8D97-80CBF2C645BE},{8DA37973-A074-45f1-8D97-80CBF2C645BE}
+"{BFD818AB-3B9F-46ad-94C6-3F6572B8D397}"= {BFD818AB-3B9F-46ad-94C6-3F6572B8D397},{BFD818AB-3B9F-46ad-94C6-3F6572B8D397}
+"{680EB0E0-9652-436b-ABA0-DA77B26757FC}"= {680EB0E0-9652-436b-ABA0-DA77B26757FC},{680EB0E0-9652-436b-ABA0-DA77B26757FC}
+"{58E2F75D-7EA1-4d63-BC2D-602B39E73C99}"= {58E2F75D-7EA1-4d63-BC2D-602B39E73C99},{58E2F75D-7EA1-4d63-BC2D-602B39E73C99}
+"{198FFA29-8574-4adc-A8C3-D1C07B07ADF5}"= {198FFA29-8574-4adc-A8C3-D1C07B07ADF5},{198FFA29-8574-4adc-A8C3-D1C07B07ADF5}
+"{47483FB5-7A9C-406c-92C0-EC1950627A14}"= {47483FB5-7A9C-406c-92C0-EC1950627A14},{47483FB5-7A9C-406c-92C0-EC1950627A14}
+"{94214C24-8C9A-41de-83FB-9FE9073E0A9D}"= {94214C24-8C9A-41de-83FB-9FE9073E0A9D},{94214C24-8C9A-41de-83FB-9FE9073E0A9D}
+"{4DFC46F0-4AE9-45a2-A100-728A445C8ED5}"= {4DFC46F0-4AE9-45a2-A100-728A445C8ED5},{4DFC46F0-4AE9-45a2-A100-728A445C8ED5}
+"{EB847A6C-A82E-4439-BBBA-9031EEA4D4C4}"= {EB847A6C-A82E-4439-BBBA-9031EEA4D4C4},{EB847A6C-A82E-4439-BBBA-9031EEA4D4C4}
+"{69335A34-4244-4214-B2B9-3841A3A3511B}"= {69335A34-4244-4214-B2B9-3841A3A3511B},{69335A34-4244-4214-B2B9-3841A3A3511B}
+"{30056F06-287D-44df-B104-04FDB39BA915}"= {30056F06-287D-44df-B104-04FDB39BA915},{30056F06-287D-44df-B104-04FDB39BA915}
+"{3B435CC3-B5D1-4538-BE4F-B5D0EFAFB63F}"= {3B435CC3-B5D1-4538-BE4F-B5D0EFAFB63F},{3B435CC3-B5D1-4538-BE4F-B5D0EFAFB63F}
+"{8D2959FB-7A14-41e2-9CE1-28A75DBC7C1F}"= {8D2959FB-7A14-41e2-9CE1-28A75DBC7C1F},{8D2959FB-7A14-41e2-9CE1-28A75DBC7C1F}
+"{EABE4D67-D1B0-4c34-A53F-3DA804EEE8B3}"= {EABE4D67-D1B0-4c34-A53F-3DA804EEE8B3},{EABE4D67-D1B0-4c34-A53F-3DA804EEE8B3}
+"{B44A8AAF-5DB2-4e80-A2D1-739C0FB0D78A}"= {B44A8AAF-5DB2-4e80-A2D1-739C0FB0D78A},{B44A8AAF-5DB2-4e80-A2D1-739C0FB0D78A}
+"{636B9511-AE92-49cd-9C8A-AEC011911D11}"= {636B9511-AE92-49cd-9C8A-AEC011911D11},{636B9511-AE92-49cd-9C8A-AEC011911D11}
+"{B3440C63-D1E4-4f6c-90AE-495FD770F3CA}"= {B3440C63-D1E4-4f6c-90AE-495FD770F3CA},{B3440C63-D1E4-4f6c-90AE-495FD770F3CA}
+"{9EE6E200-BCC0-47f5-A3AC-0142A668B0CD}"= {9EE6E200-BCC0-47f5-A3AC-0142A668B0CD},{9EE6E200-BCC0-47f5-A3AC-0142A668B0CD}
+"{915ED2AE-E944-4cab-9F93-7B69295FB345}"= {915ED2AE-E944-4cab-9F93-7B69295FB345},{915ED2AE-E944-4cab-9F93-7B69295FB345}
+"{A5BCA2D0-2F12-4EF2-96C4-F1672CF0A877}"= {A5BCA2D0-2F12-4EF2-96C4-F1672CF0A877},{A5BCA2D0-2F12-4EF2-96C4-F1672CF0A877}
+"{8B79264B-FCA9-4d7f-9419-36E95EE4CCDD}"= {8B79264B-FCA9-4d7f-9419-36E95EE4CCDD},{8B79264B-FCA9-4d7f-9419-36E95EE4CCDD}
+"{07E93934-7F1A-453b-BA65-AF7F8FA6F822}"= {07E93934-7F1A-453b-BA65-AF7F8FA6F822},{07E93934-7F1A-453b-BA65-AF7F8FA6F822}
+"{66BD9E3B-DD80-4314-A9BB-5B4073EEF0AB}"= {66BD9E3B-DD80-4314-A9BB-5B4073EEF0AB},{66BD9E3B-DD80-4314-A9BB-5B4073EEF0AB}
+"{A1AB4250-6ADE-4E78-8AD4-E35A9D338394}"= {A1AB4250-6ADE-4E78-8AD4-E35A9D338394},{A1AB4250-6ADE-4E78-8AD4-E35A9D338394}
+"{6555E641-AC9F-4040-B163-77A150A108D3}"= {6555E641-AC9F-4040-B163-77A150A108D3},{6555E641-AC9F-4040-B163-77A150A108D3}
+"{F1719F46-241E-4E26-B78A-019495420A47}"= {F1719F46-241E-4E26-B78A-019495420A47},{F1719F46-241E-4E26-B78A-019495420A47}
+"{68A71D60-A620-45FF-B88B-5DCEB6159F92}"= {68A71D60-A620-45FF-B88B-5DCEB6159F92},{68A71D60-A620-45FF-B88B-5DCEB6159F92}
+"{F9B41B80-05D2-42ea-B603-D71B4ED5C29E}"= {F9B41B80-05D2-42ea-B603-D71B4ED5C29E},{F9B41B80-05D2-42ea-B603-D71B4ED5C29E}
+"{A60784CE-444E-4de5-92DE-2A9CE6DBE6A6}"= {A60784CE-444E-4de5-92DE-2A9CE6DBE6A6},{A60784CE-444E-4de5-92DE-2A9CE6DBE6A6}
+"{42516E91-F449-4354-9E1E-4B05FB2DA7F1}"= {42516E91-F449-4354-9E1E-4B05FB2DA7F1},{42516E91-F449-4354-9E1E-4B05FB2DA7F1}
+"{D6430A4D-886E-4448-AB67-879447882F24}"= {D6430A4D-886E-4448-AB67-879447882F24},{D6430A4D-886E-4448-AB67-879447882F24}
+"{0907C2F4-745A-4f7a-A7D5-862E00688973}"= {0907C2F4-745A-4f7a-A7D5-862E00688973},{0907C2F4-745A-4f7a-A7D5-862E00688973}
+"{2A5EFDCE-BBB3-4c90-94FE-284C09999B45}"= {2A5EFDCE-BBB3-4c90-94FE-284C09999B45},{2A5EFDCE-BBB3-4c90-94FE-284C09999B45}
+"{F3ACFF28-3FD5-4e9d-B7E4-F3EC0C35C96F}"= {F3ACFF28-3FD5-4e9d-B7E4-F3EC0C35C96F},{F3ACFF28-3FD5-4e9d-B7E4-F3EC0C35C96F}
+"{C8B09453-90BE-4b0f-BA98-9A89F8BADA65}"= {C8B09453-90BE-4b0f-BA98-9A89F8BADA65},{C8B09453-90BE-4b0f-BA98-9A89F8BADA65}
+"{2022415B-A9C7-4230-9533-EF2011388AAD}"= {2022415B-A9C7-4230-9533-EF2011388AAD},{2022415B-A9C7-4230-9533-EF2011388AAD}
+"{50A79BF2-F21F-4f50-AECD-78930D20AEF0}"= {50A79BF2-F21F-4f50-AECD-78930D20AEF0},{50A79BF2-F21F-4f50-AECD-78930D20AEF0}
+"{1829FC9E-7F77-462e-80E3-12F3DA06C26D}"= {1829FC9E-7F77-462e-80E3-12F3DA06C26D},{1829FC9E-7F77-462e-80E3-12F3DA06C26D}
+"{E074BD54-6308-404e-A40E-FEF4FF95EB90}"= {E074BD54-6308-404e-A40E-FEF4FF95EB90},{E074BD54-6308-404e-A40E-FEF4FF95EB90}
+"{31AB3457-0E20-4e0d-8D16-43DE2E042354}"= {31AB3457-0E20-4e0d-8D16-43DE2E042354},{31AB3457-0E20-4e0d-8D16-43DE2E042354}
+"{49E8FC33-D6E7-4a8d-AB8A-E653FD2509F5}"= {49E8FC33-D6E7-4a8d-AB8A-E653FD2509F5},{49E8FC33-D6E7-4a8d-AB8A-E653FD2509F5}
+"{2261EE74-4515-4310-B5BA-F96323801918}"= {2261EE74-4515-4310-B5BA-F96323801918},{2261EE74-4515-4310-B5BA-F96323801918}
+"{E5EA8D0F-878E-4311-B9E8-A8A616B3C131}"= {E5EA8D0F-878E-4311-B9E8-A8A616B3C131},{E5EA8D0F-878E-4311-B9E8-A8A616B3C131}
+"{B3D72E2D-DDCB-466b-821E-FCDDC4C7DEC8}"= {B3D72E2D-DDCB-466b-821E-FCDDC4C7DEC8},{B3D72E2D-DDCB-466b-821E-FCDDC4C7DEC8}
+"{22AD6545-7E8F-4381-822C-99B6F80813B5}"= {22AD6545-7E8F-4381-822C-99B6F80813B5},{22AD6545-7E8F-4381-822C-99B6F80813B5}
+"{A57D9BD9-2A44-4c70-B7C0-F6AD111D16CB}"= {A57D9BD9-2A44-4c70-B7C0-F6AD111D16CB},{A57D9BD9-2A44-4c70-B7C0-F6AD111D16CB}
+"{3F2E4E1B-B493-4ce4-BA16-B65F21EA6433}"= {3F2E4E1B-B493-4ce4-BA16-B65F21EA6433},{3F2E4E1B-B493-4ce4-BA16-B65F21EA6433}
+"{A37A1154-F170-43a5-BC59-D3DE3194FC4C}"= {A37A1154-F170-43a5-BC59-D3DE3194FC4C},{A37A1154-F170-43a5-BC59-D3DE3194FC4C}
+"{FFC71663-9C34-4276-B24F-E5F1F07748CA}"= {FFC71663-9C34-4276-B24F-E5F1F07748CA},{FFC71663-9C34-4276-B24F-E5F1F07748CA}
+"{C8C27F68-24A2-42af-81D8-0CFA290F0FD5}"= {C8C27F68-24A2-42af-81D8-0CFA290F0FD5},{C8C27F68-24A2-42af-81D8-0CFA290F0FD5}
+"{C60E75C8-ABDD-4513-863C-B33A6FD60DA0}"= {C60E75C8-ABDD-4513-863C-B33A6FD60DA0},{C60E75C8-ABDD-4513-863C-B33A6FD60DA0}
+"{B5B9ACA2-7FB5-4a17-AB58-C9EB25ECB185}"= {B5B9ACA2-7FB5-4a17-AB58-C9EB25ECB185},{B5B9ACA2-7FB5-4a17-AB58-C9EB25ECB185}
+"{7685D38D-889B-479d-A737-1F96674C4220}"= {7685D38D-889B-479d-A737-1F96674C4220},{7685D38D-889B-479d-A737-1F96674C4220}
+"{8993447E-0DA9-48fd-B91E-C7FF7E9B0D3B}"= {8993447E-0DA9-48fd-B91E-C7FF7E9B0D3B},{8993447E-0DA9-48fd-B91E-C7FF7E9B0D3B}
+"{AE983F91-4756-437c-BB78-6FF41C122DF5}"= {AE983F91-4756-437c-BB78-6FF41C122DF5},{AE983F91-4756-437c-BB78-6FF41C122DF5}
+"{571F3082-4E22-41cf-A56D-CBFC8216E417}"= {571F3082-4E22-41cf-A56D-CBFC8216E417},{571F3082-4E22-41cf-A56D-CBFC8216E417}
+"{40FAEF77-3196-47f5-BC3E-1FD3C32FBF9D}"= {40FAEF77-3196-47f5-BC3E-1FD3C32FBF9D},{40FAEF77-3196-47f5-BC3E-1FD3C32FBF9D}
+"{EC834BC3-1F62-468f-98B0-C520FB0DA064}"= {EC834BC3-1F62-468f-98B0-C520FB0DA064},{EC834BC3-1F62-468f-98B0-C520FB0DA064}
+"{73045D6D-ED67-497c-8E43-77103CBEAE8E}"= {73045D6D-ED67-497c-8E43-77103CBEAE8E},{73045D6D-ED67-497c-8E43-77103CBEAE8E}
+"{0155544A-1772-4668-BD55-240A62521160}"= {0155544A-1772-4668-BD55-240A62521160},{0155544A-1772-4668-BD55-240A62521160}
+
+;32-bit x86
+[Canon]
+"Canon Generic Plus PCL6"               = GPPCL,,1284_CID_CA_PCL6_COLOR_OIP
+"Canon Generic Plus PCL6"               = GPPCL,,1284_CID_CA_PCL6_BW_OIP
+"Canon Generic Plus PCL6"               = GPPCL,CanonGeneric_V3_PrinC2DB
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonGeneric_Plus_PCB22D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\Canoni-SENSYS_X_1643A225
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR2520_(PCL6)EF91
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR2525/2530_(PCEDE0
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR1133_PCL686E1
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR1435_PCL61CA0
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR2006/2206_PCLF6AE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR2425_PCL62CA4
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR2535/2545_(PC6085
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR1730/1740/175A36B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR_C1028/C1030_C034
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR_C1225_PCL6E29F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR_C1325/1335_P924A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR_C3120_PCL6C2C4
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR_C3125_PCL697C4
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR2635/2645_PCL70E8
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR2625/2630_PCLE6C0
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4025/403A243
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4045_PCL939C
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4225/423E044
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4245_PCL8ABC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4525/453988F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4525/453C9DD
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4545_PCLAC5C
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_400/500_DE3F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4045/4058E54
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4245/425AC52
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4545_III81A4
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4545/455D561
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4545/4558E00
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4725/473C3A8
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4745/4758F66
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_4745_PCL75DD
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_525_PCL69573
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_525_III_5A7C
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_527_PCL6B6F3
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6000_PCL66C0
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6000i_PC33BE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6055/606CF78
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6055/606C9D2
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_615_PCL68202
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_615_III_BAD7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_617_PCL66203
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6255/62689FE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6255/6269B53
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6555/656F135
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6555/656CD28
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6555_III5939
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6565_III79A8
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6565_III5A3A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6560_PCL3967
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6560_III69B8
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6075_(PCECCC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6075-U1_DEF0
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6275_PCLEA96
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6275-U2_B7FA
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonCanon_iR-ADV_65FAC4
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6575_PCLCC76
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6575_III87AC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonCanon_iR-ADV_656668
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6575_III9B3A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6755/67688B2
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6755-Y3_8084
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6765_PCLB5E6
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6765-Y3_8D76
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6780_PCL4208
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6780-Y3_2828
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_6860/68778E2
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_715_PCL64CC3
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_715_III_D98A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_717_PCL6AEC2
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8085/809BEFC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8285/829F4AF
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8585/8593465
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8585/8594828
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8585_III30C8
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8595_III31B1
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8000s-U1F284
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8105_(PC300E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8200s-U2067D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8205_PCL4AAC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonCanon_iR-ADV_85D552
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8505_PCL6C4C
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8505_III7FA0
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonCanon_iR-ADV_85EABC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8505_III38B8
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8705_PCLB5CD
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8705-Y3_477F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8786/87953ED
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8786-Y3_9F4B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_8795-Y3_6AAF
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3320_PC3D56
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3320L_P6862
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3320/332295
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3525/35C2AC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3525/355EF6
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3520_PCD657
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3520_IIBEFE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3520/350EBD
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3520/355D33
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C2025_PC0F1A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C2225_PC171A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C2020/201DD6
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C2020i/2217F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C2020L/2A7F5
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C2218_PC73A8
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C2220/228450
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C257/357A323
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR_C3000_Series6054
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3325/33EE86
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C250/350CE93
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C350_PCL21AC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C351_PCLF0AD
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C255/3554BFA
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C256/35676F2
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C256/35650DC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C355_PCLB52D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C356_PCL850D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C356_IIID764
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C357_PCL96AD
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3720/378C1B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3720_PC0EF6
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C3725/37998B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C475_IIICBE9
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C477_PCLB0CF
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5030/509B7A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5235/5206E1
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5535/55A7AB
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5535/5535E7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5535_IICD9F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5540_II0F95
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5000s-B5CAF
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5045/50CA79
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5200s-BA856
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5250/52B5E9
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5500s-P5191
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5550/55A391
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5550/552CAA
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5550_IICE95
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5560_IICD96
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C568/4784593
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5735/573C2D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5735-P21702
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5740-P2C674
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5750/57E196
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5750-P2C35C
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5760-P2CCAC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5840/5814F5
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5840-R17B67
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5850-R17E4F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5860/58B357
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5860-R171BF
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C5870-R1B4EE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7000s-A1E9B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7055/7011C5
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7500s-N1268
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7565_PC40A1
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7565_IIF8F4
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7565_IIC8FC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7260/7204D4
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C9000s-A908D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C9060/9034B7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C9065_(PE9A7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C9065/900E7B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C9075_(PC1AB
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7200s-AEA62
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7280_PC310F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7580/751276
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7580/75BFCC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7570_II6CE9
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7580_II63E6
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7765_PC9B20
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7765-N26095
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7770-N277FB
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7780/775071
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C7780-N2844A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C9200s-A6474
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR-ADV_C9270/92EBCF
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_Server_J100670D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_Server_K100278E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR1110/1125/114E9D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C165_PCL69A4D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C165-M10_PC7CEB
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C170_PCL6CFFC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C170-M10_PCB2DD
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonCanon_iPR_C60-G87B6
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C600_PCL6296A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonCanon_iPR_C600-E0B3
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C6010_PCL6476D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C6010VP_PCL889D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C65-G100_PC5FF1
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C65-G200_PC8A10
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C650_PCL6293F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C650-G100_P7289
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C650-G200_P67C9
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C7010VP_PCLCC98
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C700/800_PC5723
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonCanon_iPR_C700/9FAE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C710/810/9120BC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C710-G250_P916E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C710CA-G250387D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C750_PCL6E5FE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C810-G250_P54DB
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C850_PCL665C7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C750/850-G17F8E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C750/850-G26ACE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniPR_C910-G250_P1F78
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonD1600_Series_PC0AB7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF1127C_/_C11271E77
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF1238_/_1238iFBB83
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF230_Series_PC4E22
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF240_Series_PC4905
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF260_Series_PC4B7D
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF410_Series_PCF687
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF420_Series_PC4D85
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF440_Series_PC4B83
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF510_Series_PCD5C6
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF520_Series_PC6F3E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF720C_Series_P11D7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF9200_Series_P2771
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF810/820_PCL685A9
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonD570_PCL6B4D3
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP1127C_/_C112E976
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP1238_/_1238P9DD0
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP162_PCL626B2
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP211/212_PCL615AB
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP213_PCL62287
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP214_PCL69586
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP215_PCL68706
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP228_PCL659B7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP227_PCL6A6B7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP226_PCL6B717
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP225_PCL68737
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP223_PCL622B6
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP222_PCL63316
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP251_PCL600C1
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP8750_PCL681AF
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP6650/3470_(PCC21
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP252_PCL6F360
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP253_PCL6E2C0
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP311/312_PCL67A8E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP324/325_PCL67BA2
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR1643P_PCL6F4FF
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP613C_PCL6CA0E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP623C_PCL6DF4E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP653C/654C_PCA610
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP663C_PCL62C4F
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP664C_PCL6EC39
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF540_Series_PCA943
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanoniR1643i_PCL69DFA
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF633C/635C_PCL4448
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF643C_PCL6AA6A
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF645C_PCL6AA0C
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP6670_PCL6EF03
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP6680/3480_PCA436
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP6750/3560_PCFAF7
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP6780/3580_PCE9F5
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP8780_PCL64173
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP8900_PCL60F7B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP351/352_PCL68ADE
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP7660C_PCL6603B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP7680C/5280_PAFCC
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP843C/841C_PC861E
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP852C_PCL69953
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP853C_PCL65941
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP710C_PCL6B831
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP7780C/5480_P87CD
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP712C_PCL67812
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonLBP9950C/9900C_BA00
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF732C/734C/735434B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF742C/744C_PCL759B
+"Canon Generic Plus PCL6"               = GPPCL,USBPRINT\CanonMF745C/746C_PCLBFCC
+
+[GPPCL_AWARE]
+CopyFiles=GPPCL_FILES
+DataFile=Cnp61M.XPD
+DriverFile=Cnp60M_D69BE.DLL
+ConfigFile=Cnp60MUI_D69BE.DLL
+LanguageMonitor=%NS_LMON4_CPCA%
+PrintProcessor=%PP_NAME%
+AddReg=GPPCLREG
+CoreDriverSections="{A2D6DA3B-3DFC-4E3E-B0FC-9F3763EBB25F},CORE_COMMON_PCOM_CORE","{C962F45E-2FFE-4D54-A5EC-A3A2C2D29034},CORE_COMMON_PCOM_ML_COMMON","{6F18B3CF-6298-4284-8D8A-4F2939ACA1D8},CORE_COMMON_PCOM_ML_LANG_EN","{C44E8001-5189-487b-9CCE-47AE6EC06F72},CORE_COMMON_PCOM_ML_LANG_AR","{035F24A5-299C-4888-B8CD-254224C8768B},CORE_COMMON_PCOM_ML_LANG_EU","{184E31DF-D735-4740-9E77-C17AE1A45398},CORE_COMMON_PCOM_ML_LANG_CA","{CB3BB28E-F208-47bd-8353-4338FF881CE8},CORE_COMMON_PCOM_ML_LANG_CS","{36800145-1192-4547-9CE7-3FA0B58BB39B},CORE_COMMON_PCOM_ML_LANG_DA","{D18B0ED0-9131-41cb-8EE1-EA666D5EA20B},CORE_COMMON_PCOM_ML_LANG_NL","{7EF6B681-31B3-46ca-A977-E3715E003325},CORE_COMMON_PCOM_ML_LANG_FI","{8DA37973-A074-45f1-8D97-80CBF2C645BE},CORE_COMMON_PCOM_ML_LANG_FR","{BFD818AB-3B9F-46ad-94C6-3F6572B8D397},CORE_COMMON_PCOM_ML_LANG_DE","{680EB0E0-9652-436b-ABA0-DA77B26757FC},CORE_COMMON_PCOM_ML_LANG_HU","{58E2F75D-7EA1-4d63-BC2D-602B39E73C99},CORE_COMMON_PCOM_ML_LANG_IT","{198FFA29-8574-4adc-A8C3-D1C07B07ADF5},CORE_COMMON_PCOM_ML_LANG_KO","{47483FB5-7A9C-406c-92C0-EC1950627A14},CORE_COMMON_PCOM_ML_LANG_MS","{94214C24-8C9A-41de-83FB-9FE9073E0A9D},CORE_COMMON_PCOM_ML_LANG_NB","{4DFC46F0-4AE9-45a2-A100-728A445C8ED5},CORE_COMMON_PCOM_ML_LANG_PL","{EB847A6C-A82E-4439-BBBA-9031EEA4D4C4},CORE_COMMON_PCOM_ML_LANG_PT","{69335A34-4244-4214-B2B9-3841A3A3511B},CORE_COMMON_PCOM_ML_LANG_RU","{30056F06-287D-44df-B104-04FDB39BA915},CORE_COMMON_PCOM_ML_LANG_ZH-CN","{3B435CC3-B5D1-4538-BE4F-B5D0EFAFB63F},CORE_COMMON_PCOM_ML_LANG_ZH-TW","{8D2959FB-7A14-41e2-9CE1-28A75DBC7C1F},CORE_COMMON_PCOM_ML_LANG_SK","{EABE4D67-D1B0-4c34-A53F-3DA804EEE8B3},CORE_COMMON_PCOM_ML_LANG_ES","{B44A8AAF-5DB2-4e80-A2D1-739C0FB0D78A},CORE_COMMON_PCOM_ML_LANG_SV","{636B9511-AE92-49cd-9C8A-AEC011911D11},CORE_COMMON_PCOM_ML_LANG_TH","{B3440C63-D1E4-4f6c-90AE-495FD770F3CA},CORE_COMMON_PCOM_ML_LANG_TR","{9EE6E200-BCC0-47f5-A3AC-0142A668B0CD},CORE_COMMON_PCOM_ML_LANG_UK","{915ED2AE-E944-4cab-9F93-7B69295FB345},CORE_COMMON_PCOM_ML_LANG_VI","{A5BCA2D0-2F12-4EF2-96C4-F1672CF0A877},CORE_COMMON_COLOR_PRF","{8B79264B-FCA9-4d7f-9419-36E95EE4CCDD},CORE_COMMON_COLOR_CF","{07E93934-7F1A-453b-BA65-AF7F8FA6F822},CORE_COMMON_COLOR_CP","{66BD9E3B-DD80-4314-A9BB-5B4073EEF0AB},CORE_COMMON_COLOR_TN","{A1AB4250-6ADE-4E78-8AD4-E35A9D338394},CORE_COMMON_COLOR_HS","{6555E641-AC9F-4040-B163-77A150A108D3},CORE_COMMON_CG3RN","{F1719F46-241E-4E26-B78A-019495420A47},CORE_COMMON_DIAS","{68A71D60-A620-45FF-B88B-5DCEB6159F92},CORE_COMMON_LOGMSG","{F9B41B80-05D2-42ea-B603-D71B4ED5C29E},RELATED_COMMON_GP_BIDI_EXT","{A60784CE-444E-4de5-92DE-2A9CE6DBE6A6},RELATED_COMMON_GP_CONFIG","{42516E91-F449-4354-9E1E-4B05FB2DA7F1},CORE_COMMON_ADDIN_COMMON","{D6430A4D-886E-4448-AB67-879447882F24},CORE_COMMON_OPP","{0907C2F4-745A-4f7a-A7D5-862E00688973},CORE_COMMON_ESP_ADDIN_ML_CORE","{2A5EFDCE-BBB3-4c90-94FE-284C09999B45},CORE_COMMON_ESP_ADDIN_ML_2_EN","{F3ACFF28-3FD5-4e9d-B7E4-F3EC0C35C96F},CORE_COMMON_ESP_ADDIN_ML_2_FR","{C8B09453-90BE-4b0f-BA98-9A89F8BADA65},CORE_COMMON_ESP_ADDIN_ML_2_IT","{2022415B-A9C7-4230-9533-EF2011388AAD},CORE_COMMON_ESP_ADDIN_ML_2_DE","{50A79BF2-F21F-4f50-AECD-78930D20AEF0},CORE_COMMON_ESP_ADDIN_ML_2_ES","{1829FC9E-7F77-462e-80E3-12F3DA06C26D},CORE_COMMON_ESP_ADDIN_ML_2_KR","{E074BD54-6308-404e-A40E-FEF4FF95EB90},CORE_COMMON_ESP_ADDIN_ML_2_SC","{31AB3457-0E20-4e0d-8D16-43DE2E042354},CORE_COMMON_ESP_ADDIN_ML_2_TC","{49E8FC33-D6E7-4a8d-AB8A-E653FD2509F5},CORE_COMMON_AMS_ADDIN_ML_CORE","{2261EE74-4515-4310-B5BA-F96323801918},CORE_COMMON_AMS_ADDIN_ML_2_EN","{E5EA8D0F-878E-4311-B9E8-A8A616B3C131},CORE_COMMON_AMS_ADDIN_ML_2_FR","{B3D72E2D-DDCB-466b-821E-FCDDC4C7DEC8},CORE_COMMON_AMS_ADDIN_ML_2_IT","{22AD6545-7E8F-4381-822C-99B6F80813B5},CORE_COMMON_AMS_ADDIN_ML_2_DE","{A57D9BD9-2A44-4c70-B7C0-F6AD111D16CB},CORE_COMMON_AMS_ADDIN_ML_2_ES","{3F2E4E1B-B493-4ce4-BA16-B65F21EA6433},CORE_COMMON_AMS_ADDIN_ML_2_KR","{A37A1154-F170-43a5-BC59-D3DE3194FC4C},CORE_COMMON_AMS_ADDIN_ML_2_SC","{FFC71663-9C34-4276-B24F-E5F1F07748CA},CORE_COMMON_AMS_ADDIN_ML_2_TC","{C8C27F68-24A2-42af-81D8-0CFA290F0FD5},RELATED_PCLXL_COLOR","{C60E75C8-ABDD-4513-863C-B33A6FD60DA0},RELATED_COMMON_PRF_A","{B5B9ACA2-7FB5-4a17-AB58-C9EB25ECB185},RELATED_COMMON_PRF_J","{7685D38D-889B-479d-A737-1F96674C4220},RELATED_COMMON_PRF_B_DRV","{8993447E-0DA9-48fd-B91E-C7FF7E9B0D3B},RELATED_COMMON_PRF_C_DRV","{AE983F91-4756-437c-BB78-6FF41C122DF5},RELATED_COMMON_PRF_E_DRV","{571F3082-4E22-41cf-A56D-CBFC8216E417},RELATED_COMMON_PRF_H_DRV","{40FAEF77-3196-47f5-BC3E-1FD3C32FBF9D},RELATED_COMMON_LM4","{EC834BC3-1F62-468f-98B0-C520FB0DA064},RELATED_COMMON_PRF_L","{73045D6D-ED67-497c-8E43-77103CBEAE8E},RELATED_COMMON_PRF_M","{0155544A-1772-4668-BD55-240A62521160},RELATED_COMMON_PRF_N"
+
+[{A2D6DA3B-3DFC-4E3E-B0FC-9F3763EBB25F}]
+DriverVer=01/15/2021,5.10.3.1
+CopyFiles=CORE_COMMON_PCOM_CORE_FILES
+
+[CORE_COMMON_PCOM_CORE]
+CopyFiles=CORE_COMMON_PCOM_CORE_FILES
+
+[CORE_COMMON_PCOM_CORE_FILES]
+CPC10S.DLL
+CPC10D.EXE
+CPC10Q.EXE
+CPC10E.DLL
+CPC10V.EXE
+
+[{C962F45E-2FFE-4D54-A5EC-A3A2C2D29034}]
+DriverVer=07/22/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_COMMON_FILES
+
+[CORE_COMMON_PCOM_ML_COMMON]
+CopyFiles=CORE_COMMON_PCOM_ML_COMMON_FILES
+
+[CORE_COMMON_PCOM_ML_COMMON_FILES]
+CPC10R.DLL
+
+[{6F18B3CF-6298-4284-8D8A-4F2939ACA1D8}]
+DriverVer=07/22/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_EN_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_EN]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_EN_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_EN_FILES]
+CPC1en-US.DLL
+
+[{C44E8001-5189-487b-9CCE-47AE6EC06F72}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_AR_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_AR]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_AR_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_AR_FILES]
+CPC1ar-SA.DLL
+
+[{035F24A5-299C-4888-B8CD-254224C8768B}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_EU_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_EU]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_EU_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_EU_FILES]
+CPC1eu-ES.DLL
+
+[{184E31DF-D735-4740-9E77-C17AE1A45398}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_CA_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_CA]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_CA_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_CA_FILES]
+CPC1ca-ES.DLL
+
+[{CB3BB28E-F208-47bd-8353-4338FF881CE8}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_CS_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_CS]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_CS_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_CS_FILES]
+CPC1cs-CZ.DLL
+
+[{36800145-1192-4547-9CE7-3FA0B58BB39B}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_DA_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_DA]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_DA_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_DA_FILES]
+CPC1da-DK.DLL
+
+[{D18B0ED0-9131-41cb-8EE1-EA666D5EA20B}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_NL_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_NL]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_NL_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_NL_FILES]
+CPC1nl-NL.DLL
+
+[{7EF6B681-31B3-46ca-A977-E3715E003325}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_FI_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_FI]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_FI_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_FI_FILES]
+CPC1fi-FI.DLL
+
+[{8DA37973-A074-45f1-8D97-80CBF2C645BE}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_FR_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_FR]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_FR_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_FR_FILES]
+CPC1fr-FR.DLL
+
+[{BFD818AB-3B9F-46ad-94C6-3F6572B8D397}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_DE_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_DE]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_DE_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_DE_FILES]
+CPC1de-DE.DLL
+
+[{680EB0E0-9652-436b-ABA0-DA77B26757FC}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_HU_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_HU]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_HU_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_HU_FILES]
+CPC1hu-HU.DLL
+
+[{58E2F75D-7EA1-4d63-BC2D-602B39E73C99}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_IT_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_IT]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_IT_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_IT_FILES]
+CPC1it-IT.DLL
+
+[{198FFA29-8574-4adc-A8C3-D1C07B07ADF5}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_KO_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_KO]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_KO_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_KO_FILES]
+CPC1ko-KR.DLL
+
+[{47483FB5-7A9C-406c-92C0-EC1950627A14}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_MS_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_MS]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_MS_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_MS_FILES]
+CPC1ms-MY.DLL
+
+[{94214C24-8C9A-41de-83FB-9FE9073E0A9D}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_NB_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_NB]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_NB_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_NB_FILES]
+CPC1nb-NO.DLL
+
+[{4DFC46F0-4AE9-45a2-A100-728A445C8ED5}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_PL_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_PL]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_PL_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_PL_FILES]
+CPC1pl-PL.DLL
+
+[{EB847A6C-A82E-4439-BBBA-9031EEA4D4C4}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_PT_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_PT]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_PT_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_PT_FILES]
+CPC1pt.DLL
+
+[{69335A34-4244-4214-B2B9-3841A3A3511B}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_RU_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_RU]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_RU_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_RU_FILES]
+CPC1ru-RU.DLL
+
+[{30056F06-287D-44df-B104-04FDB39BA915}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_ZH-CN_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_ZH-CN]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_ZH-CN_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_ZH-CN_FILES]
+CPC1zh-CN.DLL
+
+[{3B435CC3-B5D1-4538-BE4F-B5D0EFAFB63F}]
+DriverVer=04/07/2020,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_ZH-TW_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_ZH-TW]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_ZH-TW_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_ZH-TW_FILES]
+CPC1zh-TW.DLL
+
+[{8D2959FB-7A14-41e2-9CE1-28A75DBC7C1F}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_SK_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_SK]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_SK_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_SK_FILES]
+CPC1sk-SK.DLL
+
+[{EABE4D67-D1B0-4c34-A53F-3DA804EEE8B3}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_ES_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_ES]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_ES_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_ES_FILES]
+CPC1es-ES.DLL
+
+[{B44A8AAF-5DB2-4e80-A2D1-739C0FB0D78A}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_SV_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_SV]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_SV_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_SV_FILES]
+CPC1sv-SE.DLL
+
+[{636B9511-AE92-49cd-9C8A-AEC011911D11}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_TH_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_TH]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_TH_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_TH_FILES]
+CPC1th-TH.DLL
+
+[{B3440C63-D1E4-4f6c-90AE-495FD770F3CA}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_TR_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_TR]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_TR_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_TR_FILES]
+CPC1tr-TR.DLL
+
+[{9EE6E200-BCC0-47f5-A3AC-0142A668B0CD}]
+DriverVer=05/09/2020,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_UK_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_UK]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_UK_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_UK_FILES]
+CPC1uk-UA.DLL
+
+[{915ED2AE-E944-4cab-9F93-7B69295FB345}]
+DriverVer=10/12/2019,5.10.0.1
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_VI_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_VI]
+CopyFiles=CORE_COMMON_PCOM_ML_LANG_VI_FILES
+
+[CORE_COMMON_PCOM_ML_LANG_VI_FILES]
+CPC1vi-VN.DLL
+
+[{A5BCA2D0-2F12-4EF2-96C4-F1672CF0A877}]
+DriverVer=02/24/2000,1.0.0.0
+CopyFiles=CORE_COMMON_COLOR_PRF_FILES
+
+[CORE_COMMON_COLOR_PRF]
+CopyFiles=CORE_COMMON_COLOR_PRF_FILES
+
+[CORE_COMMON_COLOR_PRF_FILES]
+CNLK.PRF
+
+[{8B79264B-FCA9-4d7f-9419-36E95EE4CCDD}]
+DriverVer=06/29/2020,4.0.0.0
+CopyFiles=CORE_COMMON_COLOR_CF_FILES
+
+[CORE_COMMON_COLOR_CF]
+CopyFiles=CORE_COMMON_COLOR_CF_FILES
+
+[CORE_COMMON_COLOR_CF_FILES]
+CNXPCF32.DLL
+
+[{07E93934-7F1A-453b-BA65-AF7F8FA6F822}]
+DriverVer=12/24/2020,4.1.1.0
+CopyFiles=CORE_COMMON_COLOR_CP_FILES
+
+[CORE_COMMON_COLOR_CP]
+CopyFiles=CORE_COMMON_COLOR_CP_FILES
+
+[CORE_COMMON_COLOR_CP_FILES]
+CNXPCP32.DLL
+
+[{66BD9E3B-DD80-4314-A9BB-5B4073EEF0AB}]
+DriverVer=06/29/2020,4.0.0.0
+CopyFiles=CORE_COMMON_COLOR_TN_FILES
+
+[CORE_COMMON_COLOR_TN]
+CopyFiles=CORE_COMMON_COLOR_TN_FILES
+
+[CORE_COMMON_COLOR_TN_FILES]
+CNXPTN32.DLL
+
+[{A1AB4250-6ADE-4E78-8AD4-E35A9D338394}]
+DriverVer=12/24/2020,3.0.2.0
+CopyFiles=CORE_COMMON_COLOR_HS_FILES
+
+[CORE_COMMON_COLOR_HS]
+CopyFiles=CORE_COMMON_COLOR_HS_FILES
+
+[CORE_COMMON_COLOR_HS_FILES]
+CNXPHS32.DLL
+
+[{6555E641-AC9F-4040-B163-77A150A108D3}]
+DriverVer=05/29/2020,3.3.0.1
+CopyFiles=CORE_COMMON_CG3RN_FILES
+
+[CORE_COMMON_CG3RN]
+CopyFiles=CORE_COMMON_CG3RN_FILES
+
+[CORE_COMMON_CG3RN_FILES]
+CNXP0CG.DLL
+
+[{F1719F46-241E-4E26-B78A-019495420A47}]
+DriverVer=08/03/2020,10.3.4.3400
+CopyFiles=CORE_COMMON_DIAS_FILES
+
+[CORE_COMMON_DIAS]
+CopyFiles=CORE_COMMON_DIAS_FILES
+
+[CORE_COMMON_DIAS_FILES]
+CNXDIAS2.DLL
+
+[{68A71D60-A620-45FF-B88B-5DCEB6159F92}]
+DriverVer=02/10/2020,1.1.0.0
+CopyFiles=CORE_COMMON_LOGMSG_FILES
+
+[CORE_COMMON_LOGMSG]
+CopyFiles=CORE_COMMON_LOGMSG_FILES
+
+[CORE_COMMON_LOGMSG_FILES]
+CNXP0LOG.DLL
+
+[{F9B41B80-05D2-42ea-B603-D71B4ED5C29E}]
+DriverVer=04/08/2021,1.2.1.1
+CopyFiles=RELATED_COMMON_GP_BIDI_EXT_FILES
+
+[RELATED_COMMON_GP_BIDI_EXT]
+CopyFiles=RELATED_COMMON_GP_BIDI_EXT_FILES
+
+[RELATED_COMMON_GP_BIDI_EXT_FILES]
+CNAS0MGP.c2b
+
+[{A60784CE-444E-4de5-92DE-2A9CE6DBE6A6}]
+DriverVer=04/08/2021,1.2.1.1
+CopyFiles=RELATED_COMMON_GP_CONFIG_FILES
+
+[RELATED_COMMON_GP_CONFIG]
+CopyFiles=RELATED_COMMON_GP_CONFIG_FILES
+
+[RELATED_COMMON_GP_CONFIG_FILES]
+CNAS0MGP.ini
+
+[{42516E91-F449-4354-9E1E-4B05FB2DA7F1}]
+DriverVer=10/18/2016,1.0.0.0
+CopyFiles=CORE_COMMON_ADDIN_COMMON_FILES
+
+[CORE_COMMON_ADDIN_COMMON]
+CopyFiles=CORE_COMMON_ADDIN_COMMON_FILES
+
+[CORE_COMMON_ADDIN_COMMON_FILES]
+CnAdZauthinfo.INI
+
+[{D6430A4D-886E-4448-AB67-879447882F24}]
+DriverVer=04/13/2021,1.0.3.1
+CopyFiles=CORE_COMMON_OPP_FILES
+
+[CORE_COMMON_OPP]
+CopyFiles=CORE_COMMON_OPP_FILES
+
+[CORE_COMMON_OPP_FILES]
+CnXP0PP.DLL
+
+[{0907C2F4-745A-4f7a-A7D5-862E00688973}]
+DriverVer=01/30/2020,2.3.0.0
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_CORE_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_CORE]
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_CORE_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_CORE_FILES]
+CnAdEPGRM.dll
+CnAdEPM.cpi
+CnAdEPM.ini
+CnAdEPUIM.dll
+CnAdEPlibM.dll
+CnAdEPlibM.ini
+CnAdETAMAgeM.dll
+CnAdETAMCalM.dll
+CnAdETAMcomM.dll
+CnAdETAMmkM.dll
+CnAdETAMmkM.ini
+CnAdEceM.dll
+CnAdEcemgrM.dll
+CnAdEpdsdkM.dll
+
+[{2A5EFDCE-BBB3-4c90-94FE-284C09999B45}]
+DriverVer=01/30/2020,2.3.0.0
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_2_EN_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_2_EN]
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_2_EN_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_2_EN_FILES]
+CnAdEPR1en-US.dll
+CnAdETAMRm1en-US.dll
+
+[{F3ACFF28-3FD5-4e9d-B7E4-F3EC0C35C96F}]
+DriverVer=01/30/2020,2.3.0.0
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_2_FR_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_2_FR]
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_2_FR_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_2_FR_FILES]
+CnAdEPR1fr-FR.dll
+CnAdETAMRm1fr-FR.dll
+
+[{C8B09453-90BE-4b0f-BA98-9A89F8BADA65}]
+DriverVer=01/30/2020,2.3.0.0
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_2_IT_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_2_IT]
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_2_IT_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_2_IT_FILES]
+CnAdEPR1it-IT.dll
+CnAdETAMRm1it-IT.dll
+
+[{2022415B-A9C7-4230-9533-EF2011388AAD}]
+DriverVer=01/30/2020,2.3.0.0
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_2_DE_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_2_DE]
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_2_DE_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_2_DE_FILES]
+CnAdEPR1de-DE.dll
+CnAdETAMRm1de-DE.dll
+
+[{50A79BF2-F21F-4f50-AECD-78930D20AEF0}]
+DriverVer=01/30/2020,2.3.0.0
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_2_ES_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_2_ES]
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_2_ES_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_2_ES_FILES]
+CnAdEPR1es-ES.dll
+CnAdETAMRm1es-ES.dll
+
+[{1829FC9E-7F77-462e-80E3-12F3DA06C26D}]
+DriverVer=01/30/2020,2.3.0.0
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_2_KR_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_2_KR]
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_2_KR_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_2_KR_FILES]
+CnAdEPR1ko-KR.dll
+CnAdETAMRm1ko-KR.dll
+
+[{E074BD54-6308-404e-A40E-FEF4FF95EB90}]
+DriverVer=01/30/2020,2.3.0.0
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_2_SC_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_2_SC]
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_2_SC_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_2_SC_FILES]
+CnAdEPR1zh-CN.dll
+CnAdETAMRm1zh-CN.dll
+
+[{31AB3457-0E20-4e0d-8D16-43DE2E042354}]
+DriverVer=01/30/2020,2.3.0.0
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_2_TC_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_2_TC]
+CopyFiles=CORE_COMMON_ESP_ADDIN_ML_2_TC_FILES
+
+[CORE_COMMON_ESP_ADDIN_ML_2_TC_FILES]
+CnAdEPR1zh-TW.dll
+CnAdETAMRm1zh-TW.dll
+
+[{49E8FC33-D6E7-4a8d-AB8A-E653FD2509F5}]
+DriverVer=03/03/2020,4.3.0.0
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_CORE_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_CORE]
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_CORE_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_CORE_FILES]
+CnAdAACTWSM.dll
+CnAdAPCALM.dll
+CnAdAPGRM.dll
+CnAdAPLCYM.ini
+CnAdAPM.cpi
+CnAdAPUIM.dll
+CnAdAWLSACTM.dll
+CnAdAWLSAuthM.dll
+CnAdApdsdkM.dll
+
+[{2261EE74-4515-4310-B5BA-F96323801918}]
+DriverVer=03/03/2020,4.3.0.0
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_2_EN_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_2_EN]
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_2_EN_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_2_EN_FILES]
+CnAdAPR1en-US.dll
+
+[{E5EA8D0F-878E-4311-B9E8-A8A616B3C131}]
+DriverVer=03/03/2020,4.3.0.0
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_2_FR_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_2_FR]
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_2_FR_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_2_FR_FILES]
+CnAdAPR1fr-FR.dll
+
+[{B3D72E2D-DDCB-466b-821E-FCDDC4C7DEC8}]
+DriverVer=03/03/2020,4.3.0.0
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_2_IT_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_2_IT]
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_2_IT_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_2_IT_FILES]
+CnAdAPR1it-IT.dll
+
+[{22AD6545-7E8F-4381-822C-99B6F80813B5}]
+DriverVer=03/03/2020,4.3.0.0
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_2_DE_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_2_DE]
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_2_DE_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_2_DE_FILES]
+CnAdAPR1de-DE.dll
+
+[{A57D9BD9-2A44-4c70-B7C0-F6AD111D16CB}]
+DriverVer=03/03/2020,4.3.0.0
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_2_ES_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_2_ES]
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_2_ES_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_2_ES_FILES]
+CnAdAPR1es-ES.dll
+
+[{3F2E4E1B-B493-4ce4-BA16-B65F21EA6433}]
+DriverVer=03/03/2020,4.3.0.0
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_2_KR_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_2_KR]
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_2_KR_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_2_KR_FILES]
+CnAdAPR1ko-KR.dll
+
+[{A37A1154-F170-43a5-BC59-D3DE3194FC4C}]
+DriverVer=03/03/2020,4.3.0.0
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_2_SC_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_2_SC]
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_2_SC_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_2_SC_FILES]
+CnAdAPR1zh-CN.dll
+
+[{FFC71663-9C34-4276-B24F-E5F1F07748CA}]
+DriverVer=03/03/2020,4.3.0.0
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_2_TC_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_2_TC]
+CopyFiles=CORE_COMMON_AMS_ADDIN_ML_2_TC_FILES
+
+[CORE_COMMON_AMS_ADDIN_ML_2_TC_FILES]
+CnAdAPR1zh-TW.dll
+
+[{C8C27F68-24A2-42af-81D8-0CFA290F0FD5}]
+DriverVer=12/24/2020,5.0.1.0
+CopyFiles=RELATED_PCLXL_COLOR_FILES
+
+[RELATED_PCLXL_COLOR]
+CopyFiles=RELATED_PCLXL_COLOR_FILES
+
+[RELATED_PCLXL_COLOR_FILES]
+CNPXCM32.DLL
+
+[{C60E75C8-ABDD-4513-863C-B33A6FD60DA0}]
+DriverVer=07/10/2014,1.0.0.0
+CopyFiles=RELATED_COMMON_PRF_A_FILES
+
+[RELATED_COMMON_PRF_A]
+CopyFiles=RELATED_COMMON_PRF_A_FILES
+
+[RELATED_COMMON_PRF_A_FILES]
+CNCC.PRF
+
+[{B5B9ACA2-7FB5-4a17-AB58-C9EB25ECB185}]
+DriverVer=04/23/2018,1.0.0.0
+CopyFiles=RELATED_COMMON_PRF_J_FILES
+
+[RELATED_COMMON_PRF_J]
+CopyFiles=RELATED_COMMON_PRF_J_FILES
+
+[RELATED_COMMON_PRF_J_FILES]
+CNLP10A.PRF
+CNLP10B.PRF
+
+[{7685D38D-889B-479d-A737-1F96674C4220}]
+DriverVer=11/25/2004,1.0.0.0
+CopyFiles=RELATED_COMMON_PRF_B_DRV_FILES
+
+[RELATED_COMMON_PRF_B_DRV]
+CopyFiles=RELATED_COMMON_PRF_B_DRV_FILES
+
+[RELATED_COMMON_PRF_B_DRV_FILES]
+CNZ005.ICC
+
+[{8993447E-0DA9-48fd-B91E-C7FF7E9B0D3B}]
+DriverVer=11/25/2004,1.0.0.0
+CopyFiles=RELATED_COMMON_PRF_C_DRV_FILES
+
+[RELATED_COMMON_PRF_C_DRV]
+CopyFiles=RELATED_COMMON_PRF_C_DRV_FILES
+
+[RELATED_COMMON_PRF_C_DRV_FILES]
+CNZ006.ICC
+
+[{AE983F91-4756-437c-BB78-6FF41C122DF5}]
+DriverVer=11/25/2004,1.0.0.0
+CopyFiles=RELATED_COMMON_PRF_E_DRV_FILES
+
+[RELATED_COMMON_PRF_E_DRV]
+CopyFiles=RELATED_COMMON_PRF_E_DRV_FILES
+
+[RELATED_COMMON_PRF_E_DRV_FILES]
+CNZ008.ICC
+
+[{571F3082-4E22-41cf-A56D-CBFC8216E417}]
+DriverVer=09/22/2008,1.0.0.0
+CopyFiles=RELATED_COMMON_PRF_H_DRV_FILES
+
+[RELATED_COMMON_PRF_H_DRV]
+CopyFiles=RELATED_COMMON_PRF_H_DRV_FILES
+
+[RELATED_COMMON_PRF_H_DRV_FILES]
+CNZSRGBC.ICC
+
+[{40FAEF77-3196-47f5-BC3E-1FD3C32FBF9D}]
+DriverVer=04/08/2021,1.2.1.1
+CopyFiles=RELATED_COMMON_LM4_FILES
+
+[RELATED_COMMON_LM4]
+CopyFiles=RELATED_COMMON_LM4_FILES
+
+[RELATED_COMMON_LM4_FILES]
+CNAS0MPK.dll
+
+[{EC834BC3-1F62-468f-98B0-C520FB0DA064}]
+DriverVer=11/20/2015,1.0.0.0
+CopyFiles=RELATED_COMMON_PRF_L_FILES
+
+[RELATED_COMMON_PRF_L]
+CopyFiles=RELATED_COMMON_PRF_L_FILES
+
+[RELATED_COMMON_PRF_L_FILES]
+CNLL10A.PRF
+CNLL10B.PRF
+
+[{73045D6D-ED67-497c-8E43-77103CBEAE8E}]
+DriverVer=08/03/2015,1.0.0.0
+CopyFiles=RELATED_COMMON_PRF_M_FILES
+
+[RELATED_COMMON_PRF_M]
+CopyFiles=RELATED_COMMON_PRF_M_FILES
+
+[RELATED_COMMON_PRF_M_FILES]
+CNLM10A.PRF
+CNLM10B.PRF
+
+[{0155544A-1772-4668-BD55-240A62521160}]
+DriverVer=10/15/2018,1.0.0.0
+CopyFiles=RELATED_COMMON_PRF_N_FILES
+
+[RELATED_COMMON_PRF_N]
+CopyFiles=RELATED_COMMON_PRF_N_FILES
+
+[RELATED_COMMON_PRF_N_FILES]
+CNCJ10A.PRF
+CNCJ10B.PRF
+
+[ControlFlags]
+AlwaysExcludeFromSelect={A2D6DA3B-3DFC-4E3E-B0FC-9F3763EBB25F},{C962F45E-2FFE-4D54-A5EC-A3A2C2D29034},{6F18B3CF-6298-4284-8D8A-4F2939ACA1D8},{C44E8001-5189-487b-9CCE-47AE6EC06F72},{035F24A5-299C-4888-B8CD-254224C8768B},{184E31DF-D735-4740-9E77-C17AE1A45398},{CB3BB28E-F208-47bd-8353-4338FF881CE8},{36800145-1192-4547-9CE7-3FA0B58BB39B},{D18B0ED0-9131-41cb-8EE1-EA666D5EA20B},{7EF6B681-31B3-46ca-A977-E3715E003325},{8DA37973-A074-45f1-8D97-80CBF2C645BE},{BFD818AB-3B9F-46ad-94C6-3F6572B8D397},{680EB0E0-9652-436b-ABA0-DA77B26757FC},{58E2F75D-7EA1-4d63-BC2D-602B39E73C99},{198FFA29-8574-4adc-A8C3-D1C07B07ADF5},{47483FB5-7A9C-406c-92C0-EC1950627A14},{94214C24-8C9A-41de-83FB-9FE9073E0A9D},{4DFC46F0-4AE9-45a2-A100-728A445C8ED5},{EB847A6C-A82E-4439-BBBA-9031EEA4D4C4},{69335A34-4244-4214-B2B9-3841A3A3511B},{30056F06-287D-44df-B104-04FDB39BA915},{3B435CC3-B5D1-4538-BE4F-B5D0EFAFB63F},{8D2959FB-7A14-41e2-9CE1-28A75DBC7C1F},{EABE4D67-D1B0-4c34-A53F-3DA804EEE8B3},{B44A8AAF-5DB2-4e80-A2D1-739C0FB0D78A},{636B9511-AE92-49cd-9C8A-AEC011911D11},{B3440C63-D1E4-4f6c-90AE-495FD770F3CA},{9EE6E200-BCC0-47f5-A3AC-0142A668B0CD},{915ED2AE-E944-4cab-9F93-7B69295FB345},{A5BCA2D0-2F12-4EF2-96C4-F1672CF0A877},{8B79264B-FCA9-4d7f-9419-36E95EE4CCDD},{07E93934-7F1A-453b-BA65-AF7F8FA6F822},{66BD9E3B-DD80-4314-A9BB-5B4073EEF0AB},{A1AB4250-6ADE-4E78-8AD4-E35A9D338394},{6555E641-AC9F-4040-B163-77A150A108D3},{F1719F46-241E-4E26-B78A-019495420A47},{68A71D60-A620-45FF-B88B-5DCEB6159F92},{F9B41B80-05D2-42ea-B603-D71B4ED5C29E},{A60784CE-444E-4de5-92DE-2A9CE6DBE6A6},{42516E91-F449-4354-9E1E-4B05FB2DA7F1},{D6430A4D-886E-4448-AB67-879447882F24},{0907C2F4-745A-4f7a-A7D5-862E00688973},{2A5EFDCE-BBB3-4c90-94FE-284C09999B45},{F3ACFF28-3FD5-4e9d-B7E4-F3EC0C35C96F},{C8B09453-90BE-4b0f-BA98-9A89F8BADA65},{2022415B-A9C7-4230-9533-EF2011388AAD},{50A79BF2-F21F-4f50-AECD-78930D20AEF0},{1829FC9E-7F77-462e-80E3-12F3DA06C26D},{E074BD54-6308-404e-A40E-FEF4FF95EB90},{31AB3457-0E20-4e0d-8D16-43DE2E042354},{49E8FC33-D6E7-4a8d-AB8A-E653FD2509F5},{2261EE74-4515-4310-B5BA-F96323801918},{E5EA8D0F-878E-4311-B9E8-A8A616B3C131},{B3D72E2D-DDCB-466b-821E-FCDDC4C7DEC8},{22AD6545-7E8F-4381-822C-99B6F80813B5},{A57D9BD9-2A44-4c70-B7C0-F6AD111D16CB},{3F2E4E1B-B493-4ce4-BA16-B65F21EA6433},{A37A1154-F170-43a5-BC59-D3DE3194FC4C},{FFC71663-9C34-4276-B24F-E5F1F07748CA},{C8C27F68-24A2-42af-81D8-0CFA290F0FD5},{C60E75C8-ABDD-4513-863C-B33A6FD60DA0},{B5B9ACA2-7FB5-4a17-AB58-C9EB25ECB185},{7685D38D-889B-479d-A737-1F96674C4220},{8993447E-0DA9-48fd-B91E-C7FF7E9B0D3B},{AE983F91-4756-437c-BB78-6FF41C122DF5},{571F3082-4E22-41cf-A56D-CBFC8216E417},{40FAEF77-3196-47f5-BC3E-1FD3C32FBF9D},{EC834BC3-1F62-468f-98B0-C520FB0DA064},{73045D6D-ED67-497c-8E43-77103CBEAE8E},{0155544A-1772-4668-BD55-240A62521160}
+
+[PrinterPackageInstallation.amd64]
+PackageAware=TRUE
+CoreDriverDependencies={A2D6DA3B-3DFC-4E3E-B0FC-9F3763EBB25F},{C962F45E-2FFE-4D54-A5EC-A3A2C2D29034},{6F18B3CF-6298-4284-8D8A-4F2939ACA1D8},{C44E8001-5189-487b-9CCE-47AE6EC06F72},{035F24A5-299C-4888-B8CD-254224C8768B},{184E31DF-D735-4740-9E77-C17AE1A45398},{CB3BB28E-F208-47bd-8353-4338FF881CE8},{36800145-1192-4547-9CE7-3FA0B58BB39B},{D18B0ED0-9131-41cb-8EE1-EA666D5EA20B},{7EF6B681-31B3-46ca-A977-E3715E003325},{8DA37973-A074-45f1-8D97-80CBF2C645BE},{BFD818AB-3B9F-46ad-94C6-3F6572B8D397},{680EB0E0-9652-436b-ABA0-DA77B26757FC},{58E2F75D-7EA1-4d63-BC2D-602B39E73C99},{198FFA29-8574-4adc-A8C3-D1C07B07ADF5},{47483FB5-7A9C-406c-92C0-EC1950627A14},{94214C24-8C9A-41de-83FB-9FE9073E0A9D},{4DFC46F0-4AE9-45a2-A100-728A445C8ED5},{EB847A6C-A82E-4439-BBBA-9031EEA4D4C4},{69335A34-4244-4214-B2B9-3841A3A3511B},{30056F06-287D-44df-B104-04FDB39BA915},{3B435CC3-B5D1-4538-BE4F-B5D0EFAFB63F},{8D2959FB-7A14-41e2-9CE1-28A75DBC7C1F},{EABE4D67-D1B0-4c34-A53F-3DA804EEE8B3},{B44A8AAF-5DB2-4e80-A2D1-739C0FB0D78A},{636B9511-AE92-49cd-9C8A-AEC011911D11},{B3440C63-D1E4-4f6c-90AE-495FD770F3CA},{9EE6E200-BCC0-47f5-A3AC-0142A668B0CD},{915ED2AE-E944-4cab-9F93-7B69295FB345},{A5BCA2D0-2F12-4EF2-96C4-F1672CF0A877},{8B79264B-FCA9-4d7f-9419-36E95EE4CCDD},{07E93934-7F1A-453b-BA65-AF7F8FA6F822},{66BD9E3B-DD80-4314-A9BB-5B4073EEF0AB},{A1AB4250-6ADE-4E78-8AD4-E35A9D338394},{6555E641-AC9F-4040-B163-77A150A108D3},{F1719F46-241E-4E26-B78A-019495420A47},{68A71D60-A620-45FF-B88B-5DCEB6159F92},{F9B41B80-05D2-42ea-B603-D71B4ED5C29E},{A60784CE-444E-4de5-92DE-2A9CE6DBE6A6},{42516E91-F449-4354-9E1E-4B05FB2DA7F1},{D6430A4D-886E-4448-AB67-879447882F24},{0907C2F4-745A-4f7a-A7D5-862E00688973},{2A5EFDCE-BBB3-4c90-94FE-284C09999B45},{F3ACFF28-3FD5-4e9d-B7E4-F3EC0C35C96F},{C8B09453-90BE-4b0f-BA98-9A89F8BADA65},{2022415B-A9C7-4230-9533-EF2011388AAD},{50A79BF2-F21F-4f50-AECD-78930D20AEF0},{1829FC9E-7F77-462e-80E3-12F3DA06C26D},{E074BD54-6308-404e-A40E-FEF4FF95EB90},{31AB3457-0E20-4e0d-8D16-43DE2E042354},{49E8FC33-D6E7-4a8d-AB8A-E653FD2509F5},{2261EE74-4515-4310-B5BA-F96323801918},{E5EA8D0F-878E-4311-B9E8-A8A616B3C131},{B3D72E2D-DDCB-466b-821E-FCDDC4C7DEC8},{22AD6545-7E8F-4381-822C-99B6F80813B5},{A57D9BD9-2A44-4c70-B7C0-F6AD111D16CB},{3F2E4E1B-B493-4ce4-BA16-B65F21EA6433},{A37A1154-F170-43a5-BC59-D3DE3194FC4C},{FFC71663-9C34-4276-B24F-E5F1F07748CA},{C8C27F68-24A2-42af-81D8-0CFA290F0FD5},{C60E75C8-ABDD-4513-863C-B33A6FD60DA0},{B5B9ACA2-7FB5-4a17-AB58-C9EB25ECB185},{7685D38D-889B-479d-A737-1F96674C4220},{8993447E-0DA9-48fd-B91E-C7FF7E9B0D3B},{AE983F91-4756-437c-BB78-6FF41C122DF5},{571F3082-4E22-41cf-A56D-CBFC8216E417},{40FAEF77-3196-47f5-BC3E-1FD3C32FBF9D},{EC834BC3-1F62-468f-98B0-C520FB0DA064},{73045D6D-ED67-497c-8E43-77103CBEAE8E},{0155544A-1772-4668-BD55-240A62521160}
+
+[GPPCL]
+CopyFiles=GPPCL_FILES,NT_XL,PROFILE_MONO,NT_PCOM,COLORGEAR,PROFILE_MONITOR_SRGB,PROFILE_CNCC,PROFILE_LP10,PROFILE_LM10,PROFILE_LL10,PROFILE_CJ10,COLOR_HS,NS_CPCA_LM4,CANON_PP,CPCA_BIDI,ADDIN_COMMON,ESP_COMMON,ESP_UK,ESP_FR,ESP_IT,ESP_DE,ESP_ES,ESP_KR,ESP_ZH-CN,ESP_ZH-TW,AMS_COMMON,AMS_US,AMS_FR,AMS_IT,AMS_DE,AMS_ES,AMS_KR,AMS_ZH-CN,AMS_ZH-TW
+DataFile=Cnp61M.XPD
+DataSection=GPPCL_DATA
+LanguageMonitor=%NS_LMON4_CPCA%
+PrintProcessor=%PP_NAME%
+AddReg=GPPCLREG
+
+[OEM URLS]
+%CANON% = "http://www.canon.com/support"
+
+[GPPCL_DATA]
+DriverFile=Cnp60M_D69BE.DLL
+ConfigFile=Cnp60MUI_D69BE.DLL
+
+[GPPCL_FILES]
+Cnp60M_D69BE.DLL,Cnp60M.DLL
+Cnp60MUI_D69BE.DLL,Cnp60MUI.DLL
+Cnp60neutral_D69BE.DLL,Cnp60neutral.DLL
+Cnp60en-US_D69BE.DLL,Cnp60en-US.DLL
+Cnp60ar-SA_D69BE.DLL,Cnp60ar-SA.DLL
+Cnp60eu-ES_D69BE.DLL,Cnp60eu-ES.DLL
+Cnp60ca-ES_D69BE.DLL,Cnp60ca-ES.DLL
+Cnp60cs-CZ_D69BE.DLL,Cnp60cs-CZ.DLL
+Cnp60da-DK_D69BE.DLL,Cnp60da-DK.DLL
+Cnp60nl-NL_D69BE.DLL,Cnp60nl-NL.DLL
+Cnp60fi-FI_D69BE.DLL,Cnp60fi-FI.DLL
+Cnp60fr-FR_D69BE.DLL,Cnp60fr-FR.DLL
+Cnp60de-DE_D69BE.DLL,Cnp60de-DE.DLL
+Cnp60hu-HU_D69BE.DLL,Cnp60hu-HU.DLL
+Cnp60it-IT_D69BE.DLL,Cnp60it-IT.DLL
+Cnp60ko-KR_D69BE.DLL,Cnp60ko-KR.DLL
+Cnp60ms-MY_D69BE.DLL,Cnp60ms-MY.DLL
+Cnp60nb-NO_D69BE.DLL,Cnp60nb-NO.DLL
+Cnp60pl-PL_D69BE.DLL,Cnp60pl-PL.DLL
+Cnp60pt_D69BE.DLL,Cnp60pt.DLL
+Cnp60ru-RU_D69BE.DLL,Cnp60ru-RU.DLL
+Cnp60zh-CN_D69BE.DLL,Cnp60zh-CN.DLL
+Cnp60zh-TW_D69BE.DLL,Cnp60zh-TW.DLL
+Cnp60sk-SK_D69BE.DLL,Cnp60sk-SK.DLL
+Cnp60es-ES_D69BE.DLL,Cnp60es-ES.DLL
+Cnp60sv-SE_D69BE.DLL,Cnp60sv-SE.DLL
+Cnp60th-TH_D69BE.DLL,Cnp60th-TH.DLL
+Cnp60tr-TR_D69BE.DLL,Cnp60tr-TR.DLL
+Cnp60uk-UA_D69BE.DLL,Cnp60uk-UA.DLL
+Cnp60vi-VN_D69BE.DLL,Cnp60vi-VN.DLL
+Cnp61M.XPD,,,0x00000020
+Cnp61M.UPD,,,0x00000020
+CnPX_70A.dat,,,0x00000020
+CnP6C521.dat,,,0x00000020
+CNP6B21E.DAT,,,0x00000020
+CNPX_65A.DAT,,,0x00000020
+CnPX_72A.dat,,,0x00000020
+CnPX_73A.dat,,,0x00000020
+CnPX_74A.dat,,,0x00000020
+
+[NT_XL]
+cnxp0log.DLL
+CnxDias2.DLL
+
+[NT_PCOM]
+CPC10S.DLL
+CPC10D.EXE
+CPC10Q.EXE
+CPC10E.DLL
+CPC10V.EXE
+CPC10R.DLL
+CPC1en-US.DLL
+CPC1ar-SA.DLL
+CPC1eu-ES.DLL
+CPC1ca-ES.DLL
+CPC1cs-CZ.DLL
+CPC1da-DK.DLL
+CPC1nl-NL.DLL
+CPC1fi-FI.DLL
+CPC1fr-FR.DLL
+CPC1de-DE.DLL
+CPC1hu-HU.DLL
+CPC1it-IT.DLL
+CPC1ko-KR.DLL
+CPC1ms-MY.DLL
+CPC1nb-NO.DLL
+CPC1pl-PL.DLL
+CPC1pt.DLL
+CPC1ru-RU.DLL
+CPC1zh-CN.DLL
+CPC1zh-TW.DLL
+CPC1sk-SK.DLL
+CPC1es-ES.DLL
+CPC1sv-SE.DLL
+CPC1th-TH.DLL
+CPC1tr-TR.DLL
+CPC1uk-UA.DLL
+CPC1vi-VN.DLL
+CNXPCF32.DLL
+CNXPCP32.DLL
+
+[COLORGEAR]
+CnPXCM32.DLL
+CNXP0CG.DLL
+CNXPTN32.DLL
+
+[NS_CPCA_LM4]
+CNAS0MPK.DLL,,,0x00000020
+
+[CANON_PP]
+CnXP0PP.DLL,,,0x00000020
+
+[PROFILE_MONO]
+CNLK.PRF
+
+[COLOR_HS]
+CnXPHS32.DLL,,,0x00000020
+
+[PROFILE_MONITOR_SRGB]
+CNZ005.ICC,,,0x00000020
+CNZ006.ICC,,,0x00000020
+CNZ008.ICC,,,0x00000020
+CNZSRGBC.ICC,,,0x00000020
+
+[PROFILE_CNCC]
+CNCC.PRF,,,0x00000020
+
+[PROFILE_LP10]
+CNLP10A.PRF,,,0x00000020
+CNLP10B.PRF,,,0x00000020
+
+[PROFILE_LM10]
+CNLM10A.PRF,,,0x00000020
+CNLM10B.PRF,,,0x00000020
+
+[PROFILE_LL10]
+CNLL10A.PRF,,,0x00000020
+CNLL10B.PRF,,,0x00000020
+
+[PROFILE_CJ10]
+CNCJ10A.PRF,,,0x00000020
+CNCJ10B.PRF,,,0x00000020
+
+[CPCA_BIDI]
+CNAS0MGP.ini,,,0x00000020
+CNAS0MGP.c2b,,,0x00000020
+
+[ADDIN_COMMON]
+CnAdZauthinfo.INI
+
+[ESP_COMMON]
+CnAdETAMcomM.dll
+CnAdEPM.ini
+CnAdEPM.cpi
+CnAdEPlibM.ini
+CnAdEPdSDKM.dll
+CnAdEcemgrM.dll
+CnAdEceM.dll
+CnAdETAMAgeM.dll
+CnAdETAMCalM.dll
+CnAdEPUIM.dll
+CnAdEPGRM.dll
+CnAdEPlibM.dll
+CnAdETAMmkM.ini
+CnAdETAMmkM.dll
+
+[ESP_UK]
+CnAdEPR1en-US.dll
+CnAdETAMRm1en-US.dll
+
+[ESP_FR]
+CnAdEPR1fr-FR.dll
+CnAdETAMRm1fr-FR.dll
+
+[ESP_IT]
+CnAdEPR1it-IT.dll
+CnAdETAMRm1it-IT.dll
+
+[ESP_DE]
+CnAdEPR1de-DE.dll
+CnAdETAMRm1de-DE.dll
+
+[ESP_ES]
+CnAdEPR1es-ES.dll
+CnAdETAMRm1es-ES.dll
+
+[ESP_KR]
+CnAdEPR1ko-KR.dll
+CnAdETAMRm1ko-KR.dll
+
+[ESP_ZH-CN]
+CnAdEPR1zh-CN.dll
+CnAdETAMRm1zh-CN.dll
+
+[ESP_ZH-TW]
+CnAdEPR1zh-TW.dll
+CnAdETAMRm1zh-TW.dll
+
+[AMS_COMMON]
+CnAdAPM.cpi
+CnAdAPGRM.dll
+CnAdAPCALM.dll
+CnAdAWLSACTM.dll
+CnAdApdsdkM.dll
+CnAdAPLCYM.ini
+CnAdAPUIM.dll
+CnAdAWLSAuthM.dll
+CnAdAACTWSM.dll
+
+[AMS_US]
+CnAdAPR1en-US.dll
+
+[AMS_FR]
+CnAdAPR1fr-FR.dll
+
+[AMS_IT]
+CnAdAPR1it-IT.dll
+
+[AMS_DE]
+CnAdAPR1de-DE.dll
+
+[AMS_ES]
+CnAdAPR1es-ES.dll
+
+[AMS_KR]
+CnAdAPR1ko-KR.dll
+
+[AMS_ZH-CN]
+CnAdAPR1zh-CN.dll
+
+[AMS_ZH-TW]
+CnAdAPR1zh-TW.dll
+
+[DestinationDirs]
+DefaultDestDir=66000
+NT_PCOM=66000
+NS_CPCA_LM4=66002
+CANON_PP=66001
+CORE_COMMON_OPP_FILES=66001
+RELATED_COMMON_PRF_B_DRV_FILES=66000
+RELATED_COMMON_PRF_C_DRV_FILES=66000
+RELATED_COMMON_PRF_E_DRV_FILES=66000
+RELATED_COMMON_PRF_H_DRV_FILES=66000
+RELATED_COMMON_LM4_FILES=66002
+
+[SourceDisksFiles]
+Cnp60M.DLL = 1
+Cnp60MUI.DLL = 1
+Cnp60neutral.DLL = 1
+Cnp60en-US.DLL = 1
+Cnp60ar-SA.DLL = 1
+Cnp60eu-ES.DLL = 1
+Cnp60ca-ES.DLL = 1
+Cnp60cs-CZ.DLL = 1
+Cnp60da-DK.DLL = 1
+Cnp60nl-NL.DLL = 1
+Cnp60fi-FI.DLL = 1
+Cnp60fr-FR.DLL = 1
+Cnp60de-DE.DLL = 1
+Cnp60hu-HU.DLL = 1
+Cnp60it-IT.DLL = 1
+Cnp60ko-KR.DLL = 1
+Cnp60ms-MY.DLL = 1
+Cnp60nb-NO.DLL = 1
+Cnp60pl-PL.DLL = 1
+Cnp60pt.DLL = 1
+Cnp60ru-RU.DLL = 1
+Cnp60zh-CN.DLL = 1
+Cnp60zh-TW.DLL = 1
+Cnp60sk-SK.DLL = 1
+Cnp60es-ES.DLL = 1
+Cnp60sv-SE.DLL = 1
+Cnp60th-TH.DLL = 1
+Cnp60tr-TR.DLL = 1
+Cnp60uk-UA.DLL = 1
+Cnp60vi-VN.DLL = 1
+cnxp0log.DLL = 1
+CnxDias2.DLL = 1
+CPC10S.DLL = 1
+CPC10D.EXE = 1
+CPC10Q.EXE = 1
+CPC10E.DLL = 1
+CPC10V.EXE = 1
+CPC10R.DLL = 1
+CPC1en-US.DLL = 1
+CPC1ar-SA.DLL = 1
+CPC1eu-ES.DLL = 1
+CPC1ca-ES.DLL = 1
+CPC1cs-CZ.DLL = 1
+CPC1da-DK.DLL = 1
+CPC1nl-NL.DLL = 1
+CPC1fi-FI.DLL = 1
+CPC1fr-FR.DLL = 1
+CPC1de-DE.DLL = 1
+CPC1hu-HU.DLL = 1
+CPC1it-IT.DLL = 1
+CPC1ko-KR.DLL = 1
+CPC1ms-MY.DLL = 1
+CPC1nb-NO.DLL = 1
+CPC1pl-PL.DLL = 1
+CPC1pt.DLL = 1
+CPC1ru-RU.DLL = 1
+CPC1zh-CN.DLL = 1
+CPC1zh-TW.DLL = 1
+CPC1sk-SK.DLL = 1
+CPC1es-ES.DLL = 1
+CPC1sv-SE.DLL = 1
+CPC1th-TH.DLL = 1
+CPC1tr-TR.DLL = 1
+CPC1uk-UA.DLL = 1
+CPC1vi-VN.DLL = 1
+CNXPCF32.DLL = 1
+CNXPCP32.DLL = 1
+CnPXCM32.DLL = 1
+CNXP0CG.DLL = 1
+CNXPTN32.DLL = 1
+CNAS0MPK.DLL = 1
+CnXP0PP.DLL = 1
+CNLK.PRF = 1
+CnXPHS32.DLL = 1
+CNZ005.ICC = 1
+CNZ006.ICC = 1
+CNZ008.ICC = 1
+CNZSRGBC.ICC = 1
+CNCC.PRF = 1
+CNLP10A.PRF = 1
+CNLP10B.PRF = 1
+CNLM10A.PRF = 1
+CNLM10B.PRF = 1
+CNLL10A.PRF = 1
+CNLL10B.PRF = 1
+CNCJ10A.PRF = 1
+CNCJ10B.PRF = 1
+CNAS0MGP.ini = 1
+CNAS0MGP.c2b = 1
+CnAdZauthinfo.INI = 1
+CnAdETAMcomM.dll = 1
+CnAdEPM.ini = 1
+CnAdEPM.cpi = 1
+CnAdEPlibM.ini = 1
+CnAdEPdSDKM.dll = 1
+CnAdEcemgrM.dll = 1
+CnAdEceM.dll = 1
+CnAdETAMAgeM.dll = 1
+CnAdETAMCalM.dll = 1
+CnAdEPUIM.dll = 1
+CnAdEPGRM.dll = 1
+CnAdEPlibM.dll = 1
+CnAdETAMmkM.ini = 1
+CnAdETAMmkM.dll = 1
+CnAdEPR1en-US.dll = 1
+CnAdETAMRm1en-US.dll = 1
+CnAdEPR1fr-FR.dll = 1
+CnAdETAMRm1fr-FR.dll = 1
+CnAdEPR1it-IT.dll = 1
+CnAdETAMRm1it-IT.dll = 1
+CnAdEPR1de-DE.dll = 1
+CnAdETAMRm1de-DE.dll = 1
+CnAdEPR1es-ES.dll = 1
+CnAdETAMRm1es-ES.dll = 1
+CnAdEPR1ko-KR.dll = 1
+CnAdETAMRm1ko-KR.dll = 1
+CnAdEPR1zh-CN.dll = 1
+CnAdETAMRm1zh-CN.dll = 1
+CnAdEPR1zh-TW.dll = 1
+CnAdETAMRm1zh-TW.dll = 1
+CnAdAPM.cpi = 1
+CnAdAPGRM.dll = 1
+CnAdAPCALM.dll = 1
+CnAdAWLSACTM.dll = 1
+CnAdApdsdkM.dll = 1
+CnAdAPLCYM.ini = 1
+CnAdAPUIM.dll = 1
+CnAdAWLSAuthM.dll = 1
+CnAdAACTWSM.dll = 1
+CnAdAPR1en-US.dll = 1
+CnAdAPR1fr-FR.dll = 1
+CnAdAPR1it-IT.dll = 1
+CnAdAPR1de-DE.dll = 1
+CnAdAPR1es-ES.dll = 1
+CnAdAPR1ko-KR.dll = 1
+CnAdAPR1zh-CN.dll = 1
+CnAdAPR1zh-TW.dll = 1
+Cnp61M.XPD = 1
+Cnp61M.UPD = 1
+CnPX_70A.dat = 1
+CnP6C521.dat = 1
+CNP6B21E.DAT = 1
+CNPX_65A.DAT = 1
+CnPX_72A.dat = 1
+CnPX_73A.dat = 1
+CnPX_74A.dat = 1
+
+[SourceDisksNames]
+1=%DISK1%,gppcl6.cab,
+
+[Strings]
+CANON="Canon"
+NS_LMON4_CPCA="CPCA Language Monitor4,CNAS0MPK.DLL"
+PP_NAME="CnXP0PP,CnXP0PP.DLL"
+DISK1="Canon Generic Plus PCL6 Printer Driver for Microsoft Windows (x64) Version 2.50 Installer Disk"
+Printer="SYSTEM\CurrentControlSet\Control\Print\Environments\Windows x64\Drivers\Version-3\Canon Generic Plus PCL6"
+
+[GPPCLREG]
+HKLM,%Printer%,Driver Category,,"GPPCL"

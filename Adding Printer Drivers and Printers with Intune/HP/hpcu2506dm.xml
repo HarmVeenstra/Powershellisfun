@@ -1,0 +1,1697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataMaps xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\..\..\src\DataModel\DataMap.xsd">
+<XMLDataMap Protocol="LEDM">
+    <StaticDataItem Name="Protocol">LEDM</StaticDataItem>
+</XMLDataMap>
+<XMLDataMap Protocol="WS">
+    <StaticDataItem Name="Protocol">WS</StaticDataItem>
+	
+	<DataItem Prefix="PrinterDescription" Name="MODEL_NAME"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterName"/>
+	
+	<!-- Print Contract Version-->
+    <DataItem Prefix="PrinterDescription" Name="PRINT_CONTRACT_VERSION_MAJOR"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//hpprt:PCVersion/hpprt:Major"/>
+    <DataItem Prefix="PrinterDescription" Name="PRINT_CONTRACT_VERSION_MINOR"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//hpprt:PCVersion/hpprt:Minor"/>
+     
+    <DataItem Prefix="PrinterDescription" Name="prtMediaPathMaxSpeed" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PagesPerMinute"/>    
+	
+	
+	<!-- Duplex -->
+
+	<DataItem Prefix="PrinterConfiguration" Name="prtMediaPathType2" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:DuplexerInstalled">
+      <Conversion Contains="true" Value="3"/>
+      <Conversion Contains="false" Value="5"/>
+      <Conversion Contains="default" Value="5"/>
+    </DataItem>
+	
+	<!--Job Storage -->
+	<DataItem Prefix="PrinterConfiguration" Name="hrDiskStorageMedia2" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Storage//wprt:StorageEntry//hpprt:Available">
+      <Conversion Contains="true" Value="3"/>      
+      <Conversion Contains="false" Value="0"/>
+    </DataItem>	
+
+	<DataItem Prefix="PrinterConfiguration" Name="hrMemorySize" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Storage//wprt:StorageEntry//wprt:Size">      
+    </DataItem>	
+	
+	<DataItem Prefix="PrinterConfiguration" Name="PCL-VERSION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PCL-Version">
+	  <Conversion Contains="5.00" Value="Version 5.00"/>
+	  <Conversion Contains="default" Value="Version 5.0"/>            
+    </DataItem>	
+	
+	<DataItem Prefix="PrinterConfiguration" Name="PS-VERSION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/hpprt:LanguageVersion/hpprt:POSTSCRIPTVersion">
+		<Conversion Contains="Version 3010.107" Value="Version 3010.107"/>
+		<Conversion Contains="default" Value="Version 3010.107"/>  
+
+    </DataItem>	
+	
+	<DataItem Prefix="PrinterConfiguration" Name="PCLXL-VERSION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/hpprt:LanguageVersion/hpprt:PCLXLVersion">
+	 <Conversion Contains="Version 3.0" Value="Version 3.0"/>
+	 <Conversion Contains="default" Value="Version 3.0"/>            
+    </DataItem>	
+	
+	<!-- Input Bins -->
+    <DataItem Prefix="PrinterConfiguration" Name="prtInputName1" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 1' or @Name='Tray1']/@Name"> 
+      <Conversion Contains="Tray 1" Value="Tray 1"/>
+      <Conversion Contains="Tray1" Value="Tray 1"/>
+      <Conversion Contains="default" Value=" "/>
+    </DataItem>	
+	<DataItem Prefix="PrinterConfiguration" Name="prtInputType1" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 1' or @Name='Tray1']/hpprt:Type">  
+	<Conversion Contains="sheetFeedAutoRemovableTray" Value="3"/>
+	<Conversion Contains="sheetFeedAutoNonRemovableTray" Value="4"/>
+	<Conversion Contains="default" Value=" "/>
+    </DataItem>
+
+	
+    <DataItem Prefix="PrinterConfiguration" Name="prtInputName2" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 2' or @Name='Tray2']/@Name">
+      <Conversion Contains="Tray 2" Value="Tray 2"/>
+      <Conversion Contains="Tray2" Value="Tray 2"/>
+      <Conversion Contains="default" Value=" "/>
+    </DataItem>	
+	<DataItem Prefix="PrinterConfiguration" Name="prtInputType2" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 2' or @Name='Tray2']/hpprt:Type">  
+	<Conversion Contains="sheetFeedAutoRemovableTray" Value="3"/>
+	<Conversion Contains="sheetFeedAutoNonRemovableTray" Value="4"/>
+	<Conversion Contains="default" Value=" "/>
+    </DataItem>
+    <DataItem Prefix="PrinterConfiguration" Name="prtInputName3" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 3' or @Name='Tray3']/@Name">
+      <Conversion Contains="Tray 3" Value="Tray 3"/>
+      <Conversion Contains="Tray3" Value="Tray 3"/>
+      <Conversion Contains="default" Value=" "/>
+    </DataItem>
+	<DataItem Prefix="PrinterConfiguration" Name="prtInputType3" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 3' or @Name='Tray3']/hpprt:Type">  
+		<Conversion Contains="sheetFeedAutoRemovableTray" Value="3"/>
+		<Conversion Contains="sheetFeedAutoNonRemovableTray" Value="4"/>
+		<Conversion Contains="default" Value=" "/>
+    </DataItem>
+    <DataItem Prefix="PrinterConfiguration" Name="prtInputName4" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Envelope Feeder' or @Name='EnvelopeFeeder']/@Name">
+      <Conversion Contains="Envelope Feeder" Value="Envelope Feeder"/>
+      <Conversion Contains="EnvelopeFeeder" Value="Envelope Feeder"/>
+      <Conversion Contains="default" Value=" "/>
+    </DataItem>
+	<DataItem Prefix="PrinterConfiguration" Name="prtInputType4" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Envelope Feeder' or @Name='EnvelopeFeeder']/@Name">  
+		<Conversion Contains="sheetFeedAutoRemovableTray" Value="3"/>
+		<Conversion Contains="sheetFeedAutoNonRemovableTray" Value="4"/>
+		<Conversion Contains="default" Value=" "/>
+    </DataItem>
+    <DataItem Prefix="PrinterConfiguration" Name="prtInputName5" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 4' or @Name='Tray4']/@Name">
+      <Conversion Contains="Tray 4" Value="Tray 4"/>
+      <Conversion Contains="Tray4" Value="Tray 4"/>
+      <Conversion Contains="default" Value=" "/>
+    </DataItem>
+	<DataItem Prefix="PrinterConfiguration" Name="prtInputType5" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 4' or @Name='Tray4']/hpprt:Type">  
+		<Conversion Contains="sheetFeedAutoRemovableTray" Value="3"/>
+		<Conversion Contains="sheetFeedAutoNonRemovableTray" Value="4"/>
+		<Conversion Contains="default" Value=" "/>
+    </DataItem>
+    <DataItem Prefix="PrinterConfiguration" Name="prtInputName6" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 5' or @Name='Tray5']/@Name">
+      <Conversion Contains="Tray 5" Value="Tray 5"/>
+      <Conversion Contains="Tray5" Value="Tray 5"/>
+      <Conversion Contains="default" Value=" "/>
+    </DataItem>
+	<DataItem Prefix="PrinterConfiguration" Name="prtInputType6" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 5' or @Name='Tray5']/hpprt:Type">  
+		<Conversion Contains="sheetFeedAutoRemovableTray" Value="3"/>
+		<Conversion Contains="sheetFeedAutoNonRemovableTray" Value="4"/>
+		<Conversion Contains="default" Value=" "/>
+    </DataItem>
+    <DataItem Prefix="PrinterConfiguration" Name="prtInputName7" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 6' or @Name='Tray6']/@Name">
+      <Conversion Contains="Tray 6" Value="Tray 6"/>
+      <Conversion Contains="Tray6" Value="Tray 6"/>
+      <Conversion Contains="default" Value=" "/>
+    </DataItem>
+	<DataItem Prefix="PrinterConfiguration" Name="prtInputType7" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 6' or @Name='Tray6']/hpprt:Type">  
+		<Conversion Contains="sheetFeedAutoRemovableTray" Value="3"/>
+		<Conversion Contains="sheetFeedAutoNonRemovableTray" Value="4"/>
+		<Conversion Contains="default" Value=" "/>
+    </DataItem>
+    <DataItem Prefix="PrinterConfiguration" Name="prtInputName8" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 7' or @Name='Tray7']/@Name">
+      <Conversion Contains="Tray 7" Value="Tray 7"/>
+      <Conversion Contains="Tray7" Value="Tray 7"/>
+      <Conversion Contains="default" Value=" "/>
+    </DataItem>
+	<DataItem Prefix="PrinterConfiguration" Name="prtInputType8" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 7' or @Name='Tray7']/hpprt:Type">  
+		<Conversion Contains="sheetFeedAutoRemovableTray" Value="3"/>
+		<Conversion Contains="sheetFeedAutoNonRemovableTray" Value="4"/>
+		<Conversion Contains="default" Value=" "/>
+    </DataItem>	
+	<DataItem Prefix="PrinterConfiguration" Name="prtInputName9" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 8' or @Name='Tray8']/@Name">
+      <Conversion Contains="Tray 8" Value="Tray 8"/>
+      <Conversion Contains="Tray8" Value="Tray 8"/>
+      <Conversion Contains="default" Value=" "/>
+    </DataItem>
+	<DataItem Prefix="PrinterConfiguration" Name="prtInputType9" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 8' or @Name='Tray8']/hpprt:Type">  
+		<Conversion Contains="sheetFeedAutoRemovableTray" Value="3"/>
+		<Conversion Contains="sheetFeedAutoNonRemovableTray" Value="4"/>
+		<Conversion Contains="default" Value=" "/>
+    </DataItem>	
+	<DataItem Prefix="PrinterConfiguration" Name="prtInputName10" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 9' or @Name='Tray9']/@Name">
+      <Conversion Contains="Tray 9" Value="Tray 9"/>
+      <Conversion Contains="Tray9" Value="Tray 9"/>
+      <Conversion Contains="default" Value=" "/>
+    </DataItem>
+	<DataItem Prefix="PrinterConfiguration" Name="prtInputType10" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 9' or @Name='Tray9']/hpprt:Type">  
+		<Conversion Contains="sheetFeedAutoRemovableTray" Value="3"/>
+		<Conversion Contains="sheetFeedAutoNonRemovableTray" Value="4"/>
+		<Conversion Contains="default" Value=" "/>
+    </DataItem>	
+    
+    <!-- Print Contract Print Quality-->
+    <DataItem Prefix="PrinterCapabilities" Name="PQ_DRAFT_SUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Draft']">
+			<Conversion Contains="Draft" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_DRAFT_RESOLUTION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Draft']/@hpprt:OptimalResolution">
+			<Conversion Contains="150" Value="1"/>
+			<Conversion Contains="300" Value="2"/>
+			<Conversion Contains="600" Value="3"/>
+			<Conversion Contains="1200" Value="4"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_DRAFT_DISPLAY_TAG" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Draft']/@hpprt:DisplayTag">
+			<Conversion Contains="1000" Value="1000"/>
+			<Conversion Contains="1002" Value="1002"/>
+			<Conversion Contains="1003" Value="1003"/>
+			<Conversion Contains="1004" Value="1004"/>
+			<Conversion Contains="1005" Value="1005"/>
+			<Conversion Contains="3000" Value="3000"/>
+			<Conversion Contains="3001" Value="3001"/>
+			<Conversion Contains="3002" Value="3002"/>
+			<Conversion Contains="3003" Value="3003"/>
+			<Conversion Contains="3020" Value="3020"/>
+			<Conversion Contains="3030" Value="3030"/>
+			<Conversion Contains="3040" Value="3040"/>
+			<Conversion Contains="3050" Value="3050"/>
+			<Conversion Contains="3060" Value="3060"/>
+			<Conversion Contains="3070" Value="3070"/>
+			<Conversion Contains="3" 	Value="3"/>
+			<Conversion Contains="4" 	Value="4"/>
+			<Conversion Contains="5" 	Value="5"/>
+			<Conversion Contains="10" 	Value="10"/>
+			<Conversion Contains="11" 	Value="11"/>
+			<Conversion Contains="21" 	Value="21"/>
+			<Conversion Contains="22" 	Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_DRAFT_IMAGING_TECH" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Draft']/@hpprt:ImageTechnology">
+			<Conversion Contains="2000" Value="2000"/>
+			<Conversion Contains="2001" Value="2001"/>
+			<Conversion Contains="2002" Value="2002"/>
+			<Conversion Contains="2003" Value="2003"/>
+			<Conversion Contains="2004" Value="2004"/>
+			<Conversion Contains="2005" Value="2005"/>
+			<Conversion Contains="4000" Value="4000"/>
+			<Conversion Contains="4005" Value="4005"/>
+			<Conversion Contains="4010" Value="4010"/>
+			<Conversion Contains="4015" Value="4015"/>
+			<Conversion Contains="4020" Value="4020"/>
+			<Conversion Contains="4030" Value="4030"/>
+			<Conversion Contains="4040" Value="4040"/>
+			<Conversion Contains="4050" Value="4050"/>
+			<Conversion Contains="4060" Value="4060"/>
+			<Conversion Contains="4070" Value="4070"/>
+			<Conversion Contains="3" 	Value="3"/>
+			<Conversion Contains="4" 	Value="4"/>
+			<Conversion Contains="5" 	Value="5"/>
+			<Conversion Contains="10" 	Value="10"/>
+			<Conversion Contains="11" 	Value="11"/>
+			<Conversion Contains="21" 	Value="21"/>
+			<Conversion Contains="22" 	Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_DRAFT_PQMODE" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Draft']/@hpprt:PQMode">
+			<Conversion Contains="1" Value="1"/>
+			<Conversion Contains="2" Value="2"/>
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="6" Value="6"/>
+			<Conversion Contains="7" Value="7"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+
+		<!-- StdType2 -->
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_NORMAL_SUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Normal']">
+			<Conversion Contains="Normal" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_NORMAL_RESOLUTION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Normal']/@hpprt:OptimalResolution">
+			<Conversion Contains="150" Value="1"/>
+			<Conversion Contains="300" Value="2"/>
+			<Conversion Contains="600" Value="3"/>
+			<Conversion Contains="1200" Value="4"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_NORMAL_DISPLAY_TAG" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Normal']/@hpprt:DisplayTag">
+			<Conversion Contains="1000" Value="1000"/>
+			<Conversion Contains="1002" Value="1002"/>
+			<Conversion Contains="1003" Value="1003"/>
+			<Conversion Contains="1004" Value="1004"/>
+			<Conversion Contains="1005" Value="1005"/>
+			<Conversion Contains="3000" Value="3000"/>
+			<Conversion Contains="3001" Value="3001"/>
+			<Conversion Contains="3002" Value="3002"/>
+			<Conversion Contains="3003" Value="3003"/>
+			<Conversion Contains="3020" Value="3020"/>
+			<Conversion Contains="3030" Value="3030"/>
+			<Conversion Contains="3040" Value="3040"/>
+			<Conversion Contains="3050" Value="3050"/>
+			<Conversion Contains="3060" Value="3060"/>
+			<Conversion Contains="3070" Value="3070"/>
+			<Conversion Contains="3" 	Value="3"/>
+			<Conversion Contains="4" 	Value="4"/>
+			<Conversion Contains="5" 	Value="5"/>
+			<Conversion Contains="10" 	Value="10"/>
+			<Conversion Contains="11" 	Value="11"/>
+			<Conversion Contains="21" 	Value="21"/>
+			<Conversion Contains="22" 	Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_NORMAL_IMAGING_TECH" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Normal']/@hpprt:ImageTechnology">
+			<Conversion Contains="2000" Value="2000"/>
+			<Conversion Contains="2001" Value="2001"/>
+			<Conversion Contains="2002" Value="2002"/>
+			<Conversion Contains="2003" Value="2003"/>
+			<Conversion Contains="2004" Value="2004"/>
+			<Conversion Contains="2005" Value="2005"/>
+			<Conversion Contains="4000" Value="4000"/>
+			<Conversion Contains="4005" Value="4005"/>
+			<Conversion Contains="4010" Value="4010"/>
+			<Conversion Contains="4015" Value="4015"/>
+			<Conversion Contains="4020" Value="4020"/>
+			<Conversion Contains="4030" Value="4030"/>
+			<Conversion Contains="4040" Value="4040"/>
+			<Conversion Contains="4050" Value="4050"/>
+			<Conversion Contains="4060" Value="4060"/>
+			<Conversion Contains="4070" Value="4070"/>
+			<Conversion Contains="3" 	Value="3"/>
+			<Conversion Contains="4" 	Value="4"/>
+			<Conversion Contains="5" 	Value="5"/>
+			<Conversion Contains="10" 	Value="10"/>
+			<Conversion Contains="11" 	Value="11"/>
+			<Conversion Contains="21" 	Value="21"/>
+			<Conversion Contains="22" 	Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_NORMAL_PQMODE" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Normal']/@hpprt:PQMode">
+			<Conversion Contains="1" Value="1"/>
+			<Conversion Contains="2" Value="2"/>
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="6" Value="6"/>
+			<Conversion Contains="7" Value="7"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+
+		<!-- StdType3 -->
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_BEST_SUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Best']">
+			<Conversion Contains="Best" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_BEST_RESOLUTION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Best']/@hpprt:OptimalResolution">
+			<Conversion Contains="150" Value="1"/>
+			<Conversion Contains="300" Value="2"/>
+			<Conversion Contains="600" Value="3"/>
+			<Conversion Contains="1200" Value="4"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_BEST_DISPLAY_TAG" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Best']/@hpprt:DisplayTag">
+			<Conversion Contains="1000" Value="1000"/>
+			<Conversion Contains="1002" Value="1002"/>
+			<Conversion Contains="1003" Value="1003"/>
+			<Conversion Contains="1004" Value="1004"/>
+			<Conversion Contains="1005" Value="1005"/>
+			<Conversion Contains="3000" Value="3000"/>
+			<Conversion Contains="3001" Value="3001"/>
+			<Conversion Contains="3002" Value="3002"/>
+			<Conversion Contains="3003" Value="3003"/>
+			<Conversion Contains="3020" Value="3020"/>
+			<Conversion Contains="3030" Value="3030"/>
+			<Conversion Contains="3040" Value="3040"/>
+			<Conversion Contains="3050" Value="3050"/>
+			<Conversion Contains="3060" Value="3060"/>
+			<Conversion Contains="3070" Value="3070"/>
+			<Conversion Contains="3" 	Value="3"/>
+			<Conversion Contains="4" 	Value="4"/>
+			<Conversion Contains="5" 	Value="5"/>
+			<Conversion Contains="10" 	Value="10"/>
+			<Conversion Contains="11" 	Value="11"/>
+			<Conversion Contains="21" 	Value="21"/>
+			<Conversion Contains="22" 	Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_BEST_IMAGING_TECH" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Best']/@hpprt:ImageTechnology">
+			<Conversion Contains="2000" Value="2000"/>
+			<Conversion Contains="2001" Value="2001"/>
+			<Conversion Contains="2002" Value="2002"/>
+			<Conversion Contains="2003" Value="2003"/>
+			<Conversion Contains="2004" Value="2004"/>
+			<Conversion Contains="2005" Value="2005"/>
+			<Conversion Contains="4000" Value="4000"/>
+			<Conversion Contains="4005" Value="4005"/>
+			<Conversion Contains="4010" Value="4010"/>
+			<Conversion Contains="4015" Value="4015"/>
+			<Conversion Contains="4020" Value="4020"/>
+			<Conversion Contains="4030" Value="4030"/>
+			<Conversion Contains="4040" Value="4040"/>
+			<Conversion Contains="4050" Value="4050"/>
+			<Conversion Contains="4060" Value="4060"/>
+			<Conversion Contains="4070" Value="4070"/>
+			<Conversion Contains="3" 	Value="3"/>
+			<Conversion Contains="4" 	Value="4"/>
+			<Conversion Contains="5" 	Value="5"/>
+			<Conversion Contains="10" 	Value="10"/>
+			<Conversion Contains="11" 	Value="11"/>
+			<Conversion Contains="21" 	Value="21"/>
+			<Conversion Contains="22" 	Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_BEST_PQMODE" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Best']/@hpprt:PQMode">
+			<Conversion Contains="1" Value="1"/>
+			<Conversion Contains="2" Value="2"/>
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="6" Value="6"/>
+			<Conversion Contains="7" Value="7"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+
+		<!-- StdType4 -->
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_MAX_SUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Max' or text()='Marvelous']">
+			<Conversion Contains="Max" Value="supported"/>
+			<Conversion Contains="Marvelous" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_MAX_RESOLUTION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Max' or text()='Marvelous']/@hpprt:OptimalResolution">
+			<Conversion Contains="150" Value="1"/>
+			<Conversion Contains="300" Value="2"/>
+			<Conversion Contains="600" Value="3"/>
+			<Conversion Contains="1200" Value="4"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_MAX_DISPLAY_TAG" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Max' or text()='Marvelous']/@hpprt:DisplayTag">
+			<Conversion Contains="1000" Value="1000"/>
+			<Conversion Contains="1002" Value="1002"/>
+			<Conversion Contains="1003" Value="1003"/>
+			<Conversion Contains="1004" Value="1004"/>
+			<Conversion Contains="1005" Value="1005"/>
+			<Conversion Contains="3000" Value="3000"/>
+			<Conversion Contains="3001" Value="3001"/>
+			<Conversion Contains="3002" Value="3002"/>
+			<Conversion Contains="3003" Value="3003"/>
+			<Conversion Contains="3020" Value="3020"/>
+			<Conversion Contains="3030" Value="3030"/>
+			<Conversion Contains="3040" Value="3040"/>
+			<Conversion Contains="3050" Value="3050"/>
+			<Conversion Contains="3060" Value="3060"/>
+			<Conversion Contains="3070" Value="3070"/>
+			<Conversion Contains="3" 	Value="3"/>
+			<Conversion Contains="4" 	Value="4"/>
+			<Conversion Contains="5" 	Value="5"/>
+			<Conversion Contains="10" 	Value="10"/>
+			<Conversion Contains="11" 	Value="11"/>
+			<Conversion Contains="21" 	Value="21"/>
+			<Conversion Contains="22" 	Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_MAX_IMAGING_TECH" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Max' or text()='Marvelous']/@hpprt:ImageTechnology">
+			<Conversion Contains="2000" Value="2000"/>
+			<Conversion Contains="2001" Value="2001"/>
+			<Conversion Contains="2002" Value="2002"/>
+			<Conversion Contains="2003" Value="2003"/>
+			<Conversion Contains="2004" Value="2004"/>
+			<Conversion Contains="2005" Value="2005"/>
+			<Conversion Contains="4000" Value="4000"/>
+			<Conversion Contains="4005" Value="4005"/>
+			<Conversion Contains="4010" Value="4010"/>
+			<Conversion Contains="4015" Value="4015"/>
+			<Conversion Contains="4020" Value="4020"/>
+			<Conversion Contains="4030" Value="4030"/>
+			<Conversion Contains="4040" Value="4040"/>
+			<Conversion Contains="4050" Value="4050"/>
+			<Conversion Contains="4060" Value="4060"/>
+			<Conversion Contains="4070" Value="4070"/>
+			<Conversion Contains="3" 	Value="3"/>
+			<Conversion Contains="4" 	Value="4"/>
+			<Conversion Contains="5" 	Value="5"/>
+			<Conversion Contains="10" 	Value="10"/>
+			<Conversion Contains="11" 	Value="11"/>
+			<Conversion Contains="21" 	Value="21"/>
+			<Conversion Contains="22" 	Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_MAX_PQMODE" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Max' or text()='Marvelous']/@hpprt:PQMode">
+			<Conversion Contains="1" Value="1"/>
+			<Conversion Contains="2" Value="2"/>
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="6" Value="6"/>
+			<Conversion Contains="7" Value="7"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+
+		<!-- StdType5 -->
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_ECONOMODE_SUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Economode']">
+			<Conversion Contains="Economode" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_ECONOMODE_RESOLUTION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Economode']/@hpprt:OptimalResolution">
+			<Conversion Contains="150" Value="1"/>
+			<Conversion Contains="300" Value="2"/>
+			<Conversion Contains="600" Value="3"/>
+			<Conversion Contains="1200" Value="4"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_ECONOMODE_DISPLAY_TAG" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Economode']/@hpprt:DisplayTag">
+			<Conversion Contains="1000" Value="1000"/>
+			<Conversion Contains="1002" Value="1002"/>
+			<Conversion Contains="1003" Value="1003"/>
+			<Conversion Contains="1004" Value="1004"/>
+			<Conversion Contains="1005" Value="1005"/>
+			<Conversion Contains="3000" Value="3000"/>
+			<Conversion Contains="3001" Value="3001"/>
+			<Conversion Contains="3002" Value="3002"/>
+			<Conversion Contains="3003" Value="3003"/>
+			<Conversion Contains="3020" Value="3020"/>
+			<Conversion Contains="3030" Value="3030"/>
+			<Conversion Contains="3040" Value="3040"/>
+			<Conversion Contains="3050" Value="3050"/>
+			<Conversion Contains="3060" Value="3060"/>
+			<Conversion Contains="3070" Value="3070"/>
+			<Conversion Contains="3" 	Value="3"/>
+			<Conversion Contains="4" 	Value="4"/>
+			<Conversion Contains="5" 	Value="5"/>
+			<Conversion Contains="10" 	Value="10"/>
+			<Conversion Contains="11" 	Value="11"/>
+			<Conversion Contains="21" 	Value="21"/>
+			<Conversion Contains="22" 	Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_ECONOMODE_IMAGING_TECH" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Economode']/@hpprt:ImageTechnology">
+			<Conversion Contains="2000" Value="2000"/>
+			<Conversion Contains="2001" Value="2001"/>
+			<Conversion Contains="2002" Value="2002"/>
+			<Conversion Contains="2003" Value="2003"/>
+			<Conversion Contains="2004" Value="2004"/>
+			<Conversion Contains="2005" Value="2005"/>
+			<Conversion Contains="4000" Value="4000"/>
+			<Conversion Contains="4005" Value="4005"/>
+			<Conversion Contains="4010" Value="4010"/>
+			<Conversion Contains="4015" Value="4015"/>
+			<Conversion Contains="4020" Value="4020"/>
+			<Conversion Contains="4030" Value="4030"/>
+			<Conversion Contains="4040" Value="4040"/>
+			<Conversion Contains="4050" Value="4050"/>
+			<Conversion Contains="4060" Value="4060"/>
+			<Conversion Contains="4070" Value="4070"/>
+			<Conversion Contains="3" 	Value="3"/>
+			<Conversion Contains="4" 	Value="4"/>
+			<Conversion Contains="5" 	Value="5"/>
+			<Conversion Contains="10" 	Value="10"/>
+			<Conversion Contains="11" 	Value="11"/>
+			<Conversion Contains="21" 	Value="21"/>
+			<Conversion Contains="22" 	Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_ECONOMODE_PQMODE" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Economode']/@hpprt:PQMode">
+			<Conversion Contains="1" Value="1"/>
+			<Conversion Contains="2" Value="2"/>
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="6" Value="6"/>
+			<Conversion Contains="7" Value="7"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+
+		<!-- CustomType1 -->
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_CUSTOM1_SUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Custom1']">
+			<Conversion Contains="Custom1" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_CUSTOM1_RESOLUTION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Custom1']/@hpprt:OptimalResolution">
+			<Conversion Contains="150" Value="1"/>
+			<Conversion Contains="300" Value="2"/>
+			<Conversion Contains="600" Value="3"/>
+			<Conversion Contains="1200" Value="4"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_CUSTOM1_DISPLAY_TAG" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Custom1']/@hpprt:DisplayTag">
+			<Conversion Contains="1000" Value="1000"/>
+			<Conversion Contains="1002" Value="1002"/>
+			<Conversion Contains="1003" Value="1003"/>
+			<Conversion Contains="1004" Value="1004"/>
+			<Conversion Contains="1005" Value="1005"/>
+			<Conversion Contains="3000" Value="3000"/>
+			<Conversion Contains="3001" Value="3001"/>
+			<Conversion Contains="3002" Value="3002"/>
+			<Conversion Contains="3003" Value="3003"/>
+			<Conversion Contains="3020" Value="3020"/>
+			<Conversion Contains="3030" Value="3030"/>
+			<Conversion Contains="3040" Value="3040"/>
+			<Conversion Contains="3050" Value="3050"/>
+			<Conversion Contains="3060" Value="3060"/>
+			<Conversion Contains="3070" Value="3070"/>
+			<Conversion Contains="3" 	Value="3"/>
+			<Conversion Contains="4" 	Value="4"/>
+			<Conversion Contains="5" 	Value="5"/>
+			<Conversion Contains="10" 	Value="10"/>
+			<Conversion Contains="11" 	Value="11"/>
+			<Conversion Contains="21" 	Value="21"/>
+			<Conversion Contains="22" 	Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_CUSTOM1_IMAGING_TECH" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Custom1']/@hpprt:ImageTechnology">
+			<Conversion Contains="2000" Value="2000"/>
+			<Conversion Contains="2001" Value="2001"/>
+			<Conversion Contains="2002" Value="2002"/>
+			<Conversion Contains="2003" Value="2003"/>
+			<Conversion Contains="2004" Value="2004"/>
+			<Conversion Contains="2005" Value="2005"/>
+			<Conversion Contains="4000" Value="4000"/>
+			<Conversion Contains="4005" Value="4005"/>
+			<Conversion Contains="4010" Value="4010"/>
+			<Conversion Contains="4015" Value="4015"/>
+			<Conversion Contains="4020" Value="4020"/>
+			<Conversion Contains="4030" Value="4030"/>
+			<Conversion Contains="4040" Value="4040"/>
+			<Conversion Contains="4050" Value="4050"/>
+			<Conversion Contains="4060" Value="4060"/>
+			<Conversion Contains="4070" Value="4070"/>
+			<Conversion Contains="3" 	Value="3"/>
+			<Conversion Contains="4" 	Value="4"/>
+			<Conversion Contains="5" 	Value="5"/>
+			<Conversion Contains="10" 	Value="10"/>
+			<Conversion Contains="11" 	Value="11"/>
+			<Conversion Contains="21" 	Value="21"/>
+			<Conversion Contains="22" 	Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_CUSTOM1_PQMODE" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Custom1']/@hpprt:PQMode">
+			<Conversion Contains="1" Value="1"/>
+			<Conversion Contains="2" Value="2"/>
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="6" Value="6"/>
+			<Conversion Contains="7" Value="7"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+
+		<!-- CustomType2 -->
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_CUSTOM2_SUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Custom2']">
+			<Conversion Contains="Custom2" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_CUSTOM2_RESOLUTION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Custom2']/@hpprt:OptimalResolution">
+			<Conversion Contains="150" Value="1"/>
+			<Conversion Contains="300" Value="2"/>
+			<Conversion Contains="600" Value="3"/>
+			<Conversion Contains="1200" Value="4"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_CUSTOM2_DISPLAY_TAG" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Custom2']/@hpprt:DisplayTag">
+			<Conversion Contains="1000" Value="1000"/>
+			<Conversion Contains="1002" Value="1002"/>
+			<Conversion Contains="1003" Value="1003"/>
+			<Conversion Contains="1004" Value="1004"/>
+			<Conversion Contains="1005" Value="1005"/>
+			<Conversion Contains="3000" Value="3000"/>
+			<Conversion Contains="3001" Value="3001"/>
+			<Conversion Contains="3002" Value="3002"/>
+			<Conversion Contains="3003" Value="3003"/>
+			<Conversion Contains="3020" Value="3020"/>
+			<Conversion Contains="3030" Value="3030"/>
+			<Conversion Contains="3040" Value="3040"/>
+			<Conversion Contains="3050" Value="3050"/>
+			<Conversion Contains="3060" Value="3060"/>
+			<Conversion Contains="3070" Value="3070"/>
+			<Conversion Contains="3" 	Value="3"/>
+			<Conversion Contains="4" 	Value="4"/>
+			<Conversion Contains="5" 	Value="5"/>
+			<Conversion Contains="10" 	Value="10"/>
+			<Conversion Contains="11" 	Value="11"/>
+			<Conversion Contains="21" 	Value="21"/>
+			<Conversion Contains="22" 	Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_CUSTOM2_IMAGING_TECH" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Custom2']/@hpprt:ImageTechnology">
+			<Conversion Contains="2000" Value="2000"/>
+			<Conversion Contains="2001" Value="2001"/>
+			<Conversion Contains="2002" Value="2002"/>
+			<Conversion Contains="2003" Value="2003"/>
+			<Conversion Contains="2004" Value="2004"/>
+			<Conversion Contains="2005" Value="2005"/>
+			<Conversion Contains="4000" Value="4000"/>
+			<Conversion Contains="4005" Value="4005"/>
+			<Conversion Contains="4010" Value="4010"/>
+			<Conversion Contains="4015" Value="4015"/>
+			<Conversion Contains="4020" Value="4020"/>
+			<Conversion Contains="4030" Value="4030"/>
+			<Conversion Contains="4040" Value="4040"/>
+			<Conversion Contains="4050" Value="4050"/>
+			<Conversion Contains="4060" Value="4060"/>
+			<Conversion Contains="4070" Value="4070"/>
+			<Conversion Contains="3" 	Value="3"/>
+			<Conversion Contains="4" 	Value="4"/>
+			<Conversion Contains="5" 	Value="5"/>
+			<Conversion Contains="10" 	Value="10"/>
+			<Conversion Contains="11" 	Value="11"/>
+			<Conversion Contains="21" 	Value="21"/>
+			<Conversion Contains="22" 	Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>	
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_CUSTOM2_PQMODE" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Custom2']/@hpprt:PQMode">
+			<Conversion Contains="1" Value="1"/>
+			<Conversion Contains="2" Value="2"/>
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="6" Value="6"/>
+			<Conversion Contains="7" Value="7"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+
+		<!-- CustomType3 -->
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_CUSTOM3_SUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Custom3']">
+			<Conversion Contains="Custom3" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_CUSTOM3_RESOLUTION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Custom3']/@hpprt:OptimalResolution">
+			<Conversion Contains="150" Value="1"/>
+			<Conversion Contains="300" Value="2"/>
+			<Conversion Contains="600" Value="3"/>
+			<Conversion Contains="1200" Value="4"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_CUSTOM3_DISPLAY_TAG" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Custom3']/@hpprt:DisplayTag">
+			<Conversion Contains="1000" Value="1000"/>
+			<Conversion Contains="1002" Value="1002"/>
+			<Conversion Contains="1003" Value="1003"/>
+			<Conversion Contains="1004" Value="1004"/>
+			<Conversion Contains="1005" Value="1005"/>
+			<Conversion Contains="3000" Value="3000"/>
+			<Conversion Contains="3001" Value="3001"/>
+			<Conversion Contains="3002" Value="3002"/>
+			<Conversion Contains="3003" Value="3003"/>
+			<Conversion Contains="3020" Value="3020"/>
+			<Conversion Contains="3030" Value="3030"/>
+			<Conversion Contains="3040" Value="3040"/>
+			<Conversion Contains="3050" Value="3050"/>
+			<Conversion Contains="3060" Value="3060"/>
+			<Conversion Contains="3070" Value="3070"/>
+			<Conversion Contains="3" 	Value="3"/>
+			<Conversion Contains="4" 	Value="4"/>
+			<Conversion Contains="5" 	Value="5"/>
+			<Conversion Contains="10" 	Value="10"/>
+			<Conversion Contains="11" 	Value="11"/>
+			<Conversion Contains="21" 	Value="21"/>
+			<Conversion Contains="22" 	Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_CUSTOM3_IMAGING_TECH" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Custom3']/@hpprt:ImageTechnology">
+			<Conversion Contains="2000" Value="2000"/>
+			<Conversion Contains="2001" Value="2001"/>
+			<Conversion Contains="2002" Value="2002"/>
+			<Conversion Contains="2003" Value="2003"/>
+			<Conversion Contains="2004" Value="2004"/>
+			<Conversion Contains="2005" Value="2005"/>
+			<Conversion Contains="4000" Value="4000"/>
+			<Conversion Contains="4005" Value="4005"/>
+			<Conversion Contains="4010" Value="4010"/>
+			<Conversion Contains="4015" Value="4015"/>
+			<Conversion Contains="4020" Value="4020"/>
+			<Conversion Contains="4030" Value="4030"/>
+			<Conversion Contains="4040" Value="4040"/>
+			<Conversion Contains="4050" Value="4050"/>
+			<Conversion Contains="4060" Value="4060"/>
+			<Conversion Contains="4070" Value="4070"/>
+			<Conversion Contains="3" 	Value="3"/>
+			<Conversion Contains="4" 	Value="4"/>
+			<Conversion Contains="5" 	Value="5"/>
+			<Conversion Contains="10" 	Value="10"/>
+			<Conversion Contains="11" 	Value="11"/>
+			<Conversion Contains="21" 	Value="21"/>
+			<Conversion Contains="22" 	Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>	
+		<DataItem Prefix="PrinterCapabilities" Name="PQ_CUSTOM3_PQMODE" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()='Custom3']/@hpprt:PQMode">
+			<Conversion Contains="1" Value="1"/>
+			<Conversion Contains="2" Value="2"/>
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="6" Value="6"/>
+			<Conversion Contains="7" Value="7"/>
+			<Conversion Contains="default" Value="not-supported"/>
+	</DataItem>
+   <!-- Print in Grayscale - High Quality CMYK Black -->
+    <DataItem Prefix="PrinterCapabilities" Name="PROCESS_BLACK" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//hpprt:PrintColorModes/hpprt:ColorMode[text()='process-black']">
+      <Conversion Contains="process-black" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+	
+	
+	<!-- Color -->
+    <DataItem Prefix="PrinterCapabilities" Name="prtMarkerColorantMarkerIndex1" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//hpprt:PrintColorModes/hpprt:ColorMode[text()='color']">
+      <Conversion Contains="color" Value="1"/>
+      <Conversion Contains="default" Value="0"/>
+    </DataItem>
+	
+	<!-- Print Contract Output Bin -->
+	
+	<!--OutputBin1 -->
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN1" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[0]/@Name">
+      <Conversion Contains="Bin0" Value="2"/>
+	  <Conversion Contains="face-up" Value="4"/>
+	  <Conversion Contains="Engine-optional1" Value="3"/>
+	  <Conversion Contains="Mailbox1" Value="5"/>
+	  <Conversion Contains="Mailbox2" Value="6"/>
+	  <Conversion Contains="Mailbox3" Value="7"/>
+	  <Conversion Contains="Mailbox4" Value="8"/>
+	  <Conversion Contains="Mailbox5" Value="9"/>
+	  <Conversion Contains="Mailbox6" Value="10"/>
+	  <Conversion Contains="Mailbox7" Value="11"/>
+	  <Conversion Contains="Mailbox8" Value="12"/>
+      <Conversion Contains="Stacker1" Value="13"/>
+	  <Conversion Contains="Bin1" Value="14"/>
+	  <Conversion Contains="Bin2" Value="15"/>  
+      <Conversion Contains="default" Value="0"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN1_ORIENTATION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[0]/@hpprt:PageDelivery">
+      <Conversion Contains="FaceUp" Value="1"/>
+	  <Conversion Contains="FaceDown" Value="2"/>
+	  <Conversion Contains="FaceUpOrFaceDown" Value="3"/>
+      <Conversion Contains="default" Value="2"/>
+    </DataItem>
+	<DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN1_FOLDSUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[0]/@hpprt:PhysicalFoldUnit">
+      <Conversion Contains="true" Value="2"/>
+	  <Conversion Contains="false" Value="1"/>	 
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+	
+	<!--OutputBin2 -->
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN2" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[1]/@Name">
+      <Conversion Contains="Bin0" Value="2"/>
+	  <Conversion Contains="face-up" Value="4"/>
+	  <Conversion Contains="Engine-optional1" Value="3"/>
+	  <Conversion Contains="Mailbox1" Value="5"/>
+	  <Conversion Contains="Mailbox2" Value="6"/>
+	  <Conversion Contains="Mailbox3" Value="7"/>
+	  <Conversion Contains="Mailbox4" Value="8"/>
+	  <Conversion Contains="Mailbox5" Value="9"/>
+	  <Conversion Contains="Mailbox6" Value="10"/>
+	  <Conversion Contains="Mailbox7" Value="11"/>
+	  <Conversion Contains="Mailbox8" Value="12"/>
+      <Conversion Contains="Stacker1" Value="13"/>
+	  <Conversion Contains="Bin1" Value="14"/>
+	  <Conversion Contains="Bin2" Value="15"/>  
+      <Conversion Contains="default" Value="0"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN2_ORIENTATION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[1]/@hpprt:PageDelivery">
+      <Conversion Contains="FaceUp" Value="1"/>
+	  <Conversion Contains="FaceDown" Value="2"/>
+	  <Conversion Contains="FaceUpOrFaceDown" Value="3"/>
+      <Conversion Contains="default" Value="2"/>
+    </DataItem>
+	<DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN2_FOLDSUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[1]/@hpprt:PhysicalFoldUnit">
+      <Conversion Contains="true" Value="2"/>
+	  <Conversion Contains="false" Value="1"/>	 
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+	
+	<!--OutputBin3 -->
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN3" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[2]/@Name">
+      <Conversion Contains="Bin0" Value="2"/>
+	  <Conversion Contains="face-up" Value="4"/>
+	  <Conversion Contains="Engine-optional1" Value="3"/>
+	  <Conversion Contains="Mailbox1" Value="5"/>
+	  <Conversion Contains="Mailbox2" Value="6"/>
+	  <Conversion Contains="Mailbox3" Value="7"/>
+	  <Conversion Contains="Mailbox4" Value="8"/>
+	  <Conversion Contains="Mailbox5" Value="9"/>
+	  <Conversion Contains="Mailbox6" Value="10"/>
+	  <Conversion Contains="Mailbox7" Value="11"/>
+	  <Conversion Contains="Mailbox8" Value="12"/>
+      <Conversion Contains="Stacker1" Value="13"/>
+	  <Conversion Contains="Bin1" Value="14"/>
+	  <Conversion Contains="Bin2" Value="15"/>  
+      <Conversion Contains="default" Value="0"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN3_ORIENTATION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[2]/@hpprt:PageDelivery">
+      <Conversion Contains="FaceUp" Value="1"/>
+	  <Conversion Contains="FaceDown" Value="2"/>
+	  <Conversion Contains="FaceUpOrFaceDown" Value="3"/>
+      <Conversion Contains="default" Value="2"/>
+    </DataItem>
+	<DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN3_FOLDSUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[2]/@hpprt:PhysicalFoldUnit">
+      <Conversion Contains="true" Value="2"/>
+	  <Conversion Contains="false" Value="1"/>	 
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+	
+	<!--OutputBin4 -->
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN4" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[3]/@Name">
+      <Conversion Contains="Bin0" Value="2"/>
+	  <Conversion Contains="face-up" Value="4"/>
+	  <Conversion Contains="Engine-optional1" Value="3"/>
+	  <Conversion Contains="Mailbox1" Value="5"/>
+	  <Conversion Contains="Mailbox2" Value="6"/>
+	  <Conversion Contains="Mailbox3" Value="7"/>
+	  <Conversion Contains="Mailbox4" Value="8"/>
+	  <Conversion Contains="Mailbox5" Value="9"/>
+	  <Conversion Contains="Mailbox6" Value="10"/>
+	  <Conversion Contains="Mailbox7" Value="11"/>
+	  <Conversion Contains="Mailbox8" Value="12"/>
+      <Conversion Contains="Stacker1" Value="13"/>
+	  <Conversion Contains="Bin1" Value="14"/>
+	  <Conversion Contains="Bin2" Value="15"/>  
+      <Conversion Contains="default" Value="0"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN4_ORIENTATION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[3]/@hpprt:PageDelivery">
+      <Conversion Contains="FaceUp" Value="1"/>
+	  <Conversion Contains="FaceDown" Value="2"/>
+	  <Conversion Contains="FaceUpOrFaceDown" Value="3"/>
+      <Conversion Contains="default" Value="2"/>
+    </DataItem>
+	<DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN4_FOLDSUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[3]/@hpprt:PhysicalFoldUnit">
+      <Conversion Contains="true" Value="2"/>
+	  <Conversion Contains="false" Value="1"/>	 
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+	
+	<!--OutputBin5 -->
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN5" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[4]/@Name">
+      <Conversion Contains="Bin0" Value="2"/>
+	  <Conversion Contains="face-up" Value="4"/>
+	  <Conversion Contains="Engine-optional1" Value="3"/>
+	  <Conversion Contains="Mailbox1" Value="5"/>
+	  <Conversion Contains="Mailbox2" Value="6"/>
+	  <Conversion Contains="Mailbox3" Value="7"/>
+	  <Conversion Contains="Mailbox4" Value="8"/>
+	  <Conversion Contains="Mailbox5" Value="9"/>
+	  <Conversion Contains="Mailbox6" Value="10"/>
+	  <Conversion Contains="Mailbox7" Value="11"/>
+	  <Conversion Contains="Mailbox8" Value="12"/>
+      <Conversion Contains="Stacker1" Value="13"/>
+	  <Conversion Contains="Bin1" Value="14"/>
+	  <Conversion Contains="Bin2" Value="15"/>  
+      <Conversion Contains="default" Value="0"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN5_ORIENTATION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[4]/@hpprt:PageDelivery">
+      <Conversion Contains="FaceUp" Value="1"/>
+	  <Conversion Contains="FaceDown" Value="2"/>
+	  <Conversion Contains="FaceUpOrFaceDown" Value="3"/>
+      <Conversion Contains="default" Value="2"/>
+    </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN5_FOLDSUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[4]/@hpprt:PhysicalFoldUnit">
+    <Conversion Contains="true" Value="2"/>
+    <Conversion Contains="false" Value="1"/>
+    <Conversion Contains="default" Value="1"/>
+  </DataItem>
+	
+	<!--OutputBin6 -->
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN6" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[5]/@Name">
+      <Conversion Contains="Bin0" Value="2"/>
+	  <Conversion Contains="face-up" Value="4"/>
+	  <Conversion Contains="Engine-optional1" Value="3"/>
+	  <Conversion Contains="Mailbox1" Value="5"/>
+	  <Conversion Contains="Mailbox2" Value="6"/>
+	  <Conversion Contains="Mailbox3" Value="7"/>
+	  <Conversion Contains="Mailbox4" Value="8"/>
+	  <Conversion Contains="Mailbox5" Value="9"/>
+	  <Conversion Contains="Mailbox6" Value="10"/>
+	  <Conversion Contains="Mailbox7" Value="11"/>
+	  <Conversion Contains="Mailbox8" Value="12"/>
+      <Conversion Contains="Stacker1" Value="13"/>
+	  <Conversion Contains="Bin1" Value="14"/>
+	  <Conversion Contains="Bin2" Value="15"/>  
+      <Conversion Contains="default" Value="0"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN6_ORIENTATION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[5]/@hpprt:PageDelivery">
+      <Conversion Contains="FaceUp" Value="1"/>
+	  <Conversion Contains="FaceDown" Value="2"/>
+	  <Conversion Contains="FaceUpOrFaceDown" Value="3"/>
+      <Conversion Contains="default" Value="2"/>
+    </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN6_FOLDSUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[5]/@hpprt:PhysicalFoldUnit">
+    <Conversion Contains="true" Value="2"/>
+    <Conversion Contains="false" Value="1"/>
+    <Conversion Contains="default" Value="1"/>
+  </DataItem>
+	
+	<!--OutputBin7 -->
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN7" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[6]/@Name">
+      <Conversion Contains="Bin0" Value="2"/>
+	  <Conversion Contains="face-up" Value="4"/>
+	  <Conversion Contains="Engine-optional1" Value="3"/>
+	  <Conversion Contains="Mailbox1" Value="5"/>
+	  <Conversion Contains="Mailbox2" Value="6"/>
+	  <Conversion Contains="Mailbox3" Value="7"/>
+	  <Conversion Contains="Mailbox4" Value="8"/>
+	  <Conversion Contains="Mailbox5" Value="9"/>
+	  <Conversion Contains="Mailbox6" Value="10"/>
+	  <Conversion Contains="Mailbox7" Value="11"/>
+	  <Conversion Contains="Mailbox8" Value="12"/>
+      <Conversion Contains="Stacker1" Value="13"/>
+	  <Conversion Contains="Bin1" Value="14"/>
+	  <Conversion Contains="Bin2" Value="15"/>  
+      <Conversion Contains="default" Value="0"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN7_ORIENTATION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[6]/@hpprt:PageDelivery">
+      <Conversion Contains="FaceUp" Value="1"/>
+	  <Conversion Contains="FaceDown" Value="2"/>
+	  <Conversion Contains="FaceUpOrFaceDown" Value="3"/>
+      <Conversion Contains="default" Value="2"/>
+    </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN7_FOLDSUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[6]/@hpprt:PhysicalFoldUnit">
+    <Conversion Contains="true" Value="2"/>
+    <Conversion Contains="false" Value="1"/>
+    <Conversion Contains="default" Value="1"/>
+  </DataItem>
+	
+	<!--OutputBin8 -->
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN8" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[7]/@Name">
+      <Conversion Contains="Bin0" Value="2"/>
+	  <Conversion Contains="face-up" Value="4"/>
+	  <Conversion Contains="Engine-optional1" Value="3"/>
+	  <Conversion Contains="Mailbox1" Value="5"/>
+	  <Conversion Contains="Mailbox2" Value="6"/>
+	  <Conversion Contains="Mailbox3" Value="7"/>
+	  <Conversion Contains="Mailbox4" Value="8"/>
+	  <Conversion Contains="Mailbox5" Value="9"/>
+	  <Conversion Contains="Mailbox6" Value="10"/>
+	  <Conversion Contains="Mailbox7" Value="11"/>
+	  <Conversion Contains="Mailbox8" Value="12"/>
+      <Conversion Contains="Stacker1" Value="13"/>
+	  <Conversion Contains="Bin1" Value="14"/>
+	  <Conversion Contains="Bin2" Value="15"/>  
+      <Conversion Contains="default" Value="0"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN8_ORIENTATION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[7]/@hpprt:PageDelivery">
+      <Conversion Contains="FaceUp" Value="1"/>
+	  <Conversion Contains="FaceDown" Value="2"/>
+	  <Conversion Contains="FaceUpOrFaceDown" Value="3"/>
+      <Conversion Contains="default" Value="2"/>
+    </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN8_FOLDSUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[7]/@hpprt:PhysicalFoldUnit">
+    <Conversion Contains="true" Value="2"/>
+    <Conversion Contains="false" Value="1"/>
+    <Conversion Contains="default" Value="1"/>
+  </DataItem>
+	
+	<!--OutputBin9 -->
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN9" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[8]/@Name">
+      <Conversion Contains="Bin0" Value="2"/>
+	  <Conversion Contains="face-up" Value="4"/>
+	  <Conversion Contains="Engine-optional1" Value="3"/>
+	  <Conversion Contains="Mailbox1" Value="5"/>
+	  <Conversion Contains="Mailbox2" Value="6"/>
+	  <Conversion Contains="Mailbox3" Value="7"/>
+	  <Conversion Contains="Mailbox4" Value="8"/>
+	  <Conversion Contains="Mailbox5" Value="9"/>
+	  <Conversion Contains="Mailbox6" Value="10"/>
+	  <Conversion Contains="Mailbox7" Value="11"/>
+	  <Conversion Contains="Mailbox8" Value="12"/>
+      <Conversion Contains="Stacker1" Value="13"/>
+	  <Conversion Contains="Bin1" Value="14"/>
+	  <Conversion Contains="Bin2" Value="15"/>  
+      <Conversion Contains="default" Value="0"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN9_ORIENTATION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[8]/@hpprt:PageDelivery">
+      <Conversion Contains="FaceUp" Value="1"/>
+	  <Conversion Contains="FaceDown" Value="2"/>
+	  <Conversion Contains="FaceUpOrFaceDown" Value="3"/>
+      <Conversion Contains="default" Value="2"/>
+    </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN9_FOLDSUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[8]/@hpprt:PhysicalFoldUnit">
+    <Conversion Contains="true" Value="2"/>
+    <Conversion Contains="false" Value="1"/>
+    <Conversion Contains="default" Value="1"/>
+  </DataItem>
+	
+	<!--OutputBin 10 -->
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN10" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[9]/@Name">
+      <Conversion Contains="Bin0" Value="2"/>
+	  <Conversion Contains="face-up" Value="4"/>
+	  <Conversion Contains="Engine-optional1" Value="3"/>
+	  <Conversion Contains="Mailbox1" Value="5"/>
+	  <Conversion Contains="Mailbox2" Value="6"/>
+	  <Conversion Contains="Mailbox3" Value="7"/>
+	  <Conversion Contains="Mailbox4" Value="8"/>
+	  <Conversion Contains="Mailbox5" Value="9"/>
+	  <Conversion Contains="Mailbox6" Value="10"/>
+	  <Conversion Contains="Mailbox7" Value="11"/>
+	  <Conversion Contains="Mailbox8" Value="12"/>
+      <Conversion Contains="Stacker1" Value="13"/>
+	  <Conversion Contains="Bin1" Value="14"/>
+	  <Conversion Contains="Bin2" Value="15"/>  
+      <Conversion Contains="default" Value="0"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN10_ORIENTATION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[9]/@hpprt:PageDelivery">
+      <Conversion Contains="FaceUp" Value="1"/>
+	  <Conversion Contains="FaceDown" Value="2"/>
+	  <Conversion Contains="FaceUpOrFaceDown" Value="3"/>
+      <Conversion Contains="default" Value="2"/>
+    </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_OUTBIN10_FOLDSUPPORTED" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:OutputBins/wprt:OutputBinEntry[9]/@hpprt:PhysicalFoldUnit">
+    <Conversion Contains="true" Value="2"/>
+    <Conversion Contains="false" Value="1"/>
+    <Conversion Contains="default" Value="1"/>
+  </DataItem>
+	
+	
+	<!-- Staple Options-->
+    <DataItem Prefix="PrinterCapabilities" Name="PC_ONE_STAPLE_LEFT" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Staple/wprt:Location/wprt:AllowedValue[text()='StapleTopLeft']">
+      <Conversion Contains="StapleTopLeft" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_ONE_STAPLE_RIGHT" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Staple/wprt:Location/wprt:AllowedValue[text()='StapleTopRight']">
+      <Conversion Contains="StapleTopRight" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_TWO_STAPLE_LEFT" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Staple/wprt:Location/wprt:AllowedValue[text()='StapleDualLeft']">
+      <Conversion Contains="StapleDualLeft" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_TWO_STAPLE_RIGHT" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Staple/wprt:Location/wprt:AllowedValue[text()='StapleDualRight']">
+      <Conversion Contains="StapleDualRight" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_TWO_STAPLE_TOP" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Staple/wprt:Location/wprt:AllowedValue[text()='StapleDualTop']">
+      <Conversion Contains="StapleDualTop" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_TWO_STAPLE_BOTTOM" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Staple/wprt:Location/wprt:AllowedValue[text()='StapleDualBottom']">
+      <Conversion Contains="StapleDualBottom" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_THREE_STAPLE_LEFT" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Staple/wprt:Location/wprt:AllowedValue[text()='StapleTripleLeft']">
+      <Conversion Contains="StapleTripleLeft" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_THREE_STAPLE_RIGHT" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="/wprt:Staple/wprt:Location/wprt:AllowedValue[text()='StapleTripleRight']">
+      <Conversion Contains="StapleTripleRight" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_THREE_STAPLE_TOP" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Staple/wprt:Location/wprt:AllowedValue[text()='StapleTripleTop']">
+      <Conversion Contains="StapleTripleTop" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_THREE_STAPLE_BOTTOM" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Staple/wprt:Location/wprt:AllowedValue[text()='StapleTripleBottom']">
+      <Conversion Contains="StapleTripleBottom" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_FOLD_AND_STITCH" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Staple/wprt:Location/wprt:AllowedValue[text()='SaddleStitch']">
+      <Conversion Contains="SaddleStitch" Value="2"/>
+      <Conversion Contains="default" Value="0"/>
+    </DataItem>
+    
+	<!-- Punch Region : checking for two holes left which takes care of 2/3 and 2/4 punch and 4 holes left for 4 hole swedish-->
+    <DataItem Prefix="PrinterCapabilities" Name="PC_PUNCH_REGION" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()='FourHolesLeft']/@hpprt:PunchUnitRegion | //wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()='TwoHolesLeft']/@hpprt:PunchUnitRegion">
+	  <Conversion Contains="US" Value="1"/>
+      <Conversion Contains="EU" Value="2"/>
+      <Conversion Contains="SW" Value="3"/>
+      <Conversion Contains="default" Value="0"/>
+    </DataItem>
+	
+	<!-- Punch Options-->
+    <DataItem Prefix="PrinterCapabilities" Name="PC_TWO_HOLES_LEFT" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()='TwoHolesLeft']">
+      <Conversion Contains="TwoHolesLeft" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_TWO_HOLES_RIGHT" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()='TwoHolesRight']">
+      <Conversion Contains="TwoHolesRight" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_TWO_HOLES_TOP" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()='TwoHolesTop']">
+      <Conversion Contains="TwoHolesTop" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_TWO_HOLES_BOTTOM" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()='TwoHolesBottom']">
+      <Conversion Contains="TwoHolesBottom" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_THREE_HOLES_LEFT" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()='ThreeHolesLeft']">
+      <Conversion Contains="ThreeHolesLeft" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_THREE_HOLES_RIGHT" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()='ThreeHolesRight']">
+      <Conversion Contains="ThreeHolesRight" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_THREE_HOLES_TOP" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()='ThreeHolesTop']">
+      <Conversion Contains="ThreeHolesTop" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_THREE_HOLES_BOTTOM" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()='ThreeHolesBottom']">
+      <Conversion Contains="ThreeHolesBottom" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_FOUR_HOLES_LEFT" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()='FourHolesLeft']">
+      <Conversion Contains="FourHolesLeft" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_FOUR_HOLES_RIGHT" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()='FourHolesRight']">
+      <Conversion Contains="FourHolesRight" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_FOUR_HOLES_TOP" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()='FourHolesTop']">
+      <Conversion Contains="FourHolesTop" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_FOUR_HOLES_BOTTOM" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()='FourHolesBottom']">
+      <Conversion Contains="FourHolesBottom" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+	
+	
+	<!-- Fold Max Sheets-->
+
+    <DataItem Prefix="PrinterCapabilities" Name="PC_VFold_MaxSheets" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//hpprt:OemFolds/hpprt:FoldPattern[@hpprt:FoldName='v-fold']/@hpprt:MaxSheetsPerSet"/>
+    <DataItem Prefix="PrinterCapabilities" Name="PC_CFold_MaxSheets" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//hpprt:OemFolds/hpprt:FoldPattern[@hpprt:FoldName='c-fold']/@hpprt:MaxSheetsPerSet"/>
+	
+	<!-- CMYK Color Themes-->
+	<DataItem Prefix="PrinterCapabilities" Name="PC_CMYK_COLOR_THEMES" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//hpprt:OemDocumentProcessing/hpprt:ImageEnhancements/hpprt:ImageEnhancement[text()='cmyk-color-themes']">
+      <Conversion Contains="cmyk-color-themes" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+	
+	<!-- RGB Color Themes -->
+	<DataItem Prefix="PrinterCapabilities" Name="PC_RGB_COLOR_THEMES" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//hpprt:OemDocumentProcessing/hpprt:ImageEnhancements/hpprt:ImageEnhancement[text()='rgb-color-themes']">
+      <Conversion Contains="rgb-color-themes" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+	
+	<!-- EPEAT Gold-->
+	<DataItem Prefix="PrinterConfiguration" Name="PC_DEFAULT_DUPLEX_STANDARD"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//hpprt:OemPrinterConfiguration/hpprt:DefaultDuplexStandard">
+	  <Conversion Contains="true" Value="2"/>
+	  <Conversion Contains="false" Value="1"/>
+	  <Conversion Contains="default" Value="1"/>
+	 </DataItem>
+	 
+	  <!-- Color Settings -->
+	<DataItem Prefix="PrinterCapabilities" Name="PC_COLOR_SETTINGS" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//hpprt:OemDocumentProcessing/hpprt:ImageEnhancements/hpprt:ImageEnhancement[text()='advance-image-control']">
+      <Conversion Contains="advance-image-control" Value="2"/>
+      <Conversion Contains="default" Value="1"/>
+    </DataItem>
+
+  <!--PaperSize -->
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize1"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='na_letter_8.5x11in']">
+    <Conversion Contains="na_letter_8.5x11in" Value="LETTER"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize2"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='na_legal_8.5x14in']">
+    <Conversion Contains="na_legal_8.5x14in" Value="LEGAL"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize3"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='na_executive_7.25x10.5in']">
+    <Conversion Contains="na_executive_7.25x10.5in" Value="EXEC"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize4"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='na_invoice_5.5x8.5in']">
+    <Conversion Contains="na_invoice_5.5x8.5in" Value="STATEMENT"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize5"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='na_foolscap_8.5x13in']">
+    <Conversion Contains="na_foolscap_8.5x13in" Value="8.5X13"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize6"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='na_ledger_11x17in']">
+    <Conversion Contains="na_ledger_11x17in" Value="LEDGER"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize7"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='na_arch-b_12x18in']">
+    <Conversion Contains="na_arch-b_12x18in" Value="12X18"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize8"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='na_index-3x5_3x5in']">
+    <Conversion Contains="na_index-3x5_3x5in" Value="3X5"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize9"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='na_index-4x6_4x6in']">
+    <Conversion Contains="na_index-4x6_4x6in" Value="4X6"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize10"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='na_5x7_5x7in']">
+    <Conversion Contains="na_5x7_5x7in" Value="5X7"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize11"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='na_index-5x8_5x8in']">
+    <Conversion Contains="na_index-5x8_5x8in" Value="5X8"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize12"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='iso_a3_297x420mm']">
+    <Conversion Contains="iso_a3_297x420mm" Value="A3"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize13"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='iso_a4_210x297mm']">
+    <Conversion Contains="iso_a4_210x297mm" Value="A4"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize14"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='iso_a5_148x210mm']">
+    <Conversion Contains="iso_a5_148x210mm" Value="A5"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize15"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='iso_a6_105x148mm']">
+    <Conversion Contains="iso_a6_105x148mm" Value="A6"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize16"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='iso_ra3_305x430mm']">
+    <Conversion Contains="iso_ra3_305x430mm" Value="RA3"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize17"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='iso_sra3_320x450mm']">
+    <Conversion Contains="iso_sra3_320x450mm" Value="SRA3"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize18"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='iso_ra4_215x305mm']">
+    <Conversion Contains="iso_ra4_215x305mm" Value="RA4"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize19"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='iso_sra4_225x320mm']">
+    <Conversion Contains="iso_sra4_225x320mm" Value="SRA4"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize20"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='jis_b4_257x364mm']">
+    <Conversion Contains="jis_b4_257x364mm" Value="JIS B4"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize21"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='jis_b5_182x257mm']">
+    <Conversion Contains="jis_b5_182x257mm" Value="JIS B5"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize22"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='jis_b6_128x182mm']">
+    <Conversion Contains="jis_b6_128x182mm" Value="JIS B6"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize23"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='oe_photo-l_3.5x5in']">
+    <Conversion Contains="oe_photo-l_3.5x5in" Value="L9X13CM"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize24"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='om_small-photo_100x150mm']">
+    <Conversion Contains="om_small-photo_100x150mm" Value="10X15 CM"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize25"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='na_oficio_8.5x13.4in']">
+    <Conversion Contains="na_oficio_8.5x13.4in" Value="OFICIO 216X340MM"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize26"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='om_8k_270x390mm']">
+    <Conversion Contains="om_8k_270x390mm" Value="8K 270X390MM"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize27"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='om_16k_195x270mm']">
+    <Conversion Contains="om_16k_195x270mm" Value="16K 195X270MM"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize28"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='om_8k_260x368mm']">
+    <Conversion Contains="om_8k_260x368mm" Value="8K 260X368MM"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize29"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='om_16k_184x260mm']">
+    <Conversion Contains="om_16k_184x260mm" Value="16K 184X260MM"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize30"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='roc_8k_10.75x15.5in']">
+    <Conversion Contains="roc_8k_10.75x15.5in" Value="ROC8K"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize31"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='roc_16k_7.75x10.75in']">
+    <Conversion Contains="roc_16k_7.75x10.75in" Value="ROC16K"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize32"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='jpn_hagaki_100x148mm']">
+    <Conversion Contains="jpn_hagaki_100x148mm" Value="JPOST"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize33"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='jpn_oufuku_148x200mm']">
+    <Conversion Contains="jpn_oufuku_148x200mm" Value="JPOSTD"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize34"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='na_number-9_3.875x8.875in']">
+    <Conversion Contains="na_number-9_3.875x8.875in" Value="COM9"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize35"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='na_number-10_4.125x9.5in']">
+    <Conversion Contains="na_number-10_4.125x9.5in" Value="COM10"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize36"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='na_monarch_3.875x7.5in']">
+    <Conversion Contains="na_monarch_3.875x7.5in" Value="MONARCH"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize37"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='iso_b5_176x250mm']">
+    <Conversion Contains="iso_b5_176x250mm" Value="B5 ENV"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize38"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='iso_c5_162x229mm']">
+    <Conversion Contains="iso_c5_162x229mm" Value="C5"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize39"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='iso_c6_114x162mm']">
+    <Conversion Contains="iso_c6_114x162mm" Value="C6"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize40"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='iso_dl_110x220mm']">
+    <Conversion Contains="iso_dl_110x220mm" Value="DL"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize41"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='jpn_chou3_120x235mm']">
+    <Conversion Contains="jpn_chou3_120x235mm" Value="JCHOU3"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaSize42"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:MediaSizeName/wprt:AllowedValue[text()='jpn_chou4_90x205mm']">
+    <Conversion Contains="jpn_chou4_90x205mm" Value="JCHOU4"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterConfiguration" Name="PC_JOB_STORAGE_ENCRYPTION"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Storage/wprt:StorageEntry/hpprt:Encryptions/hpprt:Encryption">
+    <Conversion Contains="aes128,aes256" Value="aes128,aes256"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterConfiguration" Name="PC_ENCRYPTION_PASSWORD_TYPE"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Storage/wprt:StorageEntry/hpprt:Password/@Alphanumeric">
+    <Conversion Contains="true" Value="1"/>
+    <Conversion Contains="false" Value="0"/>
+    <Conversion Contains="default" Value="1"/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterConfiguration" Name="PC_ENCRYPTION_PASSWORD_MIN_LENGTH"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Storage/wprt:StorageEntry/hpprt:Password/hpprt:MinLength">
+    <Conversion Contains="4" Value="4"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+
+  <DataItem Prefix="PrinterConfiguration" Name="PC_ENCRYPTION_PASSWORD_MAX_LENGTH"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Storage/wprt:StorageEntry/hpprt:Password/hpprt:MaxLength">
+    <Conversion Contains="32" Value="32"/>
+    <Conversion Contains="12" Value="12"/>
+    <Conversion Contains="default" Value=""/>
+  </DataItem>
+  
+  <DataItem Prefix="PrinterCapabilities" Name="INK-SETTINGS-ENABLE"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//hpprt:OemDocumentProcessing/hpprt:ImageEnhancements/hpprt:ImageEnhancement[text()='advance-ink-control']">
+	  <Conversion Contains="advance-ink-control" Value="2"/>
+	  <Conversion Contains="default" Value="1"/>
+  </DataItem>
+  
+  <!-- Edge To Edge-->
+  <DataItem Prefix="PrinterCapabilities" Name="PC_EDGE_TO_EDGE" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/hpprt:OemDocumentProcessing/hpprt:EdgeToEdgeSupport">
+      <Conversion Contains="true" Value="2"/>
+      <Conversion Contains="false" Value="0"/>
+  </DataItem>
+  <DataItem Prefix="PrinterConfiguration" Name="TABBED-MEDIA-PRINTING"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterConfiguration/hpprt:TabbedPrintingSupported">
+      <Conversion Contains="true" Value="2" />
+      <Conversion Contains="false" Value="1" />
+      <Conversion Contains="default" Value="1" />
+  </DataItem> 
+  <DataItem Prefix="PrinterConfiguration" Name="COLLATE-ORIGINALS-SUPPORT" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:Finishings//wprt:CollationSupported">
+      <Conversion Contains="true" Value="1"/>      
+      <Conversion Contains="false" Value="0"/>
+	  <Conversion Contains="default" Value="0"/>
+  </DataItem>	
+  <DataItem Prefix="PrinterCapabilities" Name="PC_EJA_SUPPORT" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterConfiguration/hpprt:JobAccountingQuotaSupported"><!-- PCv1.0 -->
+	<Conversion Contains="true" Value="2"/>
+	<Conversion Contains="false" Value="1"/>
+	<Conversion Contains="default" Value="1"/>
+  </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType2"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='stationery']">
+       <Conversion Contains="stationery"  Value="Plain"/>
+	   <Conversion Contains="default" Value=""/>
+  </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType3"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.ecosmart-lite']">
+      <Conversion Contains="com.hp.ecosmart-lite"  Value="HPEcoSmartLite"/> 
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType4"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.matte.intermediateweight']">
+      <Conversion Contains="com.hp.matte.intermediateweight"  Value="HP Matte 90"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>   
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType5"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.matte.midweight']">
+      <Conversion Contains="com.hp.matte.midweight"  Value="HP Matte 105"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>   
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType6"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.matte.heavyweight']">
+      <Conversion Contains="com.hp.matte.heavyweight"  Value="HP Matte 120"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>   
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType7"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.matte-premium.heavyweight']">
+      <Conversion Contains="com.hp.matte-premium.heavyweight"  Value="HPPremMatte"/> 
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>   
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType8"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.matte-brochure.extraheavyweight']">
+      <Conversion Contains="com.hp.matte-brochure.extraheavyweight"  Value="HP Matte 160"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>   
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType9"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.matte-brochure.cardstock']">
+      <Conversion Contains="com.hp.matte-brochure.cardstock"  Value="matteBrochure"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>   
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType10"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.glossy-brochure.extraheavyweight']">
+      <Conversion Contains="com.hp.glossy-brochure.extraheavyweight"  Value="HP Glossy 160"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType11"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.glossy-brochure2.cardstock']">
+      <Conversion Contains="com.hp.glossy-brochure2.cardstock"  Value="glossyBrochure"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType12"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.premium-plus-photo']">
+      <Conversion Contains="com.hp.premium-plus-photo"  Value="HPPremPlusPhoto"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType13"  URI="urn:hpimaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.advanced-photo']">
+      <Conversion Contains="com.hp.advanced-photo"  Value="HPAdvancedPhoto"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType14"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.everyday-photo']">
+      <Conversion Contains="com.hp.everyday-photo"  Value="HPEverydayPhotoMatte"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType15"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.matte-cover.cardstock']">
+      <Conversion Contains="com.hp.matte-cover.cardstock"  Value="HPCoverMatte"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType16"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.soft-gloss.heavyweight']">
+      <Conversion Contains="com.hp.soft-gloss.heavyweight"  Value="HP Soft Gloss 120"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType17"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.glossy-brochure.heavyweight']">
+      <Conversion Contains="com.hp.glossy-brochure.heavyweight"  Value="HP Glossy 130"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>   
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType18"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.glossy-brochure.cardstock']">
+      <Conversion Contains="com.hp.glossy-brochure.cardstock"  Value="HP Glossy 220"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType19"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='stationery-lightweight']">
+      <Conversion Contains="stationery-lightweight"  Value="Light"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType20"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.intermediateweight']">
+      <Conversion Contains="com.hp.intermediateweight"  Value="Intermediate"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType21"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.midweight']">
+      <Conversion Contains="com.hp.midweight"  Value="Mid Weight"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType22"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='stationery-heavyweight']">
+      <Conversion Contains="stationery-heavyweight"  Value="Heavy"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType23"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.extra-heavy']">
+      <Conversion Contains="com.hp.extra-heavy"  Value="Extra Heavy"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType24"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='Cardstock']">
+      <Conversion Contains="Cardstock"  Value="Card Stock"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType25"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.glossy.midweight']">
+      <Conversion Contains="com.hp.glossy.midweight"  Value="Gloss"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType26"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.glossy.heavyweight']">
+      <Conversion Contains="com.hp.glossy.heavyweight"  Value="Heavy Gloss"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType27"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.glossy.extraheavyweight']">
+      <Conversion Contains="com.hp.glossy.extraheavyweight"  Value="Extra Heavy Gloss"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType28"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.glossy.cardstock']">
+      <Conversion Contains="com.hp.glossy.cardstock"  Value="Card Glossy"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType29"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='Transparency']">
+      <Conversion Contains="Transparency"  Value="Transparency"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType30"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='Labels']">
+      <Conversion Contains="Labels"  Value="Labels"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType31"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='stationery-letterhead']">
+      <Conversion Contains="stationery-letterhead"  Value="Letterhead"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType32"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='Envelope']">
+      <Conversion Contains="Envelope"  Value="Envelope"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType33"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='envelope-heavyweight']">
+      <Conversion Contains="envelope-heavyweight"  Value="Heavy Envelope"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType34"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='stationery-preprinted']">
+      <Conversion Contains="stationery-preprinted"  Value="Preprinted"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType35"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='stationery-prepunched']">
+      <Conversion Contains="stationery-prepunched"  Value="Prepunched"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType36"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='stationery-colored']">
+      <Conversion Contains="stationery-colored"  Value="Color"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType37"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.lightbond']">
+      <Conversion Contains="com.hp.lightbond"  Value="LightBond"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType38"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='stationery-bond']">
+      <Conversion Contains="stationery-bond"  Value="Bond"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType39"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.recycled']">
+      <Conversion Contains="com.hp.recycled"  Value="Recycled"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType40"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.paperboard']">
+      <Conversion Contains="com.hp.paperboard"  Value="Paperboard"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType41"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.heavypaperboard']">
+      <Conversion Contains="com.hp.heavypaperboard"  Value="HeavyPaperboard"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType42"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.lightpaperboard']">
+      <Conversion Contains="com.hp.lightpaperboard"  Value="LightPaperboard"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType43"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.rough']">
+      <Conversion Contains="com.hp.rough"  Value="Rough"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType44"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.lightrough']">
+      <Conversion Contains="com.hp.lightrough"  Value="LightRough"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType45"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.heavyrough']">
+      <Conversion Contains="com.hp.heavyrough"  Value="Heavy Rough"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType46"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='stationery-fine']">
+      <Conversion Contains="stationery-fine"  Value="Vellum"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem>    
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType47"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='tab-stock']">
+      <Conversion Contains="tab-stock"  Value="Tab"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem> 
+  <DataItem Prefix="PrinterCapabilities" Name="PC_MediaType48"  URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()='com.hp.opaque-film']">
+      <Conversion Contains="com.hp.opaque-film"  Value="Gloss Film"/>
+	  <Conversion Contains="default" Value=""/>
+  </DataItem> 	
+</XMLDataMap>
+
+<IPPDataMap Protocol="IPP">
+    <StaticDataItem Name="Protocol">IPP</StaticDataItem>
+    <DataItem Prefix="cfg" Name="MODEL_NAME"  AttributeID="printer-make-and-model"    Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" />
+	<DataItem Name="PRINT_CONTRACT_VERSION_MAJOR" AttributeID="hp-pc-version-major" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" />  
+	<DataItem Name="PRINT_CONTRACT_VERSION_MINOR" AttributeID="hp-pc-version-minor" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" /> 
+    <DataItem Prefix="cfg" Name="prtMediaPathType2"  AttributeID="sides-supported" Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false"  LifeSpan="300" />
+    <DataItem Name="prtInputName1" AttributeID="printer-input-tray" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" > </DataItem> 
+    <DataItem Name="PROCESS_BLACK" AttributeID="print-color-mode-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" ></DataItem> 
+    <DataItem Name="prtMarkerColorantMarkerIndex1" AttributeID="print-color-mode-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" ></DataItem>    
+    <DataItem Name="prtMediaPathMaxSpeed" AttributeID="pages-per-minute" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" >  </DataItem>  
+   
+    <DataItem Name="hrDiskStorageMedia2" AttributeID="hp-save-job-storage-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" >  
+	<Conversion Contains="none" Value="none"/>
+	<Conversion Contains="retentive" Value="retentive"/>
+	<Conversion Contains="volatile" Value="volatile"/>
+        <Conversion Contains="default" Value="retentive"/>
+    </DataItem>
+
+
+   <DataItem Name="PS-VERSION" AttributeID="hp-postscript-version-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" >  
+	<Conversion Contains="Version 3010.107" Value="Version 3010.107"/>
+	<Conversion Contains="default" Value="Version 3010.107"/>
+   </DataItem>
+
+   <DataItem Name="PCL-VERSION" AttributeID="hp-pcl-version-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" >  
+	<Conversion Contains="5.00" Value="Version 5.00"/>
+        <Conversion Contains="default" Value="Version 5.00"/>
+   </DataItem>
+
+   <DataItem Name="PCLXL-VERSION" AttributeID="hp-pclxl-version-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" >
+	<Conversion Contains="Version 3.0" Value="Version 3.0"/>
+	<Conversion Contains="default" Value="Version 3.0"/>
+   </DataItem>
+   <DataItem Prefix="cfg" Name="PC_EJA_SUPPORT"  AttributeID="hp-job-accounting-quota-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN"><!-- PCv1.0-->
+			<Conversion Contains="1" Value="2"/>
+			<Conversion Contains="default" Value="1"/>
+		</DataItem>
+	 <DataItem Name="PrintQuality" AttributeID="hp-print-quality-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" />  
+   <DataItem Name="PC_CMYK_COLOR_THEMES" AttributeID="hp-image-enhancement-support" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" /> 
+   <DataItem Name="PC_DEFAULT_DUPLEX_STANDARD" AttributeID="hp-default-duplex-standard" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" />
+   <DataItem Name="OutputBin" AttributeID="hp-outputbins-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" />  
+   <DataItem Name="FinishingSupported" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" />
+   <DataItem Name="PunchRegion" AttributeID="hp-punch-unit-region" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" />
+   <DataItem Name="PHD2-MODEL" AttributeID="printer-finisher-description" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" ></DataItem>
+   
+   <DataItem Prefix="cfg" Name="PC_CFold_MaxSheets"  AttributeID="finishings-col-database[finishing-template=fold-letter &amp;&amp;  media-size-name=iso_a4_210x297mm].media-sheets-supported"    Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" />
+    <DataItem Prefix="cfg" Name="PC_VFold_MaxSheets"  AttributeID="finishings-col-database[finishing-template=fold-half &amp;&amp;  media-size-name=iso_a4_210x297mm].media-sheets-supported"    Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" />
+  <DataItem Name="PC_MediaSize" AttributeID="media-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" />
+  <DataItem Name="PC_JOB_STORAGE_ENCRYPTION" AttributeID="hp-save-job-encryption-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" />
+  <DataItem Name="PC_ENCRYPTION_PASSWORD_TYPE" AttributeID="hp-save-job-password-type" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" />
+  <DataItem Name="PC_ENCRYPTION_PASSWORD_MIN_LENGTH" AttributeID="hp-save-job-password-min-length" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" />
+  <DataItem Name="PC_ENCRYPTION_PASSWORD_MAX_LENGTH" AttributeID="hp-save-job-password-max-length" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" />
+  <DataItem Name="PRINT-QUALITY-EDGE-TO-EDGE" AttributeID="hp-edge-to-edge-support" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" >  </DataItem>
+  <DataItem Name="PC_EDGE_TO_EDGE" AttributeID="hp-edge-to-edge-support" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" />
+  <DataItem Name="TABBED-MEDIA-PRINTING" AttributeID="hp-tabbed-printing-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300">
+         <Conversion Contains="1" Value="2" />
+         <Conversion Contains="0" Value="1" />
+         <Conversion Contains="default" Value="1" /> 
+  </DataItem>
+  <DataItem Name="PC_MediaType" AttributeID="media-type-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" />
+</IPPDataMap>
+
+</DataMaps>
+

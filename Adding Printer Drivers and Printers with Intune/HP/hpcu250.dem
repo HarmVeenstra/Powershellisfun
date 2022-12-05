@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<events>
+<event>DevPropSheetInit
+    <entry>
+        <module>hpmux250.dll</module>
+    </entry>
+</event>
+<event>DevPropSheetDestroy
+    <entry>
+        <module>hpmux250.dll</module>
+    </entry>
+</event>
+<event>DocPropSheetInit
+    <entry>
+        <module>hpmux250.dll</module>
+    </entry>
+</event>
+<event>DocPropSheetDestroy
+    <entry>
+        <module>hpmux250.dll</module>
+    </entry>
+    <entry>
+        <module>hpmsn250.dll</module>		
+    </entry>
+</event>
+<event>PrinterEventInitPre 
+    <entry>
+        <module>hpmux250.dll</module>
+    </entry>
+</event>
+<event>PrinterEventInitPost
+    <entry>
+        <module>hpmux250.dll</module>
+    </entry>
+</event>
+<event>PrinterEventDelete
+    <entry>
+        <module>hpmux250.dll</module>
+    </entry>
+</event>
+<event>PrinterEventRefresh
+    <entry>
+        <module>hpmux250.dll</module>
+    </entry>
+</event>
+<event>DriverEventInit
+    <entry>
+        <module>hpsysobj.dll</module>
+    </entry>
+    <entry>
+        <module>hpmux250.dll</module>
+    </entry>
+</event>
+<event>DriverEventDelete
+    <entry>
+        <module>hpmux250.dll</module>
+    </entry>
+    <entry>
+        <module>hpsysobj.dll</module>
+    </entry>
+    <entry>
+        <module>hpcdmc64.dll</module>
+    </entry>
+</event>
+</events>

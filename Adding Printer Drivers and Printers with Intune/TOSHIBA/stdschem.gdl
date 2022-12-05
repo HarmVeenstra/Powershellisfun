@@ -1,0 +1,2744 @@
+*%  stdschem.gdl - this file contains templates that define all MS standard keywords
+*%  and constructs that appear in GPD and GDL files.
+
+*PreCompiled:  TRUE
+
+*Include: "stddtype.gdl"
+
+
+*% ==================
+*%  ==== Base Attributes  ====
+*% ==================
+
+
+
+*Template:  DISPLAY_STRING
+{
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_CODEPAGE_STRING
+    *Virtual:  TRUE
+}
+
+
+
+*Template:  ANSI_STRING
+{
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NORMAL_STRING
+    *Virtual:  TRUE
+}
+
+*Template:  DEF_CP_STRING
+{
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_DEFAULT_CODEPAGE_STRING
+    *Virtual:  TRUE
+}
+
+*% ==================
+*%  ==== Root Attributes  ====
+*% ==================
+
+*Template:  CODEPAGE
+{
+    *Name:  "*CodePage"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+*Template:  GPDSPECVERSION
+{
+    *Name:  "*GPDSpecVersion"
+    *Inherits: ANSI_STRING
+}
+
+*Template:  GPDFILEVERSION
+{
+    *Name:  "*GPDFileVersion"
+    *Inherits: ANSI_STRING
+}
+
+*Template:  GPDFILENAME
+{
+    *Name:  "*GPDFileName"
+    *Inherits: DEF_CP_STRING
+}
+
+*Template:  RESOURCEDLL
+{
+    *Name:  "*ResourceDLL"
+    *Inherits: DEF_CP_STRING
+}
+
+*Template:  HELPFILE
+{
+    *Name:  "*HelpFile"
+    *Inherits: DEF_CP_STRING
+}
+
+*Template:  MASTERUNITS
+{
+    *Name:  "*MasterUnits"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_PAIR_OF_GPD_POS_INTEGER
+}
+
+
+*Template:  MODELNAME
+{
+    *Name:  "*ModelName"
+    *Inherits: DISPLAY_STRING
+    *Additive: MOST_RECENT
+}
+
+*Template:  RCMODELNAMEID
+{
+    *Name:  "*rcModelNameID"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_GPD_INTEGER_OR_QUALNAME_EX
+}
+
+
+*Template:  PRINTERTYPE
+{
+    *Name:  "*PrinterType"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_PRINTER_TYPE
+}
+
+*Template:  PERSONALITY
+{
+    *Name:  "*Personality"
+    *%Type:  ATTRIBUTE
+    *Inherits: DISPLAY_STRING
+}
+
+*Template:  RCPERSONALITYID
+{
+    *Name:  "*rcPersonalityID"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_GPD_INTEGER_OR_QUALNAME_EX
+}
+
+*Template:  SCOMMAND
+{   *%  Shortcut version of Command
+    *Type:  ATTRIBUTE
+    *Name: "*Command"
+    *ValueType:  DT_COMMAND_SHORTCUT
+    *Additive: LEAST_TO_MOST_RECENT
+}
+
+*Template:  INVALID_COMBO
+{   *%  LIST must name at least 2  Qualified Names
+    *Type:  ATTRIBUTE
+    *Name: "*InvalidCombination"
+    *ValueType:  DT_LIST_MIN_2_OF_DT_QUALNAME
+    *Additive: LEAST_TO_MOST_RECENT
+}
+
+
+*Template:  DEVICEFONTS
+{
+    *Type:  ATTRIBUTE
+    *Name: "*DeviceFonts"
+    *ValueType:  DT_ONE_OR_LIST_OF_DT_GPD_INTEGER_OR_QUALNAME_EX
+    *Additive: LEAST_TO_MOST_RECENT
+}
+
+*Template:  INSTALLEDOPTIONNAME
+{
+    *Name: "*InstalledOptionName"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_TRANSIENT
+}
+
+*Template:  NOTINSTALLEDOPTIONNAME
+{
+    *Name: "*NotInstalledOptionName"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_TRANSIENT
+}
+
+*Template:  RCINSTALLEDOPTIONNAMEID
+{
+    *Name: "*rcInstalledOptionNameID"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_TRANSIENT
+}
+
+*Template:  RCNOTINSTALLEDOPTIONNAMEID
+{
+    *Name: "*rcNotInstalledOptionNameID"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_TRANSIENT
+}
+
+
+*Template:  STRIPBLANKS
+{
+    *Name: "*StripBlanks"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_EDT_STRIPBLANKS
+}
+
+
+*Template:  MAXCOPIES
+{
+    *Name: "*MaxCopies"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+
+*Template:  FONTCARTSLOTS
+{
+    *Name: "*FontCartSlots"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+
+
+*Template:  PRINTRATE
+{
+    *Name: "*PrintRate"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+
+*IgnoreBlock:  Template:  PRINTRATEUNIT
+{    *%  defined in stdschema_ext.gdl
+    *Name: "*PrintRateUnit"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_PRINTRATEUNIT
+}
+
+
+*Template:  PRINTRATEPPM
+{
+    *Name: "*PrintRatePPM"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+
+
+*Template:  LINESPACINGMOVEUNIT
+{
+    *Name: "*LineSpacingMoveUnit"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+
+*Template:  REVERSEBANDORDERFOREVENPAGES
+{
+    *Name: "*ReverseBandOrderForEvenPages?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*Template:  REVERSEBANDORDER
+{
+    *Name: "*ReverseBandOrder?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*Template:  ISXPSDRIVER
+{
+    *Name: "*IsXPSDriver?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*Template:  CHANGECOLORMODEONPAGE
+{
+    *Name: "*ChangeColorModeOnPage?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  CHANGECOLORMODEONDOC
+{
+    *Name: "*ChangeColorModeOnDoc?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*Template:  USESPACEFORXMOVE
+{
+    *Name: "*UseSpaceForXMove?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  ABSXMOVESRIGHTONLY
+{
+    *Name: "*AbsXMovesRightOnly?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  OEMPRINTINGCALLBACKS
+{
+    *Name: "*OEMPrintingCallbacks"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_EDT_OEMPRINTINGCALLBACKS
+}
+
+
+
+*Template:  MAXLINESPACING
+{
+    *Name: "*MaxLineSpacing"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+
+
+*Template:  YMOVEATTRIBUTES
+{
+    *Name: "*YMoveAttributes"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_EDT_YMOVEATTRIB
+}
+
+
+*Template:  ROTATECOORDINATE
+{
+    *Name: "*RotateCoordinate?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*Template:  ROTATERASTER
+{
+    *Name: "*RotateRaster?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+
+*Template:  ROTATEFONT
+{
+    *Name: "*RotateFont?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*Template:  TEXTCAPS
+{
+    *Name: "*TextCaps"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_EDT_TEXTCAPS
+}
+
+*Template:  RASTERCAPS
+*%  Undocumented !
+{
+    *Name: "*RasterCaps"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_EDT_RASTERCAPS
+}
+
+
+*Template:  RESELECTFONT
+{
+    *Name: "*ReselectFont"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_EDT_RESELECTFONT
+}
+
+*Template:  MEMORYUSAGE
+{
+    *Name: "*MemoryUsage"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_EDT_MEMORYUSAGE
+}
+
+
+*Template:  CURSORXAFTERCR
+{
+    *Name: "*CursorXAfterCR"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_CURSORXAFTERCR
+}
+
+
+*Template:  BADCURSORMOVEINGRXMODE
+{
+    *Name: "*BadCursorMoveInGrxMode"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_EDT_BADCURSORMOVEINGRXMODE
+}
+
+*Template:  MINGRAYFILL
+{
+    *Name:  "*MinGrayFill"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+*Template:  MAXGRAYFILL
+{
+    *Name:  "*MaxGrayFill"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+
+*Template:  MAGENTAINCYANDYE
+{
+    *Name:  "*MagentaInCyanDye"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+*Template:  YELLOWINCYANDYE
+{
+    *Name:  "*YellowInCyanDye"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+*Template:  CYANINMAGENTADYE
+{
+    *Name:  "*CyanInMagentaDye"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+*Template:  YELLOWINMAGENTADYE
+{
+    *Name:  "*YellowInMagentaDye"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+*Template:  CYANINYELLOWDYE
+{
+    *Name:  "*CyanInYellowDye"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+*Template:  MAGENTAINYELLOWDYE
+{
+    *Name:  "*MagentaInYellowDye"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+
+
+*Template:  MINFONTID
+{
+    *Name:  "*MinFontID"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+*Template:  MAXFONTID
+{
+    *Name:  "*MaxFontID"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+*Template:  MINOVERLAYID
+{
+    *Name:  "*MinOverlayID"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+*Template:  MAXOVERLAYID
+{
+    *Name:  "*MaxOverlayID"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+
+*Template:  LANDSCAPEGRXROTATION
+{  *% deprecated
+    *Name:  "*LandscapeGrxRotation"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_LANDSCAPEGRXROTATION
+}
+
+
+*Template:  RASTERZEROFILL
+{  *% deprecated
+    *Name:  "*RasterZeroFill?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  RASTERSENDALLDATA
+{
+    *Name:  "*RasterSendAllData?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  SENDMULTIPLEROWS
+{
+    *Name:  "*SendMultipleRows?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  MIRRORRASTERBYTE
+{
+    *Name:  "*MirrorRasterByte?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  MIRRORRASTERPAGE
+{
+    *Name:  "*MirrorRasterPage?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  RESTOREDEFAULTFONT
+{  *% deprecated
+    *Name:  "*RestoreDefaultFont?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  PREANALYSISOPTIONS
+{
+    *Name:  "*PreAnalysisOptions"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_INTEGER
+}
+
+
+*Template:  TEXTYOFFSET
+{
+    *Name:  "*TextYOffset"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_INTEGER
+}
+
+
+*Template:  MAXNUMDOWNFONTS
+{
+    *Name: "*MaxNumDownFonts"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+*Template:  MAXFONTUSEPERPAGE
+{
+    *Name: "*MaxFontUsePerPage"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+*Template:  USEEXPCOLORSELECTCMD
+{
+    *Name:  "*UseExpColorSelectCmd?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  MOVETOX0BEFORESETCOLOR
+{
+    *Name:  "*MoveToX0BeforeSetColor?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+
+*Template:  DLSYMBOLSET
+{
+    *Name:  "*DLSymbolSet"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_DLSYMBOLSET
+}
+
+
+*Template:  MINGLYPHID
+{
+    *Name:  "*MinGlyphID"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+
+*Template:  MAXGLYPHID
+{
+    *Name:  "*MaxGlyphID"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+
+*Template:  ENABLEGDICOLORMAPPING
+{
+    *Name:  "*EnableGDIColorMapping?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  DIFFFONTSPERBYTEMODE
+{
+    *Name:  "*DiffFontsPerByteMode?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  CURSORXAFTERRECTFILL
+{
+    *Name:  "*CursorXAfterRectFill?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_CURXAFTER_RECTFILL
+}
+
+*Template:  CURSORYAFTERRECTFILL
+{
+    *Name:  "*CursorYAfterRectFill?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_CURYAFTER_RECTFILL
+}
+
+
+*Template:  TEXTHALFTONETHRESHOLD
+{
+    *Name:  "*TextHalftoneThreshold"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+
+*Template:  INCREMENTALDOWNLOAD
+{  *% Deprecated
+    *Name:  "*IncrementalDownload?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*Template:  TTFSENABLED
+{
+    *Name:  "*TTFSEnabled?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*Template:  DEFAULTCTT
+{
+    *Name:  "*DefaultCTT"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_INTEGER
+}
+
+*Template:  DEFAULTFONT
+{
+    *Name:  "*DefaultFont"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_GPD_INTEGER_OR_QUALNAME_EX
+}
+
+*Template:  FONTFORMAT
+{
+    *Name:  "*FontFormat"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_FONTFORMAT
+}
+
+*Template:  CHARPOSITION
+{
+    *Name:  "*CharPosition"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_CHARPOSITION
+}
+
+*Template:  CURSORYAFTERSENDBLOCKDATA
+{
+    *Name:  "*CursorYAfterSendBlockData"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_CURSORYAFTERSENDBLOCKDATA
+}
+
+*Template:  CURSORXAFTERSENDBLOCKDATA
+{
+    *Name:  "*CursorXAfterSendBlockData"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_CURSORXAFTERSENDBLOCKDATA
+}
+
+*Template:  OPTIMIZELEFTBOUND
+{
+    *Name:  "*OptimizeLeftBound?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*Template:  EJECTPAGEWITHFF
+{
+    *Name:  "*EjectPageWithFF?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*Template:  OUTPUTDATAFORMAT
+{
+    *Name:  "*OutputDataFormat"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_OUTPUTDATAFORMAT
+}
+
+*Template:  LOOKAHEADREGION
+*%   Undocumented Attribute !
+{
+    *Name:  "*LookAheadRegion"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_INTEGER
+}
+
+*Template:  RCPRINTERICONID
+{
+    *Name:  "*rcPrinterIconID"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_GPD_INTEGER_OR_QUALNAME_EX
+}
+
+
+*Template:  XMOVEUNIT
+{
+    *Name:  "*XMoveUnit"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_INTEGER
+}
+
+*Template:  YMOVEUNIT
+{
+    *Name:  "*YMoveUnit"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_INTEGER
+}
+
+*Template:  XMOVETHRESHOLD
+{
+    *Name:  "*XMoveThreshold"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_INTEGER
+}
+
+*Template:  YMOVETHRESHOLD
+{
+    *Name:  "*YMoveThreshold"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_INTEGER
+}
+
+
+*Template:  USEBMPFONTCOMPRESSION
+{
+    *Name:  "*UseBMPFontCompression?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  USEMODE5COMPRESSION
+{
+    *Name:  "*UseMode5Compression?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  USEIMAGESFORHATCHES
+{
+    *Name:  "*UseImageForHatchBrush?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  USEHPGLPOLYLINEENCODING
+{
+    *Name:  "*UseHPGLPolylineEncoding?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  DONTSENDEXTRAPAGESFORDUPLEX
+{
+    *Name:  "*DontSendExtraPagesForDuplex?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*Template: PRINTPROCDUPLEXOPTIONS
+{
+	*Name: "*PrintProcDuplexOptions"
+	*Type: ATTRIBUTE
+	*ValueType: GPD_INTEGER
+}
+
+*Template:  PRINTSCHEMAPRIVATENAMESPACEURI
+{
+    *Name:  "*PrintSchemaPrivateNamespaceURI"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_CODEPAGE_STRING
+}
+
+*Template:  OEMCUSTOMDATA
+{
+    *Name:  "*OEMCustomData"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_BINARY_STRING
+    *Additive: LEAST_TO_MOST_RECENT
+}
+
+
+*Template:  DRAFTQUALITYSETTINGS
+{
+    *Type:  ATTRIBUTE
+    *Name: "*DraftQualitySettings"
+    *ValueType:  DT_ONE_OR_LIST_OF_DT_QUALNAME
+}
+
+*Template:  BETTERQUALITYSETTINGS
+{
+    *Type:  ATTRIBUTE
+    *Name: "*BetterQualitySettings"
+    *ValueType:  DT_ONE_OR_LIST_OF_DT_QUALNAME
+}
+
+*Template:  BESTQUALITYSETTINGS
+{
+    *Type:  ATTRIBUTE
+    *Name: "*BestQualitySettings"
+    *ValueType:  DT_ONE_OR_LIST_OF_DT_QUALNAME
+}
+
+*Template:  DEFAULTQUALITY
+{
+    *Type:  ATTRIBUTE
+    *Name: "*DefaultQuality"
+    *ValueType:  EDT_QUALITYSETTING
+}
+
+
+*Template:  MAXPRINTABLEAREA
+*%  This may be deprecated, isn't documented.
+{
+    *Name: "*MaxPrintableArea"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_PAIR_OF_GPD_POS_INTEGER
+}
+
+
+*Template:  PRINTSCHEMAKEYWORDMAP
+{
+    *Name:  "*PrintSchemaKeywordMap"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NORMAL_STRING
+}
+
+
+*% ==================
+*%  ====  BidiQuery Attributes  ====
+*% ==================
+
+*Template:  BIDIQUERYFILE
+{
+    *Name:  "*BidiQueryFile"
+    *Inherits: DEF_CP_STRING
+}
+
+*Template:  V_QUERYSTRING
+{
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NORMAL_STRING
+    *Virtual: TRUE
+}
+
+*Template:  QUERYSTRING
+{
+    *Name:  "*QueryString"
+    *Inherits: V_QUERYSTRING
+}
+
+
+*% ==================
+*%  ====  BidiResponse Attributes  ====
+*% ==================
+
+*Template:  V_RESPONSETYPE
+{
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_RESPONSETYPE
+    *Virtual: TRUE
+}
+*Template:  RESPONSETYPE
+{
+    *Name:  "*ResponseType"
+    *Inherits: V_RESPONSETYPE
+}
+
+*Template:  V_RESPONSEDATA
+{
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_RESPONSEDATA
+    *Additive: MOST_RECENT
+    *Virtual: TRUE
+}
+
+*Template:  RESPONSEDATA
+{
+    *Name:  "*ResponseData"
+    *Inherits: V_RESPONSEDATA
+}
+
+*% ==================
+*%  ==== BIDI  Constructs  ====
+*% ==================
+
+*Template:  BIDIQUERY
+{
+    *Name:  "*BidiQuery"
+    *Instances:  <ANY>
+    *Type: CONSTRUCT
+    *Members:  (QUERYSTRING)
+    *Production: SATISFY_ALL
+    {
+        *Member:  QUERYSTRING {*Occurs:  1 }
+    }
+}
+
+
+*Template:  BIDIRESPONSE
+{
+    *Name:  "*BidiResponse"
+    *Type: CONSTRUCT
+    *Members:  (RESPONSETYPE, RESPONSEDATA)
+    *Instances:  <ANY>
+    *Production: SATISFY_ALL
+    {
+        *Member:  RESPONSETYPE {*Occurs:  1 }
+        *Member:  RESPONSEDATA {*Occurs:  [0-1] }
+    }
+}
+
+
+*% ==================
+*%  ==== *TTFS Attributes  ====
+*% ==================
+
+*Template:  TTFONTNAME
+{
+    *Name:  "*TTFontName"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_CODEPAGE_STRING
+}
+
+*Template:  DEVFONTNAME
+{
+    *Name:  "*DevFontName"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_CODEPAGE_STRING
+}
+
+*Template:  RCTTFONTNAMEID
+{
+    *Name:  "*rcTTFontNameID"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_GPD_INTEGER_OR_QUALNAME_EX
+    *Additive: MOST_RECENT
+}
+*Template:  RCDEVFONTNAMEID
+{
+    *Name:  "*rcDevFontNameID"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_GPD_INTEGER_OR_QUALNAME_EX
+    *Additive: MOST_RECENT
+}
+
+*% ==================
+*%  ==== *TTFS Construct  ====
+*% ==================
+
+*Template:  TTFONT_SUB
+{
+    *Name:  "*TTFS"
+    *Type: CONSTRUCT
+    *Members:  (TTFONTNAME, DEVFONTNAME, RCTTFONTNAMEID, RCDEVFONTNAMEID)
+    *Instances:  <ANY>
+    *Production: SATISFY_ALL
+    {
+        *Production: AT_LEAST_ONE
+        {
+            *Member:  RCTTFONTNAMEID {*Occurs:  [1] }
+            *Member:  TTFONTNAME {*Occurs:  [1] }
+        }
+        *Production: AT_LEAST_ONE
+        {
+            *Member:  RCDEVFONTNAMEID {*Occurs:  [1] }
+            *Member:  DEVFONTNAME {*Occurs:  [1] }
+        }
+    }
+}
+
+
+*% ==================
+*%  ==== *FontCartridge Attributes  ====
+*% ==================
+
+*Template:  FONTSLIST
+{
+    *Name:  "*Fonts"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_GPD_POS_INTEGER
+    *Additive: LEAST_TO_MOST_RECENT
+}
+*Template:  PORTRAITFONTSLIST
+{
+    *Name:  "*PortraitFonts"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_GPD_POS_INTEGER
+    *Additive: LEAST_TO_MOST_RECENT
+}
+*Template:  LANDSCAPEFONTSLIST
+{
+    *Name:  "*LandscapeFonts"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_GPD_POS_INTEGER
+    *Additive: LEAST_TO_MOST_RECENT
+}
+
+*Template:  RCCARTRIDGENAMEID
+{
+    *Name:  "*rcCartridgeNameID"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_GPD_INTEGER_OR_QUALNAME_EX
+    *Additive: MOST_RECENT
+}
+
+*Template:  CARTRIDGENAME
+{
+    *Name:  "*CartridgeName"
+    *Inherits: DISPLAY_STRING
+    *Additive: MOST_RECENT
+}
+
+*% ==================
+*%  ==== *FontCartridge Construct  ====
+*% ==================
+
+*Template:  FONTCARTRIDGE
+{
+    *Name:  "*FontCartridge"
+    *Type: CONSTRUCT
+    *Members:  (FONTSLIST, PORTRAITFONTSLIST, LANDSCAPEFONTSLIST,
+        RCCARTRIDGENAMEID, CARTRIDGENAME)
+    *Instances:  <ANY>
+    *Production: SATISFY_ALL
+    {
+        *Production: AT_LEAST_ONE
+        {
+            *Member:  FONTSLIST {*Occurs:  [1-*] }
+            *Member:  PORTRAITFONTSLIST {*Occurs:  [1-*] }
+            *Member:  LANDSCAPEFONTSLIST {*Occurs:  [1-*] }
+        }
+        *Production: AT_LEAST_ONE
+        {
+            *Member:  RCCARTRIDGENAMEID {*Occurs:  1 }
+            *Member:  CARTRIDGENAME {*Occurs:  1 }
+        }
+    }
+}
+
+
+*% ==================
+*%  ==== *Command Attributes  ====
+*% ==================
+
+*Template:  ORDER_DEP
+{
+    *Name:  "*Order"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ORDER
+}
+*Template:  CMD
+{
+    *Name:  "*Cmd"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_COMMAND
+}
+*Template:  NOPAGEEJECT
+{
+    *Name:  "*NoPageEject?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+*Template:  PARAMS
+{
+    *Name:  "*Params"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_EDT_STD_VAR
+}
+*Template:  CALLBACKID
+{
+    *Name:  "*CallbackID"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_INTEGER
+}
+
+
+
+
+*% ==================
+*%  ==== Command Constructs  ====
+*% ==================
+
+*Ifdef: Ignore   (  note inheritance tree for Commands:  )
+=======================================
+    COMMAND
+    {
+        RENDER_COMMAND
+        ORDERED_COMMAND
+        {
+            OPT_SELECT_COMMAND_1
+            OPT_SELECT_COMMAND_2
+            CONFIG_COMMAND
+        }
+    }
+    SCOMMAND:   (shortcut)
+=======================================
+*Endif: Ignore
+
+
+*Template:  COMMAND
+{
+    *Type: CONSTRUCT
+    *Virtual:  TRUE
+    *Name: "*Command"
+    *Members:  ( CMD, CALLBACKID, PARAMS, NOPAGEEJECT)
+
+    *% USE *Production directive to say callbackID and CMD are
+    *% exclusive and that optional Params are used only if callbackID exists.
+
+    *Production: SATISFY_ALL
+    {
+        *Member:  NOPAGEEJECT {*Occurs:  [0-1] }
+        *Production: EXACTLY_ONE
+        {
+            *Production: SATISFY_ALL
+            {
+                *Member:  CMD {*Occurs:  1 }
+                *Member:  CALLBACKID {*Occurs:  0 }
+                *Member:  PARAMS {*Occurs:  0 }
+            }
+            *Production: SATISFY_ALL
+            {
+                *Member:  CMD {*Occurs:  0 }
+                *Member:  CALLBACKID {*Occurs:  1 }
+                *Member:  PARAMS {*Occurs:  [0-1] }
+            }
+        }
+    }
+}
+
+*Template:  RENDER_COMMAND    *%  no *Order
+{
+    *Inherits:  COMMAND
+    *Instances: =LIST_OF_COMMAND_NAMES
+}
+*Template:  ORDERED_COMMAND
+{
+    *Inherits:  COMMAND
+    *Virtual:  TRUE
+    *Members:  ORDER_DEP
+    *Production: SATISFY_ALL
+    {
+        *Member:  ORDER_DEP {*Occurs:  1 }
+    }
+}
+
+*Template:  OPT_SELECT_COMMAND_1
+{
+    *Inherits:  ORDERED_COMMAND
+    *Instances:         CmdSelect
+    *AllowNewMembers:  TRUE
+}
+*Template:  OPT_SELECT_COMMAND_2    *% hypothetical extension to support
+{                                                               *%  printer that requires 2 commands to be
+    *Inherits:  ORDERED_COMMAND         *% emitted at 2 different times to make a selection
+    *Instances:         CmdSelect2
+    *AllowNewMembers:  TRUE
+}
+
+*Template:  CONFIG_COMMAND
+{
+    *Inherits:  ORDERED_COMMAND
+    *Instances:         (
+        CmdStartJob,
+        CmdStartDoc,
+        CmdStartPage,
+        CmdEndPage,
+        CmdEndDoc,
+        CmdEndJob,
+        CmdCopies,
+        CmdSleepTimeOut  )
+}
+
+
+*% ==================
+*%  ==== both Feature and Option Attributes  ====
+*% ==================
+
+*Template:  NAME
+{
+    *Name:  "*Name"
+    *Type:  ATTRIBUTE
+    *Additive: MOST_RECENT
+    *Virtual:  TRUE
+}
+
+*Template:  LONG_NAME
+{
+    *Inherits:  NAME
+    *ValueType:  GPD_CODEPAGE_STRING
+}
+
+*Template:  RC_NAME_ID
+{
+    *Name:  "*rcNameID"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_POS_GPD_INTEGER_OR_QUALNAME_EX
+    *Additive: LEAST_TO_MOST_RECENT
+}
+
+
+*Template:  RCHELPTEXTID
+{
+    *Name:  "*rcHelpTextID"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_POS_GPD_INTEGER_OR_QUALNAME_EX
+}
+
+*Template:  INSTALLABLE
+{
+    *Name:  "*Installable?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*Template:  INSTALLABLEFEATURENAME
+{
+    *Name: "*InstallableFeatureName"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_TRANSIENT
+}
+
+*Template:  RCINSTALLABLEFEATURENAMEID
+{
+    *Name: "*rcInstallableFeatureNameID"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_TRANSIENT
+}
+*Template:  INVALIDINSTALLABLECOMBINATION
+{
+    *Name: "*InvalidInstallableCombination"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_TRANSIENT
+}
+*Template:  INSTALLEDCONSTRAINTS
+{
+    *Name: "*InstalledConstraints"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_TRANSIENT
+}
+*Template:  NOTINSTALLEDCONSTRAINTS
+{
+    *Name: "*NotInstalledConstraints"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_TRANSIENT
+}
+
+
+*Template:  HELPINDEX
+{
+    *Name: "*HelpIndex"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+
+
+
+*Template:  PERSONATYPE
+{
+    *Name: "*PersonaType"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_GPD_SYMBOL
+    *Additive: LEAST_TO_MOST_RECENT
+}
+
+*% ==================
+*%  ====  Feature Attributes  ====
+*% ==================
+
+
+*Template:  FEATURETYPE
+{
+    *Name:  "*FeatureType"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_FEATURETYPE
+}
+
+
+*Template:  UITYPE
+{
+    *Name: "*UIType"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_UITYPE
+}
+
+*Template:  DEFAULT_OPT
+{
+    *Name: "*DefaultOption"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_SYMBOL
+}
+
+*Template:  CONFLICTPRIORITY
+{
+    *Name:  "*ConflictPriority"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+
+
+*Template:  CONCEALFROMUI
+{
+    *Name:  "*ConcealFromUI?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*Template:  UPDATEQUALITYMACRO
+{
+    *Name:  "*UpdateQualityMacro?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*% ==================
+*%  ====  Option Attributes  ====
+*% ==================
+
+*Template:  CONSTRAINTS
+{
+    *Name: "*Constraints"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_DT_QUALNAME
+    *Additive: LEAST_TO_MOST_RECENT
+}
+
+*Template:  OPTIONID_VALUE
+{
+    *Inherits:  GPD_INTEGER
+    *MinValue: 257
+}
+
+
+
+*Template:  OPTIONID  *%  use limited to PageSize, InputSlot and Mediatype
+{       *%  OEM defined options only!
+    *Name:  "*OptionID"
+    *Type:  ATTRIBUTE
+    *ValueType:  OPTIONID_VALUE
+}
+
+*Template:  HALFTONE_ID_VALUE
+{
+    *Inherits:  GPD_INTEGER
+    *MaxValue: -201
+}
+
+
+*Template:  HALFTONEOPTIONID  *%  use limited to OEM defined Halftone options only!
+{
+    *Name:  "*OptionID"
+    *Type:  ATTRIBUTE
+    *ValueType:  HALFTONE_ID_VALUE
+}
+
+
+*Template:  RCICONID
+{
+    *Name:  "*rcIconID"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_INTEGER
+}
+
+
+
+*Template:  RCPROMPTMSGID
+{
+    *Name:  "*rcPromptMsgID"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_INTEGER
+}
+
+
+*Template:  RCPROMPTTIME
+{
+    *Name:  "*rcPromptTime"   *%  doc has *PromptTime !
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_PROMPTTIME
+}
+
+*Template:  BIDIVALUE
+{
+    *Name:  "*BidiValue"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_BIDIVALUE
+    *%Additive: LEAST_TO_MOST_RECENT           *% disable after debugging
+    *Additive: MOST_RECENT
+}
+
+
+*Template:  DISABLEDFEATURES
+{
+    *Name:  "*DisabledFeatures"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_GPD_SYMBOL
+    *Additive: LEAST_TO_MOST_RECENT
+}
+
+*% ==================
+*%  ==== Feature/Option  Constructs  ====
+*% ==================
+
+
+*Template:  FEATURE       *%  define properties common to all Features
+{
+    *Name:  "*Feature"
+    *Type: CONSTRUCT
+    *Members:  (NAME, RC_NAME_ID, FEATURETYPE, DEFAULT_OPT,
+        BIDIQUERY, BIDIRESPONSE, RCHELPTEXTID,
+        INSTALLABLE, INSTALLABLEFEATURENAME, RCINSTALLABLEFEATURENAMEID,
+        INVALIDINSTALLABLECOMBINATION, INSTALLEDCONSTRAINTS,
+        NOTINSTALLEDCONSTRAINTS,
+        HELPINDEX, CONCEALFROMUI,
+        CONFLICTPRIORITY, UPDATEQUALITYMACRO,
+        UITYPE, PERSONATYPE, PRINTSCHEMAKEYWORDMAP
+        )
+        *%  note absence of member OPTION
+        *% this is added when FEATURE is specialized
+    *Production: AT_LEAST_ONE
+    {
+        *Member:  NAME {*Occurs:  1 }
+        *Member:  RC_NAME_ID {*Occurs:  1 }
+    }
+    *Virtual:  TRUE
+}
+
+
+
+
+*Template: OPTION
+{
+    *Name:  "*Option"
+    *Type: CONSTRUCT
+    *Members: (  NAME  ,  RC_NAME_ID, OPT_SELECT_COMMAND_1,
+        OPT_SELECT_COMMAND_2, CONSTRAINTS,
+        BIDIVALUE, BIDIQUERY, BIDIRESPONSE,
+        INSTALLABLE, INSTALLABLEFEATURENAME, RCINSTALLABLEFEATURENAMEID,
+        INVALIDINSTALLABLECOMBINATION, INSTALLEDCONSTRAINTS,
+        NOTINSTALLEDCONSTRAINTS, RCHELPTEXTID,
+        HELPINDEX, DISABLEDFEATURES,
+        RCICONID, RCPROMPTMSGID, RCPROMPTTIME,
+        PERSONATYPE,
+        PRINTSCHEMAKEYWORDMAP,
+        RENDER_COMMAND  *%  commenting this out will reveal where this is being used.
+     )
+
+    *% USE *Production directive to say if OPT_SELECT_COMMAND_2
+    *%  can be present only if OPT_SELECT_COMMAND_1 is present.
+    *%  One of Name or RC_NAME_ID must be present.
+
+    *Production: SATISFY_ALL
+    {
+        *Member:  CONSTRAINTS {*Occurs:  * }
+        *Member:  BIDIVALUE {*Occurs:  [0-1] }
+
+        *Production: AT_LEAST_ONE
+        {
+            *Member:  NAME {*Occurs:  [1-*] }
+            *Member:  RC_NAME_ID {*Occurs:  [1-*] }
+        }
+        *Production: EXACTLY_ONE
+        {
+            *Production: SATISFY_ALL   *%  2nd Command cannot be used without the 1st.
+            {
+                *Member:  OPT_SELECT_COMMAND_1 {*Occurs:  [0-1] }
+                *Member:  OPT_SELECT_COMMAND_2 {*Occurs:  0 }
+            }
+            *Production: SATISFY_ALL
+            {
+                *Member:  OPT_SELECT_COMMAND_1 {*Occurs:  1 }
+                *Member:  OPT_SELECT_COMMAND_2 {*Occurs:  1 }
+            }
+        }
+
+        *Production: EXACTLY_ONE
+        {
+            *Production: SATISFY_ALL   *%  both Attributes must appear together
+            {
+                *Member:  RCPROMPTMSGID {*Occurs:  0 }
+                *Member:  RCPROMPTTIME {*Occurs:  0 }
+            }
+            *Production: SATISFY_ALL
+            {
+                *Member:  RCPROMPTMSGID {*Occurs:  1 }
+                *Member:  RCPROMPTTIME {*Occurs:  1 }
+            }
+        }
+    }
+    *Virtual:  TRUE
+}
+
+*Template:  GENERIC_OPTION
+{
+    *Inherits: OPTION
+    *Instances:  <ANY>
+}
+
+*Template:  GENERIC_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (GENERIC_OPTION )
+    *Instances:  <ANY>
+    *Production: SATISFY_ALL
+    {
+        *Member:  FEATURETYPE {*Occurs:  [1] }
+        *Member:  GENERIC_OPTION {*Occurs:  [1-256] }  *%  Devmode imposed limit
+    }
+}
+
+*% ==================
+*%  ==== Papersize Option Attributes  ====
+*% ==================
+
+
+*Template:  GPD_CODEPAGE_STRING_MAX_32
+{
+    *%    Type:  DATATYPE
+    *Inherits:  GPD_CODEPAGE_STRING
+    *MaxLength: 32            *%  chars.  limit defined by CCHFORMNAME
+}
+
+*Template:  PAPER_SIZE_OPT_NAME
+{
+    *Name:  "*Name"
+    *Inherits:  NAME
+    *ValueType:  GPD_CODEPAGE_STRING_MAX_32
+}
+
+*Template:  PAPERDIMENSIONS
+{
+    *Name: "*PageDimensions"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_PAIR_OF_GPD_POS_INTEGER
+}
+
+*Template:  PRINTABLEAREA
+{
+    *Name: "*PrintableArea"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_PAIR_OF_GPD_POS_INTEGER
+    *Additive: MOST_RECENT
+}
+
+*Template:  PRINTABLEORIGIN
+{
+    *Name: "*PrintableOrigin"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_PAIR_OF_GPD_INTEGER
+    *Additive: MOST_RECENT
+}
+
+
+
+*Template:  CURSORORIGIN
+{
+    *Name: "*CursorOrigin"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_PAIR_OF_GPD_INTEGER
+}
+
+
+*Template:  PAGEPROTECTMEM
+{
+    *Name: "*PageProtectMem"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+*% ==================
+*%  ==== Papersize Option  Construct  ====
+*% ==================
+
+
+
+*Template:  PAPERSIZE_OPTION
+{
+    *Inherits: OPTION
+    *Members:  (PAPER_SIZE_OPT_NAME,
+        PRINTABLEAREA, PRINTABLEORIGIN, CURSORORIGIN, PAGEPROTECTMEM)
+    *%Instances:  <ANY>
+    *Virtual:  TRUE
+}
+
+
+*Template:  PAPERSIZE_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (PAPERSIZE_OPTION)
+    *Instances:  PaperSize
+    *Production: SATISFY_ALL
+    {
+        *Member:  PAPERSIZE_OPTION {*Occurs:  [1-256] }  *%  Devmode imposed limit
+    }
+}
+
+*Template:  OEM_PAPERSIZE_OPTION  *%  define first so it is chosen only
+{                                                               *% if no match is made to
+    *Inherits: PAPERSIZE_OPTION         *% CUST_PAPERSIZE_OPTION or PREDEFINED_PAPERSIZE_OPTION
+    *Members:  (PAPERDIMENSIONS, OPTIONID)
+    *Instances:  <ANY>
+    *Production: SATISFY_ALL
+    {
+        *Member:  OPTIONID {*Occurs:  [0-1] }
+        *Member:  PAPERDIMENSIONS {*Occurs:  [1] }
+        *Member:  PRINTABLEORIGIN {*Occurs:  [1-*] }
+        *Member:  PRINTABLEAREA {*Occurs:  [1-*] }
+    }
+}
+
+
+
+*% ==================
+*%  ==== Custom Papersize Option Attributes  ====
+*% ==================
+
+*Template:  MAXPRINTABLEWIDTH
+{
+    *Name: "*MaxPrintableWidth"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+*Template:  MINLEFTMARGIN
+{
+    *Name: "*MinLeftMargin"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+*Template:  TOPMARGIN
+{
+    *Name: "*TopMargin"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+*Template:  BOTTOMMARGIN
+{
+    *Name: "*BottomMargin"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+*Template:  CENTERPRINTABLE
+{
+    *Name: "*CenterPrintable?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*Template:  MIN_SIZE
+{
+    *Name: "*MinSize"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_PAIR_OF_GPD_POS_INTEGER
+}
+*Template:  MAX_SIZE
+{
+    *Name: "*MaxSize"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_PAIR_OF_GPD_POS_INTEGER
+}
+
+
+*% ==================
+*%  ==== new Custom Papersize Option Attributes  ====
+*% ==================
+
+*Template:  A_COMMAND
+{
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_COMMAND
+    *Virtual:  TRUE
+}
+
+
+*Template:  CUSTCURSORORIGINX
+{
+    *Name: "*CustCursorOriginX"
+    *Inherits: A_COMMAND
+}
+*Template:  CUSTCURSORORIGINY
+{
+    *Name: "*CustCursorOriginY"
+    *Inherits: A_COMMAND
+}
+*Template:  CUSTPRINTABLEORIGINX
+{
+    *Name: "*CustPrintableOriginX"
+    *Inherits: A_COMMAND
+}
+*Template:  CUSTPRINTABLEORIGINY
+{
+    *Name: "*CustPrintableOriginY"
+    *Inherits: A_COMMAND
+}
+*Template:  CUSTPRINTABLESIZEX
+{
+    *Name: "*CustPrintableSizeX"
+    *Inherits: A_COMMAND
+}
+*Template:  CUSTPRINTABLESIZEY
+{
+    *Name: "*CustPrintableSizeY"
+    *Inherits: A_COMMAND
+}
+
+
+
+*% ==================
+*%  ==== Custom Papersize Option  Construct  ====
+*% ==================
+
+
+*Template:  CUST_PAPERSIZE_OPTION
+{
+    *Inherits: PAPERSIZE_OPTION
+    *Members:  (MAXPRINTABLEWIDTH, MINLEFTMARGIN,
+        TOPMARGIN, BOTTOMMARGIN,
+        CENTERPRINTABLE,
+        CUSTCURSORORIGINX, CUSTCURSORORIGINY,
+        CUSTPRINTABLEORIGINX,  CUSTPRINTABLEORIGINY,
+        CUSTPRINTABLESIZEX, CUSTPRINTABLESIZEY,
+        MIN_SIZE, MAX_SIZE)
+    *Instances:  CUSTOMSIZE
+    *Production: SATISFY_ALL
+    {
+        *Production: EXACTLY_ONE
+        {
+            *Production: SATISFY_ALL
+            {
+                *Member: MAXPRINTABLEWIDTH {*Occurs: [0-1] }  *%  tolerated even though not used.
+                *Member: MINLEFTMARGIN {*Occurs: [0] }
+                *Member: TOPMARGIN {*Occurs: [0] }
+                *Member: BOTTOMMARGIN {*Occurs: [0] }
+                *Member: CENTERPRINTABLE {*Occurs: [0] }
+                *Member: CURSORORIGIN {*Occurs: [0] }
+
+                *Member: CUSTCURSORORIGINX {*Occurs: [1] }
+                *Member: CUSTCURSORORIGINY {*Occurs: [1] }
+                *Member: CUSTPRINTABLEORIGINX {*Occurs: [1] }
+                *Member: CUSTPRINTABLEORIGINY {*Occurs: [1] }
+                *Member: CUSTPRINTABLESIZEX {*Occurs: [1] }
+                *Member: CUSTPRINTABLESIZEY {*Occurs: [1] }
+            }
+            *Production: SATISFY_ALL
+            {
+                *Member: MAXPRINTABLEWIDTH {*Occurs: [1] }
+                *Member: MINLEFTMARGIN {*Occurs: [0-1] }
+                *Member: TOPMARGIN {*Occurs: [0-1] }
+                *Member: BOTTOMMARGIN {*Occurs: [0-1] }
+                *Member: CENTERPRINTABLE {*Occurs: [0-1] }
+                *Member: CURSORORIGIN {*Occurs: [1] }
+
+                *Member: CUSTCURSORORIGINX {*Occurs: [0] }
+                *Member: CUSTCURSORORIGINY {*Occurs: [0] }
+                *Member: CUSTPRINTABLEORIGINX {*Occurs: [0] }
+                *Member: CUSTPRINTABLEORIGINY {*Occurs: [0] }
+                *Member: CUSTPRINTABLESIZEX {*Occurs: [0] }
+                *Member: CUSTPRINTABLESIZEY {*Occurs: [0] }
+            }
+        }
+        *Member: MIN_SIZE {*Occurs: [1] }
+        *Member: MAX_SIZE {*Occurs: [1] }
+        *Member:  PRINTABLEAREA {*Occurs:  [0] }
+        *Member:  PRINTABLEORIGIN {*Occurs:  [0] }
+    }
+}
+
+*% ==================
+*%  ==== Predefined Papersize Option   ====
+*% ==================
+
+
+*Template:  ROTATESIZE
+{
+    *Name: "*RotateSize?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*Template:  PORTROTATIONANGLE
+{
+    *Name: "*PortRotationAngle?"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+*Template:  V_PREDEFINED_PAPERSIZE_OPTION  *%  define after Custom Papersize Option
+*%  so it has precedence.
+{
+    *Inherits: PAPERSIZE_OPTION
+    *Members:  (ROTATESIZE, PORTROTATIONANGLE)
+    *Production: SATISFY_ALL
+    {
+        *Member:  PRINTABLEORIGIN {*Occurs:  [1-*] }
+        *Member:  PRINTABLEAREA {*Occurs:  [1-*] }
+        *Member:  ROTATESIZE {*Occurs:  [0-1] }
+    }
+    *Virtual:  TRUE
+}
+
+*Template:  PREDEFINED_PAPERSIZE_OPTION_1  *%  Base set of papersizes
+{
+    *Inherits: V_PREDEFINED_PAPERSIZE_OPTION
+    *Instances:  (LETTER,
+        LETTERSMALL, TABLOID, LEDGER, LEGAL, STATEMENT,
+        EXECUTIVE,  A3, A4,   *%  and more, many more
+        A4SMALL,
+        A5,
+        B4,
+        B5,
+        FOLIO,
+        QUARTO,
+        10X14,
+        11X17,
+        NOTE,
+        ENV_9,
+        ENV_10,
+        ENV_11,
+        ENV_12,
+        ENV_14,
+        CSHEET,
+        DSHEET,
+        ESHEET,
+        ENV_DL,
+        ENV_C5,
+        ENV_C3,
+        ENV_C4,
+        ENV_C6,
+        ENV_C65,
+        ENV_B4,
+        ENV_B5,
+        ENV_B6,
+        ENV_ITALY,
+        ENV_MONARCH,
+        ENV_PERSONAL,
+        FANFOLD_US,
+        FANFOLD_STD_GERMAN,
+        FANFOLD_LGL_GERMAN,
+        ISO_B4,
+        JAPANESE_POSTCARD,
+        9X11,
+        10X11,
+        15X11,
+        ENV_INVITE,
+        LETTER_EXTRA,
+        LEGAL_EXTRA,
+        TABLOID_EXTRA,
+        A4_EXTRA,
+        LETTER_TRANSVERSE,
+        A4_TRANSVERSE,
+        LETTER_EXTRA_TRANSVERSE,
+        A_PLUS,
+        B_PLUS,
+        LETTER_PLUS,
+        A4_PLUS,
+        A5_TRANSVERSE,
+        B5_TRANSVERSE,
+        A3_EXTRA,
+        A5_EXTRA,
+        B5_EXTRA,
+        A2,
+        A3_TRANSVERSE,
+        A3_EXTRA_TRANSVERSE
+        )
+}
+
+
+*% ==================
+*%  ====  OutputBin Options  Attributes   ====
+*% ==================
+
+
+
+*Template:  OUTPUTORDERREVERSED
+*%  is both a Root level and Option level keyword!
+{
+    *Name: "*OutputOrderReversed?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*% ==================
+*%  ====  OutputBin Options   ====
+*% ==================
+
+*Template:  OUTPUTBIN_OPTION
+{
+    *Inherits: OPTION
+    *Members:  (OUTPUTORDERREVERSED)
+    *Instances:  <ANY>  *%  all instances are OEM defined
+}
+
+
+*Template:  OUTPUTBIN_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (OUTPUTBIN_OPTION)
+    *Instances:  OutputBin
+    *Production: SATISFY_ALL
+    {
+        *Member:  OUTPUTBIN_OPTION {*Occurs:  [1-256] }  *%  Devmode imposed limit
+    }
+}
+
+
+
+
+*% ==================
+*%  ====  MediaType Options   ====
+*% ==================
+
+*Template:  MEDIATYPE_OPTION
+{
+    *Inherits: OPTION
+    *%Instances:  <ANY>
+    *Virtual:  TRUE
+}
+
+*Template:  OEM_MEDIATYPE_OPTION
+{
+    *Inherits: MEDIATYPE_OPTION
+    *Members:  (OPTIONID)
+    *Instances:  <ANY>  *%   OEM defined instances permitted
+    *Production: SATISFY_ALL
+    {
+        *Member:  OPTIONID {*Occurs:  [0-1] }
+    }
+}
+
+
+*Template:  STD_MEDIATYPE_OPTION
+{
+    *Inherits: MEDIATYPE_OPTION
+    *%Members:  ()
+    *Instances:  (STANDARD, TRANSPARENCY, GLOSSY)
+}
+
+
+*Template:  MEDIATYPE_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (MEDIATYPE_OPTION)
+    *Instances:  MediaType
+    *Production: SATISFY_ALL
+    {
+        *Member:  MEDIATYPE_OPTION {*Occurs:  [1-256] }  *%  Devmode imposed limit
+    }
+}
+
+
+
+
+*% ==================
+*%  ==== Memory Option Attributes  ====
+*% ==================
+
+*Template:  MEMORYCONFIGKB
+{
+    *Name: "*MemoryConfigKB"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_PAIR_OF_GPD_POS_INTEGER
+}
+
+*Template:  MEMORYCONFIGMB
+{
+    *Name: "*MemoryConfigMB"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_PAIR_OF_GPD_POS_INTEGER
+}
+
+*Template:  MEMCONFIGKB
+{
+    *Name: "*MemConfigKB"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_TRANSIENT
+}
+*Template:  MEMCONFIGMB
+{
+    *Name: "*MemConfigMB"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_TRANSIENT
+}
+
+*% ==================
+*%  ==== Memory Option Constructs  ====
+*% ==================
+
+*Template:  MEMORY_OPTION
+{
+    *Inherits: OPTION
+    *Members:  (MEMORYCONFIGKB, MEMORYCONFIGMB)
+    *Instances:  <ANY>  *%  all instances are OEM defined
+    *Production: EXACTLY_ONE
+    {
+        *Production: SATISFY_ALL
+        {
+            *Member:  MEMORYCONFIGKB {*Occurs:  1 }
+            *Member:  MEMORYCONFIGMB {*Occurs:  0 }
+        }
+        *Production: SATISFY_ALL
+        {
+            *Member:  MEMORYCONFIGKB {*Occurs:  0 }
+            *Member:  MEMORYCONFIGMB {*Occurs:  1 }
+        }
+    }
+}
+
+
+*Template:  MEMORY_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (MEMORY_OPTION, MEMCONFIGKB, MEMCONFIGMB)
+    *Instances:  Memory
+    *Production: AT_LEAST_ONE
+    {
+        *Member:  MEMORY_OPTION {*Occurs:  [1-256] }  *%  Devmode imposed limit
+        *Member:  MEMCONFIGKB {*Occurs:  [1-256] }
+        *Member:  MEMCONFIGMB {*Occurs:  [1-256] }
+    }
+}
+
+
+*% ==================
+*%  ====  Resolution Options  Attributes   ====
+*% ==================
+
+
+
+*Template:  DPI
+{
+    *Name: "*DPI"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_PAIR_OF_GPD_POS_INTEGER
+}
+*Template:  TEXTDPI
+{
+    *Name: "*TextDPI"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_PAIR_OF_GPD_POS_INTEGER
+}
+*Template:  SPOTDIAMETER
+{
+    *Name: "*SpotDiameter"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+
+
+*Template:  PINSPERPHYSPASS
+{
+    *Name: "*PinsPerPhysPass"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+*Template:  PINSPERLOGPASS
+{
+    *Name: "*PinsPerLogPass"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+
+*Template:  MINSTRIPBLANKPIXELS
+{
+    *Name: "*MinStripBlankPixels"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+
+*Template:  GAMMA_VALUE
+{
+    *Inherits:  GPD_INTEGER
+    *MinValue: -1
+    *MaxValue: 65535
+}
+
+*Template:  REDDEVICEGAMMA
+{
+    *Name: "*RedDeviceGamma"
+    *Type:  ATTRIBUTE
+    *ValueType:  GAMMA_VALUE
+}
+*Template:  GREENDEVICEGAMMA
+{
+    *Name: "*GreenDeviceGamma"
+    *Type:  ATTRIBUTE
+    *ValueType:  GAMMA_VALUE
+}
+*Template:  BLUEDEVICEGAMMA
+{
+    *Name: "*BlueDeviceGamma"
+    *Type:  ATTRIBUTE
+    *ValueType:  GAMMA_VALUE
+}
+
+
+*Template:  REQUIREUNIDIR
+{
+    *Name: "*RequireUniDir?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+
+*% ==================
+*%  ====  Resolution Options   ====
+*% ==================
+
+*Template:  RESOLUTION_OPTION
+{
+    *Inherits: OPTION
+    *Members:  (DPI, TEXTDPI, SPOTDIAMETER, MINSTRIPBLANKPIXELS,
+        PINSPERPHYSPASS, PINSPERLOGPASS,   REQUIREUNIDIR,
+        REDDEVICEGAMMA, GREENDEVICEGAMMA, BLUEDEVICEGAMMA)
+    *Instances:  <ANY>  *%  all instances are OEM defined
+    *Production: SATISFY_ALL
+    {
+        *Member:  DPI {*Occurs:  1 }
+        *Member:  TEXTDPI {*Occurs:  1 }
+        *Member:  SPOTDIAMETER {*Occurs:  1 }
+    }
+}
+
+
+*Template:  RESOLUTION_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (RESOLUTION_OPTION)
+    *Instances:  Resolution
+    *Production: SATISFY_ALL
+    {
+        *Member:  RESOLUTION_OPTION {*Occurs:  [1-256] }  *%  Devmode imposed limit
+    }
+}
+
+
+
+*% ==================
+*%  ====  InputBin Options  Attributes   ====
+*% ==================
+
+*Template:  GPD_CODEPAGE_STRING_MAX_24       *%  ANSI string, convert to Unicode
+{
+    *Inherits:  GPD_CODEPAGE_STRING
+    *MaxLength: 24        *%  DevCaps imposed limit
+}
+
+*Template:  INPUTBIN_OPT_NAME
+{
+    *Name:  "*Name"
+    *Inherits:  NAME
+    *ValueType:  GPD_CODEPAGE_STRING_MAX_24
+}
+
+
+
+
+*% ==================
+*%  ====  InputBin Options Constructs  ====
+*% ==================
+
+*Template:  INPUTBIN_OPTION
+{
+    *Inherits: OPTION
+    *Members:  (INPUTBIN_OPT_NAME)
+    *Virtual:  TRUE
+}
+
+
+*Template:  NON_STD_INPUTBIN_OPTION
+{
+    *Inherits: INPUTBIN_OPTION
+    *Members:  (OPTIONID)
+    *Instances:  <ANY>
+    *Production: SATISFY_ALL
+    {
+        *Member:  OPTIONID {*Occurs:  [0-1] }
+    }
+}
+
+*Template:  STD_INPUTBIN_OPTION
+{
+    *Inherits: INPUTBIN_OPTION
+    *Instances:  (FORMSOURCE, UPPER, LOWER, MIDDLE, MANUAL, ENVFEED, ENVMANUAL,
+    AUTO, TRACTOR, SMALLFMT, LARGEFMT, LARGECAPACITY, CASSETTE)
+}
+
+*Template:  INPUTBIN_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (INPUTBIN_OPTION)
+    *Instances:  InputBin
+    *Production: SATISFY_ALL
+    {
+        *Member:  INPUTBIN_OPTION {*Occurs:  [1-256] }  *%  Devmode imposed limit
+    }
+}
+
+
+*% ==================
+*%  ====  Orientation Options and Feature  ====
+*% ==================
+
+*Template:  ORIENTATION_OPTION
+{
+    *Inherits: OPTION
+    *Instances:  (PORTRAIT, LANDSCAPE_CC90, LANDSCAPE_CC270)
+}
+
+*Template:  ORIENTATION_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (ORIENTATION_OPTION)
+    *Instances:  Orientation
+    *Production: SATISFY_ALL
+    {
+        *Member:  ORIENTATION_OPTION {*Occurs:  [1-256] }  *%  Devmode imposed limit
+    }
+}
+
+
+
+*% ==================
+*%  ====  Duplex Options and Feature  ====
+*% ==================
+
+*Template:  DUPLEX_OPTION
+{
+    *Inherits: OPTION
+    *Instances:  (NONE, VERTICAL, HORIZONTAL)
+}
+
+*Template:  DUPLEX_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (DUPLEX_OPTION)
+    *Instances:  Duplex
+    *Production: SATISFY_ALL
+    {
+        *Member:  DUPLEX_OPTION {*Occurs:  [1-256] }  *%  Devmode imposed limit
+    }
+}
+
+
+
+
+
+*% ==================
+*%  ====  PageProtect Options and Feature  ====
+*% ==================
+
+*Template:  PAGEPROTECT_OPTION
+{
+    *Inherits: OPTION
+    *Instances:  (ON, OFF)
+}
+
+*Template:  PAGEPROTECT_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (PAGEPROTECT_OPTION)
+    *Instances:  PageProtect
+    *Production: SATISFY_ALL
+    {
+        *Member:  PAGEPROTECT_OPTION {*Occurs:  [1-256] }  *%  Devmode imposed limit
+    }
+}
+
+
+*% ==================
+*%  ====  Collate Options and Feature  ====
+*% ==================
+
+*Template:  COLLATE_OPTION
+{
+    *Inherits: OPTION
+    *Instances:  (ON, OFF)
+}
+
+*Template:  COLLATE_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (COLLATE_OPTION)
+    *Instances:  Collate
+    *Production: SATISFY_ALL
+    {
+        *Member:  COLLATE_OPTION {*Occurs:  [1-256] }  *%  Devmode imposed limit
+    }
+}
+
+
+
+
+*% ==================
+*%  ====  ColorMode Options  Attributes   ====
+*% ==================
+
+
+
+*Template:  COLOR
+{
+    *Name: "*Color?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+*Template:  DEVNUMOFPLANES
+{
+    *Name: "*DevNumOfPlanes"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+*Template:  DEVBPP
+{
+    *Name: "*DevBPP"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+*Template:  RASTERMODE
+{
+    *Name: "*RasterMode"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_RASTERMODE
+}
+
+
+*Template:  COLORPLANEORDER
+{
+    *Name: "*ColorPlaneOrder"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_EDT_COLORPLANE
+}
+
+
+*Template:  PALETTESIZE
+{
+    *Name: "*PaletteSize"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+
+*Template:  PALETTEPROGRAMMABLE
+{
+    *Name: "*PaletteProgrammable?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*Template:  GPD_DRVBPP_VALUE
+{
+    *Inherits:  GPD_INTEGER
+    *MinValue: 1
+    *MaxValue: 32
+}
+
+*Template:  DRVBPP
+{
+    *Name: "*DrvBPP"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_DRVBPP_VALUE
+}
+
+
+*Template:  IPCALLBACKID
+{
+    *Name: "*IPCallbackID"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+
+*% ==================
+*%  ====  ColorMode Options Constructs  ====
+*% ==================
+
+*Template:  COLORMODE_OPTION
+{
+    *Inherits: OPTION
+    *Members:  (COLOR, DEVNUMOFPLANES, DEVBPP,
+        RASTERMODE, COLORPLANEORDER, PALETTESIZE,
+        PALETTEPROGRAMMABLE, DRVBPP, IPCALLBACKID)
+    *Instances:  <ANY>
+    *Production: EXACTLY_ONE
+    {
+        *Production: SATISFY_ALL
+        {
+            *Member:  COLORPLANEORDER {*Occurs:  [1] }
+            *Member:  DEVNUMOFPLANES {*Occurs:  [1] }
+        }
+        *Production: SATISFY_ALL
+        {
+            *Member:  COLORPLANEORDER {*Occurs:  [0] }
+            *Member:  DEVNUMOFPLANES {*Occurs:  [0-1] }
+        }
+    }
+}
+
+
+
+*Template:  COLORMODE_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (COLORMODE_OPTION)
+    *Instances:  ColorMode
+    *Production: SATISFY_ALL
+    {
+        *Member:  COLORMODE_OPTION {*Occurs:  [1-256] }  *%  Devmode imposed limit
+    }
+}
+
+
+*% ==================
+*%  ====  Stapling Options Constructs  ====
+*% ==================
+
+*Template:  STAPLING_OPTION
+{
+    *Inherits: OPTION
+    *Instances:  <ANY>
+}
+
+
+
+*Template:  STAPLING_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (STAPLING_OPTION)
+    *Instances:  Stapling
+    *Production: SATISFY_ALL
+    {
+        *Member:  STAPLING_OPTION {*Occurs:  [1-256] }  *%  Devmode imposed limit
+    }
+}
+
+
+
+*% ==================
+*%  ====  Halftone Options  Attributes   ====
+*% ==================
+
+*Template:  LUMINANCE
+{
+    *Name: "*Luminance"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+
+
+*Template:  RCHTPATTERNID
+{
+    *Name: "*rcHTPatternID"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NONNEG_INTEGER
+}
+*Template:  HTPATTERNSIZE
+{
+    *Name: "*HTPatternSize"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_PAIR_OF_GPD_POS_INTEGER
+}
+
+*Template:  HTNUMPATTERNS_VALUE
+{
+    *Inherits:  GPD_INTEGER
+    *MinValue: 1
+    *MaxValue: 3
+}
+
+*Template:  HTNUMPATTERNS
+{
+    *Name: "*HTNumPatterns"
+    *Type:  ATTRIBUTE
+    *ValueType:  HTNUMPATTERNS_VALUE
+}
+*Template:  HTCALLBACKID
+{
+    *Name: "*HTCallbackID"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+
+
+*% ==================
+*%  ====  Halftone Options Constructs  ====
+*% ==================
+
+*Template:  HALFTONE_OPTION
+{
+    *Inherits: OPTION
+    *Members:  (LUMINANCE)
+    *Virtual:  TRUE
+}
+
+
+*Template:  NON_STD_HALFTONE_OPTION
+{
+    *Inherits: HALFTONE_OPTION
+    *Instances:  <ANY>
+    *Members:  (RCHTPATTERNID, HTPATTERNSIZE,
+        HTNUMPATTERNS, HTCALLBACKID, HALFTONEOPTIONID)
+    *Production: SATISFY_ALL
+    {
+        *Member:  HALFTONEOPTIONID {*Occurs:  [0-1] }
+
+        *Production: EXACTLY_ONE
+        {
+            *Production: SATISFY_ALL
+            {   *%  Pattern stored as Resource
+                *Member:  HTPATTERNSIZE {*Occurs:  [1] }
+                *Member:  HTNUMPATTERNS {*Occurs:  [0-1] }
+                *Member:  RCHTPATTERNID {*Occurs:  [1] }
+                *Member:  HTCALLBACKID {*Occurs:  [0] }
+                *Member:  OPT_SELECT_COMMAND_1 {*Occurs:  [0] }
+            }
+            *Production: SATISFY_ALL
+            {    *%  OEM callback supplies pattern
+                *Member:  HTPATTERNSIZE {*Occurs:  [1] }
+                *Member:  HTNUMPATTERNS {*Occurs:  [0-1] }
+                *Member:  RCHTPATTERNID {*Occurs:  [0-1] }
+                *Member:  HTCALLBACKID {*Occurs:  [1] }
+                *Member:  OPT_SELECT_COMMAND_1 {*Occurs:  [0] }
+            }
+            *Production: SATISFY_ALL
+            {   *%  Device performs halftoning.
+                *Member:  OPT_SELECT_COMMAND_1 {*Occurs:  [1] }
+                *Member:  HTPATTERNSIZE {*Occurs:  [0] }
+                *Member:  HTNUMPATTERNS {*Occurs:  [0] }
+                *Member:  RCHTPATTERNID {*Occurs:  [0] }
+                *Member:  HTCALLBACKID {*Occurs:  [0] }
+            }
+        }
+    }
+}
+
+*Template:  STD_HALFTONE_OPTION
+{
+    *Inherits: HALFTONE_OPTION
+    *Instances:  (HT_PATSIZE_2x2, HT_PATSIZE_2x2_M,
+        HT_PATSIZE_4x4, HT_PATSIZE_4x4_M,
+        HT_PATSIZE_6x6, HT_PATSIZE_6x6_M,
+        HT_PATSIZE_8x8, HT_PATSIZE_8x8_M,
+        HT_PATSIZE_10x10, HT_PATSIZE_10x10_M,
+        HT_PATSIZE_12x12, HT_PATSIZE_12x12_M,
+        HT_PATSIZE_14x14, HT_PATSIZE_14x14_M,
+        HT_PATSIZE_16x16, HT_PATSIZE_16x16_M,
+        HT_PATSIZE_SUPERCELL, HT_PATSIZE_SUPERCELL_M,
+        HT_PATSIZE_AUTO
+        )
+        *Production: SATISFY_ALL
+        {
+            *Member:  OPT_SELECT_COMMAND_1 {*Occurs:  [0] }
+        }
+}
+
+
+*Template:  HALFTONE_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (HALFTONE_OPTION)
+    *Instances:  Halftone
+    *Production: SATISFY_ALL
+    {
+        *Member:  HALFTONE_OPTION {*Occurs:  [1-256] }  *%  Devmode imposed limit
+    }
+}
+
+
+
+*Template:  STANDARD_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (GENERIC_OPTION)
+    *Instances:  (RESDLL)  *%  can't have the official stdnames.gpd producing errors!
+}
+
+
+*% ==================
+*%  ====  ROOT Construct  ====
+*% ==================
+
+
+
+*Template:  ROOT
+{
+    *Type: CONSTRUCT
+    *Name:  "root"
+    *Instances:  <ANY>
+    *Members:  (MODELNAME, RCMODELNAMEID,
+        PRINTERTYPE, CODEPAGE, FEATURE,
+        PAPERSIZE_FEATURE, RESOLUTION_FEATURE, INPUTBIN_FEATURE,
+        INVALID_COMBO, SCOMMAND, CONFIG_COMMAND, RENDER_COMMAND,
+        GPDSPECVERSION, TTFONT_SUB, FONTCARTRIDGE, DEVICEFONTS,
+        INSTALLEDOPTIONNAME, NOTINSTALLEDOPTIONNAME,
+        RCINSTALLEDOPTIONNAMEID, RCNOTINSTALLEDOPTIONNAMEID,
+        STRIPBLANKS,  OEMCUSTOMDATA,
+        GPDFILEVERSION, GPDFILENAME, RESOURCEDLL, HELPFILE, MASTERUNITS,
+        MAXCOPIES, FONTCARTSLOTS, PRINTRATE, PRINTRATEPPM,
+         *%  PRINTRATEUNIT   defined in stdschema_ext.gdl
+        ROTATECOORDINATE, ROTATERASTER, ROTATEFONT, TEXTCAPS,
+        MEMORYUSAGE, CURSORXAFTERCR, BADCURSORMOVEINGRXMODE,
+        MINGRAYFILL, MAXGRAYFILL, MINFONTID, MAXFONTID,
+        TTFSENABLED, DEFAULTCTT, DEFAULTFONT, FONTFORMAT, CHARPOSITION,
+        CURSORYAFTERSENDBLOCKDATA, CURSORXAFTERSENDBLOCKDATA,
+        OPTIMIZELEFTBOUND, EJECTPAGEWITHFF, OUTPUTDATAFORMAT,
+        XMOVEUNIT, YMOVEUNIT, XMOVETHRESHOLD, YMOVETHRESHOLD,
+        USEBMPFONTCOMPRESSION, USEMODE5COMPRESSION, USEHPGLPOLYLINEENCODING, 
+        USEIMAGESFORHATCHES, ISXPSDRIVER, PRINTPROCDUPLEXOPTIONS,
+        DONTSENDEXTRAPAGESFORDUPLEX, BIDIQUERYFILE,
+        PRINTSCHEMAPRIVATENAMESPACEURI,
+        DRAFTQUALITYSETTINGS, BETTERQUALITYSETTINGS,
+        BESTQUALITYSETTINGS, DEFAULTQUALITY, OUTPUTORDERREVERSED,
+        PERSONALITY, RCPERSONALITYID,
+        DLSYMBOLSET, MINGLYPHID, MAXGLYPHID,
+        LINESPACINGMOVEUNIT, REVERSEBANDORDER, REVERSEBANDORDERFOREVENPAGES,
+        CHANGECOLORMODEONPAGE, CHANGECOLORMODEONDOC,
+        USESPACEFORXMOVE, ABSXMOVESRIGHTONLY, OEMPRINTINGCALLBACKS,
+        MAXLINESPACING,  YMOVEATTRIBUTES, RASTERCAPS,
+        RESELECTFONT,  MINOVERLAYID,   MAXOVERLAYID,
+        RASTERSENDALLDATA, SENDMULTIPLEROWS,
+        MAGENTAINCYANDYE, YELLOWINCYANDYE, CYANINMAGENTADYE,
+        YELLOWINMAGENTADYE, CYANINYELLOWDYE, MAGENTAINYELLOWDYE,
+        MIRRORRASTERBYTE, MIRRORRASTERPAGE, PREANALYSISOPTIONS,
+        TEXTYOFFSET, MAXNUMDOWNFONTS, MAXFONTUSEPERPAGE,
+        USEEXPCOLORSELECTCMD, MOVETOX0BEFORESETCOLOR,
+        ENABLEGDICOLORMAPPING, DIFFFONTSPERBYTEMODE,
+        CURSORXAFTERRECTFILL, CURSORYAFTERRECTFILL,
+        INVALIDINSTALLABLECOMBINATION,
+        TEXTHALFTONETHRESHOLD, LOOKAHEADREGION,
+        RCPRINTERICONID, MAXPRINTABLEAREA,
+        BIDIQUERY, BIDIRESPONSE )
+    *Production: SATISFY_ALL
+    {
+        *Production: AT_LEAST_ONE
+        {
+            *Member: MODELNAME {*Occurs: 1 }           *% must occur Exactly once
+            *Member: RCMODELNAMEID {*Occurs: 1 }
+        }
+        *Member: PRINTERTYPE {*Occurs: 1 }
+        *Member: GPDSPECVERSION {*Occurs: 1 }
+        *Member: PAPERSIZE_FEATURE {*Occurs: [1-*] }  *% must occur at Least once
+        *Member: RESOLUTION_FEATURE {*Occurs: [1-*] }  *% must occur at Least once
+        *Member: INPUTBIN_FEATURE {*Occurs: [1-*] }  *% must occur at Least once
+        *Production: EXACTLY_ONE
+        {
+            *Production: SATISFY_ALL
+            {
+                *Member:  DRAFTQUALITYSETTINGS {*Occurs:  [0] }
+                *Member:  BETTERQUALITYSETTINGS {*Occurs:  [0] }
+                *Member:  BESTQUALITYSETTINGS {*Occurs:  [0] }
+                *Member:  DEFAULTQUALITY {*Occurs:  [0] }
+            }
+            *Production: SATISFY_ALL
+            {
+                *Member:  DRAFTQUALITYSETTINGS {*Occurs:  [1] }
+                *Member:  BETTERQUALITYSETTINGS {*Occurs:  [1] }
+                *Member:  BESTQUALITYSETTINGS {*Occurs:  [1] }
+                *Member:  DEFAULTQUALITY {*Occurs:  [1] }
+            }
+        }
+        *IgnoreBlock:  Production: AT_LEAST_ONE
+        {    *%  defined in stdschema_ext.gdl
+            *Production: SATISFY_ALL
+            {
+                *Member:  PRINTRATE {*Occurs:  [0] }
+                *Member:  PRINTRATEUNIT {*Occurs:  [0] }
+            }
+            *Production: SATISFY_ALL
+            {
+                *Member:  PRINTRATE {*Occurs:  [1] }
+                *Member:  PRINTRATEUNIT {*Occurs:  [1] }
+            }
+        }
+        *Production: EXACTLY_ONE
+        {
+            *Production: SATISFY_ALL
+            {
+                *Member:  DLSYMBOLSET {*Occurs:  [1] }
+                *Member:  MINGLYPHID {*Occurs:  [0] }
+                *Member:  MAXGLYPHID {*Occurs:  [0] }
+            }
+            *Production: SATISFY_ALL
+            {
+                *Member:  DLSYMBOLSET {*Occurs:  [0] }
+                *Member:  MINGLYPHID {*Occurs:  [0-1] }
+                *Member:  MAXGLYPHID {*Occurs:  [0-1] }
+            }
+        }
+    }
+}
+
+
+
+*Ifdef: Ignore
+*%============ suggested Templates for IHV BiDi Extensions =============
+
+*Template:  HP_QUERYSTRING
+{
+    *Inherits: V_QUERYSTRING
+    *Name:  "*HPSuperQuery"
+}
+
+*Template:  HP_BIDIQUERY
+{
+    *Inherits: BIDIQUERY
+    *Members:  (HP_QUERYSTRING)
+    *Instances:  <ANY>
+    *Production: SATISFY_ALL
+    {
+        *Member:  HP_QUERYSTRING {*Occurs:  [0-1] }
+    }
+}
+*%============ end suggested Templates =============================
+*Endif: Ignore
+

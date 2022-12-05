@@ -1,0 +1,134 @@
+<!-- Version: 7.212.4835.7 -->
+<FWPropertyManager>
+    <!-- General Settings -->
+    <Item id="ModelNumber" value="Universal"/>
+    <Item id="ModelSelection" value="Universal"/>
+    <Item id="Drawers" value="Drawer1_2_LCF"/>
+    <Item id="ExternalLCF" value="ExternalLCF"/>
+    <Item id="FinisherModel" value="SaddleStitchFinisher_2TraynFixedTray"/>
+    <Item id="HolePunchUnit" value="_23Holes"/>
+    <Item id="InserterUnit" value="False"/>
+    <Item id="CoinController" value="False"/>
+    <Item id="HSPSupported" value="False"/>
+    <Item id="EfilingSupported" value="True"/>
+    <Item id="UpdateAutomatically" value="True"/>
+    <Item id="UpdateAutomaticallyBackup" value="True"/>
+    <Item id="AutoDuplexingUnit" value="True"/>
+    <Item id="Harddisk" value="True"/>
+    <Item id="DefaultDuplexMode" value="NotSet"/>
+
+    <!-- Drawer Settings -->
+    <Item id="DrawersInitFlag" value="False"/>
+    <Item id="Drawer1_PaperSize" value="A4"/>
+    <Item id="Drawer1_PaperType" value="Plain_Auto"/>
+    <Item id="Drawer1_Attribute" value="None"/>
+    <Item id="Drawer2_PaperSize" value="A4"/>
+    <Item id="Drawer2_PaperType" value="Plain_Auto"/>
+    <Item id="Drawer2_Attribute" value="None"/>
+    <Item id="Drawer3_PaperSize" value="A4"/>
+    <Item id="Drawer3_PaperType" value="Plain_Auto"/>
+    <Item id="Drawer3_Attribute" value="None"/>
+    <Item id="Drawer4_PaperSize" value="A4"/>
+    <Item id="Drawer4_PaperType" value="Plain_Auto"/>
+    <Item id="Drawer4_Attribute" value="None"/>
+    <Item id="LCF_PaperSize" value="A4"/>
+    <Item id="LCF_PaperType" value="Plain_Auto"/>
+    <Item id="LCF_Attribute" value="None"/>
+    <Item id="ExternalLCF_PaperSize" value="A4"/>
+    <Item id="ExternalLCF_PaperType" value="Plain_Auto"/>
+    <Item id="ExternalLCF_Attribute" value="None"/>
+    <Item id="LargeSizeExternalLCF_PaperSize" value="A4"/>
+    <Item id="LargeSizeExternalLCF_PaperType" value="Plain_Auto"/>
+    <Item id="LargeSizeExternalLCF_Attribute" value="None"/>
+    <Item id="CustomDrawer1_PaperSize" value=""/>
+    <Item id="CustomDrawer2_PaperSize" value=""/>
+    <Item id="CustomDrawer3_PaperSize" value=""/>
+    <Item id="CustomDrawer4_PaperSize" value=""/>
+    <!-- Papersize may not be needed -->
+    <Item id="Bypass_PaperSize" value="Automatic"/>
+    <Item id="Bypass_PaperType" value="Plain_Auto"/>
+    <Item id="Bypass_Attribute" value="None"/>
+    <Item id="OverrideDPS" value="False"/>
+
+    <!-- Account Settings -->
+    <Item id="HoldPrintRestriction" value="False"/>
+    <Item id="PrivatePrintRestriction" value="False"/>
+    <Item id="UseUserAuthentication" value="False"/>
+    <Item id="DomainName" value=""/>
+    <Item id="UserAuthenticationType" value="Off"/>
+
+    <!-- LDAP -->
+    <Item id="LDAPServerNames" value=""/>
+    <Item id="EnforceLDAPServer" value="False"/>
+
+    <!-- Customisation -->
+    <Item id="CompressBitmap" value="True"/>
+    <Item id="JPEGCompression" value="True"/>
+    <Item id="OutputFormat" value="ASCII"/>
+    <Item id="OutputPDL" value="PCLXL"/>
+    <Item id="PrintErrorInfo" value="True"/>
+    <Item id="Localisation" value="Auto"/>
+    <Item id="MFPRegion" value="invalid"/>
+    <Item id="DefaultDuplexing" value=""/>
+    <Item id="LocalDiscoveryIP" value=""/>
+    <Item id="BoldValue" value="0.017"/>
+
+    <!-- Miscallaneous -->
+    <Item id="EncryptionEnabled" value="False"/>
+    <Item id="RedSealModeSupport" value="False"/>
+    <Item id="SNMPRetrievalFailed" value="True"/>
+    <Item id="EnableRedSeal" value="DefaultOff"/>
+
+    <!-- SNMP -->
+    <Item id="SNMPVersion" value="rbV1V2"/>
+    <Item id="SNMPCommunityName" value="private"/>
+    <Item id="SNMPUserIDFile" value=""/>
+    <Item id="SNMPUserName" value=""/>
+    <Item id="AuthProtocol" value="MD5"/>
+    <Item id="SNMPAuthPassword" value=""/>
+    <Item id="PrivacyProtocol" value="None"/>
+    <Item id="SNMPPrivPassword" value=""/>
+    <Item id="JobEndPjl" value="False"/>
+    <Item id="EnableAnywhereJobSupport" value="False"/>
+    <Item id="EnableAnywhereJob" value="DefaultOff"/>
+    <Item id="EnableDuplexAdjustmentSupport" value="False"/>
+    <Item id="EnableDuplexAdjustment" value="DefaultOff"/>
+    <Item id="CaspianModel" value="False"/>
+    <Item id="eBNModel" value="False"/>
+    <Item id="eBNModel2" value="False"/>
+    <Item id="EX-BPAge" value="None"/>
+    <Item id="EX-LOIREAge" value="None"/>
+    <Item id="EX-ALABAMAAge" value="None"/>
+    <Item id="WeisshornModel" value="None"/>
+    <Item id="EX-LOIREModel" value="None"/>
+    <Item id="eBlue" value="False"/>
+    <Item id="MaxJobNameLength" value="256"/>
+    <Item id="SNMPForAll" value="True"/>
+    <Item id="UserType1" value=""/>
+    <Item id="UserType2" value=""/>
+    <Item id="UserType3" value=""/>
+    <Item id="UserType4" value=""/>
+    <Item id="UserType5" value=""/>
+    <Item id="UserType6" value=""/>
+    <Item id="UserType7" value=""/>
+    <Item id="UserType8" value=""/>
+    <Item id="UserType9" value=""/>
+    <Item id="UserType10" value=""/>
+    <Item id="UserType1_BasePaperType" value="Plain"/>
+    <Item id="UserType2_BasePaperType" value="Plain"/>
+    <Item id="UserType3_BasePaperType" value="Plain"/>
+    <Item id="UserType4_BasePaperType" value="Plain"/>
+    <Item id="UserType5_BasePaperType" value="Plain"/>
+    <Item id="UserType6_BasePaperType" value="Plain"/>
+    <Item id="UserType7_BasePaperType" value="Plain"/>
+    <Item id="UserType8_BasePaperType" value="Plain"/>
+    <Item id="UserType9_BasePaperType" value="Plain"/>
+    <Item id="UserType10_BasePaperType" value="Plain"/>
+
+    <Item id="DeptCodeInFile" value="False"/>
+    <Item id="NickNameInFile" value="True"/>
+    <Item id="EFilingInFile" value="False"/>
+    <Item id="PrivatePrintInFile" value="False"/>
+    <Item id="PJCodeInFile" value="False"/>
+    <Item id="ExtendCharsforPassword" value="False"/>
+</FWPropertyManager>

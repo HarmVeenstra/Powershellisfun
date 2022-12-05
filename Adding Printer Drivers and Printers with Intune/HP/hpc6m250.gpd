@@ -1,0 +1,280 @@
+*% Copyright 1996 - 2017, HP Development Company, L.P.
+*% All Rights Reserved.
+
+*%-------------------------------------------------------------------------
+*% Version Section
+*%-------------------------------------------------------------------------
+*GPDFileName: "hpz6myyq.gpd"
+*GPDSpecVersion: "1.0"
+*GPDFileVersion: "043.52200"
+
+*%-------------------------------------------------------------------------
+*% Macros section
+*%-------------------------------------------------------------------------
+
+*Macros: MediaSizeStrings
+{
+    s8KPaper:                           =ubyte "<05>" "ROC8K"
+    s8K260X368Paper:                    =ubyte "<0C>" "8K 260X368MM" 
+    s8K273X394Paper:                    =ubyte "<0C>" "8K 273X394MM" 
+    s8K270X390Paper:                    =ubyte "<0C>" "8K 270X390MM" 
+    s16kPaper:                          =ubyte "<06>" "ROC16K"
+    s16k184X260Paper:                   =ubyte "<0D>" "16K 184X260MM"
+    s16k195X270Paper:                   =ubyte "<0D>" "16K 195X270MM"
+    sJisExecPaper:                      =ubyte "<07>" "JISEXEC"
+    sB5ISOPaper:                        =ubyte "<05>" "ISOB5"
+    sB5JISPaper:                        =ubyte "<05>" "JISB5"
+    s8_5x13Paper:                       =ubyte "<08>" "FOOLSCAP"
+    sB5ISOPaperRuby:                    =ubyte "<06>" "ISO B5"
+    sExecPaperRuby:                     =ubyte "<09>" "EXECUTIVE"
+    sB5EnvelopRuby:                     =ubyte "<02>" "B5"
+    sStatePaper:                        =ubyte "<09>" "STATEMENT" 
+    sA2Envelope:                        =ubyte "<02>" "A2"
+    sC5Envelope:                        =ubyte "<02>" "C5"
+    sC6Envelope:                        =ubyte "<02>" "C6"
+    sGreetCard:                         =ubyte "<0B>" "HPGREETCARD"
+    sJ3Env:                             =ubyte "<02>" "J3"
+    sJ4Env:                             =ubyte "<02>" "J4"
+    sIndex3X5:                          =ubyte "<03>" "3x5"
+    sIndex4X6:                          =ubyte "<03>" "4x6"
+    sIndex5X8:                          =ubyte "<03>" "5x8"
+    sHagakiCard:                        =ubyte "<05>" "JPOST"
+    sOfuguHagaki:                       =ubyte "<06>" "JPOSTD"
+    sA6Card:                            =ubyte "<06>" "A6CARD"
+    sPhoto4x6:                          =ubyte "<09>" "PHOTO_4X6"
+    s8_5X13:                            =ubyte "<06>" "8.5X13"
+    sCustom:                            =ubyte "<06>" "CUSTOM"
+    sLetterWide:                        =ubyte "<07>" "LETTER+" 
+    sHalfLetter:                        =ubyte "<07>" "HALFLTR"
+    sHalfLetterWide:                    =ubyte "<0A>" "STATEMENT+"
+    s11x17Wide:                         =ubyte "<07>" "LEDGER+"
+    sLedgerPaper:                       =ubyte "<06>" "LEDGER"
+    sA3Wide:                            =ubyte "<03>" "A3+"
+    sA4Wide:                            =ubyte "<03>" "A4+"
+    sA5Wide:                            =ubyte "<03>" "A5+"
+    sJB4Wide:                           =ubyte "<07>" "JIS B4+"
+    sJB5Wide:                           =ubyte "<07>" "JIS B5+"
+    sJB5Paper:                          =ubyte "<06>" "JIS B5"
+    sStatement:                         =ubyte "<09>" "STATEMENT"
+    sB6JISPaper:                        =ubyte "<06>" "JIS B6"
+    sRA3:                               =ubyte "<03>" "RA3"
+    s12X18:                             =ubyte "<05>" "12X18"
+    sSuperB:                            =ubyte "<06>" "SUPERB"
+    sA3Nobi:                            =ubyte "<06>" "A3NOBI"
+    sJK2Env:                            =ubyte "<05>" "KAKU2"
+    sLedgerPaper:                       =ubyte "<06>" "LEDGER"
+    sB4JISPaper:                        =ubyte "<05>" "JISB4"
+    sSRA3:                              =ubyte "<04>" "SRA3"
+    sRA4:                               =ubyte "<03>" "RA4"
+    sSRA4:                              =ubyte "<04>" "SRA4"
+    s10x15cm:                           =ubyte "<08>" "10x15 cm"
+
+
+
+}
+
+*Macros: MediaSource
+{
+    eOptionalCassette:                  "<08>"
+}
+
+*Macros: ColorSmartAttributeTag
+{
+    AllObjectTypes:                     "<1d>"
+    TextObjects:                        "<1e>"
+    VectorObjects:                      "<1f>"
+    RasterObjects:                      "<20>"
+    ColorTreatment:                     "<78>"
+}
+
+*Macros: AttributeEnum
+{
+    *%  Media Types
+    eUnknown:                           "Unknown"
+    eMediaLight:                        "Light"
+    eHeavy:                             "Heavy"
+    eGloss:                             "Gloss"
+    eHeavyGloss:                        "Heavy Gloss"
+    eEnvelope:                          "Envelope"
+    eGlossFilm:                         "Gloss Film"
+    ePremIJ:                            "PremIJPaper"
+    ePremIJH:                           "PremIJHeavy"
+    ePhotoQualitySemiGloss:             "PhotoSemiGloss"
+    ePhotoQualityMatte:                 "PhotoMatte"
+    eEverydayPSG:                       "EDPhotoSemiGloss"
+    eEverydayPM:                        "EDPhotoMatte"
+    ePremTransparency:                  "PremIJTrans"
+    ePremPlusTransparency:              "PremPLTrans"
+    ePhotoGloss:                        "PhotoGloss"
+    ePremPhotoGloss:                    "PremPhotoGloss"
+    ePremPlusPhotoGloss:                "PPLPhotGlos"
+    ePremPlusPhotoMatte:                "PPLPhotMatte"
+    eColorFastPhotoGlossy:              "ClrFastPhotoGloss"
+    eBrochureFlyGloss:                  "BrochGloss"
+    eBrochureFlyMatte:                  "BrochMatte"
+    eTab:                               "Tab"
+    eCustom:                            "Custom"
+    eLetterhead:                        "Letterhead"    
+    eThickPlain:                        "ThickPlain"
+    ePremPrePaper:                      "PremPrePaper"
+    ePhotoProjPaper:                    "PhotoProjPaper"
+    eThickPhoto:                        "ThickPhoto"
+    eLabelsMatte:                       "LabelsMatte"
+    eLabelsGlossy:                      "LabelsGlossy"
+    eTransparency:                      "Transparency"
+    eInkjetPaper:                       "InkjetPaper"
+    ePhotoPaper:                        "PhotoPaper"
+    eBrochPaper:                        "BrochPaper"
+    eIntermediate:                      "Intermediate"
+    eExtraHeavy:                        "Extra Heavy"
+    eExtraHeavyGloss:                   "Extra Heavy Gloss"
+    eRough:                             "Rough"
+    eVellum:                            "Vellum"
+    eHeavyRough:                        "Heavy Rough"
+    eHPEcoSmartLite:                    "HPEcoSmartLite"
+    eShelfEdgeLabels:                   "ShelfEdgeLabels"
+	eHPSoftGloss120:					"HP Soft Gloss 120"
+	
+    *%  AllObjectTypes
+
+    eDisable:                           "<00>"
+    eEnable:                            "<01>"
+
+    *% ColorSmart NeutralAxis Enums
+
+    eTonerBlack:                        "<00>"
+    eProcessBlack:                      "<01>"
+
+    *%  ColorSmart ColorTrapping Enums
+
+    eMax:                               "<01>"
+    eNormal:                            "<02>" 
+    eLight:                             "<03>" 
+
+    *%  ColorSmart ColorTreatment Enums
+
+    eNoTreatment:                       "<00>"
+    eScreenMatch:                       "<01>"
+    eVivid:                             "<02>"
+    ePhotoQuality:                      "<08>"
+    eAdobeRGB:                          "<0B>"
+
+    *% ColorSmart RGB Enums
+
+    HP_ColorSmartRGB:                    "<1752174596>"
+    HP_VUAttr1:                         "<93>"
+    HP_VUAttr2:                         "<94>"
+    HP_VUAttr3:                         "<95>"
+    
+    *% ColorTheme Enums
+  
+    E_SCREENMATCH_STANDARDIZED:           "<81>"
+    E_IMAGE_STANDARDIZED:                 "<83>"
+    E_ADOBERGB_STANDARDIZED:              "<84>"
+    E_DEVICERGB_STANDARDIZED:             "<85>"
+    E_VIVID_STANDARDIZED:                 "<87>"
+    E_CUSTOMRGB_STANDARDIZED:             "<82>"
+    ColorTreatment:                       "<78>"
+    SetColorTreatment:                    "<58>"
+  
+  *%  PrintQuality Enums
+
+    eHighLPI:                           "<00>"
+    eMediumLPI:                         "<01>"
+    eLowLPI:                            "<02>"
+
+    HP_SelectTrayBinByString:           "<05207068>" 
+    VUExtension:                        "<91>"
+    VendorUnique:                       "<46>"
+}
+
+*Macros: OperatorTag
+{
+    SetNeutralAxis:                     "<7e>"
+    SetAdaptiveHalftoning:              "<94>"
+    SetColorTrapping:                   "<92>"
+    SetColorTreatment:                  "<58>"
+    SetPaintTxMode:                     "<78>"
+    SetSourceTxMode:                    "<7c>"
+}
+
+*Macros: PCLXL_Commands
+{
+    *% PCL XL Stream Header
+    PCLXL_Protocol2Comment:             ") HP-PCL XL;2;0;Comment Copyright(c) 1999 Microsoft Corporation<0A>"
+    PCLXL_Protocol3Comment:             ") HP-PCL XL;3;0;Comment Copyright(c) 1999 Microsoft Corporation<0A>"
+
+    PCLXL_OpenDataSource:               =ubyte "<00>" =attr_ubyte =SourceType =ubyte "<01>" =attr_ubyte =DataOrg =OpenDataSource
+
+    *% BeginSession[Measure(ubyte), UnitsPerMeasure(uint16_xy), ErrorReport(ubyte)]
+
+PCLXL_BeginSession1200:             =uint16_xy "<b004b004>" =attr_ubyte =UnitsPerMeasure =ubyte
++                                       =eInch =attr_ubyte =Measure =ubyte =eBackChAndErrPage =attr_ubyte =ErrorReport =BeginSession
+
+    PCLXL_BeginSession600:              =uint16_xy "<58025802>" =attr_ubyte =UnitsPerMeasure =ubyte
++                                       =eInch =attr_ubyte =Measure =ubyte =eBackChAndErrPage =attr_ubyte =ErrorReport =BeginSession
+
+    PCLXL_BeginSession300:              =uint16_xy "<2c012c01>" =attr_ubyte =UnitsPerMeasure =ubyte
++                                       =eInch =attr_ubyte =Measure =ubyte =eBackChAndErrPage =attr_ubyte =ErrorReport =BeginSession
+
+    PCLXL_BeginSession1200_BackChannel: =uint16_xy "<b004b004>" =attr_ubyte =UnitsPerMeasure =ubyte
++                                       =eInch =attr_ubyte =Measure =ubyte =eBackChannel =attr_ubyte =ErrorReport =BeginSession
+
+    PCLXL_BeginSession600_BackChannel:  =uint16_xy "<58025802>" =attr_ubyte =UnitsPerMeasure =ubyte
++                                       =eInch =attr_ubyte =Measure =ubyte =eBackChannel =attr_ubyte =ErrorReport =BeginSession
+
+    PCLXL_BeginSession300_BackChannel:  =uint16_xy "<2c012c01>" =attr_ubyte =UnitsPerMeasure =ubyte
++                                       =eInch =attr_ubyte =Measure =ubyte =eBackChannel =attr_ubyte =ErrorReport =BeginSession
+
+    Width:                              %m{ RasterDataWidthInBytes }
+    Height:                             %m{ RasterDataHeightInPixels }
+    DataSize:                           %l{ NumOfDataBytes }
+    FntHeight:                          %l{ FontHeight*600/TextYRes }
+    FntNextGlyph:                       %l{ NextGlyph }
+
+    *% BeginRaster[ColorDepth(ubyte), ColorMapping(ubyte), SourceWidth(uint16), SourceWidth(uint16), SourceHeight(uint16)]
+
+    PCLXL_CmdBeginRaster:               =ubyte =e1Bit =attr_ubyte =ColorDepth
++                                       =ubyte =eDirectPixel =attr_ubyte =ColorMapping
++                                       =uint16 =Width =attr_ubyte =SourceWidth
++                                       =uint16 =Height =attr_ubyte =SourceHeight
++                                       =uint16_xy =Width =Height =attr_ubyte =DestinationSize
++                                       =BeginImage
++                                       =ubyte =eNoCompression =attr_ubyte =CompressMode
++                                       =ubyte "<00>" =attr_ubyte =StartLine
++                                       =uint16 =Height =attr_ubyte =BlockHeight
++                                       =ReadImage
+
+    PCLXL_CmdSendBlockData:             =dataLength =DataSize "<0000>"
+
+    DestinationX:                       %l{DestX}
+    DestinationY:                       %l{DestY}
+    DestinationXRel:                    %l{DestYRel}
+    DestinationYRel:                    %l{DestXRel}
+    NumOfCopy:                          %l{NumOfCopies}
+    PrintDir:                           %l{PrintDirInCCDegrees}
+    FntName:                            =ubyte_array =uint16 "<1000>" "MS PCLXLFont " %3d{CurrentFontID}
+ 
+CMD_UEL: "<1B>%%-12345X"
+}
+
+*Macros: DeviceFontIDs
+{
+    FONT_COURIERB:  RESDLL.FONTRES.32
+    FONT_COURIERI:  RESDLL.FONTRES.33
+    FONT_COURIERJ:  RESDLL.FONTRES.34
+    FONT_COURIERR:  RESDLL.FONTRES.35
+}
+
+
+*Macros: DeviceFontSet
+{
+    CourierFont: LIST(=FONT_COURIERJ, =FONT_COURIERI, =FONT_COURIERB, =FONT_COURIERR)
+}
+
+*Macros: HPPJLCommand
+{
+    PJL_RESOLUTION_GENERAL:        "@PJL SET PRINTQUALITY=NORMAL<0A>"    
+    PJL_RESOLUTION_PROFESSIONAL:    "@PJL SET PRINTQUALITY=BEST<0A>"            
+	PJL_BITSPERPIXEL_8:  "@PJL SET BITSPERPIXEL=8<0A>"           
+}

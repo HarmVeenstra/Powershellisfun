@@ -1,0 +1,204 @@
+<!ELEMENT Band_Size (option)>
+<!ELEMENT Callback (Value, Select_Command+)>
+<!ELEMENT Command (option+)>
+<!ELEMENT Command_Callback (Callback+)>
+<!ELEMENT Command_Store (Command)>
+<!ELEMENT device (software?)>
+<!ELEMENT software (file_header?, component*)>
+<!ELEMENT file_header (file_name, file_version, file_timestamp)>
+<!ELEMENT file_version (#PCDATA)>
+<!ELEMENT file_timestamp (#PCDATA)>
+<!ELEMENT component (name, helper*)>
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST name
+    type CDATA #IMPLIED
+>
+<!ELEMENT helper (name?, events?, features?, macros?, hybrid_setting?, Command_Callback?, DeviceSettings?, BorderlessSettings?, JobUIEventInfo?, Proxy_Dll?, Band_Size?, Command_Store?, presets?, groups?, constraints?, DocUISettings?, MarginValues?, ICDRollSheetData?, ICDDeviceSetting?,ICDRollWidth?, PmlOIDs?,PapersizeSetting?,ColorQuality?,alerts_pmloids?,media_type_to_id_map?, constraints?)>
+<!ELEMENT DocFeature (name, resource_id, help_id, (select_option | switch), hidden?, Disabled?, DocOption*)>
+<!ELEMENT DocOption (name, resource_id?, bitmap_id?)>
+<!ELEMENT DocSetting (name, resource_id?, bitmap_id?, custbitmap_id?, DocFeature*, persistent_features?)>
+<!ELEMENT persistent_features (persistent_feature*)>
+<!ELEMENT persistent_feature EMPTY>
+<!ATTLIST persistent_feature
+    feature_name CDATA #REQUIRED
+    persistence_type CDATA #REQUIRED
+>
+<!ELEMENT DocUISettings (DocSetting*)>
+<!ELEMENT Paperoption (name)>
+<!ELEMENT PapersizeSetting (name,Paperoption*)>
+<!ELEMENT ICDDeviceSetting (RollWidth?, RollType?)>
+<!ELEMENT ICDRollWidth (RollWidth?)>
+<!ELEMENT ICDRollSheetData (MinJobPageWidth?, MaxJobPageWidth?, RollRealWidth, MinJobPageHeight?, MaxJobPageHeight?)>
+<!ELEMENT MaxJobPageHeight (#PCDATA)>
+<!ELEMENT MaxJobPageWidth (#PCDATA)>
+<!ELEMENT MinJobPageHeight (#PCDATA)>
+<!ELEMENT MinJobPageWidth (#PCDATA)>
+<!ELEMENT Option (resource_id, bidi_value)>
+<!ELEMENT PmlOIDs (pmldata*)>
+<!ELEMENT RollRealWidth (#PCDATA)>
+<!ELEMENT Proxy_Dll (option+)>
+<!ELEMENT RollType (Option*)>
+<!ELEMENT RollWidth (Option*)>
+<!ELEMENT ColorOption (name)>
+<!ELEMENT ColorQuality (name,ColorOption*)>
+<!ELEMENT action (#PCDATA)>
+<!ELEMENT alerts_dynamic_pmloid (alerts_pmlname, alerts_oidvalue, alerts_msg_list)>
+<!ELEMENT alerts_msg (cmdlineinfo*)>
+<!ELEMENT cmdlineinfo (cl_param*)>
+<!ELEMENT cl_param ANY>
+<!ATTLIST cl_param
+    param_name CDATA #REQUIRED
+    param_value CDATA #REQUIRED
+>
+<!ATTLIST alerts_msg
+    set_bit CDATA #IMPLIED
+    a_name CDATA #REQUIRED
+    alert_msg_strid CDATA #REQUIRED
+    severity (error | warning | error_h | warning_h) #REQUIRED
+    set_val CDATA #IMPLIED
+>
+<!ELEMENT Select_Command (#PCDATA)>
+<!ATTLIST Select_Command
+    path (HBR | PDL) #REQUIRED
+>
+<!ELEMENT alerts_msg_list (alerts_msg*)>
+<!ATTLIST alerts_msg_list
+    msg_suffix CDATA #IMPLIED
+>
+<!ELEMENT alerts_oidvalue (#PCDATA)>
+<!ELEMENT alerts_pmlname (#PCDATA)>
+<!ELEMENT alerts_pmloid (alerts_pmlname, alerts_oidvalue, dependent_alerts_pmloids_list, alerts_msg_list)>
+<!ELEMENT media_type_to_id_map (media_type_to_id_entry*)>
+<!ELEMENT media_type_to_id_entry (#PCDATA)>
+<!ELEMENT alerts_range_pmloid (alerts_pmlname, alerts_oidvalue, dependent_alerts_pmloids_list, alerts_msg_list)>
+<!ATTLIST alerts_range_pmloid
+    range_lo CDATA #REQUIRED
+    range_hi CDATA #REQUIRED
+>
+<!ATTLIST media_type_to_id_entry
+    mtype_optname CDATA #REQUIRED
+    mtype_id CDATA #REQUIRED
+>
+<!ELEMENT alerts_pmloids (alerts_pmloid+)>
+<!ELEMENT bidi_value (#PCDATA)>
+<!ELEMENT Value (#PCDATA)>
+<!ELEMENT bitmap_id (#PCDATA)>
+<!ELEMENT bubble_str_id (#PCDATA)>
+<!ELEMENT butt1 (#PCDATA)>
+<!ELEMENT butt2 (#PCDATA)>
+<!ELEMENT call (#PCDATA)>
+<!ELEMENT case (name, data?, (select_option | map_option | resource_id | unmap_option | enable_option | disable_option | hide_option | enable | disable | hide | switch | title | icon | message_type | help_id | checkbox_present | dialog_id | reg_name | feature_name | option_name | butt1 | butt2 | string_id | showpopup | icmfilename)*, call*)>
+<!ELEMENT constrained_feature (opt_name_list, msgbox_str_id?, force_opt, action, bubble_str_id)>
+<!ATTLIST constrained_feature
+    name CDATA #REQUIRED
+>
+<!ELEMENT case_default ((select_option | map_option | resource_id | unmap_option | enable_option | disable_option | hide_option | enable | disable | hide | data | switch | title | icon | message_type | help_id | checkbox_present | dialog_id | reg_name | feature_name | option_name | butt1 | butt2 | string_id | showpopup | icmfilename)*, call*)>
+<!ELEMENT constrained_features (#PCDATA | constrained_feature)*>
+<!ELEMENT constraint_rec (opt_group, opt_name_list, ui_action, constrained_features, unconstrained_features, multilevel_constrained_features, multilevel_unconstrained_features)>
+<!ELEMENT constraints (feature_constraints+)>
+<!ELEMENT data (#PCDATA)>
+<!ELEMENT dependent_alerts_pmloids (alerts_pmloid* | alerts_dynamic_pmloid* | alerts_range_pmloid*)>
+<!ATTLIST dependent_alerts_pmloids
+    set_bit CDATA #REQUIRED
+    a_name CDATA #REQUIRED
+>
+<!ELEMENT dependent_alerts_pmloids_list (dependent_alerts_pmloids*)>
+<!ELEMENT enable_option (#PCDATA)>
+<!ELEMENT disable_option (#PCDATA)>
+<!ELEMENT hide_option (#PCDATA)>
+<!ELEMENT enable (#PCDATA)>
+<!ELEMENT disable (#PCDATA)>
+<!ELEMENT hide (#PCDATA)>
+<!ELEMENT event (name, macro_name?)>
+<!ELEMENT events (event*)>
+<!ELEMENT feature (name, switch?, default_ui_state?, macro_name?, disable?)>
+<!ELEMENT default_ui_state (#PCDATA)>
+<!ELEMENT feature_constraints (feature_name, constraint_rec+)>
+<!ELEMENT feature_name (#PCDATA)>
+<!ELEMENT features (feature*)>
+<!ELEMENT file_name (#PCDATA)>
+<!ELEMENT force_opt (#PCDATA)>
+<!ELEMENT group (groupname, resource_id?, name*, subgroup*)>
+<!ELEMENT groupname (#PCDATA)>
+<!ELEMENT groups (group*)>
+<!ELEMENT help_id (#PCDATA)>
+<!ELEMENT checkbox_present (#PCDATA)>
+<!ELEMENT dialog_id (#PCDATA)>
+<!ELEMENT reg_name (#PCDATA)>
+<!ELEMENT hybrid (name, option+)>
+<!ELEMENT hybrid_setting (hybrid+)>
+<!ELEMENT hidden (#PCDATA)>
+<!ELEMENT Disabled (#PCDATA)>
+<!ELEMENT icmfilename (#PCDATA)>
+<!ELEMENT icon (#PCDATA)>
+<!ELEMENT macro (name, (switch | select_option | resource_id | map_option | unmap_option | enable_option | disable_option | hide_option | enable | disable | hide | title | icon | message_type | help_id | checkbox_present | dialog_id | reg_name | feature_name | option_name | butt1 | butt2 | string_id | showpopup | icmfilename)*, call*)>
+<!ELEMENT macro_name (#PCDATA)>
+<!ELEMENT macros (macro*)>
+<!ELEMENT map_option (#PCDATA)>
+<!ELEMENT mc_feature (opt_name_list)>
+<!ATTLIST mc_feature
+    name CDATA #REQUIRED
+>
+<!ELEMENT option (#PCDATA)>
+<!ATTLIST option
+    value CDATA #IMPLIED
+>
+<!ELEMENT message_type (#PCDATA)>
+<!ELEMENT msgbox_str_id (#PCDATA)>
+<!ELEMENT multilevel_constrained_feature (mc_feature*, constrained_feature)>
+<!ELEMENT multilevel_constrained_features (multilevel_constrained_feature*)>
+<!ELEMENT multilevel_unconstrained_feature (mc_feature, uc_feature)>
+<!ELEMENT multilevel_unconstrained_features (multilevel_unconstrained_feature?)>
+<!ELEMENT oidvalue (#PCDATA)>
+<!ELEMENT opt_group (#PCDATA)>
+<!ELEMENT opt_listitem (#PCDATA)>
+<!ELEMENT opt_name_list (opt_listitem*)>
+<!ELEMENT option_name (#PCDATA)>
+<!ELEMENT pmldata (pmlname?, oidvalue?)>
+<!ELEMENT DeviceSettings (japanesesetting?, englishsetting?)>
+<!ELEMENT japanesesetting (setting*)>
+<!ELEMENT englishsetting (setting*)>
+<!ELEMENT pmlname (#PCDATA)>
+<!ELEMENT presetenglish (name, resource_id?, setting*)>
+<!ELEMENT presetjapanese (name, resource_id?, setting*)>
+<!ELEMENT presets (presetenglish*, presetjapanese*)>
+<!ELEMENT resource_id (#PCDATA)>
+<!ELEMENT custbitmap_id (#PCDATA)>
+<!ELEMENT select_option (#PCDATA)>
+<!ELEMENT setoptval (#PCDATA)>
+<!ELEMENT setting (#PCDATA)>
+<!ELEMENT showpopup (#PCDATA)>
+<!ELEMENT BorderlessSettings (Borderless)*>
+<!ELEMENT Borderless (Borderless_Paper, Paper?, Overspray_Left, Overspray_Right, Overspray_Top, Overspray_Bottom)>
+<!ELEMENT Borderless_Paper (#PCDATA)>
+<!ELEMENT Paper (#PCDATA)>
+<!ELEMENT Page_dimension_width (#PCDATA)>
+<!ELEMENT Page_dimension_height (#PCDATA)>
+<!ELEMENT Overspray_Left (#PCDATA)>
+<!ELEMENT Overspray_Right (#PCDATA)>
+<!ELEMENT Overspray_Top (#PCDATA)>
+<!ELEMENT Overspray_Bottom (#PCDATA)>
+<!ELEMENT MarginValues (Margin)*>
+<!ELEMENT Margin (InputBin, Margin_Left, Margin_Right, Margin_Top, Margin_Bottom)>
+<!ELEMENT InputBin (#PCDATA)>
+<!ELEMENT Margin_Left (#PCDATA)>
+<!ELEMENT Margin_Right (#PCDATA)>
+<!ELEMENT Margin_Top (#PCDATA)>
+<!ELEMENT Margin_Bottom (#PCDATA)>
+<!ELEMENT JobUIEventInfo (JobUIEvent)*>
+<!ELEMENT JobUIEvent (Name, EntryPoint, FunctionPtr)>
+<!ELEMENT Name (#PCDATA)>
+<!ELEMENT EntryPoint (#PCDATA)>
+<!ELEMENT FunctionPtr (#PCDATA)>
+<!ELEMENT string_id (#PCDATA)>
+<!ELEMENT subgroup (subgroupname, resource_id?, name*)>
+<!ELEMENT subgroupname (#PCDATA)>
+<!ELEMENT switch (name, case*, case_default?)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT uc_feature (setoptval, action, bubble_str_id)>
+<!ATTLIST uc_feature
+    name CDATA #REQUIRED
+>
+<!ELEMENT ui_action (#PCDATA)>
+<!ELEMENT unconstrained_features (#PCDATA | uc_feature)*>
+<!ELEMENT unmap_option (#PCDATA)>

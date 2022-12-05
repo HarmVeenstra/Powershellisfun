@@ -1,0 +1,421 @@
+<!-- Version: 7.212.4835.7 -->
+<JobControl>
+    <BeginSession>\x1B%-12345X</BeginSession>
+    <EndSession>\x1B%-12345X@PJL EOJ \n\x1B%-12345X</EndSession>
+
+    <Feature name="DriverName">
+        <Default>COMMENT TOSHIBA Universal Printer 2</Default>
+    </Feature>
+    <Feature name="JobName">
+        <Default>JOB NAME=</Default>
+    </Feature>
+    <Feature name="Fax">
+        <Option name="IFax">COMMENT DSSC IFAX ADR=</Option>
+        <Option name="Fax">COMMENT DSSC FAX PHONE=M</Option>
+        <Option name="PrintMode">COMMENT DSSC PRINT PRINTMODE=</Option>
+        <Option name="FaxCount">COMMENT DSSC FAX NUM=</Option>
+        <Option name="IFaxCount">COMMENT DSSC IFAX NUM=</Option>
+        <Option name="FaxSC">COMMENT DSSC FAX SC=5</Option>
+        <Option name="Resolution">COMMENT DSSC FAX RESOLUTION=</Option>
+        <Option name="File">COMMENT DSSC FAX FAXFILE=0</Option>
+        <Option name="AccessCode">COMMENT DSSC FAX ACCESSCODE=</Option>
+    </Feature>
+    <Feature name="Orientation">
+        <Option name="Portrait">COMMENT DSSC PRINT ORIENTATION=0</Option>
+        <Option name="Landscape">COMMENT DSSC PRINT ORIENTATION=1</Option>
+    </Feature>
+    <Feature name="MediaType">
+        <Option name="Plain_Auto">COMMENT DSSC PRINT MEDIATYPE=PLAIN</Option>
+        <Option name="Plain">COMMENT DSSC PRINT MEDIATYPE=PLAIN</Option>
+        <Option name="RecycledPaper">COMMENT DSSC PRINT MEDIATYPE=RECYCLED</Option>
+        <Option name="Thick">COMMENT DSSC PRINT MEDIATYPE=THICK</Option>
+        <Option name="Thick1">COMMENT DSSC PRINT MEDIATYPE=THICK1</Option>
+        <Option name="Thick2">COMMENT DSSC PRINT MEDIATYPE=THICK2</Option>
+        <Option name="Thick3">COMMENT DSSC PRINT MEDIATYPE=THICK3</Option>
+        <Option name="Thick4">COMMENT DSSC PRINT MEDIATYPE=THICK4</Option>
+        <Option name="Thick5">COMMENT DSSC PRINT MEDIATYPE=THICK5</Option>
+        <Option name="WaterProof1">COMMENT DSSC PRINT MEDIATYPE=WATERPROOF1</Option>
+        <Option name="WaterProof2">COMMENT DSSC PRINT MEDIATYPE=WATERPROOF2</Option>
+        <Option name="WaterProof3">COMMENT DSSC PRINT MEDIATYPE=WATERPROOF3</Option>
+        <Option name="WaterProof4">COMMENT DSSC PRINT MEDIATYPE=WATERPROOF4</Option>
+        <Option name="WaterProof5">COMMENT DSSC PRINT MEDIATYPE=WATERPROOF5</Option>
+        <Option name="WaterProof6">COMMENT DSSC PRINT MEDIATYPE=WATERPROOF6</Option>
+        <Option name="Transparency">COMMENT DSSC PRINT MEDIATYPE=TRANSPARENCY</Option>
+        <Option name="Plain1">COMMENT DSSC PRINT MEDIATYPE=PLAIN1</Option>
+        <Option name="Plain2">COMMENT DSSC PRINT MEDIATYPE=PLAIN2</Option>
+        <Option name="PlainBack">COMMENT DSSC PRINT MEDIATYPE=PLAINB</Option>
+        <Option name="RecycledPaperBack">COMMENT DSSC PRINT MEDIATYPE=RECYCLEDB</Option>
+        <Option name="ThickBack">COMMENT DSSC PRINT MEDIATYPE=THICKB</Option>
+        <Option name="Thick1Back">COMMENT DSSC PRINT MEDIATYPE=THICK1B</Option>
+        <Option name="Thick2Back">COMMENT DSSC PRINT MEDIATYPE=THICK2B</Option>
+        <Option name="Thick3Back">COMMENT DSSC PRINT MEDIATYPE=THICK3B</Option>
+        <Option name="Thick4Back">COMMENT DSSC PRINT MEDIATYPE=THICK4B</Option>
+        <Option name="WaterProof1Back">COMMENT DSSC PRINT MEDIATYPE=WATERPROOF1B</Option>
+        <Option name="WaterProof2Back">COMMENT DSSC PRINT MEDIATYPE=WATERPROOF2B</Option>
+        <Option name="WaterProof3Back">COMMENT DSSC PRINT MEDIATYPE=WATERPROOF3B</Option>
+        <Option name="Envelope">COMMENT DSSC PRINT MEDIATYPE=ENVELOPE</Option>
+        <Option name="EnvelopeBack">COMMENT DSSC PRINT MEDIATYPE=ENVELOPEB</Option>
+        <Option name="Tab">COMMENT DSSC PRINT MEDIATYPE=TAB</Option>
+        <Option name="Thin">COMMENT DSSC PRINT MEDIATYPE=THIN</Option>
+        <Option name="PlainThin">COMMENT DSSC PRINT MEDIATYPE=THIN</Option>
+        <Option name="ThinBack">COMMENT DSSC PRINT MEDIATYPE=THINB</Option>
+        <Option name="Label1">COMMENT DSSC PRINT MEDIATYPE=LABEL1</Option>
+        <Option name="Label2">COMMENT DSSC PRINT MEDIATYPE=LABEL2</Option>
+        <Option name="Glossy1">COMMENT DSSC PRINT MEDIATYPE=GLOSSY1</Option>
+        <Option name="Glossy2">COMMENT DSSC PRINT MEDIATYPE=GLOSSY2</Option>
+        <Option name="Glossy3">COMMENT DSSC PRINT MEDIATYPE=GLOSSY3</Option>
+        <Option name="Envelope1">COMMENT DSSC PRINT MEDIATYPE=ENVELOPE1</Option>
+        <Option name="Envelope2">COMMENT DSSC PRINT MEDIATYPE=ENVELOPE2</Option>
+        <Option name="Envelope3">COMMENT DSSC PRINT MEDIATYPE=ENVELOPE3</Option>
+        <Option name="Envelope4">COMMENT DSSC PRINT MEDIATYPE=ENVELOPE4</Option>
+        <Option name="UserType1">COMMENT DSSC PRINT MEDIATYPE=USERTYPE1</Option>
+        <Option name="UserType2">COMMENT DSSC PRINT MEDIATYPE=USERTYPE2</Option>
+        <Option name="UserType3">COMMENT DSSC PRINT MEDIATYPE=USERTYPE3</Option>
+        <Option name="UserType4">COMMENT DSSC PRINT MEDIATYPE=USERTYPE4</Option>
+        <Option name="UserType5">COMMENT DSSC PRINT MEDIATYPE=USERTYPE5</Option>
+        <Option name="UserType6">COMMENT DSSC PRINT MEDIATYPE=USERTYPE6</Option>
+        <Option name="UserType7">COMMENT DSSC PRINT MEDIATYPE=USERTYPE7</Option>
+        <Option name="UserType8">COMMENT DSSC PRINT MEDIATYPE=USERTYPE8</Option>
+        <Option name="UserType9">COMMENT DSSC PRINT MEDIATYPE=USERTYPE9</Option>
+        <Option name="UserType10">COMMENT DSSC PRINT MEDIATYPE=USERTYPE10</Option>
+    </Feature>
+    <Feature name="Collate">
+        <Option name="Group">COMMENT DSSC PRINT COLLATE=0</Option>
+        <Option name="RotatedSort">COMMENT DSSC PRINT COLLATE=1</Option>
+        <Option name="Sort">COMMENT DSSC PRINT COLLATE=1</Option>
+    </Feature>
+    <Feature name="Alternation">
+        <Option name="None">COMMENT DSSC PRINT ALTERNATION=0</Option>
+        <Option name="Alternate">COMMENT DSSC PRINT ALTERNATION=1</Option>
+    </Feature>
+    <Feature name="RenderMode">
+        <Option name="Auto">COMMENT DSSC PRINT RENDERMODE=AUTO</Option>
+        <Option name="FullColor">COMMENT DSSC PRINT RENDERMODE=COLOR</Option>
+        <Option name="Black-White">COMMENT DSSC PRINT RENDERMODE=GRAYSCALE</Option>
+        <Option name="TwinColorRed">COMMENT DSSC PRINT RENDERMODE=2KR</Option>
+        <Option name="TwinColorGreen">COMMENT DSSC PRINT RENDERMODE=2KG</Option>
+        <Option name="TwinColorBlue">COMMENT DSSC PRINT RENDERMODE=2KB</Option>
+        <Option name="TwinColorCyan">COMMENT DSSC PRINT RENDERMODE=2KC</Option>
+        <Option name="TwinColorMagenta">COMMENT DSSC PRINT RENDERMODE=2KM</Option>
+        <Option name="TwinColorYellow">COMMENT DSSC PRINT RENDERMODE=2KY</Option>
+        <Option name="TwinColorWhite">COMMENT DSSC PRINT RENDERMODE=2KW</Option>
+    </Feature>
+    <Feature name="Staple">
+        <Option name="None">COMMENT DSSC PRINT STAPLE=NONE</Option>
+        <Option name="DualLeft">COMMENT DSSC PRINT STAPLE=DUALLEFT</Option>
+        <Option name="DualTop">COMMENT DSSC PRINT STAPLE=DUALTOP</Option>
+        <Option name="TopLeft">COMMENT DSSC PRINT STAPLE=TOPLEFT</Option>
+        <Option name="TopRight">COMMENT DSSC PRINT STAPLE=TOPRIGHT</Option>
+        <Option name="SaddleStitch">COMMENT DSSC PRINT STAPLE=SADDLESTITCH</Option>
+    </Feature>
+    <Feature name="HolePunch">
+        <Option name="None">COMMENT DSSC PRINT PUNCH=NONE</Option>
+        <Option name="Left">COMMENT DSSC PRINT PUNCH=LEFT</Option>
+        <Option name="Top">COMMENT DSSC PRINT PUNCH=TOP</Option>
+    </Feature>
+    <Feature name="Duplex">
+        <Option name="None">COMMENT DSSC PRINT DUPLEX=0</Option>
+        <Option name="LongEdge">COMMENT DSSC PRINT DUPLEX=1</Option>
+        <Option name="ShortEdge">COMMENT DSSC PRINT DUPLEX=2</Option>
+        <Option name="Booklet">COMMENT DSSC PRINT DUPLEX=2</Option>
+    </Feature>
+    <Feature name="Rotate180ForA3LD">
+        <Option name="None">COMMENT DSSC PRINT MIXEDPAPERSIZEMODE=0</Option>
+        <Option name="Rotate180">COMMENT DSSC PRINT MIXEDPAPERSIZEMODE=1</Option>
+    </Feature>
+    <Feature name="SheetOrientation">
+        <Option name="Landscape">COMMENT DSSC PRINT SHEETORIENTATION=1</Option>
+        <Option name="Portrait">COMMENT DSSC PRINT SHEETORIENTATION=0</Option>
+    </Feature>
+    <Feature name="TabManufacturer">
+        <Option name="Blanks-USA-Copy-5">COMMENT DSSC PRINT TABMANUFACTURER=1</Option>
+        <Option name="Blanks-USA-Copy-8">COMMENT DSSC PRINT TABMANUFACTURER=2</Option>
+        <Option name="KOKUYO-A4-S">COMMENT DSSC PRINT TABMANUFACTURER=3</Option>
+        <Option name="KING-JIM-A4-S">COMMENT DSSC PRINT TABMANUFACTURER=4</Option>
+        <Option name="Custom">COMMENT DSSC PRINT TABMANUFACTURER=0</Option>
+    </Feature>
+    <Feature name="TabPaperShift">
+        <Default>COMMENT DSSC PRINT TABIMAGESHIFT=</Default>
+    </Feature>
+    <Feature name="TabPaperExtension">
+        <Default>COMMENT DSSC PRINT TABEXTENSION=</Default>
+    </Feature>
+    <Feature name="TabPaperSource">
+        <Default>COMMENT DSSC PRINT TABPAPERSOURCE=</Default>
+    </Feature>
+    <Feature name="OutputBin">
+        <Option name="UpperExit">SET OUTBIN=UPPER</Option>
+        <Option name="SideExit">SET OUTBIN=LOWER</Option>
+        <Option name="Tray1">SET OUTBIN=OPTIONALOUTBIN1</Option>
+        <Option name="Tray2">SET OUTBIN=OPTIONALOUTBIN2</Option>
+        <Option name="JobSeparatorUpper">SET OUTBIN=OPTIONALOUTBIN4</Option>
+        <Option name="JobSeparatorLower">SET OUTBIN=OPTIONALOUTBIN5</Option>
+        <Option name="SaddleTray">SET OUTBIN=SADDLE</Option>
+    </Feature>
+    <Feature name="TonerSave">
+        <Option name="Enabled">COMMENT DSSC PRINT TONERSAVE=1</Option>
+        <Option name="Disabled">COMMENT DSSC PRINT TONERSAVE=0</Option>
+    </Feature>
+    <Feature name="WhitePaper">
+        <Option name="Enabled">COMMENT DSSC PRINT WHITEPAPER=1</Option>
+        <Option name="Disabled">COMMENT DSSC PRINT WHITEPAPER=0</Option>
+    </Feature>
+    <Feature name="TaggedBCP">
+        <Default>COMMENT DSSC PRINT DATAPROTO=TBCP</Default>
+    </Feature>
+    <Feature name="InserterInverted">
+        <Option name="True">COMMENT DSSC PRINT INSERTER PAPERINVERTED=1</Option>
+        <Option name="False">COMMENT DSSC PRINT INSERTER PAPERINVERTED=0</Option>
+    </Feature>
+    <Feature name="Folding">
+        <Option name="Center">COMMENT DSSC PRINT FOLD=CENTER</Option>
+    </Feature>
+    <Feature name="DocumentType">
+        <Option name="General">COMMENT DSSC PRINT DOCUMENTTYPE=NORMAL</Option>
+        <Option name="Photograph">COMMENT DSSC PRINT DOCUMENTTYPE=PHOTO</Option>
+        <Option name="Presentation">COMMENT DSSC PRINT DOCUMENTTYPE=PRESEN</Option>
+        <Option name="LineArt">COMMENT DSSC PRINT DOCUMENTTYPE=LINEART</Option>
+        <Option name="Advanced">COMMENT DSSC PRINT DOCUMENTTYPE=ADVANCED</Option>
+    </Feature>
+    <Feature name="ScreenType">
+        <Option name="Auto">COMMENT DSSC PRINT SCREENTYPE=AUTO</Option>
+        <Option name="Smooth">COMMENT DSSC PRINT SCREENTYPE=SMOOTH</Option>
+        <Option name="Detail">COMMENT DSSC PRINT SCREENTYPE=DETAIL</Option>
+    </Feature>
+    <Feature name="PureBlack">
+        <Default>COMMENT DSSC PRINT PUREBLACK=</Default>
+    </Feature>
+    <Feature name="PureGray">
+        <Default>COMMENT DSSC PRINT PUREGRAY=</Default>
+    </Feature>
+    <Feature name="PureBlackEBX">
+        <Default>COMMENT DSSC PRINT PUREBLACKEX=</Default>
+    </Feature>
+    <Feature name="PureGrayEBX">
+        <Default>COMMENT DSSC PRINT PUREGRAYEX=</Default>
+    </Feature>
+    <Feature name="XYResolution">
+        <Default>COMMENT DSSC PRINT XYRESOLUTION=</Default>
+    </Feature>
+    <Feature name="ThinLineLimit">
+        <Option name="Enabled">COMMENT DSSC PRINT THINLINELIMIT=1</Option>
+        <Option name="Disabled">COMMENT DSSC PRINT THINLINELIMIT=0</Option>
+    </Feature>
+    <Feature name="ColorBalance">
+        <Option name="Cyan">COMMENT DSSC PRINT CB C=</Option>
+        <Option name="Magenta">COMMENT DSSC PRINT CB M=</Option>
+        <Option name="Yellow">COMMENT DSSC PRINT CB Y=</Option>
+        <Option name="Black">COMMENT DSSC PRINT CB K=</Option>
+    </Feature>
+    <Feature name="Sharpness">
+        <Default>COMMENT DSSC PRINT SHARPNESS=</Default>
+    </Feature>
+    <Feature name="Brightness">
+        <Default>COMMENT DSSC PRINT BRIGHTNESS=</Default>
+    </Feature>
+    <Feature name="Contrast">
+        <Default>COMMENT DSSC PRINT CONTRAST=</Default>
+    </Feature>
+    <Feature name="Saturation">
+        <Default>COMMENT DSSC PRINT SATURATION=</Default>
+    </Feature>
+    <Feature name="BackgroundAdjustment">
+        <Default>COMMENT DSSC PRINT BACKGROUND ADJUSTMENT=</Default>
+    </Feature>
+    <Feature name="ColorProfile">
+        <Option name="RGBProfile">COMMENT DSSC PRINT RGB PROFILE=</Option>
+        <Option name="CMYKProfile">COMMENT DSSC PRINT CMYK PROFILE=</Option>
+        <Option name="OutputProfile">COMMENT DSSC PRINT OUTPUT PROFILE=</Option>
+        <Option name="CustRGBProfile">COMMENT DSSC PRINT EXTRADOCUMENTTYPE=</Option>          
+    </Feature>
+    <Feature name="UseColorProfile">
+        <Option name="Use">COMMENT DSSC PRINT USE PROFILE=1</Option>
+        <Option name="DontUse">COMMENT DSSC PRINT USE PROFILE=0</Option>
+    </Feature>
+    <Feature name="RenderIntent">
+        <Option name="Perceptual">COMMENT DSSC PRINT RENDERING INTENT=0</Option>
+        <Option name="RelativeColorimetric">COMMENT DSSC PRINT RENDERING INTENT=1</Option>
+        <Option name="Saturation">COMMENT DSSC PRINT RENDERING INTENT=2</Option>
+        <Option name="AbsoluteColorimetric">COMMENT DSSC PRINT RENDERING INTENT=3</Option>
+    </Feature>
+    <Feature name="AutoTrapping">
+        <Option name="Enabled">COMMENT DSSC PRINT AUTOTRAPPING=1</Option>
+        <Option name="Disabled">COMMENT DSSC PRINT AUTOTRAPPING=0</Option>
+    </Feature>
+    <Feature name="OverPrint">
+        <Option name="Enabled">COMMENT DSSC PRINT OVERPRINT=1</Option>
+        <Option name="Disabled">COMMENT DSSC PRINT OVERPRINT=0</Option>
+    </Feature>
+    <Feature name="BlackOverPrint">
+        <Option name="Text">COMMENT DSSC PRINT BLACKOVERPRINT=2</Option>
+        <Option name="TextGraphic">COMMENT DSSC PRINT BLACKOVERPRINT=1</Option>
+        <Option name="None">COMMENT DSSC PRINT BLACKOVERPRINT=0</Option>
+    </Feature>
+    <Feature name="Smoothing">
+        <Option name="Enabled">COMMENT DSSC PRINT SMOOTHING=1</Option>
+        <Option name="Disabled">COMMENT DSSC PRINT SMOOTHING=0</Option>
+    </Feature>
+    <Feature name="PrinterDarkness">
+        <Default>COMMENT DSSC PRINT DENSITY K=</Default>
+    </Feature>
+    <Feature name="Certification">
+        <Option name="Enabled">COMMENT DSSC PRINT CERTIFIED=1</Option>
+        <Option name="Disabled">COMMENT DSSC PRINT CERTIFIED=0</Option>
+    </Feature>
+    <Feature name="PrintMode">
+        <Option name="Normal">COMMENT DSSC PRINT PRINTMODE=NORMAL</Option>
+        <Option name="Box">COMMENT DSSC PRINT PRINTMODE=BOX</Option>
+        <Option name="Fax">COMMENT DSSC PRINT PRINTMODE=FAX</Option>
+        <Option name="File">COMMENT DSSC PRINT PRINTMODE=FILE</Option>
+        <Option name="IFax">COMMENT DSSC PRINT PRINTMODE=IFAX</Option>
+        <Option name="OverlayFile">COMMENT DSSC PRINT PRINTMODE=OVERLAYFILE</Option>
+        <Option name="Private">COMMENT DSSC PRINT PRINTMODE=PRIVATE</Option>
+        <Option name="Hold">COMMENT DSSC PRINT PRINTMODE=HOLD</Option>
+        <Option name="Proof">COMMENT DSSC PRINT PRINTMODE=PROOF</Option>
+        <Option name="Schedule">COMMENT DSSC PRINT PRINTMODE=SCHEDULE</Option>
+        <Option name="Anywhere">COMMENT DSSC PRINT PRINTMODE=ANYWHERE</Option>             
+    </Feature>
+    <Feature name="PrintModeEBX">
+        <Option name="Normal">COMMENT DSSC PRINT JOBTYPE_NORMAL=TRUE</Option>
+        <Option name="Box">COMMENT DSSC PRINT JOBTYPE_BOX=TRUE</Option>
+        <Option name="Private">COMMENT DSSC PRINT JOBTYPE_PRIVATE=TRUE</Option>
+        <Option name="Hold">COMMENT DSSC PRINT JOBTYPE_HOLD=TRUE</Option>
+        <Option name="Proof">COMMENT DSSC PRINT JOBTYPE_PROOF=TRUE</Option>
+        <Option name="Schedule">COMMENT DSSC PRINT JOBTYPE_SCHEDULE=TRUE</Option>
+    </Feature>
+    <Feature name="PrivatePrint">
+        <Default>COMMENT DSSC PRINT PRIVPRINT=</Default>
+    </Feature>
+    <Feature name="PrivaePrintEx">
+        <Default>COMMENT DSSC PRINT PRIVPRINTEX=</Default>
+    </Feature>
+    <Feature name="DepartmentCode">
+        <Default>COMMENT DSSC PRINT ACCESSCODE=</Default>
+    </Feature>
+    <Feature name="DepartmentCodeEx">
+        <Default>COMMENT DSSC PRINT ACCESSCODEEX=</Default>
+    </Feature>
+    <Feature name="ProjectCode">
+        <Default>COMMENT DSSC PRINT PROJECTCODE=</Default>
+    </Feature>
+    <Feature name="ProjectCodeEx">
+        <Default>COMMENT DSSC PRINT PROJECTCODEEX=</Default>
+    </Feature>
+    <Feature name="SubmissionLocation">
+        <Default>COMMENT DSSC PRINT SUBMISSIONLOC=</Default>
+    </Feature>
+    <Feature name="NickName">
+        <Default>COMMENT DSSC PRINT NICKNAME=</Default>
+    </Feature>
+    <Feature name="UserName">
+        <Default>COMMENT DSSC PRINT USERLOGIN=</Default>
+    </Feature>
+    <Feature name="StartTime">
+        <Default>COMMENT DSSC PRINT TIME=</Default>
+    </Feature>
+    <Feature name="SC">
+        <Default>COMMENT DSSC PRINT SC=</Default>
+    </Feature>
+    <Feature name="VersionNumber">
+        <Default>COMMENT DSSC PRINT VERSIONNUMBER=</Default>
+    </Feature>
+    <Feature name="CharCode">
+        <Default>COMMENT DSSC PRINT CHARCODE=CP</Default>
+    </Feature>
+    <Feature name="Resolution">
+        <Default>SET RESOLUTION=</Default>
+    </Feature>
+    <Feature name="SubmissionLocationID">
+        <Default>COMMENT DSSC PRINT SUBMISSIONID=</Default>
+    </Feature>
+    <Feature name="HSP">
+        <Default>COMMENT DSSC PRINT HSP=</Default>
+    </Feature>
+    <Feature name="NuPCounter">
+        <Default>COMMENT DSSC PRINT NUPCOUNT=</Default>
+    </Feature>
+    <Feature name="Copies">
+        <Default>SET COPIES=</Default>
+    </Feature>
+    <Feature name="SchedulePrintTime">
+        <Default>COMMENT DSSC PRINT SCHEDULETIME=</Default>
+    </Feature>
+    <Feature name="BoxInfo">
+        <Option name="Enabled">COMMENT DSSC BOX BOX=1</Option>
+        <Option name="Number">COMMENT DSSC BOX BOXNO=</Option>
+        <Option name="Name">COMMENT DSSC BOX BOXNAME=</Option>
+        <Option name="Folder">COMMENT DSSC BOX BOXFOLDER=</Option>
+        <Option name="Password">COMMENT DSSC BOX BOXPASSWORD=</Option>
+        <Option name="PasswordEx">COMMENT DSSC BOX BOXPASSWORDEX=</Option>
+    </Feature>
+    <Feature name="DomainName">
+        <Default>COMMENT DSSC PRINT DOMAINNAME=</Default>
+    </Feature>
+    <Feature name="PDL">
+        <Option name="PCLXL">ENTER LANGUAGE=PCLXL\n) HP-PCL XL;3;0</Option>
+        <Option name="PostScript">ENTER LANGUAGE=POSTSCRIPT</Option>
+    </Feature>
+    <Feature name="LDAP">
+        <Default>COMMENT DSSC PRINT LDAPNAME=</Default>
+    </Feature>
+    <Feature name="RedSeal">
+        <Option name="False">COMMENT DSSC PRINT EXTRADOCUMENTTYPE=00</Option>
+        <Option name="True">COMMENT DSSC PRINT EXTRADOCUMENTTYPE=01</Option>
+    </Feature>
+    <Feature name="IDPrintEnable">
+        <Option name="False">COMMENT DSSC PRINT FORCEANNOTATIONPRINT=0</Option>
+        <Option name="True">COMMENT DSSC PRINT FORCEANNOTATIONPRINT=1</Option>
+    </Feature>
+    <Feature name="IDPrintPosition">
+        <Default>COMMENT DSSC PRINT FORCEANNOTATIONPRINT_CORNER=</Default>
+    </Feature>
+    <Feature name="IDPrintFont">
+        <Default>COMMENT DSSC PRINT FORCEANNOTATIONPRINT_FONT=</Default>
+    </Feature>
+    <Feature name="IDPrintFontSize">
+        <Default>COMMENT DSSC PRINT FORCEANNOTATIONPRINT_FONTSIZE=</Default>
+    </Feature>
+    <Feature name="IDPrintFontColor">
+        <Default>COMMENT DSSC PRINT FORCEANNOTATIONPRINT_FONTCOLOR=</Default>
+    </Feature>
+    <Feature name="PersonalAuth">
+        <Option name="Enabled">COMMENT DSSC PRINT PERSONALAUTH=1</Option>
+        <Option name="Disabled">COMMENT DSSC PRINT PERSONALAUTH=0</Option>
+        <Option name="UserPassword">COMMENT DSSC PRINT PERSONALAUTHPASSWORD=</Option>
+    </Feature>
+    <Feature name="ExtendPrintArea">
+        <Option name="True">COMMENT DSSC PRINT EXPAND_PRINTABLEAREA=1</Option>
+        <Option name="False">COMMENT DSSC PRINT EXPAND_PRINTABLEAREA=0</Option>
+    </Feature>
+    <Feature name="JobEndPjl">
+        <Option name="True">COMMENT DSSC PRINT JOBENDPJL=1</Option>
+        <Option name="False">COMMENT DSSC PRINT JOBENDPJL=0</Option>
+    </Feature>
+    <Feature name="JobEndPjlPageCount">
+        <Default>COMMENT DSSC PRINT JOBENDINFO PAGES=</Default>
+    </Feature>
+    <Feature name="JobEndPjlFirstPageSize">
+        <Default>COMMENT DSSC PRINT JOBENDINFO PAGESIZE=</Default>
+    </Feature>
+    <Feature name="JobRetentionPeriod">
+        <Option name="OneHour">COMMENT DSSC PRINT JOB_RETENTION_PERIOD=1</Option>
+        <Option name="TwoHours">COMMENT DSSC PRINT JOB_RETENTION_PERIOD=2</Option>
+        <Option name="FourHours">COMMENT DSSC PRINT JOB_RETENTION_PERIOD=4</Option>
+        <Option name="EightHours">COMMENT DSSC PRINT JOB_RETENTION_PERIOD=8</Option>
+        <Option name="TwentyFourHours">COMMENT DSSC PRINT JOB_RETENTION_PERIOD=24</Option>
+        <Option name="ThirtySixHours">COMMENT DSSC PRINT JOB_RETENTION_PERIOD=36</Option>
+        <Option name="FortyEightHours">COMMENT DSSC PRINT JOB_RETENTION_PERIOD=48</Option>
+        <Option name="SeventyTwoHours">COMMENT DSSC PRINT JOB_RETENTION_PERIOD=72</Option>
+    </Feature>
+    <Feature name="DuplexAdjustment">
+        <Option name="True">COMMENT DSSC PRINT DUPLEX_POSITION_ADJUSTMENT=1</Option>
+        <Option name="False">COMMENT DSSC PRINT DUPLEX_POSITION_ADJUSTMENT=0</Option>
+    </Feature>
+    <Feature name="TonerMode">
+        <Option name="Erasable">COMMENT DSSC PRINT ERASABLETONER=1</Option>
+        <Option name="Black">COMMENT DSSC PRINT ERASABLETONER=0</Option>
+    </Feature>   
+    <Feature name="AppName">
+        <Default>COMMENT DSSC PRINT APPNAME=</Default>
+    </Feature>
+</JobControl>

@@ -1,0 +1,22 @@
+<!-- Version: 7.212.4835.7 -->
+<JobControl>
+    <Feature name="HPMode">
+        <Default>SET JOBATTR="TRUE"</Default>
+    </Feature>
+    <Feature name="Copies_mps">
+        <Default>SET QTY=</Default>
+    </Feature>
+    <Feature name="RenderMode">
+        <Option name="Auto">SET PLANESINUSE=3</Option>
+        <Option name="FullColor">SET PLANESINUSE=3</Option>
+        <Option name="Black-White">SET PLANESINUSE=1</Option>
+    </Feature>
+    <Feature name="RenderMode_mps">
+        <Option name="FullColor">SET RENDERMODE=COLOR</Option>
+        <Option name="Black-White">SET RENDERMODE=GRAYSCALE</Option>
+    </Feature>
+    <Feature name="LcolorModel_mps">
+        <Option name="FullColor">SET LCOLORMODEL=CMYK</Option>
+        <Option name="Black-White">SET LCOLORMODEL=BLACK</Option>
+    </Feature>
+</JobControl>

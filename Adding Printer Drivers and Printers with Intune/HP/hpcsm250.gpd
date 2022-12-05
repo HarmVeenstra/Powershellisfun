@@ -1,0 +1,1922 @@
+*% Copyright 1996 - 2018, HP Development Company, L.P.
+*% All Rights Reserved.
+
+*%-------------------------------------------------------------------------
+*% Version Section
+*%-------------------------------------------------------------------------
+*GPDFileName: "hpzsm250.gpd"
+*GPDSpecVersion: "1.0"
+
+
+*%-------------------------------------------------------------------------
+*% Include Section
+*%-------------------------------------------------------------------------
+
+*CodePage: 1252      *% Windows 3.1 US (ANSI) code page
+
+*%-------------------------------------------------------------------------
+*% Macros section
+*%-------------------------------------------------------------------------
+
+*PrintSchemaPrivateNamespaceURI: "http://www.hp.com/printschema/2005"
+*BlockMacro: DuplexConstraints
+{
+    *Constraints: Duplex.HORIZONTAL
+    *Constraints: Duplex.VERTICAL
+}
+
+*Macros: HPImagingFeatureAndOptionNames
+{
+    *% GPD halftoning feature and option names.
+    HPHT_DLLNAME:                               HPHTDLLName
+    HPHT_DLLNAME_DEFAULT:                       HPFIG250
+
+    *% Matter Horn DLL
+    HPMH_DLLNAME:                               HPMHDLLName
+    HPMH_DLLNAME_DEFAULT:                       HPFIE250
+
+    *% Resource DLL
+    HPRES_DLLNAME:                               HPRESDLLName
+    HPRES_DLLNAME_DEFAULT:                       HPFRS250
+        
+    HPHT_BRIGHTNESS:                            HPHTBrightness
+    HPHT_INTENSITY:                             HPHTIntensity
+    HPHT_COLOR_TONE:                            HPHTColorTemp
+    HPHT_SATURATION:                            HPHTVividness
+    HPHT_INK_VOLUME:                            HPHTInkLevels
+    HPHT_OPTIMIZE_PHOTO_COPY:                   HPHTPhotoCopy
+
+    HPHT_SLIDER_HIGHER:                         HPHTSliderHigher
+    HPHT_SLIDER_HIGH:                           HPHTSliderHigh
+    HPHT_SLIDER_MIDDLE:                         HPHTSliderMiddle
+    HPHT_SLIDER_LOW:                            HPHTSliderLow
+    HPHT_SLIDER_LOWER:                          HPHTSliderLower
+
+    HPHT_ON:                                    HPHTOn
+    HPHT_OFF:                                   HPHTOff
+
+    HPSTATUSCLIENT_EXENAME:                     HPStatusClientExeName
+    HPSTATUSCLIENT_EXENAME_DEFAULT:             HPZSTC09
+
+    HPSTATUSWINDOW_EXENAME:                     HPStatusWindowExeName
+    HPSTATUSWINDOW_EXENAME_DEFAULT:             HPZSTW09
+}
+
+*Macros: StdFeatureNames
+{
+    IDS_MIRROR_IMAGE_DISPLAY:                   RESDLL.STRRESSEC.1065
+    IDS_11x17:                                  RESDLL.STRRESSEC.3473
+    IDS_12x18:                                  RESDLL.STRRESSEC.9
+    IDS_3_X_5:                                  RESDLL.STRRESSEC.6306
+    IDS_JENV_CHOU3:                             RESDLL.STRRESSEC.3973
+    IDS_JENV_CHOU4:                             RESDLL.STRRESSEC.3974
+    IDS_16K_DISPLAY:                            RESDLL.STRRESSEC.10
+    IDS_DEFAULT_FONT:                           RESDLL.STRRESSEC.16
+    IDS_MANUAL_FEED_IN_TRAY1:                   RESDLL.STRRESSEC.3972
+    IDS_TRAY5:                                  RESDLL.STRRESSEC.3490
+    IDS_TOP_BIN_FACE_DOWN:                      RESDLL.STRRESSEC.40
+    IDS_LEFT_BIN_FACE_UP:                       RESDLL.STRRESSEC.41
+    IDS_STAPLER_BIN:                            RESDLL.STRRESSEC.42
+    IDS_STACKER_BIN:                            RESDLL.STRRESSEC.43
+    IDS_JOB_SEPARATOR_BIN:                      RESDLL.STRRESSEC.44
+    IDS_COLLATOR_BIN:                           RESDLL.STRRESSEC.45
+    ENVELOPE_DISPLAY:                           RESDLL.STRRESSEC.70
+    IDS_ROUGH_TYPE:                             RESDLL.STRRESSEC.74
+    IDS_THIN_TYPE:                              RESDLL.STRRESSEC.75
+    IDS_ECONOMODE:                              RESDLL.STRRESSEC.90
+	IDS_C4:										RESDLL.STRRESSEC.6
+    IDS_AUTO_SELECT:                            RESDLL.STRRESSEC.100
+    IDS_STANDARD_BIN_CORRECT_ORDER:             RESDLL.STRRESSEC.7271
+    IDS_REAR_BIN_STRAIGHTEST_PATH:              RESDLL.STRRESSEC.7272
+    IDS_UPPER_BIN:                              RESDLL.STRRESSEC.7273
+    IDS_LOWER_BIN:                              RESDLL.STRRESSEC.7287
+    IDS_OUTPUT_BINS_1_5:                        RESDLL.STRRESSEC.7274
+    IDS_UNSPECIFIED:                            RESDLL.STRRESSEC.105
+    IDS_PLAIN_TYPE:                             RESDLL.STRRESSEC.106
+    IDS_PREPRINTED_TYPE:                        RESDLL.STRRESSEC.107
+    IDS_LETTERHEAD_TYPE:                        RESDLL.STRRESSEC.108
+    IDS_MTYPE_IJ_HP_PREMIUM_INKJET_PAPER:       RESDLL.STRRESSEC.4975
+    IDS_OTHER_TRANSPARENCY_FILMS:               RESDLL.STRRESSEC.5965
+
+    IDS_PREPUNCHED_TYPE:                        RESDLL.STRRESSEC.111
+    IDS_LABELS_TYPE:                            RESDLL.STRRESSEC.112
+    IDS_BOND_TYPE:                              RESDLL.STRRESSEC.113
+    IDS_RECYCLED_TYPE:                          RESDLL.STRRESSEC.114
+    IDS_COLOR_TYPE:                             RESDLL.STRRESSEC.115
+    IDS_LIGHT_ROUGH_TYPE:                       RESDLL.STRRESSEC.7579
+    IDS_LIGHT_BOND_TYPE:                        RESDLL.STRRESSEC.7580
+    IDS_PAPERBOARD_221_255G:                    RESDLL.STRRESSEC.7652
+    IDS_PAPERBOARD_256_300G:                    RESDLL.STRRESSEC.7653
+    IDS_PAPERBOARD_301G_PLUS:                   RESDLL.STRRESSEC.7654
+    IDS_ECONOMODE_PQ:                           RESDLL.STRRESSEC.7674
+    IDS_THIN:                                   RESDLL.STRRESSEC.7684
+    IDS_COTTON:                                 RESDLL.STRRESSEC.7685
+	IDS_ARCHIVE:                                RESDLL.STRRESSEC.7686
+	IDS_THICKER:                                RESDLL.STRRESSEC.7687
+	IDS_HEAVY_WEIGHT:                           RESDLL.STRRESSEC.7688
+	IDS_EXTRA_HEAVY_WEIGHT_1:                   RESDLL.STRRESSEC.7689
+	IDS_EXTRA_HEAVY_WEIGHT_2:                   RESDLL.STRRESSEC.7690
+	IDS_THIN_CARDSTOCK:                         RESDLL.STRRESSEC.7691
+	IDS_THICK_CARDSTOCK:                        RESDLL.STRRESSEC.7692
+	IDS_THIN_GLOSSY:                            RESDLL.STRRESSEC.7693
+	IDS_THICK_GLOSSY:                           RESDLL.STRRESSEC.7694
+	IDS_GLOSSY_PHOTO_111_130:                   RESDLL.STRRESSEC.7695
+	IDS_GLOSSY_PHOTO_131_175:                   RESDLL.STRRESSEC.7696
+	IDS_GLOSSY_PHOTO_176_220:                   RESDLL.STRRESSEC.7697
+	IDS_THICK_ENVELOPE:                         RESDLL.STRRESSEC.7698
+	IDS_THICK:                                  RESDLL.STRRESSEC.7699
+	IDS_EXTRA_HEAVY_WEIGHT_3:                   RESDLL.STRRESSEC.7700
+	IDS_EXTRA_HEAVY_WEIGHT_4:                   RESDLL.STRRESSEC.7701
+	IDS_HEAVY_CARDSTOCK:                        RESDLL.STRRESSEC.7702
+	IDS_EXTRA_HEAVY_CARDSTOCK_1:                RESDLL.STRRESSEC.7703
+	IDS_EXTRA_HEAVY_CARDSTOCK_2:                RESDLL.STRRESSEC.7704
+	IDS_EXTRA_HEAVY_WEIGHT:                     RESDLL.STRRESSEC.7705
+
+    IDS_TRAY1:                                  RESDLL.STRRESSEC.128
+    IDS_TRAY2:                                  RESDLL.STRRESSEC.129
+    IDS_TRAY3:                                  RESDLL.STRRESSEC.130
+    IDS_TRAY3_500:                              RESDLL.STRRESSEC.954
+    IDS_TRAY4:                                  RESDLL.STRRESSEC.728
+    IDS_TRAY5:                                  RESDLL.STRRESSEC.3490
+    IDS_TRAY7:                                  RESDLL.STRRESSEC.3492
+    IDS_TRAY8:                                  RESDLL.STRRESSEC.3493
+    IDS_TRAY9:                                  RESDLL.STRRESSEC.3494
+    IDS_TRAY10:                                 RESDLL.STRRESSEC.3495
+    IDS_INSTALLED:                              RESDLL.STRRESSEC.131
+    IDS_NOTINSTALLED:                           RESDLL.STRRESSEC.132
+    IDS_HP_500SHEET_INPUT_TRAY:                 RESDLL.STRRESSEC.7202
+    IDS_HP_1500SHEET_INPUT_TRAY:                RESDLL.STRRESSEC.7203
+    IDS_HP_2000_SHEET_INPUT_TRAY:               RESDLL.STRRESSEC.7285
+    IDS_HP_STAPLERSTACKER_MAILBOXMODE_CZ994A:                    	RESDLL.STRRESSEC.7332
+	IDS_HP_STAPLERSTACKER_STACKERMODE_CZ994A:			RESDLL.STRRESSEC.7333
+	IDS_HP_23_HOLEPUNCHER_STAPLERSTACKER_MAILBOXMODE_CZ995A:	RESDLL.STRRESSEC.7334
+	IDS_HP_23_HOLEPUNCHER_STAPLERSTACKER_STACKERMODE_CZ995A:	RESDLL.STRRESSEC.7335
+	IDS_HP_24_HOLEPUNCHER_STAPLERSTACKER_MAILBOXMODE_CZ996A:	RESDLL.STRRESSEC.7336
+	IDS_HP_24_HOLEPUNCHER_STAPLERSTACKER_STACKERMODE_CZ996A:	RESDLL.STRRESSEC.7337
+	IDS_HP_BOOKLETMAKER_FINISHER_MAILBOXMODE_CZ285A:		RESDLL.STRRESSEC.7338
+	IDS_HP_BOOKLETMAKER_FINISHER_STACKERMODE_CZ285A:		RESDLL.STRRESSEC.7339
+	IDS_HP_BOOKLETMAKER_FINISHER_23_HOLEPUNCHER_MAILBOXMODE_A2W84A: RESDLL.STRRESSEC.7340
+	IDS_HP_BOOKLETMAKER_FINISHER_23_HOLEPUNCHER_STACKERMODE_A2W84A:	RESDLL.STRRESSEC.7341
+	IDS_HP_BOOKLETMAKER_FINISHER_24_HOLEPUNCHER_MAILBOXMODE_CZ999A:	RESDLL.STRRESSEC.7342
+	IDS_HP_BOOKLETMAKER_FINISHER_24_HOLEPUNCHER_STACKERMODE_CZ999A:	RESDLL.STRRESSEC.7343
+	IDS_1_5_GB:	RESDLL.STRRESSEC.7344  
+	IDS_LEFT_BIN_STRAIGHTEST_PATH:	RESDLL.STRRESSEC.7359
+	IDS_HP_STAPLER_STACKER_MAILBOXMODE_CZ994A:                    	RESDLL.STRRESSEC.7360
+	IDS_HP_STAPLER_STACKER_STACKERMODE_CZ994A:			            RESDLL.STRRESSEC.7361
+	IDS_HP_23_HOLE_PUNCHER_STAPLERSTACKER_MAILBOXMODE_CZ995A:	    RESDLL.STRRESSEC.7362
+	IDS_HP_23_HOLE_PUNCHER_STAPLERSTACKER_STACKERMODE_CZ995A:	    RESDLL.STRRESSEC.7363
+	IDS_HP_24_HOLE_PUNCHER_STAPLERSTACKER_MAILBOXMODE_CZ996A:	    RESDLL.STRRESSEC.7364
+	IDS_HP_24_HOLE_PUNCHER_STAPLERSTACKER_STACKERMODE_CZ996A:	    RESDLL.STRRESSEC.7365
+	IDS_HP_BOOKLET_MAKER_FINISHER_MAILBOXMODE_CZ285A:		        RESDLL.STRRESSEC.7366
+	IDS_HP_BOOKLET_MAKER_FINISHER_STACKERMODE_CZ285A:		        RESDLL.STRRESSEC.7367
+	IDS_HP_STAPLER_STACKER_MAILBOXMODE_A2W80A:                       RESDLL.STRRESSEC.7369
+	IDS_HP_STAPLER_STACKER_STACKERMODE_A2W80A:                       RESDLL.STRRESSEC.7370
+	IDS_HP_23_HOLE_PUNCHER_STAPLERSTACKER_MAILBOXMODE_A2W81A:        RESDLL.STRRESSEC.7371
+	IDS_HP_23_HOLE_PUNCHER_STAPLERSTACKER_STACKERMODE_A2W81A:        RESDLL.STRRESSEC.7372
+    IDS_HP_24_HOLE_PUNCHER_STAPLERSTACKER_MAILBOXMODE_A2W82A:        RESDLL.STRRESSEC.7373
+	IDS_HP_24_HOLE_PUNCHER_STAPLERSTACKER_STACKERMODE_A2W82A:        RESDLL.STRRESSEC.7374
+	IDS_HP_BOOKLET_MAKER_FINISHER_MAILBOXMODE_A2W83A:                RESDLL.STRRESSEC.7375
+	IDS_HP_BOOKLET_MAKER_FINISHER_STACKERMODE_A2W83A:                RESDLL.STRRESSEC.7376
+	IDS_HP_BOOKLET_MAKER_FINISHER_23_HOLE_PUNCHER_MAILBOXMODE_A2W84A:     RESDLL.STRRESSEC.7377
+    IDS_HP_BOOKLET_MAKER_FINISHER_23_HOLE_PUNCHER_STACKERMODE_A2W84A:     RESDLL.STRRESSEC.7378
+	IDS_HP_BOOKLET_MAKER_FINISHER_24_HOLE_PUNCHER_MAILBOXMODE_CZ999A:     RESDLL.STRRESSEC.7379
+	IDS_HP_BOOKLET_MAKER_FINISHER_24_HOLE_PUNCHER_STACKERMODE_CZ999A:     RESDLL.STRRESSEC.7380
+    IDS_STANDARD_BIN:                                                     RESDLL.STRRESSEC.7381              
+	IDS_MAILBOX_CE997A_F2G81A:					RESDLL.STRRESSEC.7504
+	IDS_STACKER_CE997A_F2G81A:					RESDLL.STRRESSEC.7505
+	IDS_JOB_SEPARATOR_CE997A_F2G81A:			RESDLL.STRRESSEC.7506
+	IDS_COLLATOR_CE997A_F2G81A:					RESDLL.STRRESSEC.7507
+	IDS_STAPLER_STACKER_CE405A_F2G72A:			RESDLL.STRRESSEC.7508
+	IDS_STACKER_CE404A_F2G71A:					RESDLL.STRRESSEC.7509
+	IDS_MULTIPURPOSE_TRAY:                      RESDLL.STRRESSEC.3613                       
+
+    IDS_600DPI:                                 RESDLL.STRRESSEC.135
+
+    IDS_MANUAL:                                 RESDLL.STRRESSEC.146
+    IDS_ENABLE:                                 RESDLL.STRRESSEC.160
+    IDS_DISABLE:                                RESDLL.STRRESSEC.161
+
+    IDS_COLMATCH2:                              RESDLL.STRRESSEC.168
+    IDS_HALFTONE1:                              RESDLL.STRRESSEC.170
+    IDS_HALFTONE2:                              RESDLL.STRRESSEC.171
+    IDS_JOBR_CB_TITLE:                          RESDLL.STRRESSEC.173
+
+    IDS_PRINTERHARDDISK:                        RESDLL.STRRESSEC.181
+	IDS_STORAGE_DEVICE:						RESDLL.STRRESSEC.7538
+	IDS_ENABLED_DISPLAY:                        RESDLL.STRRESSEC.189
+    IDS_DISABLED_DISPLAY:                       RESDLL.STRRESSEC.191
+    IDS_EDGE_TO_EDGE:                           RESDLL.STRRESSEC.240
+    IDS_PRINTER_AUTO_SELECT:                    RESDLL.STRRESSEC.241
+    IDS_NORMAL:                                 RESDLL.STRRESSEC.519
+
+    IDS_TRAY4:                                  RESDLL.STRRESSEC.728
+    IDS_PRINTALLBLACK:                          RESDLL.STRRESSEC.761
+    IDS_TTASBITMAPS:                            RESDLL.STRRESSEC.762
+    IDS_600DPI_RES:                             RESDLL.STRRESSEC.787
+    IDS_300DPI_RES:                             RESDLL.STRRESSEC.786
+    IDS_RB_AUTOMATIC:                           RESDLL.STRRESSEC.793
+    IDS_RB_MANUAL:                              RESDLL.STRRESSEC.794
+    IDS_EXECUTIVE_JIS:                          RESDLL.STRRESSEC.867
+    IDS_MULTIFN_FINISHER:                       RESDLL.STRRESSEC.868
+
+    IDS_STACKER_BIN_UP:                         RESDLL.STRRESSEC.872
+    IDS_STACKER_BIN_DOWN:                       RESDLL.STRRESSEC.873
+    IDS_NEUTRAL_GRAYS_BLACK:                    RESDLL.STRRESSEC.912
+    IDS_CMYK_GRAY_PC:                           RESDLL.STRRESSEC.7644
+    IDS_RGB_DEFAULT:                            RESDLL.STRRESSEC.917
+    IDS_RGB_DEVICE:                             RESDLL.STRRESSEC.918
+    IDS_EC_MAXIMUM:                             RESDLL.STRRESSEC.919
+    IDS_RGB_PRINTER_DEFAULT:                    RESDLL.STRRESSEC.7757
+    IDS_DEVICE_RGB:                    		RESDLL.STRRESSEC.7758
+    IDS_CUSTOM_RGB:				RESDLL.STRRESSEC.7759
+    IDS_OFFICE_SRGB:				RESDLL.STRRESSEC.7760
+    IDS_CUSTOM_CMYK:				RESDLL.STRRESSEC.7761    
+    IDS_CMYK_FAST:				RESDLL.STRRESSEC.7762
+    IDS_CMYK_NO_ADJUSTMENT:			RESDLL.STRRESSEC.7763
+
+    IDS_FAST_RES:                               RESDLL.STRRESSEC.951
+    IDS_PRO_RES:                                RESDLL.STRRESSEC.952
+    IDS_ORIENT_ROTATE_180:                      RESDLL.STRRESSEC.953
+
+    IDS_HP_THICK_PLAIN_PAPER:                      RESDLL.STRRESSEC.969
+    IDS_THICK_PLAIN_PAPER_CAP:                  RESDLL.STRRESSEC.7314
+
+    IDS_MANUALDUPLEX:                           RESDLL.STRRESSEC.1036
+
+    IDS_LIGHT3:                                 RESDLL.STRRESSEC.1051
+
+    IDS_500_STACKER:                            RESDLL.STRRESSEC.1086
+    IDS_500_STAPLER_STACKER:                    RESDLL.STRRESSEC.1087
+    IDS_HP_500_SHEET_STAPLER_STACKER_CE726A_CF070A:                    RESDLL.STRRESSEC.7286
+
+    IDS_MOPIER_MODE:                            RESDLL.STRRESSEC.1089
+
+    IDS_PRO_RES_180LPI:                         RESDLL.STRRESSEC.1094
+
+    IDS_OFF:                                    RESDLL.STRRESSEC.1117
+
+    IDS_LARGE_PAPER_SUPPORT:                    RESDLL.STRRESSEC.1119
+    IDS_DUPLEX_2_SIDED_PRINTING:                RESDLL.STRRESSEC.1125
+    IDS_STACKER_MODE_CSL:                    	RESDLL.STRRESSEC.7052
+    IDS_SORTER_MODE_CSL:   			RESDLL.STRRESSEC.7053
+     IDS_JOB_SEPARATOR_MODE_CSL:     		RESDLL.STRRESSEC.7054
+    IDS_HP_500_SHEET_STAPLER_CSL:     		RESDLL.STRRESSEC.7055
+    IDS_HP_3000_SHEET_STAPLER_CSL:     		RESDLL.STRRESSEC.7056
+    IDS_HP_MULTIFUNCTION_FINISHER_CSL:     	RESDLL.STRRESSEC.7057
+    IDS_HP_500_SHEET_STACKER_CSL:     		RESDLL.STRRESSEC.7058
+    IDS_5BIN_MAILBOX_MODE_CSL:     		RESDLL.STRRESSEC.7059
+
+    IDS_HP_500_Sheet_Stapler_Stacker_CE405A:    RESDLL.STRRESSEC.7275
+    IDS_HP_500_Sheet_Stacker_CE404A:            RESDLL.STRRESSEC.7276
+    IDS_HP_5_Bin_Stacker_CE997A:                RESDLL.STRRESSEC.7277
+    IDS_HP_5_Bin_Job_Separator_CE997A:          RESDLL.STRRESSEC.7278
+
+    IDS_STAPLER_STACKER_CE726A:    RESDLL.STRRESSEC.7467
+    IDS_STAPLER_STACKER_CF070A:     RESDLL.STRRESSEC.7468
+
+    IDS_HP_5BIN_STAPLER_STACKER_MAILBOXMODE_L0H20A:        RESDLL.STRRESSEC.7584
+    IDS_HP_5BIN_STAPLER_STACKER_STACKERMODE_L0H20A:        RESDLL.STRRESSEC.7585
+    IDS_5BIN_STAPLER_STACKER_JOB_SEPRATOR_MODE_L0H20A:     RESDLL.STRRESSEC.7586
+    IDS_5BIN_STAPLER_STACKER_COLLATOR_MODE_L0H20A:         RESDLL.STRRESSEC.7587
+    IDS_HP_3BIN_STAPLER_STACKER_FUNCTIONMODE_SEPARATOR_STK_2B_STP_200:    RESDLL.STRRESSEC.7581
+    IDS_HP_3BIN_STAPLER_STACKER_STACKERMODE_STK_2B_STP_200:               RESDLL.STRRESSEC.7582
+    IDS_HP_3BIN_STAPLER_STACKER_MAILBOXMODE_STK_2B_STP_200:               RESDLL.STRRESSEC.7583
+    IDS_MIDDLE_BIN:                                        RESDLL.STRRESSEC.7596
+    IDS_FRONT_BINS:                                        RESDLL.STRRESSEC.7588
+    IDS_FRONT_BIN:                                         RESDLL.STRRESSEC.7657
+    IDS_HP_3BIN_STAPLER_STACKER_MAILBOXMODE_STK_2B_STP_210:                  RESDLL.STRRESSEC.7576
+    IDS_HP_3BIN_STAPLER_STACKER_FUNCTIONMODE_SEPARATOR_STK_2B_STP_210:       RESDLL.STRRESSEC.7577
+    IDS_HP_3BIN_STAPLER_STACKER_STACKERMODE_STK_2B_STP_210:                  RESDLL.STRRESSEC.7578
+    IDS_OUTPUT_BINS:                                   RESDLL.STRRESSEC.7655
+    IDS_STAPLER_STACKER_A7X00_60140:     RESDLL.STRRESSEC.7575
+
+	IDS_OPTIONAL_OUTPUT_BIN:        RESDLL.STRRESSEC.7597
+	IDS_HP_2_BIN_MAILBOX:     	RESDLL.STRRESSEC.7598
+	IDS_HP_3_BIN_MAILBOX:     	RESDLL.STRRESSEC.7599
+	IDS_HP_5_BIN_MAILBOX:     	RESDLL.STRRESSEC.7600
+	IDS_HP_8_BIN_MAILBOX:     	RESDLL.STRRESSEC.7601
+	IDS_HP_STACKER_BIN:     	RESDLL.STRRESSEC.7602
+	IDS_HP_COLLATOR_BIN:     	RESDLL.STRRESSEC.7603
+	IDS_HP_JOB_SEPARATOR_BIN:       RESDLL.STRRESSEC.7604
+	IDS_STACKER_BINS:   		RESDLL.STRRESSEC.7605
+	IDS_COLLATOR_BINS:   		RESDLL.STRRESSEC.7606
+	IDS_JOB_SEPARATOR_BINS:         RESDLL.STRRESSEC.7607
+	IDS_ALTERNATE_BIN:   		RESDLL.STRRESSEC.7608
+	IDS_OPTIONAL_ALTERNATE_BIN:     RESDLL.STRRESSEC.7643
+    IDS_STANDARD_ALTERNATE_BIN:     RESDLL.STRRESSEC.7658
+	IDS_CFOLD_UNIT: 										RESDLL.STRRESSEC.7622
+	IDS_VFOLD_UNIT: 										RESDLL.STRRESSEC.7623
+	IDS_INWARD_CFOLD_OPEN_TO_LEFT_OR_UP_PC: 				RESDLL.STRRESSEC.7592
+	IDS_INWARD_CFOLD_OPEN_TO_RIGHT_OR_DOWN_PC: 				RESDLL.STRRESSEC.7593
+	IDS_OUTWARD_CFOLD_OPEN_TO_LEFT_OR_UP_PC: 				RESDLL.STRRESSEC.7594
+	IDS_OUTWARD_CFOLD_OPEN_TO_RIGHT_OR_DOWN_PC: 			RESDLL.STRRESSEC.7595
+	IDS_INWARD_VFOLD: 										RESDLL.STRRESSEC.7619
+	IDS_OUTWARD_VFOLD: 										RESDLL.STRRESSEC.7620
+	IDS_STANDARD_OUTPUT_BIN:								RESDLL.STRRESSEC.5524
+
+    IDS_TOP_BIN:                                RESDLL.STRRESSEC.1148
+    IDS_POSTCARD_JIS:                           RESDLL.STRRESSEC.3016
+    IDS_8K:                                     RESDLL.STRRESSEC.3027
+
+    IDS_COLLATE:                                RESDLL.STRRESSEC.3028
+    IDS_HP_3000_SHEET_STAPLERSTACKER:           RESDLL.STRRESSEC.3034
+    IDS_HP_3000_SHEET_STACKER:                  RESDLL.STRRESSEC.3035
+    IDS_ACCESSORY_OUTPUT_BIN:                   RESDLL.STRRESSEC.3036
+    IDS_CORRECT_ORDER_SPP:                      RESDLL.STRRESSEC.3308
+
+    IDS_TRUE:                                   RESDLL.STRRESSEC.182
+
+    IDS_BEST:                                   RESDLL.STRRESSEC.518
+    IDS_PRINT_ON_BOTH_SIDES_OPTIONS_DISPLAY:    RESDLL.STRRESSEC.891
+    IDS_REDUCE_CONTENT_DISPLAY:                 RESDLL.STRRESSEC.893
+    IDS_DONOT_REDUCE_CONTENT_DISPLAY:           RESDLL.STRRESSEC.894
+
+    IDS_AUTOMATIC:                              RESDLL.STRRESSEC.968
+
+    IDS_YES:                                    RESDLL.STRRESSEC.1068
+    IDS_NO:                                     RESDLL.STRRESSEC.1069
+    IDS_ON:                                     RESDLL.STRRESSEC.1071
+
+    IDS_STAPLER:                                RESDLL.STRRESSEC.3088
+    IDS_ONE_STAPLE:                             RESDLL.STRRESSEC.3103
+    IDS_ONE_STAPLE_ANGLED:                      RESDLL.STRRESSEC.3102
+    IDS_TWO_STAPLE:                             RESDLL.STRRESSEC.3104
+    IDS_THREE_STAPLE:                           RESDLL.STRRESSEC.3105
+    IDS_SIX_STAPLE:                             RESDLL.STRRESSEC.3106
+
+	IDS_TWO_STAPLES_LEFT_OR_TOP:                RESDLL.STRRESSEC.7345
+    IDS_2_HOLE_PUNCH_LEFT:                      RESDLL.STRRESSEC.7346
+    IDS_2_HOLE_PUNCH_RIGHT:                     RESDLL.STRRESSEC.7347
+    IDS_2_HOLE_PUNCH_TOP:                       RESDLL.STRRESSEC.7348
+    IDS_2_HOLE_PUNCH_BOTTOM:                    RESDLL.STRRESSEC.7349
+    IDS_2_HOLE_PUNCH_LEFT_OR_TOP:               RESDLL.STRRESSEC.7350
+	IDS_3_HOLE_PUNCH_LEFT:                      RESDLL.STRRESSEC.7351
+    IDS_3_HOLE_PUNCH_RIGHT:                     RESDLL.STRRESSEC.7352
+    IDS_3_HOLE_PUNCH_TOP:                       RESDLL.STRRESSEC.7353
+    IDS_3_HOLE_PUNCH_LEFT_OR_TOP:               RESDLL.STRRESSEC.7354
+    IDS_4_HOLE_PUNCH_LEFT:                      RESDLL.STRRESSEC.7355
+    IDS_4_HOLE_PUNCH_RIGHT:                     RESDLL.STRRESSEC.7356
+	IDS_4_HOLE_PUNCH_TOP:                       RESDLL.STRRESSEC.7357
+    IDS_4_HOLE_PUNCH_LEFT_OR_TOP:               RESDLL.STRRESSEC.7358
+	
+	IDS_FOLD:									RESDLL.STRRESSEC.5799
+	IDS_INWARD_BIFOLD:              			RESDLL.STRRESSEC.7130
+	IDS_OUTWARD_BIFOLD:							RESDLL.STRRESSEC.7171
+	IDS_ENGG_ZFOLD:								RESDLL.STRRESSEC.7137
+	IDS_INWARD_DOUBLE_PARALLEL_FOLD:				RESDLL.STRRESSEC.7176
+	IDS_OUTWARD_DOUBLE_PARALLEL_FOLD:			RESDLL.STRRESSEC.7177
+	IDS_INWARD_TRIFOLD_TOPOVER:					RESDLL.STRRESSEC.7131
+	IDS_OUTWARD_TRIFOLD_TOPOVER:					RESDLL.STRRESSEC.7132
+	IDS_ZFOLD_TOPOVER:							RESDLL.STRRESSEC.7136
+	IDS_INWARD_TRIFOLD_LEFTOVER:					RESDLL.STRRESSEC.7133
+	IDS_OUTWARD_TRIFOLD_LEFTOVER:				RESDLL.STRRESSEC.7134
+	IDS_ZFOLD_LEFTOVER:							RESDLL.STRRESSEC.7135
+
+    IDS_RENDERING_MODE:                         RESDLL.STRRESSEC.768
+    IDS_RENDERMODE_VECTOR:                      RESDLL.STRRESSEC.769
+    IDS_RENDERMODE_RASTER:                      RESDLL.STRRESSEC.770
+    IDS_PRO_RES_141_LPI:                        RESDLL.STRRESSEC.3087
+    IDS_COMBINE_SOURCE_TYPE:                    RESDLL.STRRESSEC.3101
+
+    IDS_EMULATE_LASERJET_DISPLAY:               RESDLL.STRRESSEC.896
+
+    IDS_ORIENTATION_DISPLAY:                    RESDLL.STRRESSEC.3021
+    IDS_PORTRAIT_DISPLAY:                       RESDLL.STRRESSEC.3072
+    IDS_LANDSCAPE_DISPLAY:                      RESDLL.STRRESSEC.3073
+    IDS_OFF_DISPLAY:                            RESDLL.STRRESSEC.1117
+    IDS_ON_DISPLAY:                             RESDLL.STRRESSEC.1071
+    IDS_MEDIA_TYPE_DISPLAY:                     RESDLL.STRRESSEC.3025
+    IDS_TRANSPARENCY_DISPLAY:                   RESDLL.STRRESSEC.109
+    IDS_OUTPUTBIN_DISPLAY:                      RESDLL.STRRESSEC.3029
+    IDS_RESOLUTION_DISPLAY:                     RESDLL.STRRESSEC.3024
+    IDS_ICON_WARN_TABPRINTING:                  RESDLL.STRRESSEC.101
+
+    IDS_TWO_SIDED_PRINTING_DISPLAY:             RESDLL.STRRESSEC.3000
+	IDS_USER_DEFINED_SIZE_DISPLAY:              RESDLL.STRRESSEC.1018
+
+    IDS_300DPI:                                 RESDLL.STRRESSEC.151
+
+    IDS_PRINTER_MEMORY:                         RESDLL.STRRESSEC.3150
+    IDS_NONE:                                   RESDLL.STRRESSEC.3160
+    IDS_COLOR_PRINTING_MODE:                    RESDLL.STRRESSEC.3161
+    IDS_MONOCHROME:                             RESDLL.STRRESSEC.3162
+    IDS_PAPER_SOURCE:                           RESDLL.STRRESSEC.3023
+    IDS_8_5X13:                                 RESDLL.STRRESSEC.3111
+    MANUALFEED_DISPLAY:                         RESDLL.STRRESSEC.724
+
+    IDS_24BPP_DISPLAY:                          RESDLL.STRRESSEC.3169
+    IDS_PRINT_IN_GRAYSCALE:                     RESDLL.STRRESSEC.796
+    IDS_FAST_DRAFT:                             RESDLL.STRRESSEC.3423
+    IDS_MAXIMUM_DPI:                            RESDLL.STRRESSEC.3424
+    IDS_B6_JIS:                                 RESDLL.STRRESSEC.3443
+    IDS_VELLUM_TYPE:                            RESDLL.STRRESSEC.3442
+    IDS_ONE_STAPLE_LEFT:                        RESDLL.STRRESSEC.4014
+    IDS_ONE_STAPLE_RIGHT:                       RESDLL.STRRESSEC.4015
+    IDS_TWO_STAPLE_LEFT:                        RESDLL.STRRESSEC.4016
+    IDS_TWO_STAPLE_RIGHT:                       RESDLL.STRRESSEC.4017
+    IDS_TWO_STAPLE_TOP:                         RESDLL.STRRESSEC.4018
+    IDS_SWEDISH_4HOLE_LEFT:                     RESDLL.STRRESSEC.7614
+    IDS_SWEDISH_4HOLE_RIGHT:                    RESDLL.STRRESSEC.7615
+    IDS_SWEDISH_4HOLE_TOP:                      RESDLL.STRRESSEC.7616
+    IDS_SWEDISH_4HOLE_BOTTOM:                   RESDLL.STRRESSEC.7617
+    IDS_SWEDISH_4HOLE_LEFT_OR_TOP:              RESDLL.STRRESSEC.7618
+    IDS_PUNCH_UNIT:                             RESDLL.STRRESSEC.7106
+    IDS_2BY4HOLE:                               RESDLL.STRRESSEC.7109
+    IDS_4HOLE:                                  RESDLL.STRRESSEC.7110
+    IDS_3HOLE_PUNCH_BOTTOM:                     RESDLL.STRRESSEC.7612
+    IDS_4HOLE_PUNCH_BOTTOM:                     RESDLL.STRRESSEC.7613
+    IDS_FOLD_AND_STITCH:                        RESDLL.STRRESSEC.4024
+    IDS_FOLD_STITCH:                            RESDLL.STRRESSEC.4009
+    IDS_STAPLE:                                 RESDLL.STRRESSEC.4006
+
+    IDS_TRUE_COLOR:                             RESDLL.STRRESSEC.3169
+
+    IDS_32_MB:                                  RESDLL.STRRESSEC.3174
+
+    IDS_64_MB:                                  RESDLL.STRRESSEC.3786
+
+    IDS_96_MB:                                  RESDLL.STRRESSEC.3178
+    IDS_128_MB:                                 RESDLL.STRRESSEC.3179
+    IDS_160_MB:                                 RESDLL.STRRESSEC.3180
+    IDS_192_MB:                                 RESDLL.STRRESSEC.3181
+
+    IDS_224_MB:                                 RESDLL.STRRESSEC.3182
+    IDS_256_MB:                                 RESDLL.STRRESSEC.3184
+    IDS_288_MB:                                 RESDLL.STRRESSEC.3183
+    IDS_1024_MB:                                RESDLL.STRRESSEC.6289
+
+    IDS_320_MB:                                 RESDLL.STRRESSEC.3185
+    IDS_352_MB:                                 RESDLL.STRRESSEC.1160
+
+    IDS_384_MB:                                 RESDLL.STRRESSEC.3172
+    IDS_416_MB:                                 RESDLL.STRRESSEC.1162
+
+    IDS_RASTER_COMPRESSION:                     RESDLL.STRRESSEC.1043
+    IDS_BEST_QUALITY:                           RESDLL.STRRESSEC.887
+    IDS_MAXIMUM_COMPRESSION:                    RESDLL.STRRESSEC.1045
+
+    IDS_RA3:                                    RESDLL.STRRESSEC.4382
+    IDS_STATEMENT:                              RESDLL.STRRESSEC.3662
+
+    IDS_C_SIZE_SHEET:                           RESDLL.STRRESSEC.3664
+
+    IDS_AUTO_CONFIGURATION:                     RESDLL.STRRESSEC.3887
+    IDS_UPDATE_NOW:                             RESDLL.STRRESSEC.3888
+
+    IDS_VIVID:                                  RESDLL.STRRESSEC.506
+
+    IDS_ENVELOPE_FEEDER_DISPLAY:                RESDLL.STRRESSEC.729
+    IDS_STANDARD_TOP_BIN:                       RESDLL.STRRESSEC.4237
+
+    IDS_OUTPUT_BIN_1:                           RESDLL.STRRESSEC.4227
+    IDS_OUTPUT_BIN_2:                           RESDLL.STRRESSEC.4228
+    IDS_OUTPUT_BIN_3:                           RESDLL.STRRESSEC.4229
+    IDS_OUTPUT_BIN_4:                           RESDLL.STRRESSEC.4230
+    IDS_OUTPUT_BIN_5:                           RESDLL.STRRESSEC.4231
+    IDS_OUTPUT_BIN_6:                           RESDLL.STRRESSEC.4232
+    IDS_OUTPUT_BIN_7:                           RESDLL.STRRESSEC.4233
+    IDS_OUTPUT_BIN_8:                           RESDLL.STRRESSEC.4234
+    IDS_OUTPUT_BIN_2_8:                         RESDLL.STRRESSEC.4235
+    IDS_OUTPUT_BIN_1_8:				            RESDLL.STRRESSEC.4236
+    IDS_LOWER_LEFT_BIN_HC:                      RESDLL.STRRESSEC.4224
+    IDS_UPPER_LEFT_BIN_SP:                      RESDLL.STRRESSEC.4221
+
+    IDS_UPPER_LEFT_BIN:                         RESDLL.STRRESSEC.4220
+    IDS_LOWER_LEFT_BIN:                         RESDLL.STRRESSEC.4223
+    IDS_LEFT_BIN:                               RESDLL.STRRESSEC.4684
+    IDS_MAIN_BIN_FACE_DOWN:                     RESDLL.STRRESSEC.4028
+    IDS_MAIN_BIN_FACE_UP:                       RESDLL.STRRESSEC.4027
+    IDS_UPPER_BIN_FACE_DOWN:                    RESDLL.STRRESSEC.4025
+    IDS_UPPER_BIN_FACE_UP:                      RESDLL.STRRESSEC.4026
+	IDS_LOWER_LEFT_BOOKLET_BIN:                 RESDLL.STRRESSEC.7435
+
+    IDS_64_MB:                                  RESDLL.STRRESSEC.3786
+
+    IDS_8_BIN_MAILBOX_MAILBOX_MODE:             RESDLL.STRRESSEC.4309
+    IDS_8_BIN_MAILBOX_STACKER_MODE:             RESDLL.STRRESSEC.4310
+    IDS_8_BIN_MAILBOX_COLLATOR_MODE:            RESDLL.STRRESSEC.4311
+    IDS_8_BIN_MAILBOX_JOBSEPARATOR_MODE:        RESDLL.STRRESSEC.4312
+    IDS_STACKER:                                RESDLL.STRRESSEC.3540
+
+    IDS_JOB_SEPARATOR:                          RESDLL.STRRESSEC.3543
+    IDS_COLLATOR:                               RESDLL.STRRESSEC.3541
+
+    IDS_448_MB:                                 RESDLL.STRRESSEC.4110
+
+    IDS_ALTERNATE_LETTERHEAD_MODE:              RESDLL.STRRESSEC.4283
+
+    IDS_ADOBE_RGB:                              RESDLL.STRRESSEC.4169
+
+    IDS_ENVELOPE_FEEDER_DISPLAY:                RESDLL.STRRESSEC.729
+
+    IDS_512_MB:                                 RESDLL.STRRESSEC.4334
+    IDS_OUTPUTBIN_3_HIGHEST_CAPACITY:           RESDLL.STRRESSEC.4652
+	IDS_FACE_DOWN_FASTER:						RESDLL.STRRESSEC.4654
+	IDS_FACE_UP_STRAIGHT_PATH:					RESDLL.STRRESSEC.4655
+    IDS_ONE_STAPLE_ANGLE_MAX_15:                RESDLL.STRRESSEC.4624
+
+    IDS_3_BIN_MAILBOX_MAILBOX_MODE:             RESDLL.STRRESSEC.4649
+    IDS_3_BIN_MAILBOX_STACKER_MODE:             RESDLL.STRRESSEC.4650
+    IDS_3_BIN_MAILBOX_SEPARATOR_MODE:           RESDLL.STRRESSEC.4651
+
+    IDS_480_MB:                                 RESDLL.STRRESSEC.4639
+
+    IDS_TRAY_6:                                 RESDLL.STRRESSEC.3491
+    IDS_STAPLER_MAX_20_LETTER_OR_A4:            RESDLL.STRRESSEC.3544
+    IDS_HP_750_STAPLER_STACKER:                 RESDLL.STRRESSEC.4686
+
+    IDS_CUSTOM_PROFILE:                         RESDLL.STRRESSEC.4839
+
+    IDS_RGB_COLOR:                              RESDLL.STRRESSEC.916
+
+    IDS_IMAGE_OPTIMIZATION_SRGB:                RESDLL.STRRESSEC.4838
+    IDS_PHOTO_SRGB:                             RESDLL.STRRESSEC.6650
+    IDS_CORPORATE_IMAGING:                      RESDLL.STRRESSEC.7726 
+
+    IDS_8_5X13_NOT_LOC:                         RESDLL.STRRESSEC.4036
+
+    IDS_DEFAULT:                                 RESDLL.STRRESSEC.906
+
+    IDS_ADOBE_RGB_98:                            RESDLL.STRRESSEC.4505
+
+    IDS_MSIZE_16K_195X270_MM:                    RESDLL.STRRESSEC.5080
+    IDS_MSIZE_16K_184X260_MM:                    RESDLL.STRRESSEC.5081
+
+    IDS_MSIZE_8K_270X390_MM:                     RESDLL.STRRESSEC.5098
+    IDS_MSIZE_8K_260X_368_MM:                    RESDLL.STRRESSEC.5099
+
+    IDS_COLOR_PHOTO_IMAGE:                       RESDLL.STRRESSEC.5122
+    IDS_HIGH_QUALITY_OOV:                        RESDLL.STRRESSEC.5187
+    IDS_HIGH_QUALITY_CMYK_BLACK_PC:              RESDLL.STRRESSEC.7573
+    IDS_HIGH_QUALITY_CMYK_GRAYSCALE:             RESDLL.STRRESSEC.7660	
+    IDS_BLACK_ONLY_PC:                           RESDLL.STRRESSEC.7574
+    IDS_CMYK_GRAY_PC:				 			 RESDLL.STRRESSEC.7644
+
+    IDS_PORTRAIT:                                RESDLL.STRRESSEC.3072
+    IDS_LANDSCAPE:                               RESDLL.STRRESSEC.3073
+
+    IDS_FULL:                                    RESDLL.STRRESSEC.5287
+
+    IDS_PSIZE_4_X_6:                             RESDLL.STRRESSEC.5568
+    IDS_PSIZE_5_X_7:                             RESDLL.STRRESSEC.5569
+    IDS_PSIZE_5_X_8:                             RESDLL.STRRESSEC.5570
+
+    IDS_PSIZE_SRA3:                              RESDLL.STRRESSEC.5572
+    IDS_PSIZE_RA4:                               RESDLL.STRRESSEC.5573
+    IDS_PSIZE_SRA4:                              RESDLL.STRRESSEC.5574
+    IDS_PSIZE_ENVELOPE_9:                        RESDLL.STRRESSEC.5575
+
+    IDS_HP_3_BIN_STAPLER_MAILBOX:                RESDLL.STRRESSEC.5609 
+    IDS_HP_3_BIN_STAPLER_STACKER:                RESDLL.STRRESSEC.5610
+
+    IDS_PAGE_EXCEPTION:                             RESDLL.STRRESSEC.5534
+    IDS_PRINT_PAGES_ON_DIFFERENT_PAPER:             RESDLL.STRRESSEC.5541
+    IDS_INSERT_BLANK_OR_PRINTED_SHEETS:             RESDLL.STRRESSEC.5546
+    IDS_CHAPTER_PAGE_LAYOUT:                        RESDLL.STRRESSEC.5548
+    IDS_COVER:                                      RESDLL.STRRESSEC.5536
+    IDS_TABPRINTING:                                RESDLL.STRRESSEC.7731
+
+    IDS_MSIZE_D:                                    RESDLL.STRRESSEC.5664 
+
+    IDS_MSIZE_D:                                    RESDLL.STRRESSEC.5664
+
+    IDS_GRAY_STANDARD:                                     RESDLL.STRRESSEC.4668
+    IDS_TWO_STAPLES_TOP:                                   RESDLL.STRRESSEC.4018
+    IDS_TWO_STAPLES_RIGHT:                                 RESDLL.STRRESSEC.4017
+
+    IDS_ONE_STAPLE_LEFT_ANGLED:                            RESDLL.STRRESSEC.5527
+    IDS_THREE_STAPLES_LEFT:                                RESDLL.STRRESSEC.5528
+    IDS_THREE_STAPLES_TOP:                                 RESDLL.STRRESSEC.5529
+    IDS_ONE_STAPLE_RIGHT_ANGLED:                           RESDLL.STRRESSEC.5530
+    IDS_THREE_STAPLES_RIGHT:                               RESDLL.STRRESSEC.5531
+    IDS_1_STAPLE_UNIT:                                     RESDLL.STRRESSEC.7629
+	IDS_2_STAPLE_UNIT:                                     RESDLL.STRRESSEC.7630
+	IDS_3_STAPLE_UNIT:                                     RESDLL.STRRESSEC.7631
+    IDS_STAPLING_UNIT:                                     RESDLL.STRRESSEC.7621
+    IDS_TWO_STAPLES_BOTTOM_PC:                             RESDLL.STRRESSEC.7589
+    IDS_THREE_STAPLES_BOTTOM_PC:                           RESDLL.STRRESSEC.7590
+	IDS_THREE_STAPLES_LEFT_OR_TOP_PC:                      RESDLL.STRRESSEC.7591
+    IDS_BOOKLET_MAKER_UNIT_PC:                              RESDLL.STRRESSEC.7624
+
+    IDS_MSIZE_10X15_CM:                                                 RESDLL.STRRESSEC.4435
+
+    IDS_PAGE_EXCEPTIONS:                                    RESDLL.STRRESSEC.5986
+    IDS_VIVID_SRGB:                                         RESDLL.STRRESSEC.5523
+
+    IDS_CLIP_CONTENTS_BY_MARGINS_HK:                RESDLL.STRRESSEC.6051
+    IDS_PRINT_WITH_MARGINS_HK:                     RESDLL.STRRESSEC.6052
+    IDS_AUTOMATICALLY_BY_PRINTER_HK:                        RESDLL.STRRESSEC.6053
+    IDS_MANUALLY_IN_APPLICATION_HK:                         RESDLL.STRRESSEC.6054
+    IDS_LAYOUT_HK:                                          RESDLL.STRRESSEC.6055
+    IDS_MORE_PASSES_HK:                                     RESDLL.STRRESSEC.6056
+    IDS_MSIZE_B1_ISO:                                       RESDLL.STRRESSEC.6047
+    IDS_FAST:                                               RESDLL.STRRESSEC.520
+    IDS_CUSTOM_OPTIONS_HK:                                  RESDLL.STRRESSEC.5944
+    IDS_LANDSCAPE_HK_Q206:                                    RESDLL.STRRESSEC.6049
+    IDS_DISABLE_AUTOMATIC_CUTTER_HK:                        RESDLL.STRRESSEC.6050
+    IDS_STANDARD_OPTIONS_HK:                                RESDLL.STRRESSEC.5945
+    IDS_CLIP_CONTENTS_BY_MARGINS_HK:                        RESDLL.STRRESSEC.6051
+    IDS_PRINT_WITH_MARGINS_HK:                                RESDLL.STRRESSEC.6052
+    IDS_AUTOMATICALLY_BY_PRINTER_HK:                        RESDLL.STRRESSEC.6053
+    IDS_MANUALLY_IN_APPLICATION_HK:                            RESDLL.STRRESSEC. 6054
+    IDS_LAYOUT_HK:                                            RESDLL.STRRESSEC.6055
+    IDS_MORE_PASSES_HK:                                        RESDLL.STRRESSEC.6056
+    IDS_MSIZE_B1_ISO:                                        RESDLL.STRRESSEC.6047
+    IDS_FAST:                                                RESDLL.STRRESSEC.520
+    IDS_CUSTOM_OPTIONS_HK:                                    RESDLL.STRRESSEC.5944
+    IDS_1_GB_FIXED:                                           RESDLL.STRRESSEC.6000
+    IDS_1200DPI:                                                RESDLL.STRRESSEC.1145
+    IDS_CMYK_PLUS:                                              RESDLL.STRRESSEC.4486
+    IDS_CMYK_SWOP:                                              RESDLL.STRRESSEC.908
+    IDS_CMYK_EUROSCALE:                                         RESDLL.STRRESSEC.909
+    IDS_CMYK_DIC:                                               RESDLL.STRRESSEC.910
+    IDS_PRINT_ON_BOTH_SIDES:                                    RESDLL.STRRESSEC.5987
+    IDS_DOCUMENT_SIZE_COL_HK:                                   RESDLL.STRRESSEC.6166
+    IDS_GB_PRINT_QUALITY:                                       RESDLL.STRRESSEC.823
+    IDS_HPFAX_OK:                                               RESDLL.STRRESSEC.5249
+    IDS_OPTIONS:                                                RESDLL.STRRESSEC.6159
+    IDS_COLOR_MANAGEMENT:                                       RESDLL.STRRESSEC.4678
+    IDS_CUSTOMIZED_SETNG:                                       RESDLL.STRRESSEC.6164
+    IDS_YES_FLIP_OVER:                                        RESDLL.STRRESSEC.6214
+    IDS_FLIP_UP:                                              RESDLL.STRRESSEC.6215
+    IDS_PQ_RES_300_DPI:                                       RESDLL.STRRESSEC.786
+    IDS_PQ_RES_600_DPI:                                       RESDLL.STRRESSEC.787
+    IDS_ECONOMODE_Q206:                                       RESDLL.STRRESSEC.5484
+    IDS_WHOLE_PAGE:                                           RESDLL.STRRESSEC.4376
+    IDS_ECONOMODE_Q206:                                       RESDLL.STRRESSEC.5484
+    IDS_WHOLE_PAGE:                                           RESDLL.STRRESSEC.4376
+    IDS_MEMORY_MANAGER:                                       RESDLL.STRRESSEC.6185
+    IDS_MTYPE_HP_PREMIUM_INSTANT:                             RESDLL.STRRESSEC.5647
+    IDS_MTYPE_HP_PREM_DRY_SATIN:                              RESDLL.STRRESSEC.6162
+    IDS_BLACK_AND_WHITE_NOHK:                                 RESDLL.STRRESSEC.6231
+    IDS_COLORSMART_ROOT_NODE_TITLE:                           RESDLL.STRRESSEC.1133
+    IDS_FOLD_COL_HK:                                          RESDLL.STRRESSEC.6221
+    IDS_FOLD_N_STITCH_MAX15:                                  RESDLL.STRRESSEC.6201
+    IDS_HALF_FOLD_NARROW:                                     RESDLL.STRRESSEC.5619
+    IDS_LETTER_FOLD:                                          RESDLL.STRRESSEC.5620
+    IDS_HP_BOOKLET_MAK_MAIL:                                  RESDLL.STRRESSEC.6199
+    IDS_HP_BOOKLET_MAK_STAK:                                  RESDLL.STRRESSEC.6198
+    IDS_HP_FOLD_UNIT:                                         RESDLL.STRRESSEC.6200
+    IDS_MTYPE_LJ_DPOSTCARD_JIS:                               RESDLL.STRRESSEC.6203
+    IDS_HP_BOOKLET_MARKER:                                    RESDLL.STRRESSEC.5612
+    IDS_HALF_FOLD:                                            RESDLL.STRRESSEC.5618
+    IDS_Z_FOLD:                                               RESDLL.STRRESSEC.4023
+    IDS_ORIENTATION_Q106_HK:                                  RESDLL.STRRESSEC.6188
+    IDS_FOLD_INWARD_HK:                                       RESDLL.STRRESSEC.6224
+    IDS_REVERSE_OPENING_HK:                                   RESDLL.STRRESSEC.6225
+    IDS_REVERSE_STACK_OR_HK:                                  RESDLL.STRRESSEC.6226
+    IDS_CREASE_ONLY_NO_FOLD_HK:                               RESDLL.STRRESSEC.6227
+    IDS_HALF_FOLD:                                            RESDLL.STRRESSEC.5618
+    IDS_Z_FOLD_Q206:                                          RESDLL.STRRESSEC.5621
+
+    IDS_MSIZE_8K_273X394:                               RESDLL.STRRESSEC.6240
+    IDS_MSIZE_16K_197X273:                              RESDLL.STRRESSEC.6241
+	IDS_EDGE_TO_EDGE_A4:                                RESDLL.STRRESSEC.7288
+    IDS_EDGE_TO_EDGE_LETTER:                            RESDLL.STRRESSEC.7289
+    IDS_L_9_x_13_CM:                                    RESDLL.STRRESSEC.7296
+    IDS_PHOTO_OPTIMIZATION:                             RESDLL.STRRESSEC.6242
+    IDS_LAYOUT:                                         RESDLL.STRRESSEC.5633
+    IDS_HP_HCI_TRAY5:                                   RESDLL.STRRESSEC.6206
+    IDS_HP_STAK_STAPL_JOBSEP:                           RESDLL.STRRESSEC.6207
+    IDS_HP_4BIN_JOB_SEP:                                RESDLL.STRRESSEC.6208
+    IDS_MSIZE_EXECUTIVE_JIS:                            RESDLL.STRRESSEC.867
+    IDS_BLACK_INK_ONLY_WITHOUT_HK:                      RESDLL.STRRESSEC.4670
+    IDS_MT_LIGHT_60_75:                                 RESDLL.STRRESSEC.3982
+    IDS_MT_INTERMEDIATE_90_104:                         RESDLL.STRRESSEC.3983
+    IDS_GLOSSY_FILM:                                    RESDLL.STRRESSEC.937
+    IDS_MT_ROUGH_90_105:                                RESDLL.STRRESSEC.3987
+    IDS_MSIZE_JAP_ENV_4:                                RESDLL.STRRESSEC.6248
+    IDS_MSIZE_JAP_ENV_3:                                RESDLL.STRRESSEC.6249
+    IDS_MSIZE_BORDERLESS_A5:                            RESDLL.STRRESSEC.6250
+    IDS_MSIZE_OFUKU_HAGAKI:                             RESDLL.STRRESSEC.6239
+    IDS_MSIZE_BORDERLESS_B5:                            RESDLL.STRRESSEC.6251
+    IDS_MSIZE_BORDERLESS_A3:                            RESDLL.STRRESSEC.6236
+    IDS_MSIZE_BORDERLESS_8_5X11:                        RESDLL.STRRESSEC.6247
+    IDS_MSIZE_BORDERLESS_DBL_A4:                        RESDLL.STRRESSEC.6237
+    IDS_MSIZE_BORDERLESS_A4:                            RESDLL.STRRESSEC.6235
+    IDS_MSIZE_PHOTOCARD_10X20:                          RESDLL.STRRESSEC.6238
+    IDS_MSIZE_BORDERLESS_A6:                            RESDLL.STRRESSEC.5125 
+    IDS_MSIZE_B_PLUS:                                   RESDLL.STRRESSEC.6064
+    IDS_PS_BDLESS_8_5X11_IN:                            RESDLL.STRRESSEC.3380
+    IDS_MSIZE_BORDERLESS_E_MM:                          RESDLL.STRRESSEC.3384
+    IDS_MSIZE_BORDERLESS_A3_MM:                         RESDLL.STRRESSEC.4094
+    IDS_MSIZE_BORDERLESS_TABLOID_IN:                    RESDLL.STRRESSEC.4095
+    IDS_OTHER_INKJET_PAPERS:                            RESDLL.STRRESSEC.5964
+    IDS_HP_5X7:                                         RESDLL.STRRESSEC.4434
+    IDS_RTL_PHOTOFIX_OFF:                               RESDLL.STRRESSEC.6373
+    IDS_BASIC_RTL_PHOTOFIX:                             RESDLL.STRRESSEC.6374
+    IDS_FULL_RTL_PHOTOFIX:                              RESDLL.STRRESSEC.6375
+    IDS_GB_POSTER_PRINTING:                             RESDLL.STRRESSEC.3151
+ 
+    IDS_MTYPE_WATER_RESIST_CD:                          RESDLL.STRRESSEC.6419
+    IDS_REAR_FEED_SLOT:                                 RESDLL.STRRESSEC.6423
+    IDS_MSIZE_SUP_B_A3_PLUS:                            RESDLL.STRRESSEC.6403
+    IDS_MSIZE_BORDLES_SUP_B_A3:                         RESDLL.STRRESSEC.6377
+    IDS_GLOSS_ENHANCER_TROJA:                           RESDLL.STRRESSEC.5949
+    IDS_PS_BORDERLESS_PANORAMA_4_11:                    RESDLL.STRRESSEC.4749
+    IDS_LARGE_CABINET_13_18_CM:                         RESDLL.STRRESSEC.6378
+    
+    IDS_HP_REAL_LIFE_TECH_RTL:                          RESDLL.STRRESSEC.6402
+    IDS_REMOVE_RED_EYE_HK:                              RESDLL.STRRESSEC.6389
+    IDS_SUPPORT_ASSISTANCE_ONLY:                        RESDLL.STRRESSEC.4284
+    IDS_AUTO_SELECT:                                    RESDLL.STRRESSEC.100
+    IDS_MSIZE_BORDERLESS_SUPER_B_13X19_IN:              RESDLL.STRRESSEC.4752 
+    IDS_PS_PHOTO_4X6_IN_TAB:                            RESDLL.STRRESSEC.3403
+
+    IDS_MIRROR_IMAGE:                                   RESDLL.STRRESSEC.1065
+    IDS_INK_VOLUME:                                     RESDLL.STRRESSEC.1062
+    IDS_DRY_TIME:                                       RESDLL.STRRESSEC.1084
+    IDS_FONT_SHD_MEDIUM:                                RESDLL.STRRESSEC.734
+    IDS_LONG:                                           RESDLL.STRRESSEC.7284
+    IDS_BLACK_INK_SPREAD:                               RESDLL.STRRESSEC.7283    
+    IDS_COLOR_SATURATION:                               RESDLL.STRRESSEC.7281
+    IDS_OUTPUT_BLACK:                                   RESDLL.STRRESSEC.7304
+    IDS_OUTPUT_COLOR:                                   RESDLL.STRRESSEC.7305
+    IDS_RESOLUTION_TEXT:                                RESDLL.STRRESSEC.7306
+    IDS_2400_2400_OPTIMIZED_DPI:                        RESDLL.STRRESSEC.7307
+    IDS_LESS:                                           RESDLL.STRRESSEC.3306
+    IDS_OVERSPRAY_LEAST:                                RESDLL.STRRESSEC.4660
+    IDS_SATURATION:                                     RESDLL.STRRESSEC.1058
+	IDS_HP_RECOMMENDS_COLOR_LOK:                        RESDLL.STRRESSEC.7297
+    IDS_MSIZE_BANNER_A3_MM:                             RESDLL.STRRESSEC.1028
+    IDS_MSIZE_BANNER_A4_MM:                             RESDLL.STRRESSEC.3320
+    IDS_PQ_OPTIMIZED_DPI:                               RESDLL.STRRESSEC.7382
+    IDS_TRAY_7:                                         RESDLL.STRRESSEC.3492
+    IDS_MTYPE_HEAVY_90_105G:                            RESDLL.STRRESSEC.6400 
+    IDS_MTYPE_EDGELINE_GLOS_180G:                       RESDLL.STRRESSEC.6308
+    IDS_PSIZE_ENVELOPE_6_3_4:                           RESDLL.STRRESSEC.6548
+    IDS_MTYPE_HP_MATTE_PHOTO_200G:                      RESDLL.STRRESSEC.6550
+    IDS_MTYPE_EDGELINE_GLOS_180G:                       RESDLL.STRRESSEC.6308
+    IDS_MTYPE_ENVELOPE:                                 RESDLL.STRRESSEC.70
+    
+    IDS_MSIZE_BORDERLESS_E_MM:                          RESDLL.STRRESSEC.3384
+    IDS_HP_PRES_GLOSS_120G:                             RESDLL.STRRESSEC.6551  
+    IDS_BORDLES_CABINET_13_18_CM:                       RESDLL.STRRESSEC.6379 
+    
+    IDS_GLOSS_PRINT_PREFERENCE:                         RESDLL.STRRESSEC.6560
+    IDS_HIGHER_GLOSS:                                   RESDLL.STRRESSEC.6561
+    IDS_COLOR_THEME_Q207:                               RESDLL.STRRESSEC.6562
+    IDS_PHOTO_ADOBE_RGB_1998:                           RESDLL.STRRESSEC.6563
+    IDS_BLACK_AND_WHITE_HK:                             RESDLL.STRRESSEC.6384
+    IDS_TYPE_IS_COLOR:                                  RESDLL.STRRESSEC.717
+    IDS_PQ_FASTER_PRINTING:                             RESDLL.STRRESSEC.888
+    IDS_COLOR_OPTIONS_HK:                               RESDLL.STRRESSEC.6194 
+    IDS_MTYPE_PHOTO_PRJ:                                RESDLL.STRRESSEC.3834
+    IDH_MIRROR_IMAGE_Q204:                              RESDLL.STRRESSEC.15506 
+    IDS_PSIZE_BORDERLESS_ESIZE_82_X_117:                RESDLL.STRRESSEC.6552
+    IDS_MSIZE_DOUBLE_POSTCARD_JIS:                      RESDLL.STRRESSEC.1128
+    IDS_MTYPE_MONO_LASER_TRANSPARENCY:                  RESDLL.STRRESSEC.6553
+    IDS_MTYPE_CARDSTOCK_106_175G:                       RESDLL.STRRESSEC.6565
+    IDS_POSTER_PRINTING_HK:                             RESDLL.STRRESSEC.6556
+    IDS_IMAGERET_3600:                                  RESDLL.STRRESSEC.6209
+    IDS_MTYPE_HP_PRESENTATION_GLOSSY_130:               RESDLL.STRRESSEC.6554
+    IDS_MTYPE_HP_PROFESSIONAL_LASER_GLOSS_130:          RESDLL.STRRESSEC.6572
+    IDS_MTYPE_HEAVY_ROUGH:                              RESDLL.STRRESSEC.6555
+    IDS_PQ_JPEG_IMAGE_SMOOTHING:                        RESDLL.STRRESSEC.6577
+    IDS_OPTIMIZE_RASTER:                                RESDLL.STRRESSEC.6575
+    IDS_OPTIMIZE_TEXT_N_VECTOR:                         RESDLL.STRRESSEC.6576
+    IDS_PRINT_DATA_OPTIMIZATION:                        RESDLL.STRRESSEC.6578
+    IDS_MTYPE_HP_TRIFOLD_COLOR_LASER_160:               RESDLL.STRRESSEC.6573
+    IDS_PQ_GENERAL_OFFICE:                              RESDLL.STRRESSEC.6309
+    IDS_PQ_PROFESSIONAL:                                RESDLL.STRRESSEC.6310
+    IDS_HP_4K_SHEET_INPUT_TRAY5:                        RESDLL.STRRESSEC.6531
+    IDS_HP_SINGLE_OUTPUT_BIN:                           RESDLL.STRRESSEC.6532
+    IDS_MTYPE_HEAVY_111_130:                            RESDLL.STRRESSEC.6580
+    IDS_MTYPE_EXTRAHEAVY_131_175:                       RESDLL.STRRESSEC.6581
+    IDS_PRO_RES_132_LPI:                                RESDLL.STRRESSEC.6569
+    IDS_PRO_RES_180_LPI:                                RESDLL.STRRESSEC.1094
+    IDS_PRO_RES_212_LPI:                                RESDLL.STRRESSEC.1095
+    IDS_CROP_LINES_HK:                                  RESDLL.STRRESSEC.6428
+    IDS_TRANSPARENT_CLEAR_FILM:                         RESDLL.STRRESSEC.5779
+    IDS_MTYPE_PROF_SATIN_PHOTO:                         RESDLL.STRRESSEC.6261
+    IDS_MAX_SPEED:                                      RESDLL.STRRESSEC.6429
+    IDS_PRODUCTION:                                     RESDLL.STRRESSEC.6430
+    IDS_PRODUCTIVITY:                                   RESDLL.STRRESSEC.6431
+    IDS_MAX_QUALITY:                                    RESDLL.STRRESSEC.6432
+    IDS_INC_RES_FOR_GLOSSY_HK:                          RESDLL.STRRESSEC.6433
+    IDS_MTYPE_HP_UNIVERSAL_HIGH_GLOS:                   RESDLL.STRRESSEC.6316
+    IDS_MTYPE_IJ_BRIGHT_WHITE_BOND:                     RESDLL.STRRESSEC.6311
+    IDS_MTYPE_IJ_UNIVERSAL_BOND:                        RESDLL.STRRESSEC.6312
+    IDS_MTYPE_HP_COATED_PAPER:                          RESDLL.STRRESSEC.6313
+    IDS_MTYPE_HP_HW_COATED:                             RESDLL.STRRESSEC.6314
+    IDS_MTYPE_NATURAL_TRACING:                          RESDLL.STRRESSEC.6315
+    IDS_MTYPE_HP_UNIVERSAL_SEMI_GLOS:                   RESDLL.STRRESSEC.6317
+    IDS_HP_DESIGNJET_500_800:                           RESDLL.STRRESSEC.6514
+    IDS_HP_DESIGNJET_1000:                              RESDLL.STRRESSEC.6515
+    IDS_PAGE_OF_PAGES:                                  RESDLL.STRRESSEC.6292
+    IDS_READING_DOC_PL_WAIT:                            RESDLL.STRRESSEC.6291
+    IDS_MTYPE_HW_COATED:                                RESDLL.STRRESSEC.6160
+    IDS_NORMAL_FAST:                                    RESDLL.STRRESSEC.6535
+    IDS_ADHESIVE_POLY_MATTE:                            RESDLL.STRRESSEC.6526
+    IDS_ADHESIVE_POLY_SATIN:                            RESDLL.STRRESSEC.6527
+    IDS_PRINT_IN_PURE_BNW_HK:                           RESDLL.STRRESSEC.6425 
+    IDS_SELF_ADHESIVE_MATERIAL:                         RESDLL.STRRESSEC.6525
+    IDS_DESIGNJET_UI_BEFORE:                            RESDLL.STRRESSEC.6544
+    IDS_DESIGNJET_UI_AFTER:                             RESDLL.STRRESSEC.6545
+    IDS_MTYPE_HEAVYGLOSSY_111_130:                      RESDLL.STRRESSEC.6584
+    IDS_MTYPE_EXTRAHEAVY_GLOOSY_131_175:                RESDLL.STRRESSEC.6585
+    IDS_HP_DJ_4000_4500_SER:                            RESDLL.STRRESSEC.6524
+    IDS_HIGH_CAPACITY_TRAYS:                            RESDLL.STRRESSEC.38
+    IDS_TRAYS_4_N_5:                                    RESDLL.STRRESSEC.6593
+    IDS_HP_3BIN_FUNCTION_STAPLER:                       RESDLL.STRRESSEC.6566
+    IDS_MTYPE_CARDSTOCK_164_220_G:                      RESDLL.STRRESSEC.6586
+    IDS_MTYPE_ARCHIVE:                                  RESDLL.STRRESSEC.6592
+    IDS_HP_5BIN_STACKER:                                RESDLL.STRRESSEC.6595
+    IDS_HP_5BIN_MAILBOX:                                RESDLL.STRRESSEC.6596
+    IDS_HP_5BIN_JOB_SEPARATOR:                          RESDLL.STRRESSEC.6597
+    IDS_HP_5BIN_COLLATOR:                               RESDLL.STRRESSEC.6598
+    IDS_PQ_GENERAL_OFFICE_CAP:                              RESDLL.STRRESSEC.7313
+
+  IDS_HP_500_Sheet_Stapler_Stacker_CE405A:            RESDLL.STRRESSEC.7275
+  IDS_HP_500_Sheet_Stacker_CE404A:                    RESDLL.STRRESSEC.7276
+  IDS_HP_5_Bin_Stacker_CE997A:                        RESDLL.STRRESSEC.7277
+  IDS_HP_5_Bin_Job_Separator_CE997A:                  RESDLL.STRRESSEC.7278
+  IDS_HP_5_BIN_MAILBOX_CE997A:                        RESDLL.STRRESSEC.7279
+  IDS_HP_5_BIN_COLLATOR_CE997A:                       RESDLL.STRRESSEC.7280
+    IDS_PQ_ICD_FAST:                                    RESDLL.STRRESSEC.6599
+    IDS_PQ_ICD_NORMAL_FAST:                             RESDLL.STRRESSEC.6600
+    IDS_PQ_ICD_NORMAL:                                  RESDLL.STRRESSEC.6601
+    IDS_PQ_ICD_BEST:                                    RESDLL.STRRESSEC.6602
+    IDS_NOT_CALIBRATED_WITHOUT_HYPERLINK:               RESDLL.STRRESSEC.6606
+    IDS_CALIBRATION_OBSOLETED:                          RESDLL.STRRESSEC.6607
+    IDS_MTYPE_HP_COLOR_LASER_PHOTO_GLOSSY220_HIGHER_GLOSS:          RESDLL.STRRESSEC.6588
+    IDS_MTYPE_HP_COLOR_LASER_PHOTO_GLOSSY220_FASTER_PRINTING:          RESDLL.STRRESSEC.6587
+    IDS_MTYPE_MATTE:                                    RESDLL.STRRESSEC.5954
+    IDS_PTYPE_PHOTO_GLOSS_PAPER_MORE_INK:               RESDLL.STRRESSEC.6628
+    IDS_PTYPE_PHOTO_GLOSS_PAPER_LESS_INK:               RESDLL.STRRESSEC.6629
+    IDS_PTYPE_PHOTO_SEMIGLOSS_SATIN_MORE_INK:           RESDLL.STRRESSEC.6630
+    IDS_PTYPE_PHOTO_SEMIGLOSS_SATIN_LESS_INK:           RESDLL.STRRESSEC.6631
+    IDS_MSIZE_NOT_LOC_B4_JIS:                           RESDLL.STRRESSEC.6632                   
+    IDS_PTYPE_FINE_ART_PAPER_MORE_INK:                  RESDLL.STRRESSEC.6633
+    IDS_PTYPE_FINE_ART_PAPER_LESS_INK:                  RESDLL.STRRESSEC.6634
+    IDS_MTYPE_DIGITAL_FINE_ART_PAPER_188GR:             RESDLL.STRRESSEC.6635
+    IDS_MTYPE_DIGITAL_FINE_ART_PAPER_308GR:             RESDLL.STRRESSEC.6636
+    IDS_MTYPE_DIGITAL_FINE_ART_PAPER_196GR:             RESDLL.STRRESSEC.6637
+    IDS_MTYPE_DIGITAL_FINE_ART_PAPER_316GR:             RESDLL.STRRESSEC.6638
+    IDS_PSIZE_BORDERLESS_B5_176X250_MM:                 RESDLL.STRRESSEC.6639
+    IDS_PSIZE_B_PLUS_13X19_IN:                          RESDLL.STRRESSEC.6641
+    IDS_PSIZE_10X30_CM:                                 RESDLL.STRRESSEC.6643
+    IDS_PSIZE_4X12_IN:                                  RESDLL.STRRESSEC.6644
+    IDS_PSIZE_DOUBLE_A4_210X594_MM:                     RESDLL.STRRESSEC.6645
+    IDS_PSIZE_BORDERLESS_10X30_CM:                      RESDLL.STRRESSEC.6646
+    IDS_PSIZE_BORDORLESS_4X12_IN:                       RESDLL.STRRESSEC.6647
+    IDS_PSIZE_BORDERLESS_4X11_IN:                        RESDLL.STRRESSEC.6652
+    IDS_PSIZE_BORDERLESS_10X28_CM:                        RESDLL.STRRESSEC.6653
+    IDS_PSIZE_4_X_11_IN:                                RESDLL.STRRESSEC.6654
+    IDS_PSIZE_10_X_28_CM:                                RESDLL.STRRESSEC.6655    
+    IDS_PSIZE_B7_JIS:                                   RESDLL.STRRESSEC.6656
+    IDS_PSIZE_BORDERLESS_B7_JIS:                        RESDLL.STRRESSEC.6651
+    IDS_PSIZE_BORDERLESS_A3_PLUS_330X483_MM:            RESDLL.STRRESSEC.6648
+    IDS_PSIZE_BORDERLESS_B_PLUS_13X19_IN:               RESDLL.STRRESSEC.6649
+    IDS_PSIZE_B7_ISO:                                   RESDLL.STRRESSEC.6677
+    IDS_MTYPE_HP_PREMIUM_PRES_PAPER_MATTE:              RESDLL.STRRESSEC.6679
+    IDS_MTYPE_GLOSSY_GREETING_CARD:                     RESDLL.STRRESSEC.6680
+    IDS_MTYPE_OTHER_GLOSSY_BROCHURE:                    RESDLL.STRRESSEC.6681
+    IDS_MTYPE_OTHER_MATTE_BROCHURE:                     RESDLL.STRRESSEC.6682
+    IDS_MTYPE_MATTE_GREETING_CARD:                      RESDLL.STRRESSEC.6683
+    IDS_PSIZE_JIS_CHOU_3:                               RESDLL.STRRESSEC.6674
+    IDS_PSIZE_JIS_CHOU_4:                               RESDLL.STRRESSEC.6675
+    IDS_PSIZE_JIS_CHOU_2:                               RESDLL.STRRESSEC.6676
+    IDS_PSIZE_BORDERLESS_B7_ISO:                        RESDLL.STRRESSEC.6678
+    IDS_MAX_DPI:                                        RESDLL.STRRESSEC.6673
+    IDS_MTYPE_PHOTO_THICK:                              RESDLL.STRRESSEC.6666
+    IDS_MTYPE_PHOTO_RAG_THIN:                           RESDLL.STRRESSEC.6667
+    IDS_PSIZE_BORDERLESS_B_11X17_IN:                    RESDLL.STRRESSEC.6668
+    IDS_PSIZE_B_11X17_IN:                               RESDLL.STRRESSEC.6669
+    IDS_PSIZE_8X11_IN:                                  RESDLL.STRRESSEC.6670
+    IDS_PSIZE_MUTSUGIRI_203X254_MM:                     RESDLL.STRRESSEC.6671
+    IDS_PSIZE_A3_PLUS_330X483_MM:                       RESDLL.STRRESSEC.6672
+    IDS_PSIZE_10_X_12_IN:                               RESDLL.STRRESSEC.6722
+    IDS_PSIZE_10_X_15_IN:                               RESDLL.STRRESSEC.6723
+    IDS_PSIZE_11_X_14_IN:                               RESDLL.STRRESSEC.6724
+    IDS_PSIZE_12_X_16_IN:                               RESDLL.STRRESSEC.6725
+    IDS_PSIZE_14_X_17_IN:                               RESDLL.STRRESSEC.6726
+    IDS_PSIZE_14_X_18_IN:                               RESDLL.STRRESSEC.6727
+    IDS_PSIZE_16_X_20_IN:                               RESDLL.STRRESSEC.6728
+    IDS_PSIZE_18_X_22_IN:                               RESDLL.STRRESSEC.6729
+    IDS_PSIZE_20_X_24_IN:                               RESDLL.STRRESSEC.6730
+    IDS_PSIZE_22_X_28_IN:                               RESDLL.STRRESSEC.6731
+    IDS_PSIZE_24_X_30_IN:                               RESDLL.STRRESSEC.6732
+    IDS_PSIZE_30_X_40_CM:                               RESDLL.STRRESSEC.6733
+    IDS_PSIZE_30_X_45_CM:                               RESDLL.STRRESSEC.6734
+    IDS_PSIZE_40_X_60_CM:                               RESDLL.STRRESSEC.6735
+    IDS_PSIZE_60_X_90_CM:                               RESDLL.STRRESSEC.6736
+    IDS_PSIZE_50_X_76_CM:                               RESDLL.STRRESSEC.6737
+    IDS_PSIZE_10X12_NO_MARGINS:                               RESDLL.STRRESSEC.6738
+    IDS_PSIZE_10X15_NO_MARGINS:                               RESDLL.STRRESSEC.6739
+    IDS_PSIZE_11X14_NO_MARGINS:                               RESDLL.STRRESSEC.6740
+    IDS_PSIZE_12X16_NO_MARGINS:                               RESDLL.STRRESSEC.6741
+    IDS_PSIZE_14X17_NO_MARGINS:                               RESDLL.STRRESSEC.6742
+    IDS_PSIZE_14X18_NO_MARGINS:                               RESDLL.STRRESSEC.6743
+    IDS_PSIZE_16X20_NO_MARGINS:                               RESDLL.STRRESSEC.6744
+    IDS_PSIZE_18X22_NO_MARGINS:                               RESDLL.STRRESSEC.6745
+    IDS_PSIZE_20X24_NO_MARGINS:                               RESDLL.STRRESSEC.6746
+    IDS_PSIZE_22X28_NO_MARGINS:                               RESDLL.STRRESSEC.6747
+    IDS_PSIZE_24X30_NO_MARGINS:                               RESDLL.STRRESSEC.6748
+    IDS_PSIZE_30X40_NO_MARGINS:                               RESDLL.STRRESSEC.6749
+    IDS_PSIZE_30X45_NO_MARGINS:                               RESDLL.STRRESSEC.6750
+    IDS_PSIZE_40X60_NO_MARGINS:                               RESDLL.STRRESSEC.6751
+    IDS_PSIZE_60X90_NO_MARGINS:                               RESDLL.STRRESSEC.6752
+    IDS_PSIZE_50X76_NO_MARGINS:                               RESDLL.STRRESSEC.6753
+    IDS_10X12_ON_SHEET_MEDIA:                               RESDLL.STRRESSEC.6754
+    IDS_10X15_ON_SHEET_MEDIA:                               RESDLL.STRRESSEC.6755
+    IDS_11X14_ON_SHEET_MEDIA:                               RESDLL.STRRESSEC.6756
+    IDS_12X16_ON_SHEET_MEDIA:                               RESDLL.STRRESSEC.6757
+    IDS_14X17_ON_SHEET_MEDIA:                               RESDLL.STRRESSEC.6758
+    IDS_14X18_ON_SHEET_MEDIA:                               RESDLL.STRRESSEC.6759
+    IDS_16X20_ON_SHEET_MEDIA:                               RESDLL.STRRESSEC.6760
+    IDS_18X22_ON_SHEET_MEDIA:                               RESDLL.STRRESSEC.6761
+    IDS_20X24_ON_SHEET_MEDIA:                               RESDLL.STRRESSEC.6762
+    IDS_22X28_ON_SHEET_MEDIA:                               RESDLL.STRRESSEC.6763
+    IDS_24X30_ON_SHEET_MEDIA:                               RESDLL.STRRESSEC.6764
+    IDS_30X40_ON_SHEET_MEDIA:                               RESDLL.STRRESSEC.6765
+    IDS_30X45_ON_SHEET_MEDIA:                               RESDLL.STRRESSEC.6766
+    IDS_40X60_ON_SHEET_MEDIA:                               RESDLL.STRRESSEC.6767
+    IDS_60X90_ON_SHEET_MEDIA:                               RESDLL.STRRESSEC.6768
+    IDS_50X76_ON_SHEET_MEDIA:                               RESDLL.STRRESSEC.6769
+    IDS_PSIZE_GROUP_PHOTO_PAPER_SIZES:                               RESDLL.STRRESSEC.6770
+    
+    IDS_AUTO:                                           RESDLL.STRRESSEC.4911                   
+    IDS_DEVICE_RENDER_TYPE:                             RESDLL.STRRESSEC.6717
+    IDS_DEVICE_TYPE_AUTO_DETECT:                        RESDLL.STRRESSEC.6718
+    IDS_DEVICE_TYPE_COLOR:                              RESDLL.STRRESSEC.6719
+    IDS_DEVICE_TYPE_MONOCHROME:                         RESDLL.STRRESSEC.6720
+    IDS_MIDDLE_LEFT_BIN:                                RESDLL.STRRESSEC.5614
+    IDS_768_MB:                                         RESDLL.STRRESSEC.6288
+    IDS_1_GB:                                           RESDLL.STRRESSEC.5953
+    IDS_WM_OPTION_DRAFT:			        RESDLL.STRRESSEC.878
+    IDS_640_MB:                                  RESDLL.STRRESSEC.6605
+    IDS_608_MB:					RESDLL.STRRESSEC.4640
+    IDS_ICM_PHOTO:				RESDLL.STRRESSEC.5087
+    IDS_1120_MB_CSL:			        RESDLL.STRRESSEC.6953
+    IDS_1152_MB_CSL:			        RESDLL.STRRESSEC.6954
+    IDS_1200X1200_CSL:			        RESDLL.STRRESSEC.6955 
+    IDS_RET_DISPLAY:										RESDLL.STRRESSEC.136
+    IDS_HP_3_BIN_STAPLER_MAILBOX_CC424A:    RESDLL.STRRESSEC.7079
+    IDS_HP_3_BIN_STAPLER_STACKER_CC424A:    RESDLL.STRRESSEC.7080
+    IDS_HP_3_BIN_FUNCTION_STAPLER_CC424A:     RESDLL.STRRESSEC.7081
+    IDS_HP_3_BIN_STAPLER_MAILBOX_CE736A:     RESDLL.STRRESSEC.7082
+    IDS_HP_3_BIN_STAPLER_STACKER_CE736A:     RESDLL.STRRESSEC.7083
+    IDS_HP_3_BIN_FUNCTION_STAPLER_CE736A:     RESDLL.STRRESSEC.7084
+	IDS_3BIN_STAPLER_STACKER_MAILBOXMODE_CE736A:     RESDLL.STRRESSEC.7302
+	IDS_3BIN_STAPLER_STACKER_STACKERMODE_CE736A:     RESDLL.STRRESSEC.7303
+    IDS_HP_3_BIN_STAPLER_STACKER_MAILBOX_CC424A_CSL:     RESDLL.STRRESSEC.7180
+    IDS_HP_3_BIN_STAPLER_STACKER_STACKER_CC424A_CSL:     RESDLL.STRRESSEC.7181
+    IDS_MSIZE_ENV_10:                                    RESDLL.STRRESSEC.3481
+    IDS_MSIZE_ENV_MONARCH:                               RESDLL.STRRESSEC.3482
+    IDS_MSIZE_ENV_DL:                                    RESDLL.STRRESSEC.3483
+    IDS_MSIZE_ENV_C5:                                    RESDLL.STRRESSEC.3484                           
+    IDS_MSIZE_ENV_B5:                                    RESDLL.STRRESSEC.3485                      
+    IDS_ENVELOPE_C6:                                     RESDLL.STRRESSEC.3704
+	IDS_ENVELOPE_C4:									 RESDLL.STRRESSEC.3712	
+    IDS_PRINTER_DEFAULT:                                 RESDLL.STRRESSEC.139
+    IDS_HP_ECOSMART_LITE_CSL:                            RESDLL.STRRESSEC.7183
+    IDS_RETAIL_SHELF_EDGE_LABELS_CSL:                     RESDLL.STRRESSEC.7185
+	IDS_SECURE_PRINTING:                RESDLL.STRRESSEC.7195
+		
+	IDS_MFD_FINISHER_FN19:                      RESDLL.STRRESSEC.7386
+	IDS_MFD_SADDLE_STITCH_FN20:                 RESDLL.STRRESSEC.7387
+	IDS_MFD_LARGE_STACKER_FN21:                 RESDLL.STRRESSEC.7388
+	IDS_MFD_SADDLE_LARGE_STACKER_FN22:          RESDLL.STRRESSEC.7389	
+	IDS_MFD_FOLD_FD10:                          RESDLL.STRRESSEC.7433	
+	IDS_MFD_DOCUMENT_INS_CF11:					RESDLL.STRRESSEC.7434
+	IDS_MFD_FINISHER_FNX9:                      RESDLL.STRRESSEC.7406
+	IDS_MFD_LARGE_STACKER_FN11:                 RESDLL.STRRESSEC.7407
+	IDS_MFD_SADDLE_STITCH_FN10:                RESDLL.STRRESSEC.7408
+	IDS_MFD_SADDLE_LARGE_STACKER_FN18:          RESDLL.STRRESSEC.7409
+	IDS_MFD_FINISHER_FN17:						RESDLL.STRRESSEC.7426
+	
+	*% Adding Punch option strings for shuttle
+    IDS_LEFT:						            RESDLL.STRRESSEC.7169
+	IDS_TOP:						            RESDLL.STRRESSEC.7170
+	IDS_TWO_LEFT:						        RESDLL.STRRESSEC.7122
+	IDS_TWO_TOP:						        RESDLL.STRRESSEC.7123
+	IDS_MFD_TWO_RIGHT:					        RESDLL.STRRESSEC.7403
+	IDS_THREE_LEFT:						        RESDLL.STRRESSEC.7126
+	IDS_THREE_TOP:						        RESDLL.STRRESSEC.7127
+	IDS_MFD_THREE_RIGHT:				                RESDLL.STRRESSEC.7404
+	IDS_FOUR_LEFT:						        RESDLL.STRRESSEC.7129
+	IDS_FOUR_TOP:						        RESDLL.STRRESSEC.7128	
+	IDS_MFD_FOUR_RIGHT:					        RESDLL.STRRESSEC.7405
+	IDS_2HOLE:                                                      RESDLL.STRRESSEC.7107
+	IDS_2BY3HOLE:				                                    RESDLL.STRRESSEC.7108
+	IDS_MFD_3HOLES:                                                 RESDLL.STRRESSEC.7399
+	IDS_MFD_2BY4HOLES:                                              RESDLL.STRRESSEC.7400
+	IDS_MFD_4HOLES:                                                 RESDLL.STRRESSEC.7401
+	IDS_MFD_4HOLESWIDE:                                             RESDLL.STRRESSEC.7402
+	IDS_PUNCHER_UNIT:                                             RESDLL.STRRESSEC.7143
+
+	IDS_MFD_FOUR_LEFT_WIDE:                                                 RESDLL.STRRESSEC.7410
+	IDS_MFD_FOUR_RIGHT_WIDE:                                             RESDLL.STRRESSEC.7411
+	IDS_MFD_FOUR_TOP_WIDE:                                             RESDLL.STRRESSEC.7412
+
+	*% Adding Staple option strings for shuttle
+	IDS_TOP_LEFT:                                 RESDLL.STRRESSEC.7120
+	IDS_TOP_RIGHT:                                RESDLL.STRRESSEC.7121
+	IDS_MFD_INWARD_FOLD:						  RESDLL.STRRESSEC.7430
+	IDS_MFD_OUTWARD_FOLD:						  RESDLL.STRRESSEC.7431
+	IDS_MFD_RIGHT:								  RESDLL.STRRESSEC.7432
+	                           
+	IDS_QUICK_VIEW:						          RESDLL.STRRESSEC.7571            
+	IDS_FINE_LINES:							  RESDLL.STRRESSEC.7572
+
+	IDS_INNER_FINISHER:									RESDLL.STRRESSEC.7292
+	IDS_OPTIONAL_INNER_OUTPUT_BIN:						RESDLL.STRRESSEC.7717
+	IDS_STD_FINISHER:									RESDLL.STRRESSEC.7718
+	IDS_STD_FINISHER_WITH_OPTIONAL_INNER_OUTPUT_BIN:    RESDLL.STRRESSEC.7719
+	IDS_BOOKLET_FINISHER:								RESDLL.STRRESSEC.7293
+	IDS_BOOKLET_FINISHER_WITH_OPTIONAL_OUTPUT_BIN:      RESDLL.STRRESSEC.7720
+	IDS_ONEBIN_FINISHER:								RESDLL.STRRESSEC.7721
+	IDS_TWOBIN_FINISHER:								RESDLL.STRRESSEC.7722
+	IDS_MAILBOX:										RESDLL.STRRESSEC.1100
+	IDS_TWOBIN_FINISHER_MAILBOX:                        RESDLL.STRRESSEC.7723
+	IDS_FINISHING_BIN:									RESDLL.STRRESSEC.7724
+	IDS_BOOKLET_BIN:									RESDLL.STRRESSEC.926
+	IDS_BIN_1:											RESDLL.STRRESSEC.3547
+	IDS_BIN_2:											RESDLL.STRRESSEC.3548
+	IDS_BIN_3:											RESDLL.STRRESSEC.3549
+	IDS_BIN_4:											RESDLL.STRRESSEC.3550
+	IDS_BIN_5:											RESDLL.STRRESSEC.3551
+	IDS_BIN_6:											RESDLL.STRRESSEC.3552
+	
+	IDS_EMF_SPOOLING:									RESDLL.STRRESSEC.7774
+}
+
+*Macros: HPMediaTypeNames
+{
+    HP_PREMIUM_INKJET_PAPER_DISPLAY:                        RESDLL.STRRESSEC.3832
+    HP_PREMIUM_INKJET_HEAVYWEIGHT_DISPLAY:                  RESDLL.STRRESSEC.3836
+    HP_PREMIUM_INKJET_TRANSPARENCY_DISPLAY:                 RESDLL.STRRESSEC.3878
+    HP_PREMIUM_PHOTO_PAPER_DISPLAY:                         RESDLL.STRRESSEC.3874
+    HP_PHOTO_PAPER_DISPLAY:                                 RESDLL.STRRESSEC.3875
+    HP_PROFESSIONAL_BROCHURE_GLOSSY_DISPLAY:                RESDLL.STRRESSEC.516
+    HP_PROFESSIONAL_BROCHURE_MATTE_DISPLAY:                 RESDLL.STRRESSEC.517
+    HP_BROCHURE_GLOSSY_PAPER:                               RESDLL.STRRESSEC.3843
+    HP_BROCHURE_MATTE_PAPER:                                RESDLL.STRRESSEC.3844
+    HP_PREMIUM_INKJET_RAPIDDRY_TRANS_DISPLAY:               RESDLL.STRRESSEC.523
+    IDS_MTYPE_HP_PREMIUM_TRANS:                             RESDLL.STRRESSEC.3878
+    HP_PREMIUM_PLUS_TRANSPARENCY_DISPLAY:                   RESDLL.STRRESSEC.3879
+    HP_BRIGHT_WHITE_INKJET_PAPER_DISPLAY:                   RESDLL.STRRESSEC.3839
+    HP_DESIGN_HEAVYWEIGHT_PAPER_DISPLAY:                    RESDLL.STRRESSEC.3880
+    HP_COLORFAST_PHOTO_PAPER_DISPLAY:                       RESDLL.STRRESSEC.3877
+    HP_PREMIUM_PLUS_PHOTO_PAPER_GLOSSY_DISPLAY:             RESDLL.STRRESSEC.3841
+    HP_PREMIUM_PLUS_PHOTO_PAPER_MATTE_DISPLAY:              RESDLL.STRRESSEC.3842
+    HP_DESIGN_GLOSSY_PAPER_DISPLAY:                         RESDLL.STRRESSEC.3861
+    IDS_HP_BROCHURE_MATTE_PAPER:                            RESDLL.STRRESSEC.3844
+    HP_PHOTO_GLOSSY:                                        RESDLL.STRRESSEC.3834
+    HP_PHOTO_QUALITY_PAPER_SEMI_GLOSS:                      RESDLL.STRRESSEC.3851
+    HP_PHOTO_QUALITY_PAPER_MATTE:                           RESDLL.STRRESSEC.3852
+    HP_PREMIUM_PHOTO_PAPER_GLOSSY:                          RESDLL.STRRESSEC.3830
+    HP_COLORFAST_PHOTO_PAPER_GLOSSY:                        RESDLL.STRRESSEC.3854
+    IDS_MAXWELL_HP_EVERYDAY_PHOTO_PAPER_SEMI_GLOSS:         RESDLL.STRRESSEC.3868
+    IDS_MAXWELL_HP_EVERYDAY_PHOTO_PAPER_MATTE:              RESDLL.STRRESSEC.3848
+    IDS_HP_HEAVYWEIGHT_PREMIUM_PAPER:                       RESDLL.STRRESSEC.3876
+    IDS_MAXWELL_HP_PREMIUM_INKJET_PAPER:                    RESDLL.STRRESSEC.2002
+    IDS_MAXWELL_HP_PREMIUM_INKJET_HEAVYWEIGHT:              RESDLL.STRRESSEC.2003
+    IDS_MAXWELL_HP_PHOTO_QUALITY_PAPER_SEMI_GLOSS:          RESDLL.STRRESSEC.2004
+    IDS_MAXWELL_HP_PHOTO_QUALITY_PAPER_MATTE:               RESDLL.STRRESSEC.2005
+    IDS_MAXWELL_HP_PREMIUM_INKJET_TRANSPARENCY:             RESDLL.STRRESSEC.2006
+    IDS_MAXWELL_HP_PREMIUM_PLUS_TRANSPARENCY:               RESDLL.STRRESSEC.2007
+    IDS_MAXWELL_HP_PHOTO_GLOSSY:                            RESDLL.STRRESSEC.2008
+    IDS_MAXWELL_HP_PREMIUM_PHOTO_PAPER_GLOSSY:              RESDLL.STRRESSEC.3830
+    IDS_MAXWELL_HP_PREMIUM_PLUS_PHOTO_PAPER_GLOSSY:         RESDLL.STRRESSEC.3830
+    IDS_MAXWELL_HP_PREMIUM_PLUS_PHOTO_PAPER_MATTE:          RESDLL.STRRESSEC.2011
+    IDS_MAXWELL_HP_COLORFAST_PHOTO_PAPER_GLOSSY:            RESDLL.STRRESSEC.3860
+    IDS_MAXWELL_HP_BROCHURE_GLOSSY_PAPER:                   RESDLL.STRRESSEC.3843
+    IDS_MAXWELL_HP_BROCHURE_MATTE_PAPER:                    RESDLL.STRRESSEC.2014
+    IDS_PLAIN_TYPE:                                         RESDLL.STRRESSEC.106
+    IDS_MAXWELL_HP_PREMIUM_PLUS_INKJET_TRANSPARENCY_FILM:   RESDLL.STRRESSEC.3855
+    IDS_MTYPE_HP_PREMIUM_PLUS_TRANS:                        RESDLL.STRRESSEC.3879
+    IDS_TURBO_MODE:                                         RESDLL.STRRESSEC.1005
+    IDS_PAGE_PROTECT_NEEDED:                                RESDLL.STRRESSEC.3522
+    IDS_GFINISH:                                            RESDLL.STRRESSEC.142
+    IDS_MTYPE_MULTIPURPOSE :                                RESDLL.STRRESSEC.3856  
+    IDS_MTYPE_OFFICE :                                      RESDLL.STRRESSEC.3857 
+    IDS_MT_ALL_IN_ONE_PAPER:                                RESDLL.STRRESSEC.4378
+    IDS_MT_HP_LASERJET_PAPER:                               RESDLL.STRRESSEC.4379
+    IDS_HP_PREMIUM_LASERJET_PAPER:                          RESDLL.STRRESSEC.4380
+    IDS_PRINT_PREVIEW:                                      RESDLL.STRRESSEC.4337
+    IDS_SHOW_PREVIEW_HK:                                    RESDLL.STRRESSEC.4338
+    IDS_MTYPE_HP_LABELS_MATTE:                              RESDLL.STRRESSEC.4447
+    IDS_MTYPE_HP_LABELS_GLOSSY:                             RESDLL.STRRESSEC.4448
+    IDS_MTYPE_HP_PREMIUM_PLUS_PHOTO:                        RESDLL.STRRESSEC.3873
+    IDS_MTYPE_HP_PREMIUM_PHOTO:                             RESDLL.STRRESSEC.3874
+    IDS_ACTIVATE_AUTO_OFF:                                  RESDLL.STRRESSEC.4285
+    IDS_HP_GREETING_CARD_ENVELOPE:                          RESDLL.STRRESSEC.1025
+    IDS_OTHER_PHOTO_PAPER_NOS:                              RESDLL.STRRESSEC.3439
+    IDS_MTYPE_CARDSTOCK_164_220:                            RESDLL.STRRESSEC.4687
+    IDS_MT_HP_ADVANCED_PHOTO_PAPER_GLOSSY:                  RESDLL.STRRESSEC.4381
+    IDS_MTYPE_HP_NOTE_CARDS:                                RESDLL.STRRESSEC.4446
+    IDS_MTYPE_HEAVY_105_120:                                RESDLL.STRRESSEC.4731
+    IDS_MTYPE_EXTRA_HEAVY_GLOSSY_160_220:                   RESDLL.STRRESSEC.4730 
+    IDS_MTYPE_HEAVY_GLOSSY_120_160:                         RESDLL.STRRESSEC.4729 
+    IDS_MTYPE_GLOSSY_75_120:                                RESDLL.STRRESSEC.4728
+    IDS_MTYPE_IJ_HP_ADVANCED_PAPER:                         RESDLL.STRRESSEC.4751 
+    IDS_MTYPE_HP_PHOTO_PAPER_MATTE:                         RESDLL.STRRESSEC.4725
+    IDS_MTYPE_HP_PREM_PLUS_PHOTO_PROOF_GLOSS:               RESDLL.STRRESSEC.4723
+    IDS_MTYPE_HP_PREM_PLUS_PHOTO_PROOF_STAIN:               RESDLL.STRRESSEC.4724
+    IDS_MTYPE_HP_HOLIDAY_PHOTO_CARDS:                       RESDLL.STRRESSEC.4722
+    IDS_MTYPE_HP_BROCHURE_FLYER_SEMI_GLOSS:                 RESDLL.STRRESSEC.4726
+    IDS_MTYPE_HP_TRI_FOLD_BROUCHURE_MATTE:                  RESDLL.STRRESSEC.4727
+    IDS_MTYPE_HP_BROCHURE_GLOSSY:                           RESDLL.STRRESSEC.4450
+    IDS_MTYPE_HP_BROCHURE_MATTE:                            RESDLL.STRRESSEC.4451
+    IDS_MTYPE_IJ_HP_ADVANCED_PHOTO_PAPER:                   RESDLL.STRRESSEC.4793
+    IDS_MTYPE_IJ_MAGNETIC_PHOTO_PAPER:                      RESDLL.STRRESSEC.4794
+    IDS_MTYPE_IJ_HP_PHOTO_CARD:                             RESDLL.STRRESSEC.4786
+    IDS_MTYPE_IJ_HP_SELF_ADHESIVE_PHOTO:                    RESDLL.STRRESSEC.4787
+    IDS_MTYPE_IJ_PLAIN_HAGAKI:                              RESDLL.STRRESSEC.4791
+    IDS_MTYPE_IJ_PHOTO_HAGAKI:                              RESDLL.STRRESSEC.4792
+    IDS_MSIZE_ENV_A2_MM:                                    RESDLL.STRRESSEC.4774
+    IDS_MTYPE_HAGAKI_PHOTO:                                 RESDLL.STRRESSEC.3870
+    IDS_MTYPE_HAGAKI_NONPHOTO:                              RESDLL.STRRESSEC.3871
+    IDS_QS_NO_10_ENVELOPE_9_5x4_13_IN:                      RESDLL.STRRESSEC.4820
+    IDS_COLOR_MATCHING_ADOBE_RGB:                           RESDLL.STRRESSEC.4956
+    IDS_MTYPE_COLOR_LASER_PHOTO_PAPER_GLOSSY:               RESDLL.STRRESSEC.5037
+    IDS_MTYPE_PHOTO_GLOSS_PAPAER:                           RESDLL.STRRESSEC.5065
+    IDS_MTYPE_SUPER_HEAVY_COATED_PAPER:                     RESDLL.STRRESSEC.5066
+    IDS_MTYPE_PHOTO_SEMI_GLOSS_SATIN_PAPER:                 RESDLL.STRRESSEC.5067
+    IDS_MTYPE_PHOTO_MATTE_PAPER:                            RESDLL.STRRESSEC.5068
+    IDS_MTYPE_PROOFING_SEMI_GLOSS_SATIN_PAPER:              RESDLL.STRRESSEC.5069
+    IDS_MTYPE_TRANSPARENT_OR_CLEAR_FILM:                    RESDLL.STRRESSEC.5070
+    IDS_MTYPE_GLOSSY_FILM:                                  RESDLL.STRRESSEC.5071
+    IDS_MTYPE_BACKLIT:                                      RESDLL.STRRESSEC.5072
+    IDS_MTYPE_TEXTURED_FINE_ART_PAPER:                      RESDLL.STRRESSEC.5073
+    IDS_MTYPE_VINYL:                                        RESDLL.STRRESSEC.5074
+    IDS_MTYPE_OUTDOOR_PAPER:                                RESDLL.STRRESSEC.5075
+    IDS_MTYPE_ADHESIVE_PAPER:                               RESDLL.STRRESSEC.5076
+    IDS_MTYPE_IJ_HP_PREMIUM_PLUS_PHOTO_PAPERS:              RESDLL.STRRESSEC.5084
+    IDS_HP_TRIFOLD_BROCHURE_GLOSSY_180G:                    RESDLL.STRRESSEC.7295
+    IDS_MTYPE_IJ_HP_PREMIUM_PHOTO_PAPERS:                   RESDLL.STRRESSEC.5085
+    IDS_MTYPE_IJ_HP_PHOTO_CARDS:                            RESDLL.STRRESSEC.5086
+    IDS_MTYPE_HP_PRE_COVER_200:                             RESDLL.STRRESSEC.4689
+    IDS_MTYPE_HP_PRE_PLUS_PHOT_220:                         RESDLL.STRRESSEC.4690
+    IDS_MTYPE_IJ_CD_DVD_TATTOO:                             RESDLL.STRRESSEC.5094
+    IDS_MTYPE_TRANSLUCENT_BOND:                             RESDLL.STRRESSEC.5096
+    IDS_MTYPE_IJ_PHOTO_RAG_PAPER:                           RESDLL.STRRESSEC.5103
+    IDS_MTYPE_IJ_WATERCOLOR_PAPER:                          RESDLL.STRRESSEC.5104
+    IDS_MTYPE_IJ_CANVAS:                                    RESDLL.STRRESSEC.5105
+    IDS_MTYPE_IJ_OTHER_FINE_ART_PAPERS:                     RESDLL.STRRESSEC.5106
+    IDS_MTYPE_IJ_RIGID_COATED_PAPER:                        RESDLL.STRRESSEC.5107
+    IDS_MTYPE_IJ_RIGID_PHOTO_RAG:                           RESDLL.STRRESSEC.5108
+    IDS_MTYPE_IJ_RIGID_WATERCOLOR:                          RESDLL.STRRESSEC.5109
+    IDS_MTYPE_IJ_RIGID_CANVAS:                              RESDLL.STRRESSEC.5110
+    IDS_PS_12X12_IN:                                        RESDLL.STRRESSEC.4697
+    IDS_MTYPE_LJ_HEAVY_ENVELOPE:                            RESDLL.STRRESSEC.5114
+    IDS_MTYPE_IJ_HP_SELF_ADHESIVE_PHOTO_PAPER:              RESDLL.STRRESSEC.4787
+    IDS_MTYPE_HP_TATTOOS_FOR_IPOD:                          RESDLL.STRRESSEC.5129
+    IDS_MTYPE_HP_STUDIO_PRO_PHOTO_PAPER_GLOSSY:             RESDLL.STRRESSEC.5130
+    IDS_MTYPE_HP_BROCHURE_FLYER_MATTE_FINISH:               RESDLL.STRRESSEC.5131
+    IDS_MTYPE_RIGID_PHOTO:                                  RESDLL.STRRESSEC.5132
+    IDS_MTYPE_STUDIO_PRO_PHOTO_PAPER_SATIN:                 RESDLL.STRRESSEC.5133
+    IDS_MTYPE_PRINTABLE_CD:                                 RESDLL.STRRESSEC.5134
+    IDS_MTYPE_PROOFING_MATTE:                               RESDLL.STRRESSEC.5285
+    IDS_MTYPE_MATTE_BROCHURE_FLER_PAPER:                    RESDLL.STRRESSEC.5286
+    IDS_MTYPE_STICKER_ROUND:                                RESDLL.STRRESSEC.3846
+    IDS_MTYPE_STICKER_SQUARE:                               RESDLL.STRRESSEC.3845
+    IDS_MTYPE_HP_PHOTO_MATTE:                               RESDLL.STRRESSEC.5288
+    IDS_GROUP_BROCHURE_PAPERS:                              RESDLL.STRRESSEC.3125
+    IDS_STR_MTYPE_INSTANT_DRY_PHOTO_GLOSS:                  RESDLL.STRRESSEC.5357
+    IDS_STR_MTYPE_STUDIO_PHOTO_PAPER_SEMI_GLOSS:            RESDLL.STRRESSEC.5358
+    IDS_STR_MTYPE_PREMIUM_INSTANT_DRY_PHOTO_SATIN:          RESDLL.STRRESSEC.5359
+    IDS_STR_MTYPE_HIGH_CONTRACT_PROOFING_PAPER:             RESDLL.STRRESSEC.5360
+    IDS_STR_MTYPE_SEMI_CONTRACT_PROOFING_PAPER:             RESDLL.STRRESSEC.5361
+    IDS_STR_MTYPE_PROOFING_GLOSS_PAPER:                     RESDLL.STRRESSEC.5362
+    IDS_STR_MTYPE_PROOFING_MATTE_PAPER:                     RESDLL.STRRESSEC.5363
+    IDS_STR_MTYPE_PHOTO_RAG_BY_HAHNEMUHLE:                  RESDLL.STRRESSEC.5364
+    IDS_STR_MTYPE_MATTE_LITHO_REALISTIC_PAPER:              RESDLL.STRRESSEC.5365
+    IDS_STR_MTYPE_SMOOTH_PAPER:                             RESDLL.STRRESSEC.5366
+    IDS_STR_MTYPE_VELVET_PAPER:                             RESDLL.STRRESSEC.5367
+    IDS_STR_MTYPE_TYVEK:                                    RESDLL.STRRESSEC.5368
+    IDS_STR_MTYPE_INDOOR_BANNER:                            RESDLL.STRRESSEC.5369
+    IDS_STR_MTYPE_SCRIM_BANNER:                             RESDLL.STRRESSEC.5370
+    IDS_STR_MTYPE_POLYPROPYLENE:                            RESDLL.STRRESSEC.5371
+    IDS_STR_MTYPE_DISPLAY_FILM:                             RESDLL.STRRESSEC.5372
+    IDS_STR_MTYPE_YUPO:                                     RESDLL.STRRESSEC.5373
+    IDS_STR_MTYPE_COLOURED_PAPER:                           RESDLL.STRRESSEC.5374
+    IDS_STR_MTYPE_CLING:                                    RESDLL.STRRESSEC.5375
+    IDS_STR_MTYPE_ADHESIVE_POLYPROPYLENE:                   RESDLL.STRRESSEC.5376
+    IDS_STR_MTYPE_ADHESIVE_VINYL:                           RESDLL.STRRESSEC.5377
+    IDS_STR_MTYPE_VISCOSE:                                  RESDLL.STRRESSEC.5378
+    IDS_STR_MTYPE_COTTON:                                   RESDLL.STRRESSEC.5379
+    IDS_STR_MTYPE_FABRIC_POLYESTER:                         RESDLL.STRRESSEC.5380
+    IDS_STR_MTYPE_FLAG_FABRIC:                              RESDLL.STRRESSEC.5381
+    IDS_STR_MTYPE_SILK:                                     RESDLL.STRRESSEC.5382
+    IDS_STR_MTYPE_BROCHURE_PAPER:                           RESDLL.STRRESSEC.5383
+    IDS_STR_MTYPE_HEAVYWEIGHT_PLUS_MATTE_PAPER:             RESDLL.STRRESSEC.5384
+    IDS_STR_MTYPE_HIGH_END_CANVAS_MATTE:                    RESDLL.STRRESSEC.5385
+    IDS_STR_MTYPE_HIGH_END_CANVAS_SATIN:                    RESDLL.STRRESSEC.5386
+    IDS_STR_MTYPE_WATERCOLOR_PAPER_HAHNEMUHLE:              RESDLL.STRRESSEC.5387
+    IDS_STR_MTYPE_NPI_HP_PHOTO_RAG_HAHNEMUHLE:              RESDLL.STRRESSEC.5388
+    IDS_STR_MTYPE_GLOSS_LITHO_REALISTIC_PAPER_TBC:          RESDLL.STRRESSEC.5389
+    IDS_STR_MTYPE_HIGH_VELVET_TBC:                          RESDLL.STRRESSEC.5390
+    IDS_STR_MTYPE_HIGH_PRODUCTION_TBC:                      RESDLL.STRRESSEC.5391
+    IDS_STR_MTYPE_HIGH_TEXTURED_PAPER_TBC:                  RESDLL.STRRESSEC.5392
+    IDS_STR_MTYPE_HIGH_PRODUCTION_TEXTURED_PAPER_TBC:       RESDLL.STRRESSEC.5393
+    IDS_STR_MTYPE_ADD_PAPER:                                RESDLL.STRRESSEC.5416
+    IDS_STR_MTYPE_CUSTOM_PAPER:                             RESDLL.STRRESSEC.5418
+    IDS_STR_PRINTABLE_CD_DVD:                               RESDLL.STRRESSEC.5407
+    IDS_COVER:                                              RESDLL.STRRESSEC.5536
+    IDS_PRINT_PAGES_ON_DIFFERENT_PAPER:                     RESDLL.STRRESSEC.5541
+    IDS_INSERT_BLANK_OR_PRINTED_SHEETS:                     RESDLL.STRRESSEC.5546
+    IDS_CHAPTER_PAGE_LAYOUT:                                RESDLL.STRRESSEC.5548
+    IDS_MTYPE_PLAIN_76_84:                                  RESDLL.STRRESSEC.5577
+    IDS_MTYPE_INTERMEDIATE_85_95:                            RESDLL.STRRESSEC.5578
+    IDS_MTYPE_HP_LASERJET_90:                                RESDLL.STRRESSEC.5579
+    IDS_MTYPE_EVERYDAY_95:                                   RESDLL.STRRESSEC.5580
+    IDS_MTYPE_PRESENTATION_96_125:                           RESDLL.STRRESSEC.5581
+    IDS_MTYPE_MID_WEIGHT_96_110:                             RESDLL.STRRESSEC.5582
+    IDS_MTYPE_MID_WEIGHT_GLOSSY_96_110:                      RESDLL.STRRESSEC.5583
+    IDS_MTYPE_HEAVY_111_125:                                 RESDLL.STRRESSEC.5584
+    IDS_MTYPE_HEAVY_GLOSSY_111_125:                          RESDLL.STRRESSEC.5585
+    IDS_MTYPE_HP_COLOR_LASER_105:                            RESDLL.STRRESSEC.5586
+    IDS_MTYPE_HP_PREMIUM_CHOICE_120:                         RESDLL.STRRESSEC.5587
+    IDS_MTYPE_HP_SOFT_GLOSS_120:                             RESDLL.STRRESSEC.5588
+    IDS_MTYPE_HP_GLOSSY_120:                                 RESDLL.STRRESSEC.5589
+    IDS_MTYPE_EXTRA_HEAVY_126_175:                           RESDLL.STRRESSEC.5590
+    IDS_MTYPE_EXTRA_HEAVY_GLOSSY_126_175:                    RESDLL.STRRESSEC.5591
+    IDS_MTYPE_MATTE_BROCHURE_160:                            RESDLL.STRRESSEC.5592
+    IDS_MTYPE_HP_GLOSSY_BROCHURE_160:                        RESDLL.STRRESSEC.5593
+    IDS_MTYPE_BROCHURE_126_175:                              RESDLL.STRRESSEC.5594
+    IDS_MTYPE_COVER_176_220:                                 RESDLL.STRRESSEC.5595
+    IDS_MTYPE_CARDSTOCK_176_220:                             RESDLL.STRRESSEC.5596
+    IDS_MTYPE_HP_COVER_200:                                  RESDLL.STRRESSEC.5597
+    IDS_MTYPE_CARDSTOCK_GLOSSY_176_220:                      RESDLL.STRRESSEC.5598
+    IDS_MTYPE_HP_MATTE_PHOTO_200:                            RESDLL.STRRESSEC.5599
+    IDS_MTYPE_HP_GLOSSY_PHOTO_220:                           RESDLL.STRRESSEC.5600
+    IDS_MTYPE_PHOTO_176_220:                                 RESDLL.STRRESSEC.5601
+    IDS_MTYPE_OTHER:                                         RESDLL.STRRESSEC.5602
+    IDS_MTYPE_COLOR_LASER_TRANSPARENCY:                      RESDLL.STRRESSEC.5603
+    IDS_MTYPE_COLORED:                                       RESDLL.STRRESSEC.5604
+    IDS_MTYPE_TEXTURED:                                      RESDLL.STRRESSEC.5605
+    IDS_MTYPE_BUSINESS_CARD:                                 RESDLL.STRRESSEC.5606
+    IDS_MTYPE_HP_TOUGH_PAPER:                                RESDLL.STRRESSEC.5607
+    IDS_MTYPE_OPAQUE_FILM:                                   RESDLL.STRRESSEC.5608
+    IDS_MSIZE_6_X_8_IN:                                      RESDLL.STRRESSEC.5950
+    IDS_PLAIN_75_95:                                         RESDLL.STRRESSEC.5796
+    IDS_STR_MTYPE_INSTANT_DRY_PHOTO_GLOSS:                  RESDLL.STRRESSEC.5357
+    IDS_STR_MTYPE_PREMIUM_INSTANT_DRY_PHOTO_SATIN:          RESDLL.STRRESSEC.5359
+    IDS_HP_PROFFESTIONAL_HIGH_GLOSS:                        RESDLL.STRRESSEC.5649    
+    IDS_HP_PROFFESTIONAL_SEMI_GLOSS:                         RESDLL.STRRESSEC.5650
+    IDS_MTYPE_HP_PROOFING_MATTE:                             RESDLL.STRRESSEC.5777
+    IDS_STR_MTYPE_PROOFING_GLOSS_PAPER:                     RESDLL.STRRESSEC.5362
+    IDS_STR_MTYPE_PROOFING_MATTE_PAPER:                      RESDLL.STRRESSEC.5363
+    IDS_PHOTO_RAG:                                           RESDLL.STRRESSEC.5778
+    IDS_STR_MTYPE_SMOOTH_PAPER:                              RESDLL.STRRESSEC.5366
+    IDS_STR_MTYPE_VELVET_PAPER:                              RESDLL.STRRESSEC.5367
+    IDS_MTYPE_HP_PROFFESTIONAL_MATTE:                        RESDLL.STRRESSEC.5652
+    IDS_MTYPE_HP_COLLECTOR_SATIN_CANVAS:                      RESDLL.STRRESSEC.5653
+    IDS_MTYPE_HP_ARTIST_MATTE:                                RESDLL.STRRESSEC.5654
+    IDS_MTYPE_HP_HAHNEMUHLE_SMOOTH:                           RESDLL.STRRESSEC.5655
+    IDS_MTYPE_HP_MATTE_LITHO:                                 RESDLL.STRRESSEC.5656
+    IDS_MTYPE_HP_HAHNEMUHLE_TEXTURED:                         RESDLL.STRRESSEC.5658
+    IDS_MTYPE_HP_PHOTO_MATTE_TROJA:                           RESDLL.STRRESSEC.5940
+    IDS_MTYPE_SEMI_GLOSS_SATIN_PAPPER:                        RESDLL.STRRESSEC.5776
+    IDS_MTYPE_NATURAL_TRACING_PAPER:                          RESDLL.STRRESSEC.4946
+    IDS_MTYPE_TRANSLUCENT_BOND:                               RESDLL.STRRESSEC.5096
+    IDS_VELLUM:                                               RESDLL.STRRESSEC.3442
+    IDS_MTYPE_IJ_WATERCOLOR_PAPER:                            RESDLL.STRRESSEC.5104
+    IDS_MTYPE_IJ_HP_PHOTO_CARDS :                             RESDLL.STRRESSEC.5086
+IDS_MTYPE_AUTOMATIC:                                                 RESDLL.STRRESSEC.968
+IDS_PLAIN_PAPER:                                                          RESDLL.STRRESSEC.3440
+IDS_MTYPE_HP_BRIGHT_WHITE_PAPER:                        RESDLL.STRRESSEC.3839
+IDS_MTYPE_PREM_INKJET:                                             RESDLL.STRRESSEC.3832
+IDS_MTYPE_EVERYDAY_PHOTO:                                    RESDLL.STRRESSEC.3868
+IDS_MTYPE_TRAN:                                                           RESDLL.STRRESSEC.3831
+IDS_MTYPE_TSHIRT:                                                        RESDLL.STRRESSEC.3835
+IDS_OTHER_BROCHURE_PAPERS:                                  RESDLL.STRRESSEC.995
+IDS_MTYPE_HP_PHOTO_PAPER:                                     RESDLL.STRRESSEC.3875
+IDS_MTYPE_EVERYDAY_PHOTO_MATT:                          RESDLL.STRRESSEC.3848
+ 
+IDS_MTYPE_LJ_HP_LASERJET_90_G:                       RESDLL.STRRESSEC.6007
+IDS_MTYPE_LJ_LIGHT_60_70:                            RESDLL.STRRESSEC.6009
+IDS_MTYPE_LJ_INTERMEDIATE_85_95:                     RESDLL.STRRESSEC.6010
+IDS_MTYPE_LJ_HP_COLORLASERMATTE_105:                 RESDLL.STRRESSEC.6012
+IDS_MTYPE_LJ_HP_MID_WEIGHT_96_110:                   RESDLL.STRRESSEC.6013
+IDS_MTYPE_LJ_HP_MID_WEIGHTgLOSSY_96_110:             RESDLL.STRRESSEC.6014
+IDS_MTYPE_LJ_HEAVY111_125:                           RESDLL.STRRESSEC.6015
+IDS_MTYPE_LJ_HEAVYGLOSSY_111_125:                    RESDLL.STRRESSEC.6016
+IDS_MTYPE_LJ_HP_PREMIUM_CHOICE_MATTE_120:            RESDLL.STRRESSEC.6017
+IDS_MTYPE_LJ_PRESENTATION_GLOSSY_120:                RESDLL.STRRESSEC.6045
+IDS_MTYPE_LJ_HP_PROFESSIONAL_SOFT_GLOSS_120:         RESDLL.STRRESSEC.6018
+IDS_MTYPE_LJ_HP_PROFESSIONAL_LASER_GLOSSY_120:       RESDLL.STRRESSEC.6046
+IDS_MTYPE_LJ_HP_PROFESSIONAL_LASER_GLOSS_120:        RESDLL.STRRESSEC.6019
+IDS_MTYPE_LJ_EXTRAHEAVY_126_175:                     RESDLL.STRRESSEC.6021
+IDS_MTYPE_LJ_EXTRAHEAVY_GLOOSY_126_175:              RESDLL.STRRESSEC.6022
+IDS_MTYPE_LJ_HP_COLORLASER_BROCHURE_MATTE_160:       RESDLL.STRRESSEC.6023
+IDS_MTYPE_LJ_HP_COLORLASER_BROUCHUREGLOSSY_160:      RESDLL.STRRESSEC.6025
+IDS_MTYPE_LJ_CARDSTOCK_176_220:                      RESDLL.STRRESSEC.6028
+IDS_MTYPE_LJ_HP_LASER_COVERMATTE_200:                RESDLL.STRRESSEC.6029
+IDS_MTYPE_LJ_HP_MATTE_PHOTO_200:                     RESDLL.STRRESSEC.6030
+IDS_MTYPE_LJ_HP_COLOR_LASER_PHOTO_GLOSSY220:         RESDLL.STRRESSEC.6031
+IDS_MTYPE_LJ_CARD_GLOSSY_176_220:                    RESDLL.STRRESSEC.6032
+IDS_MTYPE_LJ_COLORLASER_TRANSPARENCY:                RESDLL.STRRESSEC.6033
+IDS_MTYPE_LJ_HEAVY_ENVELOPE_Q206:                    RESDLL.STRRESSEC.6060
+IDS_MTYPE_LJ_HP_TOUGH_PAPER:                         RESDLL.STRRESSEC.6034
+IDS_MTYPE_LJ_OPAQUE_FILM:                            RESDLL.STRRESSEC.6035
+IDS_MTYPE_HP_INKJET_TRANSPARENCY:                       RESDLL.STRRESSEC.5514
+IDS_MTYPE_HP_SNOWMAN_220:                               RESDLL.STRRESSEC.5516
+IDS_MTYPE_HP_SNOWMAN_160:                               RESDLL.STRRESSEC.5515
+IDS_MTYPE_HP_MATTE_BROCHURE:                            RESDLL.STRRESSEC.5518
+IDS_MTYPE_HP_MATTE_COVER:                               RESDLL.STRRESSEC.5519
+IDS_NON_HP_MATTE:                                       RESDLL.STRRESSEC.5520
+IDS_NON_HP_MATTE_BROCHURE:                              RESDLL.STRRESSEC.5521
+IDS_NON_HP_MATTE_COVER:                                 RESDLL.STRRESSEC.5522
+IDS_TYPE_IS_CARD_STOCK:                                 RESDLL.STRRESSEC.718    
+IDS_MTYPE_HP_ADVANCED_PHOTO_PAPER_SOFT_GLOSS:           RESDLL.STRRESSEC.6062  
+IDS_MTYPE_HP_ADVANCED_PHOTO_PAPER_SATIN_MATTE:          RESDLL.STRRESSEC.6063 
+IDS_MTYPE_HP_LG:                                        RESDLL.STRRESSEC.6169
+IDS_MTYPE_HP_PREM_PRES_MATTE_120:                       RESDLL.STRRESSEC.6170
+IDS_MTYPE_HP_COVER_MATTE_200:                           RESDLL.STRRESSEC.6171
+IDS_HP_EDGELINE_GLOS_160:                               RESDLL.STRRESSEC.6172
+IDS_HP_EDGELINE_GLOS_220:                               RESDLL.STRRESSEC.6173
+IDS_HP_PREM_INKJ_TRANS:                                 RESDLL.STRRESSEC.6174
+IDS_MTYPE_CARDSTOCK_160:                                RESDLL.STRRESSEC.6175
+IDS_MTYPE_HP_BROCHURE_AND_FLYER:                        RESDLL.STRRESSEC.6182 
+IDS_MTYPE_HP_LASERJET_90G:                              RESDLL.STRRESSEC.6130
+IDS_MTYPE_INTERMEDIATE_85:                              RESDLL.STRRESSEC.6131
+IDS_MTYPE_HP_MATTE_105:                                 RESDLL.STRRESSEC.6132
+IDS_MTYPE_MIDW_96:                                      RESDLL.STRRESSEC.6133
+IDS_MTYPE_MIDW_GLOSSY:                                  RESDLL.STRRESSEC.6134
+IDS_MTYPE_HEAVY_111:                                    RESDLL.STRRESSEC.6135
+IDS_MTYPE_HP_HEAVY_111:                                 RESDLL.STRRESSEC.6136
+IDS_MTYPE_HP_PREMIUM_CHOICE:                            RESDLL.STRRESSEC.6137
+IDS_MTYPE_HP_PROFESSIONAL:                              RESDLL.STRRESSEC.6138
+IDS_MTYPE_EXTRA_HEAVY_126:                              RESDLL.STRRESSEC.6139
+IDS_MTYPE_EXTRA_HEAVY_GLOS:                             RESDLL.STRRESSEC.6140
+IDS_MTYPE_HP_BROCHURE_160:                              RESDLL.STRRESSEC.6141
+IDS_MTYPE_HP_MATTE_160:                                 RESDLL.STRRESSEC.6142
+IDS_MTYPE_LJ_HP_SUPERIOR_LASER_GLOSSY_160:              RESDLL.STRRESSEC.6026
+IDS_MTYPE_HP_BROCH_GLOS:                                RESDLL.STRRESSEC.6143
+IDS_MTYPE_CARDSTOCK_176:                                RESDLL.STRRESSEC.6144
+IDS_MTYPE_HP_COVER_MAT_200:                             RESDLL.STRRESSEC.6145
+IDS_MTYPE_MATTE_PHOTO_200:                              RESDLL.STRRESSEC.6146
+IDS_MTYPE_HP_PHOT_GLOS_220:                             RESDLL.STRRESSEC.6147
+IDS_MTYPE_CARD_GLOS_176:                                RESDLL.STRRESSEC.6148
+IDS_MTYPE_FINE_ART_PAPER:                               RESDLL.STRRESSEC.6176
+IDS_THICK_FINE_ART_PAPER:                               RESDLL.STRRESSEC.6177
+IDS_MTYPE_DESJ_PLAIN:                                   RESDLL.STRRESSEC.6149
+IDS_MTYPE_DESJ_COATED:                                  RESDLL.STRRESSEC.6150
+IDS_MTYPE_DESJ_HEAVYW:                                  RESDLL.STRRESSEC.6151
+IDS_MTYPE_COATED_PAPER_SMALL:                           RESDLL.STRRESSEC.6161
+IDS_MR_EXTRA_HEAVY_120_163:                             RESDLL.STRRESSEC.3979
+
+IDS_MTYPE_HP_PRESENTATION_SOFT_GLOS120:                 RESDLL.STRRESSEC.6243
+IDS_MTYPE_LJ_HP_PROFESSIONAL_LASER_GLOSS_120:           RESDLL.STRRESSEC.6019
+IDS_MTYPE__OTHER_BROCHURE_PAPERS:                       RESDLL.STRRESSEC.6184
+IDS_MSIZE_16k_MM_Q306:                                  RESDLL.STRRESSEC.6212
+IDS_MSIZE_16k_184_MM_Q306:                              RESDLL.STRRESSEC.6213
+IDS_TRANSPARENT_CLEAR_FILM:                             RESDLL.STRRESSEC.5779
+IDS_MTYPE_PROF_SATIN_PHOTO:                             RESDLL.STRRESSEC.6261
+IDS_MTYPE_HP_BROCHURE_AND_FLYER_GLOS:                   RESDLL.STRRESSEC.6254
+IDS_MTYPE_IJ_HP_BRO_FLY_MAT:                            RESDLL.STRRESSEC.6372
+
+IDS_MTYPE_HP_COLOR_LASER_PHOTO_GLOSSY220_HIGHER_GLOSS:          RESDLL.STRRESSEC.6588
+IDS_MTYPE_HP_COLOR_LASER_PHOTO_GLOSSY220_FASTER_PRINTING:          RESDLL.STRRESSEC.6587
+IDS_HP_BROCHURE_MATTE_150G_CSL:                         RESDLL.STRRESSEC.7187
+IDS_HP_BROCHURE_GLOSSY_150G_CSL:                        RESDLL.STRRESSEC.7188
+IDS_HP_TRIFOLD_BROCHURE_GLOSSY_150G_CSL:                RESDLL.STRRESSEC.7189
+IDS_HP_BROCHURE_GLOSSY_200G_CSL:                        RESDLL.STRRESSEC.7190
+IDS_HP_PREMIUM_PRESENTATION_GLOSSY_120G_CSL:             RESDLL.STRRESSEC.7191
+IDS_HP_BROCHURE_GLOSSY_200G_FASTER_PRINTING:            RESDLL.STRRESSEC.7198 
+IDS_HP_BROCHURE_GLOSSY_200G_HIGHER_GLOSS:               RESDLL.STRRESSEC.7199
+IDS_HP_BROCHURE_MATTE_180G_CSL:                         RESDLL.STRRESSEC.7172
+IDS_HP_ECOFFICIENT:						RESDLL.STRRESSEC.7537
+IDS_HP_BROCHURE_GLOSSY:                                 RESDLL.STRRESSEC.7656
+}
+
+*Macros: HPQualityNames
+{
+    BEST_DISPLAY:                                           RESDLL.STRRESSEC.518
+    NORMAL_DISPLAY:                                         RESDLL.STRRESSEC.519
+    FAST_DISPLAY:                                           RESDLL.STRRESSEC.520
+    PRINT_QUALITY_DISPLAY:                                  RESDLL.STRRESSEC.521
+    IDS_PHOTO_PRINTING:                                     RESDLL.STRRESSEC.1007
+    IDS_PHOTORET:                                           RESDLL.STRRESSEC.1008
+    IDS_2400X1200:                                          RESDLL.STRRESSEC.1009
+    IDS_2400_1200_DPI:                                      RESDLL.STRRESSEC.1009
+    IDS_2400_1200_OPTIMIZED_DPI:                            RESDLL.STRRESSEC.4004
+    IDS_4800_1200_OPTIMIZED_DPI:                            RESDLL.STRRESSEC.3434
+    IDS_4800X1200:                                          RESDLL.STRRESSEC.3434
+    IDS_BLACK_RENDER_DPI:                                   RESDLL.STRRESSEC.3991
+    IDS_COLOR_INPUT_DPI:                                    RESDLL.STRRESSEC.3992
+    IDS_COLOR_OUTPUT:                                       RESDLL.STRRESSEC.3993
+    IDS_COLON:                                              RESDLL.STRRESSEC.3994
+    IDS_300:                                                RESDLL.STRRESSEC.3995
+    IDS_600:                                                RESDLL.STRRESSEC.3996
+    IDS_1200:                                               RESDLL.STRRESSEC.3997
+    IDS_PRO_RES_156_LPI:                                    RESDLL.STRRESSEC.4675     
+    IDS_PQ_IMAGE_RET_2400:                                  RESDLL.STRRESSEC.5029
+    IDS_PQ_TRUERES_1200:                                    RESDLL.STRRESSEC.5030
+    IDS_PRO_RES_170_LPI:                                    RESDLL.STRRESSEC.5167
+    IDS_PQ_1200:                                            RESDLL.STRRESSEC.4916
+    IDS_STR_NO_MARGINS:                                     RESDLL.STRRESSEC.5345
+    IDS_PRINT_QUALITY_GOOD:                                 RESDLL.STRRESSEC.5797
+    IDS_1200_600:                                           RESDLL.STRRESSEC.6196
+    IDS_IMAGERET_4800:                                      RESDLL.STRRESSEC.6197
+    IDS_IMAGERET_3600:                                      RESDLL.STRRESSEC.6209
+    IDS_400DPI_CSL:                                         RESDLL.STRRESSEC.7214
+    IDS_PQ_PRESENTATION_CSL:                                RESDLL.STRRESSEC.7215
+    IDS_Custom1_PQ:               		            RESDLL.STRRESSEC.7842
+    IDS_Custom2_PQ:               		            RESDLL.STRRESSEC.7843
+    IDS_Custom3_PQ:               		            RESDLL.STRRESSEC.7844
+    IDS_HPSTANDARD_PQ:                                      RESDLL.STRRESSEC.7848
+    IDS_PREMIUM_PQ:                                         RESDLL.STRRESSEC.7849
+    IDS_QUICKDRAFT_PQ:                                      RESDLL.STRRESSEC.7850
+    IDS_DETAILED_PQ:                                        RESDLL.STRRESSEC.7851
+	IDS_RET_DISPLAY:										RESDLL.STRRESSEC.136
+}
+
+
+*Macros: HelpIDs
+{
+    IDH_UNIDRV_COMBINE_SOURCE_TYPE:                                         15255
+    IDH_UNIDRV_PRINT_ROTATED:                                               14067
+    IDH_UNIDRV_PRINT_ON_BOTH_SIDES_BOTH_EC6:                                15292
+    IDH_UNIDRV_PRINT_ON_BOTH_SIDES_AUTO:                                    15203
+    IDH_UNIDRV_PAPER_SIZE:                                                  13022
+    IDH_UNIDRV_FIRST_PAGE_TYPE_IS:                                          14100
+    IDH_UNIDRV_FIRST_PAGE_SOURCE_IS:                                        14025
+    IDH_UNIDRV_HP5SI_ENV:                                                   12000
+    IDH_UNIDRV_HP5SI_TRAY:                                                  12005
+    IDH_UNIDRV_HP5SI_HCI:                                                   12001
+    IDH_UNIDRV_ACCESSORY_OUTPUT_BIN_EC5:                                    15242
+    IDH_UNIDRV_DUPLEX_UNIT_EC5:                                             15241
+    IDH_UNIDRV_ALLOW_MANUAL_DUPLEXING_EC6:                                  15302
+    IDH_UNIDRV_HP5SI_MEM:                                                   12003
+    IDH_UNIDRV_PRINTER_HARD_DISK:                                           14061
+    IDH_UNIDRV_JOBRETENTION_PH3:                                            15129
+    IDH_UNIDRV_MOPIER_ENABLED:                                              14041
+    IDH_UNIDRV_LARGER_PAPER:                                                15115
+    IDH_UNIDRV_OUTPUT_BIN_EC6:                                              15301
+    IDH_UNIDRV_PH3_STAPLING_OPTIONS:                                        15106
+    IDH_UNIDRV_TRUETYPE_AS_BITMAP:                                          13153
+    IDH_UNIDRV_HP5SI_RET:                                                   12010
+    IDH_UNIDRV_ECONOMODE_MAY_SAVE_PRINT_CARTRIDGES:                         15211
+    IDH_UNIDRV_PRINT_TEXT_BLACK_EC5:                                        15250
+    IDH_RASTER_COMPRESSION_EC6:                                             15270
+    IDH_UNIDRV_PRINT_QUALITY_PH3:                                           15131
+    IDH_UNIDRV_PRINT_QUALITY_PH3_PCL5:                                      15132
+    IDH_UPDATE_NOW_EC6:                                                     15303
+    IDH_UNIDRV_GRAPHICS_MODE_2:                                             15071
+    IDH_UNIDRV_COLOR_MODE:                                                  12024
+    IDH_UNIDRV_MFP_MODULE_INSTALLED:                                        15058
+    IDH_UNIDRV_PRINT_ON_BOTH_SIDES_MANUAL_EC6:                              15293
+    IDH_UNIDRV_COLORTREATMENT:                                              13000
+    IDH_UNIDRV_HALFTONE_PH3:                                                15139
+    IDH_UNIDRV_COLOROPTIONS_TEXT_PH3:                                       15140
+    IDH_UNIDRV_COLOROPTIONS_PHOTOS_PH3:                                     15141
+    IDH_UNIDRV_COLOROPTIONS_GENERAL_PH3:                                    15142
+    IDH_UNIDRV_COLORMAP:                                                    15145
+    IDH_UNIDRV_COLOROPTIONS_GRAPHICS:                                       13012
+    IDH_UNIDRV_COLOROPTIONS_PHOTOS:                                         13013
+    IDH_UNIDRV_COLOROPTIONS_TEXT:                                           13011
+    IDH_UNIDRV_STRAIGHT_PAPER_PATH_EC6:                                     15291
+    IDH_INK_VOLUME_EC6:                                                     15276
+    IDH_DRY_TIME_EC6:                                                       15277
+    IDH_PRINT_IN_GREYSCALE_EC6:                                             15278
+    IDH_UNIDRV_BACKSIDE_PRINTING:                                           15116
+    IDH_UNIDRV_IJ_TURBO_MODE:                                               15120
+    IDH_UNIDRV_EMULATE_LASERJET_MARGINS:                                    15102
+    IDH_UNIDRV_SYMMETRICAL_MARGINS:                                         15103
+    IDH_UNIDRV_PRINT_ON_BOTH_SIDES_OPTIONS_BUTTON:                          15104
+    IDH_PRESERVE_LAYOUT_EC6:                                                15297
+    IDH_UNIDRV_FONT_PAGE_PROTECTION:                                        14028
+    IDH_UNIDRV_GLOSS_PRINT_FINISH:                                          13018
+    IDH_UNIDRV_MIRRORED_PRINTING:                                           15259
+    IDH_UNIDRV_EDGE_TO_EDGE:                                                13050
+    IDH_UNIDRV_HP3200_OPTIMIZE:                                             13020
+    IDH_PRINT_QUALITY_IJ_EC6:                                               15298
+    IDH_SATURATION_EC6:                                                     15271
+    IDH_BRIGHTNESS_EC6:                                                     15272
+    IDH_COLOR_TONE_EC6:                                                     15273
+    IDH_POSTER_NUP_EC6:                                                     15283
+    IDH_INSTALLED_PRINT_CARTRIDGES_Q104:                                    15452
+    IDH_MINIMIZE_MARGINS_03Q3:                                              15318
+    IDH_SHOW_HP_PREVIEW_Q104:                                               15466
+    IDH_ALTERNATIVE_LETTERHEAD_MODE_Q104:                                   15445
+    IDH_UNIDRV_HP5SI_DISK:                                                  12002
+    IDH_UNIDRV_GRAPHICS_MODE_EC5:                                           15240
+    IDH_VARIABLE_OVERSPRAY_Q304:                                            15522
+    IDH_DRY_TIME_Q304:                                                      15523
+    IDH_ENABLE_PRINTING_SHORTCUTS_Q304:                                     15524    
+    IDH_PRINT_DIAGNOSTICS_PAGE_Q304:                                        15526
+    IDH_PRINT_QUALITY_CALIBRATION_Q304:                                     15527
+    IDH_FACE_DOWN_Q304:                                                     15528
+    IDH_FACE_UP_Q304:                                                       15529
+    IDH_SAVE_CUSTOM_PAPER_Q304:                                             15525
+    IDH_OUTPUT_BIN_OPTIONS_Q204:                                            15520
+    IDH_PRINT_PCL_ERROR_Q403:                                               15443
+    IDH_MINIMIZE_MARGINS_Q104:                                              15469
+    IDH_MEDIA_WIDTH_SENSOR:                                                 15317
+    IDH_ACCOUNT_ID_Q405:                                                    15567
+    IDH_JPEG_PASSTHROUGH_Q405:                                              15568
+    IDH_UNIDRV_FIRST_PAGE_TYPE_IS_Q405:                                     15569
+    IDH_COLOR_MANAGEMENT_Q405:                                              15570
+    IDH_UNIDRV_CMYK_INKSET_EMULATION_2_Q405:                                15571
+    IDH_SEPARATOR_PAGE_Q405:                                                15573
+    IDH_MAX_APPLICATION_RESOLUTION_Q305:                                    15572
+    IDH_FILE_NAME_Q405:                                                     15574
+    IDH_APPLICATION_NAME_Q405:                                              15575
+    IDH_DATE_AND_TIME_Q405:                                                 15576
+    IDH_USER_NAME_Q405:                                                     15577
+    IDH_PHOTO_IMAGE_Q305:                                                   15578
+    IDH_PRINT_IN_COLOR_Q405:                                                15579
+    IDH_PRINTER_SERVICES_Q405:                                              15580   
+    IDH_GRAYSCALE_COMBO_Q405:                                               15581
+    IDH_FACTORY_DEFAULTS_Q405:                                              15582
+    IDH_HPFAX_RECIPIENT_NAME_Q405:                                          15583
+    IDH_HPFAX_FAX_NUMBER_Q405:                                              15584
+    IDH_HPFAX_COMPANY_NAME_Q405:                                            15585
+    IDH_HPFAX_ADD_TO_PHONE_BOOK_Q405:                                       15586
+    IDH_HPFAX_CLEAR_FIELDS_Q405:                                            15587
+    IDH_HPFAX_FAX_RECIPIENTS_Q405:                                          15588
+    IDH_HPFAX_TO_Q405:                                                      15589
+    IDH_HPFAX_DELETE_Q405:                                                  15590
+    IDH_HPFAX_COVER_PAGE_SINGLE_RECIPIENT_Q405:                             15591
+    IDH_HPFAX_NOTES_Q405:                                                   15592
+    IDH_HPFAX_SUBJECT_Q405:                                                 15593
+    IDH_HPFAX_BROWSE_Q405:                                                  15594
+    IDH_HPFAX_BILLING_CODE_Q405:                                            15595
+    IDH_HPFAX_BTN_SEND_Q405:                                                15596
+    IDH_HPFAX_CANCEL_Q405:                                                  15597
+    IDH_HPFAX_HELP_Q405:                                                    15598
+    IDH_HPFAX_EDIT_DEFAULTS_Q405:                                           15599
+    IDH_HPFAX_SENDER_NAME_Q405:                                             15600
+    IDH_HPFAX_VOICE_PHONE_NUMBER_Q405:                                      15601
+    IDH_HPFAX_RESOLUTION_Q405:                                              15602
+    IDH_HPFAX_FINE_Q405:                                                    15603
+    IDH_HPFAX_SUPERFINE_Q405:                                               15604
+    IDH_HPFAX_THIS_JOB_Q405:                                                15605
+    IDH_HPFAX_ON_ERROR_Q405:                                                15606
+    IDH_HPFAX_PRINT_Q405:                                                   15607
+    IDH_HPFAX_EMAIL_Q405:                                                   15608
+    IDH_HPFAX_EMAIL_ADDRESS_Q405:                                           15609
+    IDH_HPFAX_SHOW_PREVIEW_Q405:                                            15610
+    IDH_HPFAX_TYPE_NAME_Q405:                                               15611
+    IDH_HPFAX_PHONE_BOOK_ADD_Q405:                                          15612
+    IDH_HPFAX_PHONE_BOOK_EDIT_Q405:                                         15613
+    IDH_HPFAX_OK_Q405:                                                      15614
+    IDH_HPFAX_NOTIFY_Q405:                                                  15615
+    IDH_HPFAX_ALWAYS_Q405:                                                  15616
+    IDH_HPFAX_NEVER_Q405:                                                   15617
+    IDH_HPFAX_PHONE_BOOK:                                                   15618
+    IDH_HPFAX_HELP_FAXJOB:                                                  15619
+    IDH_HPFAX_RESOLUTION_STANDARD:                                          15620
+    IDH_HPFAX_HELP_EDIT_DEFAULTS:                                           15621
+    IDH_HPFAX_LIST_PHONE_BOOK:                                              15622
+    IDH_HPFAX_PHONEBOOK_DELETE:                                             15623
+    IDH_HPFAX_PHONEBOOK_TO:                                                 15624
+    IDH_TRANSPARENCY_INTERLEAVE_Q0303:                                      15316
+    IDH_PAGE_EXCEPTION:                                                     15666
+    IDH_PAPER_SIZE_Q106:                                                    15691
+    IDH_COLOR_MANAGEMENT_Q106:                                              15692
+    IDH_FACTORY_DEFAULTS_COLOR_Q106:                                        15693
+    IDH_PRINT_QUALITY_SHORTCUT_Q106:                                        15694
+    IDH_HELP_Q106:                                                          15695
+    IDH_OVERSPRAY_Q106:                                                     15696 
+    IDH_NORMAL:                                                             15753
+    IDH_SMALL:                                                              15754
+    IDH_EXTENDED:                                                           15755
+    IDH_EDGE_TO_EDGE_Q107:                                                  15775
+    IDH_COLOR_QUALITY_Q107:                                                 15783
+    IDH_PRINTER_STATUS_NOTIFICATION_CSL:                                    15807
+
+}
+
+
+*Macros: CommandCallBackIDs
+{
+    CMDCB_HPJOBACCOUNT:                                                     1
+    CMDCB_HPROT_DOC_SETUP:                                                  2
+    CMDCB_HPBOD:                                                            3
+    CMDCB_JRSTARTDOC:                                                       4
+    CMDCB_HPJBJO:                                                           5
+    CMDCB_COLOR_SELECTION_HPA:                                              6
+    CMDCB_STAPLESTARTDOC:                                                   7
+    CMDCB_MANUALDUPLEX:                                                     8
+    CMDCB_CUSTOM_PAPER:                                                     9
+    CMDCB_PUMPPJLUSAGE:                                                     10
+    CMDCB_USERDEFINED_MEDIA:                                                11
+    CMDCB_COLOR_PLANE:                                                      12
+    CMDCB_CONTENT_ORIENTATION:                                              13
+    CMDCB_HPSPEEDMECH:                                                      14
+    CMDCB_HPCRDCOMMAND:                                                     15
+    CMDCB_MEDIAWIDTHSENSOR:                                                 16
+    CMDCB_BORDERLESS:                                                       17
+    CMDCB_RESOLUTION_PJL:                                                   18
+    CMDCB_CUSTOMSIZE:                                                       19
+    CMDCB_HPAUTODUPLEX:                                                     20
+    CMDCB_UNITMEASURECMD:                                                   21
+    CMDCB_MANDUPSIDECOUNT:                                                  22
+    CMDCB_HPIMAGESHIFT:                                                     23
+    CMDCB_HPRASTERWIDTH:                                                    24
+    CMDCB_PAPERSIZE_PJL:                                                    25
+    CMDCB_COPIES:                                                           26
+    CMDCB_FOLDING:                                                          27
+    CMDCB_MARGIN_PJL:                                                       28
+    CMDCB_HPROT_BY_180:                                                     29
+    CMDCB_HAGAKI:                                                           30
+    CMDCB_HPACA:                                                            31
+    CMDCB_SEPARATOR_PAGE:                                                   32
+    CMDCB_BCMTHEME:                                                         33
+    CMDCB_RESOLUTION_300:                                                   34
+    CMDCB_RESOLUTION_IMAGE:                                                 35
+    CMDCB_RESOLUTION_PRO:                                                   36
+    CMDCB_RESOLUTION_FAST:                                                  37
+    CMDCB_RESOLUTION_600:                                                   38
+    CMDCB_PAPERMARGINPJL:                                                   39
+    CMDCB_PRINTQUALITY:                                                     40
+    CMDCB_JOBUI:                                                            41
+    CMDCB_HPCS_CO_RGB:                                                      42
+    CMDCB_HPCS_CO_HT:                                                       43
+    CMDCB_HPCS_TXT_NG:                                                      44
+    CMDCB_HPCS_TXT_HT:                                                      45
+    CMDCB_HPCS_GRA_NG:                                                      46
+    CMDCB_HPCS_GRA_HT:                                                      47
+    CMDCB_HPCS_PHO_NG:                                                      48
+    CMDCB_HPCS_PHO_HT:                                                      49
+    CMDCB_HPCS_CO_EDGE:                                                     50
+    CMDCB_CURSORSHIFT:                                                      51
+    CMDCB_RESOLUTION_IMAGE3600:                                             52
+    CMDCB_RESOLUTION_12008BPP:                                              53
+    CMDCB_RESOLUTION_PRORES_170LPI:                                         54
+    CMDCB_RESOLUTION_PRORES_141LPI:                                         55
+    CMDCB_HPCS_TXT_RGB:                                                     56
+    CMDCB_HPCS_GRA_RGB:                                                     57
+    CMDCB_HPCS_PHO_RGB:                                                     58
+    CMDCB_INKPDL_GRAYSCALE:                                                 59
+    CMDCB_GRAYSCALE:                                                        60
+    CMDCB_RIGHT_EDGE:                                                       61
+    CMDCB_INKSLIDER_DT:                                                     62
+    CMDCB_INKSLIDER_SR:                                                     63
+    CMDCB_INKSLIDER_BIS:                                                    64
+    CMDCB_OUTPUTPROFILE:                                                    65
+    CMDCB_FOLDING_PC:                                                       66
+    CMDCB_COLLATE:                                                          67
+	CMDCB_ECONOMODE:														68
+    CMDCB_EDGETOEDGE:                                                       69
+    CMDCB_UEL_END_JOB:                                                      70
+    CMDCB_CUSTOM_PAPERSIZE:                                                 71
+    CMDCB_UNSPECIFIED_MEDIA:						    72
+}
+
+*%-------------------------------------------------------------------------
+*% As you add callback ids, be sure to keep the CommandCallbackIds.h 
+*% in sync with this file
+*%-------------------------------------------------------------------------
+
+
+*Macros: MediaTypeIndexes
+{
+    HP_DMMEDIA_START                                    : 513
+    HP_DMMEDIA_AUTOMATIC                                : 514
+    HP_DMMEDIA_PLAIN                                    : 515
+    HP_DMMEDIA_HP_BRIGHT_WHITE_INKJET_PAPER             : 516
+    HP_DMMEDIA_HP_PREM_INKJET_PAPER                     : 517
+    HP_DMMEDIA_OTHER_INKJET_PAPERS                      : 518
+    HP_DMMEDIA_HP_PREMIUM_PLUS_PHOTO_PAPER              : 519
+    HP_DMMEDIA_HP_PREMIUM_PHOTO_PAPER                   : 520
+    HP_DMMEDIA_HP_PHOTO_PREMIUM_HIGH_GLOSS_FILM         : 521
+    HP_DMMEDIA_HP_EVERYDAY_PHOTO_PAPER_SEMI_GLOSS       : 522
+    HP_DMMEDIA_HP_EVERYDAY_PHOTO_PAPER_MATTE            : 523
+    HP_DMMEDIA_HP_PHOTO_PAPER                           : 524
+    HP_DMMEDIA_HP_PHOTO_PAPER_PROJECT                   : 525
+    HP_DMMEDIA_OTHER_PHOTO_PAPER                        : 526
+    HP_DMMEDIA_HP_PREMIUM_INKJET_TRANSPARENCY           : 527
+    HP_DMMEDIA_OTHER_TRANSPARENCY_FILMS                 : 528
+    HP_DMMEDIA_HP_IRON_ON_TRANSFER                      : 529
+    HP_DMMEDIA_HP_PHOTO_GREETING_CARDS                  : 530
+    HP_DMMEDIA_OTHER_GREETING_CARDS                     : 531
+    HP_DMMEDIA_HP_PROFESSIONAL_BROCHURE_PAPER_GLOSSY    : 532
+    HP_DMMEDIA_HP_PROFESSIONAL_BROCHURE_PAPER_MATTE     : 533
+    HP_DMMEDIA_OTHER_BROCHURE_PAPERS                    : 534
+    HP_DMMEDIA_HP_LABELS_MATTE                          : 535
+    HP_DMMEDIA_HP_NOTE_CARDS                            : 536
+    HP_DMMEDIA_OTHER_SPECIALTY_PAPERS                   : 537
+    HP_DMMEDIA_HP_PLAIN_HAGAKI                          : 538
+    HP_DMMEDIA_INKJET_HAGAKI                            : 539
+    HP_DMMEDIA_HP_PHOTO_HAGAKI                          : 540
+    HP_DMMEDIA_HP_PHOTO_CARD                            : 541
+    HP_DMMEDIA_HP_ADVANCED_PHOTO_PAPER                  : 542
+    HP_DMMEDIA_TRIFOLD_BROCHURE_PAPER_GLOSSY            : 543
+    HP_DMMEDIA_BROCHURE_PAPER_GLOSSY                    : 544
+    HP_DMMEDIA_SELF_ADHESIVE                            : 545
+    HP_DMMEDIA_HP_BANNER_PAPER                          : 546
+    HP_DMMEDIA_HP_LABELS_GLOSSY                         : 547
+    HP_DMMEDIA_HP_MATTE_POSTCARDS                       : 548
+    HP_DMMEDIA_HP_PREM_INKJET_PRESENTATION_PAPER        : 549
+    HP_DMMEDIA_HP_MATTE_GREETING_CARDS                  : 550
+    HP_DMMEDIA_HP_PROFESSIONAL_BROCHURE_MATTE           : 551
+    HP_DMMEDIA_HP_PROFESSIONAL_BROCHURE_GLOSSY          : 552
+    HP_DMMEDIA_THICK_PLAIN                              : 553
+
+    HP_DMMEDIA_HP_CL_PHOTO_GLOSSY_220G_FP               : 554
+    HP_DMMEDIA_HP_CL_PHOTO_GLOSSY_220G_HG               : 555
+    HP_DMMEDIA_VELLUM					: 556  
+    
+
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_START                    : 22000
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_01                       : 22001
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_02                       : 22002
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_03                       : 22003
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_04                       : 22004
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_05                       : 22005
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_06                       : 22006
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_07                       : 22007
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_08                       : 22008
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_09                       : 22009
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_10                       : 22010
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_11                       : 22011
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_12                       : 22012
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_13                       : 22013
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_14                       : 22014
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_15                       : 22015
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_16                       : 22016
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_17                       : 22017
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_18                       : 22018
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_19                       : 22019
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_20                       : 22020
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_21                       : 22021
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_22                       : 22022
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_23                       : 22023
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_24                       : 22024
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_25                       : 22025
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_26                       : 22026
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_27                       : 22027
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_28                       : 22028
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_29                       : 22029
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_30                       : 22030
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_31                       : 22031
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_32                       : 22032
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_33                       : 22033
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_34                       : 22034
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_35                       : 22035
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_36                       : 22036
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_37                       : 22037
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_38                       : 22038
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_39                       : 22039
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_40                       : 22040
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_END                      : 22999
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_BASE_START               : 24000
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_BASE_01                  : 24001
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_BASE_02                  : 24002
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_BASE_03                  : 24003
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_BASE_04                  : 24004
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_BASE_05                  : 24005
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_BASE_06                  : 24006
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_BASE_07                  : 24007
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_BASE_08                  : 24008
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_BASE_09                  : 24009
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_BASE_10                  : 24010
+    HP_DMMEDIA_HP_CUSTOM_MEDIA_BASE_END                 : 24999
+}
+
+*Macros: BinIndexes
+{
+    *%DMBIN_FORMSOURCE                                  :  15
+    HP_DMBIN_PRINTER_AUTO_SELECT                        : 257
+    HP_DMBIN_MANUAL_FEED_TRAY_1                         : 258
+    HP_DMBIN_TRAY1                                      : 259
+    HP_DMBIN_TRAY2                                      : 260
+    HP_DMBIN_TRAY3                                      : 261
+    HP_DMBIN_TRAY4                                      : 262
+    HP_DMBIN_TRAY5                                      : 263
+    HP_DMBIN_TRAY6                                      : 264
+    HP_DMBIN_TRAY7                                      : 265
+    HP_DMBIN_MAIN_TRAY                                  : 259
+    HP_DMBIN_PHOTO_TRAY                                 : 300
+    HP_DMBIN_UPPER_TRAY                                 : 259
+    HP_DMBIN_LOWER_TRAY                                 : 260
+    HP_DMBIN_LOWER_UPPER_TRAY                           : 302
+    HP_DMBIN_UPPER_LOWER_TRAY                           : 303
+    HP_DMBIN_SPECIALTY_MEDIA_TRAY                       : 304
+    HP_DMBIN_ANY_ROLL                                   : 257
+    HP_DMBIN_ROLL_1                                     : 400
+    HP_DMBIN_ROLL_2                                     : 401
+    HP_DMBIN_ENVELOPE_FEEDER                            : 512
+    HP_DMBIN_CD_DVD_TRAY                                : 304
+}
+
+*Macros: Q107Strings
+{
+    IDS_TRANSPARENT_CLEAR_FILM:                 RESDLL.STRRESSEC.5779
+    IDS_MTYPE_PROF_SATIN_PHOTO:                 RESDLL.STRRESSEC.6261
+    IDS_MTYPE_EDGELINE_GLOS_180G:               RESDLL.STRRESSEC.6308
+    IDS_SINGLE_OUTPUT_BIN:                      RESDLL.STRRESSEC.6259 
+    IDS_GENERAL_OFFICE_COLOR_QUAL:              RESDLL.STRRESSEC.6390
+    IDS_PROFF_COLOR_QUALITY:                    RESDLL.STRRESSEC.6391
+    IDS_PQ_PROFESSIONAL:                        RESDLL.STRRESSEC.6310
+    IDS_PQ_GENERAL_OFFICE:                      RESDLL.STRRESSEC.6309
+    IDS_PQ_GENERAL_OFFICE_CAP:                  RESDLL.STRRESSEC.7313
+    IDS_MTYPE_PROF_SATIN_PHOTO:                    RESDLL.STRRESSEC.6261
+    IDS_TYPE_IS_COLOR:                          RESDLL.STRRESSEC.717
+    IDS_PAGE_OF_PAGES:                            RESDLL.STRRESSEC.6292
+    IDS_READING_DOC_PL_WAIT:                    RESDLL.STRRESSEC.6291
+    IDH_EDGE_TO_EDGE_Q107:                                        15775
+    IDS_GLOSS_ENHANCER_TROJA:                    RESDLL.STRRESSEC.5949
+    IDS_MAX_SPEED:                                RESDLL.STRRESSEC.6429
+    IDS_PRODUCTION:                               RESDLL.STRRESSEC.6430
+    IDS_PRODUCTIVITY:                             RESDLL.STRRESSEC.6431
+    IDS_MAX_QUALITY:                              RESDLL.STRRESSEC.6432
+    IDS_INC_RES_FOR_GLOSSY_HK:                    RESDLL.STRRESSEC.6433
+    IDS_MTYPE_HP_UNIVERSAL_HIGH_GLOS:            RESDLL.STRRESSEC.6316
+    IDS_MTYPE_IJ_BRIGHT_WHITE_BOND:              RESDLL.STRRESSEC.6311
+    IDS_MTYPE_IJ_UNIVERSAL_BOND:                 RESDLL.STRRESSEC.6312
+    IDS_MTYPE_HP_COATED_PAPER:                   RESDLL.STRRESSEC.6313
+    IDS_MTYPE_HP_HW_COATED:                      RESDLL.STRRESSEC.6314
+    IDS_MTYPE_NATURAL_TRACING:                   RESDLL.STRRESSEC.6315
+    IDS_MTYPE_HP_UNIVERSAL_SEMI_GLOS:            RESDLL.STRRESSEC.6317
+    IDS_HP_DESIGNJET_500_800:                    RESDLL.STRRESSEC.6514
+    IDS_HP_DESIGNJET_1000:                       RESDLL.STRRESSEC.6515
+    IDS_MAX_SPEED:                                RESDLL.STRRESSEC.6429
+    IDS_PRODUCTION:                               RESDLL.STRRESSEC.6430
+    IDS_PRODUCTIVITY:                             RESDLL.STRRESSEC.6431
+    IDS_MAX_QUALITY:                              RESDLL.STRRESSEC.6432
+    IDS_INC_RES_FOR_GLOSSY_HK:                   RESDLL.STRRESSEC.6433
+    IDS_MTYPE_HP_UNIVERSAL_HIGH_GLOS:            RESDLL.STRRESSEC.6316
+    IDS_MTYPE_IJ_BRIGHT_WHITE_BOND:                RESDLL.STRRESSEC.6311
+    IDS_MTYPE_IJ_UNIVERSAL_BOND:                    RESDLL.STRRESSEC.6312
+    IDS_MTYPE_HP_COATED_PAPER:                    RESDLL.STRRESSEC.6313
+    IDS_MTYPE_HP_HW_COATED:                        RESDLL.STRRESSEC.6314
+    IDS_MTYPE_NATURAL_TRACING:                    RESDLL.STRRESSEC.6315
+    IDS_MTYPE_HP_UNIVERSAL_SEMI_GLOS:            RESDLL.STRRESSEC.6317
+    IDS_HP_DESIGNJET_500_800:                    RESDLL.STRRESSEC.6514
+    IDS_HP_DESIGNJET_1000:                        RESDLL.STRRESSEC.6515
+    IDS_MTYPE_HW_COATED:                         RESDLL.STRRESSEC.6160
+    IDS_NORMAL_FAST:                             RESDLL.STRRESSEC.6535
+
+    IDS_ADHESIVE_POLY_MATTE:                     RESDLL.STRRESSEC.6526
+    IDS_ADHESIVE_POLY_SATIN:                     RESDLL.STRRESSEC.6527
+    IDS_HP_4K_SHEET_INPUT_TRAY5:                 RESDLL.STRRESSEC.6531
+    IDS_HP_SINGLE_OUTPUT_BIN:                    RESDLL.STRRESSEC.6532
+    IDS_MYPE_GLOSSY_96_110G:                     RESDLL.STRRESSEC.6715
+    IDS_MTYPE_HP_MATTE_90G:                      RESDLL.STRRESSEC.6705
+    IDS_MTYPE_HP_MATTE_105G:                     RESDLL.STRRESSEC.6706
+    IDS_MTYPE_HP_MATTE_120G:                     RESDLL.STRRESSEC.6707
+    IDS_MTYPE_HP_SOFT_GLOSS_120G:                RESDLL.STRRESSEC.6708
+    IDS_MTYPE_HP_GLOSSY_130G:                    RESDLL.STRRESSEC.6709
+    IDS_MTYPE_HP_MATTE_160G:	                 RESDLL.STRRESSEC.6710
+    IDS_MTYPE_HP_GLOSSY_160G:			 RESDLL.STRRESSEC.6711
+    IDS_MTYPE_HP_MATTE_200G:			 RESDLL.STRRESSEC.6712
+    IDS_MTYPE_HP_GLOSSY_220G:                    RESDLL.STRRESSEC.6713
+    IDS_MTYPE_MID_WEIGHT:			 RESDLL.STRRESSEC.6714
+    IDS_PRINTER_STATUS_CSL:			 RESDLL.STRRESSEC.6956
+    IDS_2_PUNCH_KIT:                       RESDLL.STRRESSEC.4088
+    IDS_3_PUNCH_KIT:                       RESDLL.STRRESSEC.4087
+    IDS_4_PUNCH_KIT:                       RESDLL.STRRESSEC.4060
+    IDS_PUNCH_LEFT:                         RESDLL.STRRESSEC.4012
+    IDS_PUNCH_RIGHT:                        RESDLL.STRRESSEC.4013
+    IDS_PUNCH_TOP:                          RESDLL.STRRESSEC.4011
+    IDS_PUNCH:                              RESDLL.STRRESSEC.4007
+    
+    IDS_500_SHEET_TRAY:                 RESDLL.STRRESSEC.1129
+    IDS_1500_SHEET_TRAY:                RESDLL.STRRESSEC.1130
+	
+    IDS_500_SHEET_INPUT_TRAY:            RESDLL.STRRESSEC.958
+    IDS_1500_SHEET_INPUT_TRAY:            RESDLL.STRRESSEC.959
+    IDS_HP_3BIN_STAPLER_STACKER_MAILBOXMODE_CZ264A:     RESDLL.STRRESSEC.7383
+    IDS_HP_3BIN_STAPLER_STACKER_STACKERMODE_CZ264A:     RESDLL.STRRESSEC.7384
+    IDS_HP_3BIN_FUNCTION_SEPARATOR_CZ264A:              RESDLL.STRRESSEC.7385
+
+    IDS_HP_3BIN_STAPLER_STACKER_MAILBOXMODE_B3M76A:            RESDLL.STRRESSEC.7448
+    IDS_HP_3BIN_STAPLER_STACKER_FUNCTION_SEPARATOR_B3M76A:     RESDLL.STRRESSEC.7449
+    IDS_HP_3BIN_STAPLER_STACKER_STACKERMODE_B3M76A:            RESDLL.STRRESSEC.7450
+
+
+	IDS_SRGB:								RESDLL.STRRESSEC.5439
+    IDS_MFD_APPLERGB:     				    RESDLL.STRRESSEC.7392
+    IDS_MFD_GAMMA_A_1_6:    			    RESDLL.STRRESSEC.7393
+    IDS_MFD_GAMMA_B_2_0:     			    RESDLL.STRRESSEC.7394
+    IDS_MFD_GAMMA_C_2_6:     			    RESDLL.STRRESSEC.7395
+    IDS_MFD_GAMMA_D_3_0:     			    RESDLL.STRRESSEC.7396
+    IDS_MFD_TONERSAVE:     				    RESDLL.STRRESSEC.7397
+    IDS_CUSTOM:     						RESDLL.STRRESSEC.1018
+	IDS_GRAPHICS:							RESDLL.STRRESSEC.501
+	IDS_MFD_OUTPUT_PROFILE:					RESDLL.STRRESSEC.7398
+	IDS_MFD_BPT:							RESDLL.STRRESSEC.7418
+	IDS_MFD_LCT:							RESDLL.STRRESSEC.7417
+	IDS_FOLD_ONLY:							RESDLL.STRRESSEC.7125
+	IDS_INNER_BIN:							RESDLL.STRRESSEC.7168
+	IDS_MFD_MBT:							RESDLL.STRRESSEC.7419
+	IDS_MFD_MBT_MF10:						RESDLL.STRRESSEC.7420
+	IDS_MFD_MBT_MF11:						RESDLL.STRRESSEC.7421
+	IDS_MFD_LCT_LC12:						RESDLL.STRRESSEC.7422
+	IDS_MFD_LCT_LC13:						RESDLL.STRRESSEC.7423
+	IDS_MFD_LCT_LCX3N:						RESDLL.STRRESSEC.7424
+	IDS_MFD_LCT_LC11:						RESDLL.STRRESSEC.7425	
+	IDS_INSERTER1:							RESDLL.STRRESSEC.7140
+	IDS_INSERTER2:							RESDLL.STRRESSEC.7141
+    IDS_PRODUCTCLASS:		RESDLL.STRRESSEC.7092
+    IDS_PAPERFOLDING_UNIT:	RESDLL.STRRESSEC.7111
+    IDS_DOCINSERTION_UNIT:	RESDLL.STRRESSEC.7115
+	IDS_MFD_LCT_LC15:						RESDLL.STRRESSEC.7516	
+	IDS_MFD_LCT_LC16:						RESDLL.STRRESSEC.7517	
+	IDS_EJA_TAB_NAME:	RESDLL.STRRESSEC.7707
+        IDS_LINEWIDTHCORRECTION:            RESDLL.STRRESSEC.7729
+	IDS_HP_PIN_PRINT_ONLY:					RESDLL.STRRESSEC.7772
+	IDS_ENHANCED:							RESDLL.STRRESSEC.7611
+	IDS_COMPATIBILITYMODE: 					RESDLL.STRRESSEC.7838
+	IDS_TAB_PAPER: 							RESDLL.STRRESSEC.7852 
+	IDS_HP_PREMIUM_PLUS_PHOTO_PAPERS: 		RESDLL.STRRESSEC.7853
+	IDS_HP_EVERYDAY_PHOTO_PAPERS: 			RESDLL.STRRESSEC.7854
+}

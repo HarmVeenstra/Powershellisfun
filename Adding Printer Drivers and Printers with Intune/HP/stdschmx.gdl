@@ -1,0 +1,99 @@
+*%  stdschx.gdl
+*%  this file defines the parts of the schema that are dependent on
+*%  preprocessor defines.
+
+*%  Since this header relies on passed in Preprocessor defines, it must not be PreCompiled.
+*PreCompiled:  FALSE
+
+*Include: "stdschem.gdl"
+
+*Ifdef:   WINNT_50
+    *%  and above ...
+
+*Template:  PRINTRATEUNIT
+{
+    *Name: "*PrintRateUnit"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_PRINTRATEUNIT
+}
+*Template:  PREDEFINED_PAPERSIZE_OPTION_2  *%  Additional papersizes
+    *%  for NT5.0
+{
+    *Inherits: V_PREDEFINED_PAPERSIZE_OPTION
+    *Instances:  (
+        DBL_JAPANESE_POSTCARD,
+        A6,
+        JENV_KAKU2,
+        JENV_KAKU3,
+        JENV_CHOU3,
+        JENV_CHOU4,
+        LETTER_ROTATED,
+        A3_ROTATED,
+        A4_ROTATED,
+        A5_ROTATED,
+        B4_JIS_ROTATED,
+        B5_JIS_ROTATED,
+        JAPANESE_POSTCARD_ROTATED,
+        DBL_JAPANESE_POSTCARD_ROTATED,
+        A6_ROTATED,
+        JENV_KAKU2_ROTATED,
+        JENV_KAKU3_ROTATED,
+        JENV_CHOU3_ROTATED,
+        JENV_CHOU4_ROTATED,
+        B6_JIS,
+        B6_JIS_ROTATED,
+        12X11,
+        JENV_YOU4,
+        JENV_YOU4_ROTATED,
+        P16K,
+        P32K,
+        P32KBIG,
+        PENV_1,
+        PENV_2,
+        PENV_3,
+        PENV_4,
+        PENV_5,
+        PENV_6,
+        PENV_7,
+        PENV_8,
+        PENV_9,
+        PENV_10,
+        P16K_ROTATED,
+        P32K_ROTATED,
+        P32KBIG_ROTATED,
+        PENV_1_ROTATED,
+        PENV_2_ROTATED,
+        PENV_3_ROTATED,
+        PENV_4_ROTATED,
+        PENV_5_ROTATED,
+        PENV_6_ROTATED,
+        PENV_7_ROTATED,
+        PENV_8_ROTATED,
+        PENV_9_ROTATED,
+        PENV_10_ROTATED
+        )
+}
+
+*Template:  ROOT_1
+{
+    *Inherits: ROOT
+    *Members:  (PRINTRATEUNIT)
+    *Production: SATISFY_ALL
+    {
+        *Production: EXACTLY_ONE
+        {
+            *Production: SATISFY_ALL
+            {
+                *Member:  PRINTRATE {*Occurs:  1 }
+                *Member:  PRINTRATEUNIT {*Occurs:  1 }
+            }
+            *Production: SATISFY_ALL
+            {
+                *Member:  PRINTRATE {*Occurs:  0 }
+                *Member:  PRINTRATEUNIT {*Occurs:  0 }
+            }
+        }
+    }
+}
+*Endif: WINNT_50
+

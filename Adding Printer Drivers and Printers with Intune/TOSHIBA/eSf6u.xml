@@ -1,0 +1,96 @@
+<!-- Version: 7.212.4835.7 -->
+<FWConfig>
+    <Property name="huntsman.printticket.forcemono" value="0"/>
+    <Property name="funnelweb.supportmono.enable" value="1"/>
+    <Property name="huntsman.watermark.drawsolid" value="1"/>
+    <Property name="huntsman.subsetfont.afterpagenumber" value="2"/>
+    <Property name="huntsman.contextcolor.grayconversionformat" value="0"/>
+    <Property name="funnelweb.gdiprocessnondestrops.enable" value="1"/>
+    <Property name="funnelweb.gdiusejpeg.enable" value="1"/>
+    <Property name="funnelweb.gdiusepng.enable" value="0"/>
+    <Property name="funnelweb.gdisubstitutemix.enable" value="0"/>
+    <Property name="funnelweb.gdisubstituterop4.enable" value="0"/>
+    <Property name="funnelweb.booklet.scaletofit.enable" value="0"/>
+    <Property name="funnelweb.bypassIndexedImage.enable" value="1"/>
+    <Property name="funnelweb.backingstoresize.value" value="32768"/>
+    <Property name="funnelweb.defaultdpi.value" value="600"/>
+    <Property name="funnelweb.commonsettings.folder" value="TOSHIBA\eSTUDIOX\UNIDRV"/>
+    <Property name="funnelweb.driver.tech" value="UNIDRV"/>
+    <Property name="funnelweb.pdlsettings.folder" value="TOSHIBA\eSTUDIOX\UNIDRV"/>
+    <Context name="pclxl">
+        <Property name="huntsman.output.jobtype" value="PCLXL"/>
+        <Property name="funnelweb.pdlwriter.dll" value="eSf6upclxl.dll"/>
+        <Property name="funnelweb.gdirenderingfilter.enable" value="1"/>
+        <Property name="funnelweb.pdlsettings.folder" value="TOSHIBA\eSTUDIOX\UNIDRV\PCL6"/>
+        <Property name="funnelweb.gdimirrorsurface.enable" value="0"/>
+    </Context>
+    <Context name="ps">
+        <Property name="huntsman.output.jobtype" value="PS"/>
+        <Property name="funnelweb.pdlwriter.dll" value="eSf6ups.dll"/>
+        <Property name="funnelweb.gdirenderingfilter.enable" value="0"/>
+        <Property name="funnelweb.pdlsettings.folder" value="TOSHIBA\eSTUDIOX\UNIDRV\PS3"/>
+        <Property name="funnelweb.gdimirrorsurface.enable" value="1"/>
+        <Property name="funnelweb.maxlinesegments.value" value="24576"/>  <!-- write 24k points line path  -->
+    </Context>
+    <Context name="pdf">
+        <Property name="huntsman.output.jobtype" value="PS"/>
+        <Property name="funnelweb.pdlwriter.dll" value="eSf6updf.dll"/>
+        <Property name="funnelweb.gdirenderingfilter.enable" value="0"/>
+        <Property name="funnelweb.pdlsettings.folder" value="TOSHIBA\eSTUDIOX\UNIDRV\PDF"/>
+        <Property name="funnelweb.gdimirrorsurface.enable" value="1"/>
+        <Property name="funnelweb.gdiusepng.enable" value="1"/>
+    </Context>
+    <Property name="funnelweb.driver.PDFSupport" value="2"/>
+    <Property name="funnelweb.ui.archive.prefix" value="eSf6u"/>
+    <Property name="funnelweb.ui.generic.prefix" value="eSf6g"/>
+    <Property name="funnelweb.ui.product.prefix" value="eSf"/>
+    <Property name="funnelweb.spooler.cachesize" value="8196"/>
+    <Property name="funnelweb.supportss.enable" value="0"/>
+    <Property name="funnelweb.model.universal.enable" value="1"/>
+    <Property name="funnelweb.model.eS6550C.enable" value="1"/>
+    <Property name="funnelweb.model.eS4540C.enable" value="1"/>
+    <Property name="funnelweb.model.eS856.enable" value="1"/>
+    <Property name="funnelweb.model.eS456.enable" value="1"/>
+    <Property name="funnelweb.model.eS2550C.enable" value="1"/>
+    <Property name="funnelweb.model.eS2551C.enable" value="1"/>
+    <Property name="funnelweb.model.weisshornh.enable" value="1"/>
+    <Property name="funnelweb.model.eS306LP.enable" value="1"/>
+    <Property name="funnelweb.model.eS307LP.enable" value="1"/>
+    <Property name="funnelweb.model.eS407CS.enable" value="1"/>
+    <Property name="funnelweb.model.eS527S.enable" value="1"/>
+    <Property name="funnelweb.model.eS6570C.enable" value="1"/>
+    <Property name="funnelweb.model.eS857.enable" value="1"/>
+    <Property name="funnelweb.model.eS507.enable" value="1"/>
+    <Property name="funnelweb.model.eS6530C.enable" value="1"/>
+    <Property name="funnelweb.model.eS4520C.enable" value="1"/>
+    <Property name="funnelweb.model.eS855.enable" value="1"/>
+    <Property name="funnelweb.model.eS455.enable" value="1"/>
+    <Property name="funnelweb.model.MPS.enable" value="1"/>
+    <Property name="funnelweb.model.eS8508A.enable" value="1"/>
+    <Property name="funnelweb.model.eS5005AC.enable" value="1"/>
+    <Property name="funnelweb.model.eS2500AC.enable" value="1"/>
+    <Property name="funnelweb.model.eS7506AC.enable" value="1"/>
+    <Property name="funnelweb.model.eS5008A.enable" value="1"/>
+    <Property name="funnelweb.model.eS8518A.enable" value="1"/>
+    <Property name="funnelweb.model.eS5015AC.enable" value="1"/>
+    <Property name="funnelweb.model.eS2510AC.enable" value="1"/>
+    <Property name="funnelweb.model.eS7516AC.enable" value="1"/>
+    <Property name="funnelweb.model.eS5018A.enable" value="1"/>
+    <Property name="funnelweb.model.eS5008LP.enable" value="1"/>
+    <Property name="funnelweb.model.eS400AC.enable" value="1"/>
+    <Property name="funnelweb.plugin.minimum.support.ver" value="7.0.0.0"/>
+    <Property name="funnelweb.custompaper.limit" value="40"/>
+    <Property name="funnelweb.pdfpjl.enable" value="1"/>
+    <Property name="funnelweb.driver.ECOProposalSupport" value="1" />
+    <Property name="funnelweb.enhance.minimumvoid" value="1"/>
+    <Property name="funnelweb.A3LDRotate180.rotation" value="1"/>
+    <Property name="funnelweb.driver.JobRetentionSupport" value="0"/>
+    <Property name="funnelweb.enhance.perpageduplex" value="0"/>
+    <Property name="funnelweb.enhance.fastprintwithJPEG" value="0"/>
+    <Property name="funnelweb.tips.download" value="1"/>
+    <Property name="funnelweb.tips.downloading.message" value="0"/>
+    <Property name="funnelweb.tips.userdata.support" value="0"/>
+    <Property name="funnelweb.tips.enhuserdata.support" value="0"/>
+    <Property name="funnelweb.usertypesetting.support" value="0"/>
+    <Property name="funnelweb.logger.level" value=""/>
+</FWConfig>

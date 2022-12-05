@@ -1,0 +1,640 @@
+<!-- Version: 7.212.4835.7 -->
+<PDUI>
+    <Property name="Valid" value="false"/>
+        <!--Valid Options:
+        <Property name="Valid" value="false"/>
+        <Property name="Valid" value="true"/>
+        -->
+    <!-- Config Tab -->
+    <Property name="ModelName" value="Universal"/>
+        <!--ModelName Options:
+        <Property name="ModelName" value="Universal"/>
+        <Property name="ModelName" value="e-STUDIO8508A"/>
+        <Property name="ModelName" value="e-STUDIO7508A"/>
+        <Property name="ModelName" value="e-STUDIO6570C"/>
+        <Property name="ModelName" value="e-STUDIO6560C"/>
+        <Property name="ModelName" value="e-STUDIO6508A"/>
+        <Property name="ModelName" value="e-STUDIO5560C"/>
+        <Property name="ModelName" value="e-STUDIO6550C"/>
+        <Property name="ModelName" value="e-STUDIO6540C"/>
+        <Property name="ModelName" value="e-STUDIO6530C"/>
+        <Property name="ModelName" value="e-STUDIO6520C"/>
+        <Property name="ModelName" value="e-STUDIO5540C"/>
+        <Property name="ModelName" value="e-STUDIO5520C"/>
+        <Property name="ModelName" value="e-STUDIO5508A"/>   
+        <Property name="ModelName" value="e-STUDIO8518A"/>
+        <Property name="ModelName" value="e-STUDIO7518A"/>
+        <Property name="ModelName" value="e-STUDIO6518A"/>
+        <Property name="ModelName" value="e-STUDIO5518A"/>        
+        <Property name="ModelName" value="e-STUDIO5055C"/>
+        <Property name="ModelName" value="e-STUDIO4555C"/>
+        <Property name="ModelName" value="e-STUDIO4540C"/>
+        <Property name="ModelName" value="e-STUDIO4520C"/>
+        <Property name="ModelName" value="e-STUDIO3555C"/>
+        <Property name="ModelName" value="e-STUDIO3540C"/>
+        <Property name="ModelName" value="e-STUDIO3530C"/>
+        <Property name="ModelName" value="e-STUDIO3520C"/>
+        <Property name="ModelName" value="e-STUDIO3055C"/>
+        <Property name="ModelName" value="e-STUDIO3040C"/>
+        <Property name="ModelName" value="e-STUDIO2830C"/>
+        <Property name="ModelName" value="e-STUDIO2820C"/>
+        <Property name="ModelName" value="e-STUDIO2555C"/>
+        <Property name="ModelName" value="e-STUDIO2551C"/>
+        <Property name="ModelName" value="e-STUDIO2550C"/>
+        <Property name="ModelName" value="e-STUDIO2540C"/>
+        <Property name="ModelName" value="e-STUDIO2330C"/>
+        <Property name="ModelName" value="e-STUDIO2055C"/>
+        <Property name="ModelName" value="e-STUDIO2051C"/>
+        <Property name="ModelName" value="e-STUDIO2050C"/>
+        <Property name="ModelName" value="e-STUDIO2040C"/>
+        <Property name="ModelName" value="e-STUDIO2020C"/>
+        <Property name="ModelName" value="e-STUDIO7506AC"/>
+        <Property name="ModelName" value="e-STUDIO6506AC"/>
+        <Property name="ModelName" value="e-STUDIO5506AC"/>
+        <Property name="ModelName" value="e-STUDIO7516AC"/>
+        <Property name="ModelName" value="e-STUDIO6516AC"/>
+        <Property name="ModelName" value="e-STUDIO5516AC"/>
+        <Property name="ModelName" value="e-STUDIO5005AC"/>
+        <Property name="ModelName" value="e-STUDIO4505AC"/>
+        <Property name="ModelName" value="e-STUDIO3505AC"/>
+        <Property name="ModelName" value="e-STUDIO3005AC"/>
+        <Property name="ModelName" value="e-STUDIO2505AC"/>
+        <Property name="ModelName" value="e-STUDIO2005AC"/>
+        <Property name="ModelName" value="e-STUDIO5015AC"/>
+        <Property name="ModelName" value="e-STUDIO4515AC"/>
+        <Property name="ModelName" value="e-STUDIO3515AC"/>
+        <Property name="ModelName" value="e-STUDIO3015AC"/>
+        <Property name="ModelName" value="e-STUDIO2515AC"/>
+        <Property name="ModelName" value="e-STUDIO2015AC"/>        
+        <Property name="ModelName" value="e-STUDIO2500AC"/>
+        <Property name="ModelName" value="e-STUDIO2000AC"/>
+        <Property name="ModelName" value="e-STUDIO2510AC"/>
+        <Property name="ModelName" value="e-STUDIO2010AC"/>        
+        <Property name="ModelName" value="e-STUDIO857"/>
+        <Property name="ModelName" value="e-STUDIO757"/>
+        <Property name="ModelName" value="e-STUDIO657"/>
+        <Property name="ModelName" value="e-STUDIO557"/>
+        <Property name="ModelName" value="e-STUDIO856"/>
+        <Property name="ModelName" value="e-STUDIO855"/>
+        <Property name="ModelName" value="e-STUDIO756"/>
+        <Property name="ModelName" value="e-STUDIO755"/>
+        <Property name="ModelName" value="e-STUDIO656"/>
+        <Property name="ModelName" value="e-STUDIO655"/>
+        <Property name="ModelName" value="e-STUDIO556"/>
+        <Property name="ModelName" value="e-STUDIO555"/>
+        <Property name="ModelName" value="e-STUDIO507"/>
+        <Property name="ModelName" value="e-STUDIO457"/>
+        <Property name="ModelName" value="e-STUDIO455"/>
+        <Property name="ModelName" value="e-STUDIO357"/>
+        <Property name="ModelName" value="e-STUDIO355"/>
+        <Property name="ModelName" value="e-STUDIO307"/>
+        <Property name="ModelName" value="e-STUDIO305"/>
+        <Property name="ModelName" value="e-STUDIO257"/>
+        <Property name="ModelName" value="e-STUDIO207L"/>
+        <Property name="ModelName" value="e-STUDIO506"/>
+        <Property name="ModelName" value="e-STUDIO456"/>
+        <Property name="ModelName" value="e-STUDIO356"/>
+        <Property name="ModelName" value="e-STUDIO306"/>
+        <Property name="ModelName" value="e-STUDIO256"/>
+        <Property name="ModelName" value="e-STUDIO255"/>
+        <Property name="ModelName" value="e-STUDIO206L"/>
+        <Property name="ModelName" value="e-STUDIO205L"/>
+        <Property name="ModelName" value="e-STUDIO5008A"/>
+        <Property name="ModelName" value="e-STUDIO4508A"/>
+        <Property name="ModelName" value="e-STUDIO3508A"/>
+        <Property name="ModelName" value="e-STUDIO3008A"/>
+        <Property name="ModelName" value="e-STUDIO2508A"/>
+        <Property name="ModelName" value="e-STUDIO2008A"/>
+        <Property name="ModelName" value="e-STUDIO5018A"/>
+        <Property name="ModelName" value="e-STUDIO4518A"/>
+        <Property name="ModelName" value="e-STUDIO3518A"/>
+        <Property name="ModelName" value="e-STUDIO3018A"/>
+        <Property name="ModelName" value="e-STUDIO2518A"/>
+        <Property name="ModelName" value="e-STUDIO2018A"/>                
+        <Property name="ModelName" value="Loops-LP30_e-STUDIO306LP"/>
+        <Property name="ModelName" value="e-STUDIO307LP_Loops-LP301"/>
+        <Property name="ModelName" value="e-STUDIO5008LP_Loops-LP50"/>
+        <Property name="ModelName" value="e-STUDIO4508LP_Loops-LP45"/>
+        <Property name="ModelName" value="e-STUDIO3508LP_Loops-LP35"/>         
+        <Property name="ModelName" value="e-STUDIO407CS"/>
+        <Property name="ModelName" value="e-STUDIO347CS"/>
+        <Property name="ModelName" value="e-STUDIO287CS"/>
+        <Property name="ModelName" value="e-STUDIO527S"/>
+        <Property name="ModelName" value="e-STUDIO477S"/>
+        <Property name="ModelName" value="MPS"/>
+        <Property name="ModelName" value="e-STUDIO400AC"/>
+        <Property name="ModelName" value="e-STUDIO330AC"/>
+        -->
+    <Property name="Drawers" value="Drawer 1,2 + LCF"/>
+        <!--Drawers Options:
+        <Property name="Drawers" value="Drawer 1"/>
+        <Property name="Drawers" value="Drawer 1 + LCF"/>
+        <Property name="Drawers" value="Drawer 1 + Drawer 3"/>
+        <Property name="Drawers" value="Drawer 1 + Drawer 3,4"/>
+        <Property name="Drawers" value="Drawer 1 + Drawer 2"/>
+        <Property name="Drawers" value="Drawer 1,2 + Drawer 3"/>
+        <Property name="Drawers" value="Drawer 1,2 + Drawer 3,4"/>
+        <Property name="Drawers" value="Drawer 1,2 + LCF"/>
+        -->
+        <Property name="Finisher" value="Saddle Stitch Finisher (2 Trays + 1 Fixed Tray)"/>
+        <!--Finisher Options:
+        <Property name="Finisher" value="None"/>
+        <Property name="Finisher" value="Hanging Finisher (1 Tray)"/>
+        <Property name="Finisher" value="Hanging Finisher (2 Trays)"/>
+        <Property name="Finisher" value="Inner Finisher"/>
+        <Property name="Finisher" value="Inner Finisher (1 Tray)"/>
+        <Property name="Finisher" value="Finisher (2 Trays + 1 Fixed Tray)"/>
+        <Property name="Finisher" value="Finisher (2 Trays)"/>
+        <Property name="Finisher" value="Saddle Stitch Finisher (1 Tray)"/>
+        <Property name="Finisher" value="Saddle Stitch Finisher (2 Trays)"/>
+        <Property name="Finisher" value="Saddle Stitch Finisher (2 Trays + 1 Fixed Tray)"/>
+        <Property name="Finisher" value="Job Separator"/>
+        <Property name="Finisher" value="Offset Stacker"/>
+        -->
+    <Property name="PunchUnit" value="2/3 Holes"/>
+        <!--PunchUnit Options:
+        <Property name="PunchUnit" value="None"/>
+        <Property name="PunchUnit" value="2 Holes"/>
+        <Property name="PunchUnit" value="2/3 Holes"/>
+        <Property name="PunchUnit" value="4 Holes (F)"/>
+        <Property name="PunchUnit" value="4 Holes (S)"/>
+        -->
+    <Property name="ExternalLCF" value="External LCF"/>
+        <!--ExternalLCF Options:
+        <Property name="ExternalLCF" value="None"/>
+        <Property name="ExternalLCF" value="External LCF"/>
+        <Property name="ExternalLCF" value="Large Size External LCF"/>
+        -->
+    <Property name="Inserter" value="false"/>
+        <!--Inserter Options:
+        <Property name="Inserter" value="false"/>
+        <Property name="Inserter" value="true"/>
+        -->
+    <Property name="UpdateAuto" value="true"/>
+        <!--UpdateAuto Options:
+        <Property name="UpdateAuto" value="false"/>
+        <Property name="UpdateAuto" value="true"/>
+        -->
+    <!-- Drawer Settings -->
+    <Property name="Drawer1Paper" value="Letter"/>
+        <!--Drawer1Paper Options:
+        <Property name="Drawer1Paper" value="Letter"/>
+        <Property name="Drawer1Paper" value="Ledger"/>
+        <Property name="Drawer1Paper" value="LEGAL"/>
+        <Property name="Drawer1Paper" value="STATEMENT"/>
+        <Property name="Drawer1Paper" value="Executive"/>
+        <Property name="Drawer1Paper" value="A3"/>
+        <Property name="Drawer1Paper" value="A4"/>
+        <Property name="Drawer1Paper" value="A5"/>
+        <Property name="Drawer1Paper" value="B4"/>
+        <Property name="Drawer1Paper" value="B5"/>
+        <Property name="Drawer1Paper" value="Folio"/>
+        <Property name="Drawer1Paper" value="Computer"/>
+        <Property name="Drawer1Paper" value="13&quot;LG"/>
+        <Property name="Drawer1Paper" value="13.5&quot;LG"/>
+        <Property name="Drawer1Paper" value="8.5&quot;SQ"/>
+        <Property name="Drawer1Paper" value="8K"/>
+        <Property name="Drawer1Paper" value="16K"/>
+        <Property name="Drawer1Paper" value="Letter-R"/>
+        <Property name="Drawer1Paper" value="A4-R"/>
+        <Property name="Drawer1Paper" value="B5-R"/>
+        <Property name="Drawer1Paper" value="16K-R"/>
+        <Property name="Drawer1Paper" value="12 x 18&quot;"/>
+        <Property name="Drawer1Paper" value="305 x 457 mm"/>
+        <Property name="Drawer1Paper" value="320 x 450 mm"/>
+        <Property name="Drawer1Paper" value="320 x 460 mm"/>
+        <Property name="Drawer1Paper" value="A4-Tab"/>
+        <Property name="Drawer1Paper" value="LT-Tab"/>
+        -->
+    <Property name="Drawer2Paper" value="Letter"/>
+        <!--Same options as Drawer1Paper -->
+    <Property name="Drawer3Paper" value="Letter"/>
+        <!--Same options as Drawer1Paper -->
+    <Property name="Drawer4Paper" value="Letter"/>
+        <!--Same options as Drawer1Paper -->
+    <Property name="LCFPaper" value="Letter"/>
+        <!--LCFPaper Options:
+        <Property name="LCFPaper" value="Letter"/>
+        <Property name="LCFPaper" value="A4"/>
+        <Property name="LCFPaper" value="Folio"/>
+        <Property name="LCFPaper" value="Legal"/>
+        <Property name="LCFPaper" value="13&quot;LG"/>
+        <Property name="LCFPaper" value="13.5&quot;LG"/>
+        -->
+    <Property name="ExternalLCFPaper" value="Letter"/>
+        <!--ExternalLCFPaper Options:
+        <Property name="ExternalLCFPaper" value="Letter"/>
+        <Property name="ExternalLCFPaper" value="A4"/>
+        <Property name="ExternalLCFPaper" value="B5"/>
+        <Property name="ExternalLCFPaper" value="STATEMENT"/>
+        <Property name="ExternalLCFPaper" value="A5"/>
+        -->
+    <!-- Reserved for future extension -->
+    <!-- <Property name="BypassPaper" value="false"/> -->
+    <Property name="Drawer1Media" value="Plain(Auto)"/>
+        <!--Drawer1Media Options:
+        <Property name="Drawer1Media" value="Plain(Auto)"/>
+        <Property name="Drawer1Media" value="Plain(Thin)"/>
+        <Property name="Drawer1Media" value="Plain"/>
+        <Property name="Drawer1Media" value="Plain 1"/>
+        <Property name="Drawer1Media" value="Plain 2"/>
+        <Property name="Drawer1Media" value="Recycled"/>
+        <Property name="Drawer1Media" value="Thick"/>
+        <Property name="Drawer1Media" value="Thick 1"/>
+        <Property name="Drawer1Media" value="Thick 2"/>
+        <Property name="Drawer1Media" value="Thick 3"/>
+        <Property name="Drawer1Media" value="Thick 4"/>
+        <Property name="Drawer1Media" value="Special 4"/>
+        <Property name="Drawer1Media" value="Special 5"/>
+        <Property name="Drawer1Media" value="Special 6"/>
+        <Property name="Drawer1Media" value="Tab"/>
+        <Property name="Drawer1Media" value="USER TYPE 1"/>
+        <Property name="Drawer1Media" value="USER TYPE 2"/>
+        <Property name="Drawer1Media" value="USER TYPE 3"/>
+        <Property name="Drawer1Media" value="USER TYPE 4"/>
+        <Property name="Drawer1Media" value="USER TYPE 5"/>
+        <Property name="Drawer1Media" value="Custom Type 1"
+        <Property name="Drawer1Media" value="Custom Type 2"
+        <Property name="Drawer1Media" value="Custom Type 3"
+        <Property name="Drawer1Media" value="Custom Type 4"
+        <Property name="Drawer1Media" value="Custom Type 5"
+        <Property name="Drawer1Media" value="Custom Type 6"
+        <Property name="Drawer1Media" value="Custom Type 7"
+        <Property name="Drawer1Media" value="Custom Type 8"
+        <Property name="Drawer1Media" value="Custom Type 9"
+        <Property name="Drawer1Media" value="Custom Type 10"
+        -->
+    <Property name="Drawer2Media" value="Plain(Auto)"/>
+        <!--Same options as Drawer1Media -->
+    <Property name="Drawer3Media" value="Plain(Auto)"/>
+        <!--Same options as Drawer1Media -->
+    <Property name="Drawer4Media" value="Plain(Auto)"/>
+        <!--Same options as Drawer1Media -->
+    <Property name="LCFMedia" value="Plain(Auto)"/>
+        <!-- LCFMedia Options:
+        <Property name="LCFMedia" value="Plain(Auto)"/>
+        <Property name="LCFMedia" value="Plain(Thin)"/>
+        <Property name="LCFMedia" value="Plain"/>
+        <Property name="LCFMedia" value="Plain 1"/>
+        <Property name="LCFMedia" value="Plain 2"/>
+        <Property name="LCFMedia" value="Recycled"/>
+        <Property name="LCFMedia" value="Thick"/>
+        <Property name="LCFMedia" value="Thick 1"/>
+        <Property name="LCFMedia" value="Thick 2"/>
+        <Property name="LCFMedia" value="Thick 3"/>
+        <Property name="LCFMedia" value="Thick 4"/>
+        <Property name="LCFMedia" value="USER TYPE 1"/>
+        <Property name="LCFMedia" value="USER TYPE 2"/>
+        <Property name="LCFMedia" value="USER TYPE 3"/>
+        <Property name="LCFMedia" value="USER TYPE 4"/>
+        <Property name="LCFMedia" value="USER TYPE 5"/>
+        <Property name="LCFMedia" value="Custom Type 1"/>
+        <Property name="LCFMedia" value="Custom Type 2"/>
+        <Property name="LCFMedia" value="Custom Type 3"/>
+        <Property name="LCFMedia" value="Custom Type 4"/>
+        <Property name="LCFMedia" value="Custom Type 5"/>
+        <Property name="LCFMedia" value="Custom Type 6"/>
+        <Property name="LCFMedia" value="Custom Type 7"/>
+        <Property name="LCFMedia" value="Custom Type 8"/>
+        <Property name="LCFMedia" value="Custom Type 9"/>
+        <Property name="LCFMedia" value="Custom Type 10"/>
+        -->
+    <Property name="ExternalLCFMedia" value="Plain(Auto)"/>
+        <!--ExternalLCFMedia Options:
+        <Property name="ExternalLCFMedia" value="Plain(Auto)"/>
+        <Property name="ExternalLCFMedia" value="Plain"/>
+        <Property name="ExternalLCFMedia" value="Plain 1"/>
+        <Property name="ExternalLCFMedia" value="Plain 2"/>
+        <Property name="ExternalLCFMedia" value="Recycled"/>
+        <Property name="ExternalLCFMedia" value="Thick"/>
+        <Property name="ExternalLCFMedia" value="Thick 1"/>
+        <Property name="ExternalLCFMedia" value="Thick 2"/>
+        <Property name="ExternalLCFMedia" value="Thick 3"/>
+        <Property name="ExternalLCFMedia" value="Custom Type 1"/>
+        <Property name="ExternalLCFMedia" value="Custom Type 2"/>
+        <Property name="ExternalLCFMedia" value="Custom Type 3"/>
+        <Property name="ExternalLCFMedia" value="Custom Type 4"/>
+        <Property name="ExternalLCFMedia" value="Custom Type 5"/>
+        <Property name="ExternalLCFMedia" value="Custom Type 6"/>
+        <Property name="ExternalLCFMedia" value="Custom Type 7"/>
+        <Property name="ExternalLCFMedia" value="Custom Type 8"/>
+        <Property name="ExternalLCFMedia" value="Custom Type 9"/>
+        <Property name="ExternalLCFMedia" value="Custom Type 10"/>
+        -->
+    <Property name="BypassMedia" value="Plain(Auto)"/>
+        <!--BypassMedia Options:
+        <Property name="BypassMedia" value="Plain(Auto)"/>
+        <Property name="BypassMedia" value="Plain(Thin)"/>
+        <Property name="BypassMedia" value="Plain"/>
+        <Property name="BypassMedia" value="Recycled"/>
+        <Property name="BypassMedia" value="Thick"/>
+        <Property name="BypassMedia" value="Thick 1"/>
+        <Property name="BypassMedia" value="Thick 2"/>
+        <Property name="BypassMedia" value="Thick 3"/>
+        <Property name="BypassMedia" value="Thick 4"/>
+        <Property name="BypassMedia" value="Thick 5"/>
+        <Property name="BypassMedia" value="Special 1"/>
+        <Property name="BypassMedia" value="Special 2"/>
+        <Property name="BypassMedia" value="Special 3"/>
+        <Property name="BypassMedia" value="Special 4"/>
+        <Property name="BypassMedia" value="Special 5/>
+        <Property name="BypassMedia" value="Special 6"/>
+        <Property name="BypassMedia" value="Transparency"/>
+        <Property name="BypassMedia" value="Plain 1"/>
+        <Property name="BypassMedia" value="Plain 2"/>
+        <Property name="BypassMedia" value="Plain(Back)"/>
+        <Property name="BypassMedia" value="Recycled(Back)"/>
+        <Property name="BypassMedia" value="Thick (Back)"/>
+        <Property name="BypassMedia" value="Thick 1(Back)"/>
+        <Property name="BypassMedia" value="Thick 2(Back)"/>
+        <Property name="BypassMedia" value="Thick 3(Back)"/>
+        <Property name="BypassMedia" value="Thick 4(Back)"/>
+        <Property name="BypassMedia" value="Special 1(Back)"/>
+        <Property name="BypassMedia" value="Special 2(Back)"/>
+        <Property name="BypassMedia" value="Special 3(Back)"/>
+        <Property name="BypassMedia" value="Tab"/>
+        <Property name="BypassMedia" value="Thin"/>
+        <Property name="BypassMedia" value="Thin(Back)"/>
+        <Property name="BypassMedia" value="Envelope 1"/>
+        <Property name="BypassMedia" value="Envelope 2"/>
+        <Property name="BypassMedia" value="Envelope 3"/>
+        <Property name="BypassMedia" value="Envelope 4"/>
+        <Property name="BypassMedia" value="USER TYPE 1"/>
+        <Property name="BypassMedia" value="USER TYPE 2"/>
+        <Property name="BypassMedia" value="USER TYPE 3"/>
+        <Property name="BypassMedia" value="USER TYPE 4"/>
+        <Property name="BypassMedia" value="USER TYPE 5"/>
+        <Property name="BypassMedia" value="Custom Type 1"/>
+        <Property name="BypassMedia" value="Custom Type 2"/>
+        <Property name="BypassMedia" value="Custom Type 3"/>
+        <Property name="BypassMedia" value="Custom Type 4"/>
+        <Property name="BypassMedia" value="Custom Type 5"/>
+        <Property name="BypassMedia" value="Custom Type 6"/>
+        <Property name="BypassMedia" value="Custom Type 7"/>
+        <Property name="BypassMedia" value="Custom Type 8"/>
+        <Property name="BypassMedia" value="Custom Type 9"/>
+        <Property name="BypassMedia" value="Custom Type 10"/>
+        -->
+    <Property name="Drawer1Attr" value="None"/>
+        <!--Drawer1Attr Options:
+        <Property name="Drawer1Attr" value="None"/>
+        <Property name="Drawer1Attr" value="Cover"/>
+        <Property name="Drawer1Attr" value="Sheet 1"/>
+        <Property name="Drawer1Attr" value="Sheet 2"/>
+        <Property name="Drawer1Attr" value="Special"/>
+        <Property name="Drawer1Attr" value="Fax"/>
+        <Property name="Drawer1Attr" value="1Side"/>
+        <Property name="Drawer1Attr" value="Black"/>
+        <Property name="Drawer1Attr" value="1 SideBlack"/>
+        <Property name="Drawer1Attr" value="Reuse"/>
+        -->
+    <Property name="Drawer2Attr" value="None"/>
+        <!--Same options as Drawer1Attr -->
+    <Property name="Drawer3Attr" value="None"/>
+        <!--Same options as Drawer1Attr -->
+    <Property name="Drawer4Attr" value="None"/>
+        <!--Same options as Drawer1Attr -->
+    <Property name="LCFAttr" value="None"/>
+        <!--Same options as Drawer1Attr -->
+    <Property name="ExternalLCFAttr" value="None"/>
+        <!--Same options as Drawer1Attr -->
+    <Property name="BypassAttr" value="None"/>
+        <!--Same options as Drawer1Attr -->
+    <Property name="OverrideDriverPaperSettings" value="false"/>
+        <!--OverrideDriverPaperSettings Options:
+        <Property name="OverrideDriverPaperSettings" value="false"/>
+        <Property name="OverrideDriverPaperSettings" value="true"/>
+        -->
+    <!-- Account Settings -->
+    <Property name="UseUserAuthentication" value="false"/>
+        <!--UseUserAuthentication Options:
+        <Property name="UseUserAuthentication" value="false"/>
+        <Property name="UseUserAuthentication" value="true"/>
+        -->
+    <Property name="UserAuthenticationType" value="MFPLocal"/>
+        <!--UserAuthenticationType Options:
+        <Property name="UserAuthenticationType" value="MFPLocal"/>
+        <Property name="UserAuthenticationType" value="WindowsDomain"/>
+        <Property name="UserAuthenticationType" value="LDAP"/>
+        -->
+    <Property name="PasswordAuthentication" value="false"/>
+        <!--PasswordAuthentication Options:
+        <Property name="PasswordAuthentication" value="false"/>
+        <Property name="PasswordAuthentication" value="true"/>
+        -->
+    <Property name="PrivatePrintRestriction" value="false"/>
+        <!--PrivatePrintRestriction Options:
+        <Property name="PrivatePrintRestriction" value="false"/>
+        <Property name="PrivatePrintRestriction" value="true"/>
+        -->
+    <Property name="HoldPrintRestriction" value="false"/>
+         <!--HoldPrintRestriction Options:
+        <Property name="HoldPrintRestriction" value="false"/>
+        <Property name="HoldPrintRestriction" value="true"/>
+        -->
+    <!-- Customization -->
+    <Property name="OutputPDL" value="PCL6"/>
+        <!--OutputPDL Options:
+        <Property name="OutputPDL" value="PCL6"/>
+        <Property name="OutputPDL" value="PostScript"/>
+        <Property name="OutputPDL" value="PDF"/>
+        -->
+    <Property name="OutputFormat" value="ASCII"/>
+        <!--OutputFormat Options:
+        <Property name="OutputFormat" value="ASCII"/>
+        <Property name="OutputFormat" value="Encapsulated PostScript(EPS)"/>
+        <Property name="OutputFormat" value="Tagged BCP"/>
+        <Property name="OutputFormat" value="Using Adobe DSC"/>
+        -->
+    <Property name="PrintErrorInfo" value="true"/>
+        <!--PrintErrorInfo Options:
+        <Property name="PrintErrorInfo" value="false"/>
+        <Property name="PrintErrorInfo" value="true"/>
+        -->
+    <Property name="CompressBitmap" value="true"/>
+        <!--CompressBitmap Options:
+        <Property name="CompressBitmap" value="false"/>
+        <Property name="CompressBitmap" value="true"/>
+        -->
+    <Property name="JPEGCompression" value="true"/>
+        <!--JPEGCompression Options:
+        <Property name="JPEGCompression" value="false"/>
+        <Property name="JPEGCompression" value="true"/>
+        -->
+    <Property name="Language" value="Auto"/>
+        <!--Language Options:-->
+        <!-- <Property name="Language" value="Auto"/> -->
+        <!-- <Property name="Language" value="cs"/> Czech-->
+        <!-- <Property name="Language" value="en-us"/> English(US)-->
+        <!-- <Property name="Language" value="en-gb"/> English(UK)-->
+        <!-- <Property name="Language" value="ja"/> Japanese-->
+        <!-- <Property name="Language" value="fr-fr"/> French-->
+        <!-- <Property name="Language" value="hu"/> Hungarian-->
+        <!-- <Property name="Language" value="it-it"/> Italian-->
+        <!-- <Property name="Language" value="de-de"/> Germany-->
+        <!-- <Property name="Language" value="es-es"/> Spanish-->
+        <!-- <Property name="Language" value="da"/> Danish-->
+        <!-- <Property name="Language" value="nl-nl"/> Dutch-->
+        <!-- <Property name="Language" value="fi"/> Finnish-->
+        <!-- <Property name="Language" value="no-no"/> Norwegian-->
+        <!-- <Property name="Language" value="sv-se"/> Swedish-->
+        <!-- <Property name="Language" value="pl"/> Polish-->
+        <!-- <Property name="Language" value="pt-br"/>  Brazillian Portuguese-->        
+        <!-- <Property name="Language" value="pt-pt"/>  Portugal Portuguese-->
+        <!-- <Property name="Language" value="ru"/> Russian-->
+        <!-- <Property name="Language" value="zh-cn"/> Chinese (Simplified)-->
+        <!-- <Property name="Language" value="zh-tw"/> Chinese (Traditional)-->
+        <!-- <Property name="Language" value="tr-tr"/> Turkish-->
+    <!-- Others Tab -->
+    <Property name="EnableTALink" value="true"/>
+        <!--EnableTALink Options:
+        <Property name="EnableTALink" value="false"/>
+        <Property name="EnableTALink" value="true"/>
+        -->
+    <Property name="OverwriteUserLoginWithNickname" value="false"/>
+        <!--OverwriteUserLoginWithNickname Options:
+        <Property name="OverwriteUserLoginWithNickname" value="false"/>
+        <Property name="OverwriteUserLoginWithNickname" value="true"/>
+        -->
+    <Property name="EnableSNMP" value="true"/>
+        <!--EnableSNMP Options:
+        <Property name="EnableSNMP" value="false"/>
+        <Property name="EnableSNMP" value="true"/>
+        -->
+    <Property name="SNMPCommunityName" value="private"/>
+        <!--SNMPCommunityName Options:
+        <Property name="SNMPCommunityName" value="private"/>
+        -->
+    <!-- Effects Tab -->
+    <Property name="EnableHSP" value="0"/>
+        <!--EnableHSP Options:
+        <Property name="EnableHSP" value="0"/>
+        <Property name="EnableHSP" value="1"/>
+        <Property name="EnableHSP" value="2"/>
+        <Property name="EnableHSP" value="3"/>
+        -->
+    <!-- PDEnhancement -->
+    <Property name="AutoConfig" value="true"/>
+        <!--AutoConfig Options:
+        <Property name="AutoConfig" value="false"/>
+        <Property name="AutoConfig" value="true"/>
+        -->
+    <Property name="PasswordEncrypt" value="2"/>
+        <!--PasswordEncrypt Options:
+        <Property name="PasswordEncrypt" value="0"/>
+        <Property name="PasswordEncrypt" value="1"/>
+        <Property name="PasswordEncrypt" value="2"/>
+        -->
+    <Property name="DeptCodeInFile" value="false"/>
+        <!--DeptCodeInFile Options:
+        <Property name="DeptCodeInFile" value="false"/>
+        <Property name="DeptCodeInFile" value="true"/>
+        -->
+    <Property name="PrivatePrintInFile" value="false"/>
+        <!--PrivatePrintInFile Options:
+        <Property name="PrivatePrintInFile" value="false"/>
+        <Property name="PrivatePrintInFile" value="true"/>
+        -->
+    <Property name="EFilingInFile" value="false"/>
+        <!--EFilingInFile Options:
+        <Property name="EFilingInFile" value="false"/>
+        <Property name="EFilingInFile" value="true"/>
+        -->
+    <Property name="NickNameInFile" value="true"/>
+        <!--NickNameInFile Options:
+        <Property name="NickNameInFile" value="false"/>
+        <Property name="NickNameInFile" value="true"/>
+        -->
+    <Property name="PJCodeInFile" value="false"/>
+        <!--PJCodeInFile Options:
+        <Property name="PJCodeInFile" value="false"/>
+        <Property name="PJCodeInFile" value="true"/>
+        -->
+    <Property name="IEPrintMode" value="false"/>
+        <!--IEPrintMode Options:
+        <Property name="IEPrintMode" value="false"/>
+        <Property name="IEPrintMode" value="true"/>
+        -->
+    <Property name="RotateNup" value="false"/>
+        <!--RotateNup Options:
+        <Property name="RotateNup" value="false"/>
+        <Property name="RotateNup" value="true"/>
+        -->
+    <Property name="EnableCoinController" value="0"/>
+        <!--EnableCoinController Options:
+        <Property name="EnableCoinController" value="0" - follow Snmp/>
+        <Property name="EnableCoinController" value="1" - AutoColour always hidden/>
+        -->
+    <Property name="LargePaperSizeSupportInOPS" value="false"/>
+        <!--LargePaperSizeSupportInOPS Options:
+        <Property name="LargePaperSizeSupportInOPS" value="false"/>
+        <Property name="LargePaperSizeSupportInOPS" value="true"/>
+        -->
+    <Property name="DefaultDuplexing" value="2"/>
+        <!--DefaultDuplexing Options:
+        <Property name="DefaultDuplexing" value="0"/>
+        <Property name="DefaultDuplexing" value="1"/>
+        <Property name="DefaultDuplexing" value="2"/>
+        -->
+    <Property name="EnableRedSeal" value="0"/>
+        <!--EnableRedSeal Options:
+        <Property name="EnableRedSeal" value="0"/>
+        <Property name="EnableRedSeal" value="1"/>
+        <Property name="EnableRedSeal" value="2"/>
+        <Property name="EnableRedSeal" value="3"/>
+        -->
+    <Property name="HDD" value="true"/>
+        <!--HDD Options:
+        <Property name="HDD" value="true"/>
+        <Property name="HDD" value="false"/>
+        -->
+    <Property name="ADUnit" value="true"/>
+        <!--ADUnit Options:
+        <Property name="ADUnit" value="true"/>
+        <Property name="ADUnit" value="false"/>
+        -->
+    <Property name="MaxJobNameLength" value="256"/>
+        <!--MaxJobNameLength eg:
+        <Property name="MaxJobNameLength" value="64"/>
+        <Property name="MaxJobNameLength" value="256"/>
+        -->
+    <Property name="XLThinLineAdjustment" value="false"/>
+        <!--XLThinLineAdjustment Options:
+        <Property name="XLThinLineAdjustment" value="true"/>
+        <Property name="XLThinLineAdjustment" value="false"/>
+        -->
+    <Property name="A3LD180Degree" value="true"/>
+        <!--EnablA3 LD 180 Degree check box:
+        <Property name=" A3LD180Degree" value="false"/>
+        <Property name=" A3LD180Degree" value="true"/>
+        -->
+    <Property name="ExtendCharsforPassword" value="false"/>
+        <!--Support extend characters for password PJLs:
+        <Property name=" ExtendCharsforPassword" value="false"/>
+        <Property name=" ExtendCharsforPassword" value="true"/>
+        -->
+    <Property name="EnableJOBENDPJL" value="true"/>
+        <!--EnableJOBENDPJL Options:
+        <Property name=" EnableJOBENDPJL" value="false"/>
+        <Property name=" EnableJOBENDPJL" value="true"/>
+        -->
+    <Property name="EnhanceLetterhead" value="false"/>
+        <!--EnhanceLetterhead Options:
+        <Property name=" EnhanceLetterhead" value="false"/>
+        <Property name=" EnhanceLetterhead" value="true"/>
+        -->
+    <Property name="EnableAnywhereJob" value="0"/>
+        <!--EnableAnywhereJob Options:
+        <Property name="EnableAnywhereJob" value="0"/>
+        <Property name="EnableAnywhereJob" value="1"/>
+        <Property name="EnableAnywhereJob" value="2"/>
+        <Property name="EnableAnywhereJob" value="3"/>
+        -->
+    <Property name="EnableDuplexAdjustment" value="0"/>
+        <!--EnableDuplexAdjustment Options:
+        <Property name="EnableDuplexAdjustment" value="0"/>
+        <Property name="EnableDuplexAdjustment" value="1"/>
+        <Property name="EnableDuplexAdjustment" value="2"/>
+        <Property name="EnableDuplexAdjustment" value="3"/>
+        -->
+</PDUI>

@@ -1,0 +1,882 @@
+; Copyright (c) 2020 Toshiba Tec Corporation, All Rights Reserved.
+; Delta: 4835
+
+[Version]
+Signature="$Windows NT$"
+Provider=%TOSH%
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+Class=Printer
+CatalogFile=eSf6u.cat
+DriverVer=06/02/2020,7.212.4835.17
+DriverIsolation=2
+
+[Manufacturer]
+%TOSH%=TOSHIBA,NTamd64,NTamd64.6.0
+
+
+
+[TOSHIBA]
+"TOSHIBA Universal Printer 2" = install_pre_vista,TOSHIBATOSHIBA_Unive5D6E,1284_CID_TS_PCL6_Color
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6550CD363
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6540C1332
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5540C1376
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5055C4F24
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4555C4119
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4540CD34B
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3555C81AC
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3540C13FE
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3055C4FAC
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3040CDFFE
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2555C4191
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2551C8193
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2550C1392
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2540CD3C1
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2051C4F93
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2055C8F91
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2050CDF92
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2040C1FC1
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO856BA69
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO756B959
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6567908
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO55679F8
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO50629FB
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO456B9A9
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3567818
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO306281B
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO256B849
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO206L0268
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO287CS8115
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO347CS132B
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO407CSE39F
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO527SEE88
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO477S1399
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5560CD3D7
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6560CD393
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6570C13C0
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO207L9269
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2577888
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO307E8DA
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO357B8D9
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4577968
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO507E93A
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO557B939
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO657B9C9
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO7577998
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO8577AA8
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6530CD281
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6520C12D2
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5520C1296
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4520CD2AB
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3530CD24F
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3520C121E
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2830CBE70
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2820C7E21
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2330C9A72
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2020C1E23
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO855BB29
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO755B819
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6557848
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO55578B8
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO455B8E9
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3557958
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO305295B
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO255B909
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO205LF268
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO8508A129C
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO7508A13C8
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6508AD3F5
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5508AD3B1
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5005A440F
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4505A97C0
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3505A20C1
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3005A200F
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2505A3041
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2005A308F
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2500A3153
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2000A319F
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO7506AA432
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6506A7533
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5506A4433
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5008A1FB1
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4508A138C
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3508AD339
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3008A1F39
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2508A1306
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2008ADF06
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5008L7200
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4508LA04B
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3508L81D9
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5015ABA0E
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4515A6BC1
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3515ADCC0
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3015ADC0E
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2515A0DC1
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2015A0D0F
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2510A0CD3
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2010A0C1F
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO7516A5833
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6516A8932
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5516ABA32
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO8518AD2CD
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO7518AD399
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6518A13A4
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5518A13E0
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5018ADFE0
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4518AD3DD
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3518A1368
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3018ADF68
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2518AD355
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2018A1F55
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO400AC8E2E
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO330AC0A9B
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBALoops-LP30_e-5F47
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO307LP3660
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAMPS_Universal4AB1
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6550CD363
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6540C1332
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5540C1376
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5055C4F24
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4555C4119
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4540CD34B
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3555C81AC
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3540C13FE
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3055C4FAC
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3040CDFFE
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2555C4191
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2551C8193
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2550C1392
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2540CD3C1
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2051C4F93
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2055C8F91
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2050CDF92
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2040C1FC1
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO856BA69
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO756B959
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6567908
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO55679F8
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO50629FB
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO456B9A9
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3567818
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO306281B
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO256B849
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO206L0268
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO287CS8115
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO347CS132B
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO407CSE39F
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO527SEE88
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO477S1399
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5560CD3D7
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6560CD393
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6570C13C0
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO207L9269
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2577888
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO307E8DA
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO357B8D9
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4577968
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO507E93A
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO557B939
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO657B9C9
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO7577998
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO8577AA8
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6530CD281
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6520C12D2
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5520C1296
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4520CD2AB
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3530CD24F
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3520C121E
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2830CBE70
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2820C7E21
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2330C9A72
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2020C1E23
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO855BB29
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO755B819
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6557848
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO55578B8
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO455B8E9
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3557958
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO305295B
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO255B909
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO205LF268
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO8508A129C
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO7508A13C8
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6508AD3F5
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5508AD3B1
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5005A440F
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4505A97C0
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3505A20C1
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3005A200F
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2505A3041
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2005A308F
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2500A3153
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2000A319F
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO7506AA432
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6506A7533
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5506A4433
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5008A1FB1
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4508A138C
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3508AD339
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3008A1F39
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2508A1306
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2008ADF06
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5008L7200
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4508LA04B
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3508L81D9
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5015ABA0E
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4515A6BC1
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3515ADCC0
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3015ADC0E
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2515A0DC1
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2015A0D0F
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2510A0CD3
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2010A0C1F
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO7516A5833
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6516A8932
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5516ABA32
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO8518AD2CD
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO7518AD399
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6518A13A4
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5518A13E0
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5018ADFE0
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4518AD3DD
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3518A1368
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3018ADF68
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2518AD355
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2018A1F55
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO400AC8E2E
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO330AC0A9B
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBALoops-LP30_e-5F47
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO307LP3660
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAMPS_Universal4AB1
+
+[TOSHIBA.NTamd64]
+"TOSHIBA Universal Printer 2" = install_pre_vista,TOSHIBATOSHIBA_Unive5D6E,1284_CID_TS_PCL6_Color
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6550CD363
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6540C1332
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5540C1376
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5055C4F24
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4555C4119
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4540CD34B
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3555C81AC
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3540C13FE
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3055C4FAC
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3040CDFFE
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2555C4191
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2551C8193
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2550C1392
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2540CD3C1
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2051C4F93
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2055C8F91
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2050CDF92
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2040C1FC1
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO856BA69
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO756B959
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6567908
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO55679F8
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO50629FB
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO456B9A9
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3567818
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO306281B
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO256B849
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO206L0268
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO287CS8115
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO347CS132B
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO407CSE39F
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO527SEE88
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO477S1399
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5560CD3D7
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6560CD393
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6570C13C0
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO207L9269
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2577888
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO307E8DA
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO357B8D9
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4577968
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO507E93A
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO557B939
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO657B9C9
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO7577998
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO8577AA8
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6530CD281
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6520C12D2
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5520C1296
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4520CD2AB
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3530CD24F
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3520C121E
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2830CBE70
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2820C7E21
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2330C9A72
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2020C1E23
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO855BB29
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO755B819
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6557848
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO55578B8
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO455B8E9
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3557958
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO305295B
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO255B909
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO205LF268
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO8508A129C
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO7508A13C8
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6508AD3F5
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5508AD3B1
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5005A440F
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4505A97C0
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3505A20C1
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3005A200F
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2505A3041
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2005A308F
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2500A3153
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2000A319F
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO7506AA432
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6506A7533
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5506A4433
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5008A1FB1
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4508A138C
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3508AD339
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3008A1F39
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2508A1306
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2008ADF06
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5008L7200
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4508LA04B
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3508L81D9
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5015ABA0E
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4515A6BC1
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3515ADCC0
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3015ADC0E
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2515A0DC1
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2015A0D0F
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2510A0CD3
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2010A0C1F
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO7516A5833
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6516A8932
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5516ABA32
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO8518AD2CD
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO7518AD399
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO6518A13A4
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5518A13E0
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO5018ADFE0
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO4518AD3DD
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3518A1368
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO3018ADF68
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2518AD355
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO2018A1F55
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO400AC8E2E
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO330AC0A9B
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBALoops-LP30_e-5F47
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAe-STUDIO307LP3660
+"TOSHIBA Universal Printer 2" = install_pre_vista,USBPRINT\TOSHIBAMPS_Universal4AB1
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6550CD363
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6540C1332
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5540C1376
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5055C4F24
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4555C4119
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4540CD34B
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3555C81AC
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3540C13FE
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3055C4FAC
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3040CDFFE
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2555C4191
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2551C8193
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2550C1392
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2540CD3C1
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2051C4F93
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2055C8F91
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2050CDF92
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2040C1FC1
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO856BA69
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO756B959
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6567908
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO55679F8
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO50629FB
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO456B9A9
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3567818
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO306281B
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO256B849
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO206L0268
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO287CS8115
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO347CS132B
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO407CSE39F
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO527SEE88
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO477S1399
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5560CD3D7
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6560CD393
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6570C13C0
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO207L9269
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2577888
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO307E8DA
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO357B8D9
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4577968
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO507E93A
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO557B939
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO657B9C9
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO7577998
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO8577AA8
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6530CD281
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6520C12D2
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5520C1296
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4520CD2AB
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3530CD24F
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3520C121E
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2830CBE70
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2820C7E21
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2330C9A72
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2020C1E23
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO855BB29
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO755B819
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6557848
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO55578B8
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO455B8E9
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3557958
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO305295B
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO255B909
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO205LF268
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO8508A129C
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO7508A13C8
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6508AD3F5
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5508AD3B1
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5005A440F
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4505A97C0
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3505A20C1
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3005A200F
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2505A3041
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2005A308F
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2500A3153
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2000A319F
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO7506AA432
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6506A7533
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5506A4433
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5008A1FB1
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4508A138C
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3508AD339
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3008A1F39
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2508A1306
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2008ADF06
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5008L7200
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4508LA04B
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3508L81D9
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5015ABA0E
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4515A6BC1
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3515ADCC0
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3015ADC0E
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2515A0DC1
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2015A0D0F
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2510A0CD3
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2010A0C1F
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO7516A5833
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6516A8932
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5516ABA32
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO8518AD2CD
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO7518AD399
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO6518A13A4
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5518A13E0
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO5018ADFE0
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO4518AD3DD
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3518A1368
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO3018ADF68
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2518AD355
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO2018A1F55
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO400AC8E2E
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO330AC0A9B
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBALoops-LP30_e-5F47
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAe-STUDIO307LP3660
+"TOSHIBA Universal Printer 2" = install_pre_vista,WSDPRINT\TOSHIBAMPS_Universal4AB1
+
+[TOSHIBA.NTamd64.6.0]
+"TOSHIBA Universal Printer 2" = install_vista,TOSHIBATOSHIBA_Unive5D6E,1284_CID_TS_PCL6_Color
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO6550CD363
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO6540C1332
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO5540C1376
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO5055C4F24
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO4555C4119
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO4540CD34B
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3555C81AC
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3540C13FE
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3055C4FAC
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3040CDFFE
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2555C4191
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2551C8193
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2550C1392
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2540CD3C1
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2051C4F93
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2055C8F91
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2050CDF92
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2040C1FC1
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO856BA69
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO756B959
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO6567908
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO55679F8
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO50629FB
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO456B9A9
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3567818
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO306281B
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO256B849
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO206L0268
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO287CS8115
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO347CS132B
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO407CSE39F
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO527SEE88
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO477S1399
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO5560CD3D7
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO6560CD393
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO6570C13C0
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO207L9269
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2577888
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO307E8DA
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO357B8D9
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO4577968
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO507E93A
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO557B939
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO657B9C9
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO7577998
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO8577AA8
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO6530CD281
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO6520C12D2
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO5520C1296
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO4520CD2AB
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3530CD24F
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3520C121E
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2830CBE70
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2820C7E21
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2330C9A72
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2020C1E23
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO855BB29
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO755B819
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO6557848
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO55578B8
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO455B8E9
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3557958
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO305295B
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO255B909
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO205LF268
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO8508A129C
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO7508A13C8
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO6508AD3F5
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO5508AD3B1
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO5005A440F
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO4505A97C0
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3505A20C1
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3005A200F
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2505A3041
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2005A308F
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2500A3153
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2000A319F
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO7506AA432
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO6506A7533
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO5506A4433
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO5008A1FB1
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO4508A138C
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3508AD339
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3008A1F39
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2508A1306
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2008ADF06
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO5008L7200
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO4508LA04B
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3508L81D9
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO5015ABA0E
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO4515A6BC1
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3515ADCC0
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3015ADC0E
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2515A0DC1
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2015A0D0F
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2510A0CD3
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2010A0C1F
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO7516A5833
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO6516A8932
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO5516ABA32
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO8518AD2CD
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO7518AD399
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO6518A13A4
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO5518A13E0
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO5018ADFE0
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO4518AD3DD
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3518A1368
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO3018ADF68
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2518AD355
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO2018A1F55
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO400AC8E2E
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO330AC0A9B
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBALoops-LP30_e-5F47
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAe-STUDIO307LP3660
+"TOSHIBA Universal Printer 2" = install_vista,USBPRINT\TOSHIBAMPS_Universal4AB1
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO6550CD363
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO6540C1332
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO5540C1376
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO5055C4F24
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO4555C4119
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO4540CD34B
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3555C81AC
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3540C13FE
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3055C4FAC
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3040CDFFE
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2555C4191
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2551C8193
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2550C1392
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2540CD3C1
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2051C4F93
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2055C8F91
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2050CDF92
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2040C1FC1
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO856BA69
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO756B959
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO6567908
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO55679F8
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO50629FB
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO456B9A9
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3567818
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO306281B
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO256B849
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO206L0268
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO287CS8115
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO347CS132B
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO407CSE39F
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO527SEE88
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO477S1399
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO5560CD3D7
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO6560CD393
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO6570C13C0
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO207L9269
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2577888
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO307E8DA
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO357B8D9
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO4577968
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO507E93A
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO557B939
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO657B9C9
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO7577998
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO8577AA8
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO6530CD281
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO6520C12D2
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO5520C1296
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO4520CD2AB
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3530CD24F
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3520C121E
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2830CBE70
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2820C7E21
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2330C9A72
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2020C1E23
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO855BB29
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO755B819
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO6557848
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO55578B8
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO455B8E9
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3557958
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO305295B
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO255B909
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO205LF268
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO8508A129C
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO7508A13C8
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO6508AD3F5
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO5508AD3B1
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO5005A440F
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO4505A97C0
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3505A20C1
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3005A200F
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2505A3041
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2005A308F
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2500A3153
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2000A319F
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO7506AA432
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO6506A7533
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO5506A4433
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO5008A1FB1
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO4508A138C
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3508AD339
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3008A1F39
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2508A1306
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2008ADF06
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO5008L7200
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO4508LA04B
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3508L81D9
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO5015ABA0E
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO4515A6BC1
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3515ADCC0
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3015ADC0E
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2515A0DC1
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2015A0D0F
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2510A0CD3
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2010A0C1F
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO7516A5833
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO6516A8932
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO5516ABA32
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO8518AD2CD
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO7518AD399
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO6518A13A4
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO5518A13E0
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO5018ADFE0
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO4518AD3DD
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3518A1368
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO3018ADF68
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2518AD355
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO2018A1F55
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO400AC8E2E
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO330AC0A9B
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBALoops-LP30_e-5F47
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAe-STUDIO307LP3660
+"TOSHIBA Universal Printer 2" = install_vista,WSDPRINT\TOSHIBAMPS_Universal4AB1
+
+[install_pre_vista]
+DataFile=eSf6u.gpd
+DataSection=UNIDRV_DATA
+CopyFiles=drvfiles
+
+[install_vista]
+DataFile=eSf6u.gpd
+CopyFiles=drvfiles
+DriverFile=UNIDRV.DLL
+ConfigFile=UNIDRVUI.DLL
+HelpFile=UNIDRV.HLP
+
+[PrinterPackageInstallation.amd64]
+PackageAware=TRUE
+
+[UNIDRV_DATA]
+DriverFile=UNIDRV.DLL
+ConfigFile=UNIDRVUI.DLL
+HelpFile=UNIDRV.HLP
+
+[drvfiles]
+eSf6ufw.dll,,,0x00000020
+eSf6ufwdsdk.dll,,,0x00000020
+eSf6upclxl.dll,,,0x00000020
+eSf6ups.dll,,,0x00000020 
+eSf6updf.dll,,,0x00000020 
+eSf6u.dll,,,0x00000020 
+eSf6uui.dll,,,0x00000020 
+eSf6u.gpd,,,0x00000020 
+eSf6u.ini,,,0x00000020 
+eSf6u.xml,,,0x00000020 
+eSf6u.ver,,,0x00000020 
+eSf6ucap.xml,,,0x00000020 
+eSf6uval.xml,,,0x00000020 
+eSf6udevSettings.xml,,,0x00000020 
+eSf6upjl.xml,,,0x00000020 
+eSf6updfpjl.xml,,,0x00000020 
+eSf6upjl_mps.xml,,,0x00000020 
+eSf6ubase.zip,,,0x00000020 
+eSf6ubase.dll,,,0x00000020 
+eSf6udevicesettings.zip,,,0x00000020 
+eSf6udevicesettings.dll,,,0x00000020 
+eSf6udefpr.xml,,,0x00000020 
+eSf6ujcore.dll,,,0x00000020 
+eSfWM.exe,,,0x00000020 
+eSf6uHSP.exe,,,0x00000020 
+eSfOVL.exe,,,0x00000020 
+eSf6udownload.exe,,,0x00000020 
+eSfpnp.dll,,,0x00000020 
+locale.gpd,,,0x00000020 
+pclxl.dll,,,0x00000020 
+pclxl.gpd,,,0x00000020 
+pcl5eres.dll,,,0x00000020 
+pcl5ures.dll,,,0x00000020 
+pcl4res.dll,,,0x00000020 
+p6font.gpd,,,0x00000020 
+pjl.gpd,,,0x00000020 
+p6disp.gpd,,,0x00000020 
+stdnames.gpd,,,0x00000020 
+stddtype.gdl,,,0x00000020 
+stdschem.gdl,,,0x00000020 
+stdschmx.gdl,,,0x00000020 
+ttfsub.gpd,,,0x00000020 
+unidrv.dll,,,0x00000020 
+unidrv.hlp,,,0x00000020 
+unidrvui.dll,,,0x00000020 
+unires.dll,,,0x00000020 
+eSf6usf_builtin.dll,,,0x00000020 
+eSf6ueffect.zip,,,0x00000020 
+eSf6ueffect.dll,,,0x00000020 
+eSf6uhsp.zip,,,0x00000020 
+eSf6uhsp.dll,,,0x00000020 
+eSf6uimagequality.zip,,,0x00000020 
+eSf6uimagequality.dll,,,0x00000020 
+eSf6utandemPrint.zip,,,0x00000020 
+eSf6utandemprint.dll,,,0x00000020 
+eSf6upagehandling.zip,,,0x00000020 
+eSf6upagehandling.dll,,,0x00000020 
+eSf6uaddprinter.zip,,,0x00000020 
+eSf6uaddprinter.dll,,,0x00000020 
+eSf6uonetouch.zip,,,0x00000020 
+eSf6uonetouch.dll,,,0x00000020 
+eSf6urulesbasedprintings.zip,,,0x00000020 
+eSf6urulesbasedprintings.dll,,,0x00000020 
+eSf6ucommon.zip,,,0x00000020 
+eSf6ucommon.dll,,,0x00000020 
+
+[DestinationDirs]
+DefaultDestDir=66000
+
+[SourceDisksNames]
+1 = %SOURCE_DISK%,,,
+2 = %SOURCE_DISK%,eSf6usfpkg.cab,,
+
+[SourceDisksFiles]
+eSf6ufw.dll=1
+eSf6ufwdsdk.dll=1
+eSf6upclxl.dll=1
+eSf6ups.dll=1 
+eSf6updf.dll=1 
+eSf6u.dll=1 
+eSf6uui.dll=1 
+eSf6u.gpd=1 
+eSf6u.ini=1 
+eSf6u.xml=1 
+eSf6u.ver=1 
+eSf6ucap.xml=1 
+eSf6uval.xml=1 
+eSf6udevSettings.xml=1 
+eSf6upjl.xml=1 
+eSf6updfpjl.xml=1 
+eSf6upjl_mps.xml=1 
+eSf6ubase.zip=1 
+eSf6ubase.dll=1 
+eSf6udevicesettings.zip=1 
+eSf6udevicesettings.dll=1 
+eSf6udefpr.xml=1 
+eSf6ujcore.dll=1 
+locale.gpd=1 
+pclxl.dll=1 
+pclxl.gpd=1 
+pcl5eres.dll=1 
+pcl5ures.dll=1 
+pcl4res.dll=1 
+p6font.gpd=1 
+pjl.gpd=1 
+p6disp.gpd=1 
+stdnames.gpd=1 
+stddtype.gdl=1 
+stdschem.gdl=1 
+stdschmx.gdl=1 
+ttfsub.gpd=1 
+unidrv.dll=1 
+unidrv.hlp=1 
+unidrvui.dll=1 
+unires.dll=1 
+eSf6usf_builtin.dll=2 
+eSfWM.exe=1 
+eSf6uHSP.exe=1 
+eSfOVL.exe=1 
+eSf6udownload.exe=1 
+eSfpnp.dll=1,,
+eSf6ueffect.zip=1,,
+eSf6ueffect.dll=1,,
+eSf6uhsp.zip=1,,
+eSf6uhsp.dll=1,,
+eSf6uimagequality.zip=1,,
+eSf6uimagequality.dll=1,,
+eSf6utandemPrint.zip=1,,
+eSf6utandemprint.dll=1,,
+eSf6upagehandling.zip=1,,
+eSf6upagehandling.dll=1,,
+eSf6uaddprinter.zip=1,,
+eSf6uaddprinter.dll=1,,
+eSf6uonetouch.zip=1,,
+eSf6uonetouch.dll=1,,
+eSf6urulesbasedprintings.zip=1,,
+eSf6urulesbasedprintings.dll=1,,
+eSf6ucommon.zip=1,,
+eSf6ucommon.dll=1,,
+
+[Strings]
+TOSH="TOSHIBA"
+MS="Microsoft Windows 2000"
+PrinterClassName="Printers"
+SOURCE_DISK="Default Source"

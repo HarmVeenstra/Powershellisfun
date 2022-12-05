@@ -1,0 +1,137 @@
+<!-- Version: 7.212.4835.7 -->
+<!-- Device Specific Cababilities -->
+<FWebDeviceCaps>
+    <InputBin>
+        <Bin name="Auto" devmodeID="7" label="IDS_CMBPSR_AUTO"/>
+        <Bin name="Drawer1" devmodeID="1" label="IDS_CMBPSR_UC"/>
+        <Bin name="Drawer2" devmodeID="3" label="IDS_CMBPSR_LC"/>
+        <Bin name="Drawer3" devmodeID="2" label="IDS_CMBPSR_PED_UC"/>
+        <Bin name="Drawer4" devmodeID="257" label="IDS_CMBPSR_PED_LC"/>
+        <Bin name="LCF" devmodeID="258" label="IDS_CMBPSR_LCF"/>
+        <Bin name="Bypass" devmodeID="4" label="IDS_CMBPSR_BYPASSFEEDER"/>
+        <Bin name="ExternalLCF" devmodeID="11" label="IDS_CMBPSR_EXTERNAL_LCF"/>
+        <Bin name="InserterUnit" devmodeID="259" label="IDS_CMBPSR_IU"/>
+    </InputBin>
+
+    <Collate value="true"/>
+    <ColourDevice value="true"/>
+    <MaxCopies value="9999"/>
+    <Duplex value="true"/>
+
+    <Resolutions>
+        <Resolution name="_600dpi" xres="600" yres="600"/>
+        <Resolution name="_1200dpi" xres="1200" yres="1200"/>
+    </Resolutions>
+
+    <Paper default="A4" >
+        <Extent xmax="3134" ymax="13208" xmin="640" ymin="1270"/>
+        <DefaultMargin left="42.333" right="42.333" top="42.333" bottom="42.333"/>
+        <PaperType name="Letter" devmodeID="1" label="IDS_CMBPS_LT" width="2159" height="2794"/>
+        <PaperType name="Ledger" devmodeID="3" label="IDS_CMBPS_CONFIG_LEDGER" width="2794" height="4318"/>
+        <PaperType name="Legal" devmodeID="5" label="IDS_CMBPS_LEGAL" width="2159" height="3556"/>
+        <PaperType name="Statement" devmodeID="6" label="IDS_CMBPS_STATEMENT" width="1397" height="2159"/>
+        <PaperType name="Executive" devmodeID="7" label="IDS_CMBPS_EXECUTIVE" width="1841" height="2667"/>
+        <PaperType name="A4" devmodeID="9" label="IDS_CMBPS_A4" width="2100" height="2970"/>
+        <PaperType name="A3" devmodeID="8" label="IDS_CMBPS_A3" width="2790" height="4200"/>
+        <PaperType name="A5" devmodeID="11" label="IDS_CMBPS_A5" width="1480" height="2100"/>
+        <PaperType name="B4" devmodeID="12" label="IDS_CMBPS_B4" width="2570" height="3640"/>
+        <PaperType name="B5" devmodeID="13" label="IDS_CMBPS_B5" width="1820" height="2570"/>
+        <PaperType name="EnvelopeCom9" devmodeID="19" label="IDS_CMBPS_ENV_COM9" width="984" height="2254"/>
+        <PaperType name="EnvelopeCom10" devmodeID="20" label="IDS_CMBPS_ENV_COM10" width="1060" height="2413"/>
+        <PaperType name="EnvelopeDL" devmodeID="27" label="IDS_CMBPS_ENV_DL" width="1100" height="2200"/>
+        <PaperType name="EnvelopeC5" devmodeID="28" label="IDS_CMBPS_ENV_C5" width="1620" height="2290"/>
+        <PaperType name="EnvelopeMonarch" devmodeID="37" label="IDS_CMBPS_ENV_MARCH" width="984" height="1905"/>
+        <PaperType name="_13Legal" devmodeID="41" label="IDS_CMBPS_CONFIG_3INCH_LG" width="2159" height="3302"/>
+        <PaperType name="Postcard" devmodeID="43" label="IDS_CMBPS_CONFIG_JPOST_CARD" width="1000" height="1480"/>
+        <PaperType name="Folio" devmodeID="60" label="IDS_CMBPS_CONFIG_FOLIO" width="2100" height="3300"/>
+        <PaperType name="A6" devmodeID="70" label="IDS_CMBPS_A6" width="1050" height="1480"/>
+        <PaperType name="EnvelopeKaku2" devmodeID="71" label="IDS_CMBPS_ENV_KAKU2" width="2400" height="3320"/>
+        <PaperType name="EnvelopeCHO3" devmodeID="73" label="IDS_CMBPS_ENV_CHO_3" width="1200" height="2350"/>
+        <PaperType name="EnvelopeCHO4" devmodeID="74" label="IDS_CMBPS_ENV_CHO_4" width="900" height="2050"/>
+        <PaperType name="PostcardDR" devmodeID="82" label="IDS_CMBPS_CONFIG_JPOSTDR_CARD" width="1480" height="2000"/>
+        <PaperType name="EnvelopeYOU4" devmodeID="91" label="IDS_CMBPS_ENV_YOU_3" width="1050" height="2350"/>
+        <PaperType name="A3Wide" devmodeID="900" label="IDS_CMBPS_CONFIG_A3_WIDE" width="3050" height="4570"/>
+        <PaperType name="Computer" devmodeID="901" label="IDS_CMBPS_CONFIG_COMPUTER" width="2571" height="3556"/>
+        <PaperType name="Square85" devmodeID="902" label="IDS_CMBPS_CONFIG_8PT5_INCH_SQ" width="2159" height="2159"/>
+        <PaperType name="13x19inch" devmodeID="903" label="IDS_CMPPS_13X19" width="3302" height="4826"/>
+        <PaperType name="ROC16K" devmodeID="904" label="IDS_CMBPS_CONFIG_16K" width="1950" height="2700"/>
+        <PaperType name="ROC8K" devmodeID="905" label="IDS_CMBPS_CONFIG_8K" width="2700" height="3900"/>
+        <PaperType name="320x450mm" devmodeID="906" label="IDS_CMPPS_320X450" width="3200" height="4500"/>
+        <PaperType name="320x460mm" devmodeID="907" label="IDS_CMPPS_320X460" width="3200" height="4600"/>
+        <PaperType name="IndexCard" devmodeID="913" label="IDS_CMBPS_INDEXCARD" width="762" height="1270"/>
+        <PaperType name="Legal135"  devmodeID="914" label="IDS_CMBPS_135INCH_LG" width="2159" height="3429"/>
+    </Paper>
+
+    <MediaTypes>
+        <MediaType name="Plain" devmodeID="256" label=""/>
+        <MediaType name="Recycled" devmodeID="258" label=""/>
+        <MediaType name="Thick1" devmodeID="259" label=""/>
+        <MediaType name="Thick2" devmodeID="260" label=""/>
+        <MediaType name="Thick3" devmodeID="261" label=""/>
+        <MediaType name="Thick4" devmodeID="262" label=""/>
+        <MediaType name="Thick5" devmodeID="282" label=""/>
+        <MediaType name="Special1" devmodeID="263" label=""/>
+        <MediaType name="Special2" devmodeID="264" label=""/>
+        <MediaType name="Special3" devmodeID="276" label=""/>
+        <MediaType name="Special4" devmodeID="283" label=""/>
+        <MediaType name="Special5" devmodeID="284" label=""/>
+        <MediaType name="Special6" devmodeID="285" label=""/>
+        <MediaType name="Transparency" devmodeID="257" label=""/>
+        <MediaType name="Plain1" devmodeID="265" label=""/>
+        <MediaType name="Plain2" devmodeID="266" label=""/>
+        <MediaType name="Plain(Back)" devmodeID="278" label=""/>
+        <MediaType name="Recycled(Back)" devmodeID="279" label=""/>
+        <MediaType name="Thick1(Back)" devmodeID="267" label=""/>
+        <MediaType name="Thick2(Back)" devmodeID="268" label=""/>
+        <MediaType name="Thick3(Back)" devmodeID="269" label=""/>
+        <MediaType name="Thick4(Back)" devmodeID="270" label=""/>
+        <MediaType name="Special1(Back)" devmodeID="271" label=""/>
+        <MediaType name="Special2(Back)" devmodeID="272" label=""/>
+        <MediaType name="Tab" devmodeID="273" label=""/>
+        <MediaType name="Envelope" devmodeID="274" label=""/>
+        <MediaType name="Envelope(Back)" devmodeID="281" label=""/>
+        <MediaType name="Thin" devmodeID="275" label=""/>
+        <MediaType name="Thin(Back)" devmodeID="280" label=""/>
+        <MediaType name="Envelope1" devmodeID="286" label=""/>
+        <MediaType name="Envelope2" devmodeID="287" label=""/>
+        <MediaType name="Envelope3" devmodeID="288" label=""/>
+        <MediaType name="Envelope4" devmodeID="289" label=""/>
+        <MediaType name="PlainThin" devmodeID="290" label=""/>
+        <MediaType name="UserType1" devmodeID="291" label=""/>
+        <MediaType name="UserType2" devmodeID="292" label=""/>
+        <MediaType name="UserType3" devmodeID="293" label=""/>
+        <MediaType name="UserType4" devmodeID="294" label=""/>
+        <MediaType name="UserType5" devmodeID="295" label=""/>
+        <MediaType name="Thick" devmodeID="296" label=""/>
+        <MediaType name="Thick(Back)" devmodeID="297" label=""/>
+        <MediaType name="UserType6" devmodeID="298" label=""/>
+        <MediaType name="UserType7" devmodeID="299" label=""/>
+        <MediaType name="UserType8" devmodeID="300" label=""/>
+        <MediaType name="UserType9" devmodeID="301" label=""/>
+        <MediaType name="UserType10" devmodeID="302" label=""/>
+    </MediaTypes>
+
+    <NupTypes>
+        <Nup value="1"/>
+        <Nup value="2"/>
+        <Nup value="4"/>
+        <Nup value="6"/>
+        <Nup value="8"/>
+        <Nup value="9"/>
+        <Nup value="16"/>
+    </NupTypes>
+
+    <Personalities>
+        <Personality name="PCLXL"/>
+        <Personality name="PostScript"/>
+    </Personalities>
+
+    <PrinterMem value="466944"/> <!-- 456MB -->
+
+    <PrintRate value="65" unit="PPM" ppm="65"/>
+
+    <Stapling value="true"/>
+
+    <TrueTypeFonts value="2"/>
+
+</FWebDeviceCaps>

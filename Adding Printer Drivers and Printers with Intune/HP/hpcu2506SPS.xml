@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataMaps xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\..\..\src\DataModel\DataMap.xsd">
+  <!--Version 3.18 -->
+
+<OIDDataMap>
+    <StaticDataItem Name="Protocol">OID</StaticDataItem>
+	<DataItem Prefix="cfg" Name="MODEL_NAME" OID="1.3.6.1.2.1.25.3.2.1.3.1"/>
+	<!-- The above OID Should not be changed. Else printer installation fails. CreateAndBindToPrinterPort depends on this -->
+    <DataItem Name="SerialNumber" OID="1.3.6.1.4.1.11.2.3.9.4.2.1.1.3.3.0"/> <!-- not Responding -->
+
+    <DataItem Name="prtMediaPathType2" OID="1.3.6.1.2.1.43.13.4.1.9.1.2"/>  <!-- Responding -->
+	<DataItem Name="prtInputName1" OID="1.3.6.1.2.1.43.8.2.1.13.1.1"/> <!-- Responding -->
+	<DataItem Name="prtInputMaxCapacity1" OID="1.3.6.1.2.1.43.8.2.1.9.1.1"/> <!-- Responding -->
+	
+	<DataItem Name="prtInputName2" OID="1.3.6.1.2.1.43.8.2.1.13.1.2"/> <!-- Responding -->
+	<DataItem Name="prtInputMaxCapacity2" OID="1.3.6.1.2.1.43.8.2.1.9.1.1"/> <!-- Responding -->
+	
+	<DataItem Name="prtInputName3" OID="1.3.6.1.2.1.43.8.2.1.13.1.3"/> 
+	<DataItem Name="prtInputMaxCapacity3" OID="1.3.6.1.2.1.43.8.2.1.9.1.1"/> <!-- Responding -->
+	
+	<DataItem Name="prtInputName4" OID="1.3.6.1.2.1.43.8.2.1.13.1.4"/> <!-- Responding -->
+	<DataItem Name="prtInputMaxCapacity4" OID="1.3.6.1.2.1.43.8.2.1.9.1.1"/> <!-- Responding -->
+	
+	<DataItem Name="prtInputName5" OID="1.3.6.1.2.1.43.8.2.1.13.1.5"/> <!-- Responding -->
+	<DataItem Name="prtInputMaxCapacity5" OID="1.3.6.1.2.1.43.8.2.1.9.1.1"/> <!-- Responding -->
+	
+	<DataItem Name="prtInputName6" OID="1.3.6.1.2.1.43.8.2.1.13.1.6"/> <!-- Responding -->
+	<DataItem Name="prtInputMaxCapacity6" OID="1.3.6.1.2.1.43.8.2.1.9.1.1"/> <!-- Responding -->
+	
+	<DataItem Name="prtMarkerColorantMarkerIndex1" OID="1.3.6.1.2.1.43.10.2.1.6.1.1"/> <!-- Responding -->
+	<DataItem Name="prtMediaPathMaxSpeed" OID="1.3.6.1.2.1.43.13.4.1.4.1.1"/> <!-- Responding -->
+	
+	<DataItem Name="hrDiskStorageMedia2" OID="1.3.6.1.2.1.25.2.3.1.3.2"> <!-- Responding -->
+		<Conversion Contains="HDD" Value="Installed" />
+	</DataItem>
+	
+	<DataItem Name="hrMemorySize" OID="1.3.6.1.2.1.25.2.2.0"/> <!-- Responding -->
+	<DataItem Name="PQ_DRAFT_RESOLUTION" OID="1.3.6.1.4.1.11.2.3.9.4.2.1.3.3.1.46.1.1.0"/> <!-- not Responding -->
+	
+	<DataItem Name="PQ_BEST_RESOLUTION" OID="1.3.6.1.4.1.11.2.3.9.4.2.1.3.3.1.46.3.1.0"/> <!-- not Responding -->
+	
+	<DataItem Name="TRAY1-INSTALLED" OID="1.3.6.1.4.1.11.2.3.9.4.2.1.4.1.3.3.1.16.0"/> <!-- not Responding -->
+	<DataItem Name="TRAY1-MEDIA-SIZE-LOADED" OID="1.3.6.1.4.1.11.2.3.9.4.2.1.4.1.3.3.1.1.0"/> <!-- not Responding -->
+	<DataItem Name="TRAY1-MEDIA-VENDOR" OID="1.3.6.1.4.1.11.2.3.9.4.2.1.4.1.3.3.1.14.0"/> <!-- Responding -->
+	<DataItem Name="TRAY1-MEDIA-NAME" OID="1.3.6.1.4.1.11.2.3.9.4.2.1.4.1.3.3.1.4.0"/> <!-- Responding -->
+	
+	<DataItem Name="PCL-VERSION" OID="1.3.6.1.2.1.43.15.1.1.2.1"> 
+		<Conversion Contains="5.00" Value="Version 5.00"/>
+		<Conversion Contains="default" Value="Version 5.0"/>            
+    </DataItem>	
+
+	<DataItem Name="PS-VERSION" OID="1.3.6.1.2.1.43.15.1.1.5.1"> 
+		<Conversion Contains="3010.107" Value="Version 3010.107"/>
+		<Conversion Contains="default" Value="Version 3010.107"/>  
+    </DataItem>
+	
+	<DataItem Name="PCLXL-VERSION" OID="1.3.6.1.2.1.43.15.1.1.3.1"> 
+		<Conversion Contains="3.0" Value="Version 3.0"/>
+		<Conversion Contains="default" Value="Version 3.0"/>            
+    </DataItem>
+	
+	<DataItem Name="TRAY2-INSTALLED" OID="1.3.6.1.4.1.11.2.3.9.4.2.1.4.1.3.3.2.16.0"/> <!-- Responding -->
+	
+	<DataItem Name="MEDIA-NAMES-AVAILABLE" OID="1.3.6.1.4.1.11.2.3.9.4.2.1.4.1.8.1.1.0"/> <!-- not Responding -->
+	
+	<DataItem Name="prtInputModel1" OID="1.3.6.1.2.1.43.8.2.1.15.1.1"/> <!-- Responding -->
+	
+	<DataItem Name="prtInputMaxCapacity1" OID="1.3.6.1.2.1.43.8.2.1.9.1.1"/> <!-- Responding -->
+	
+	<DataItem Name="DEFAULT-DUPLEX-MODE" OID="1.3.6.1.4.1.11.2.3.9.4.2.1.4.1.1.4.0"/> <!-- not Responding -->
+	
+	<StaticDataItem Name="c-fold-maxset">3</StaticDataItem>
+	<StaticDataItem Name="v-fold-maxset">5</StaticDataItem>
+	
+	<!-- Duplex Unit -->
+	<DataItem Name="DuplexUnit_Installed" OID="1.3.6.1.2.1.43.13.4.1.9.1.2">
+      <Conversion Contains="4" Value="Installed" />
+      <Conversion Contains="3" Value="Installed" />
+      <Conversion Contains="default" Value="Not-Installed" />
+    </DataItem>
+	
+    <DataItem Name="SPS_InnerBin" OID="1.3.6.1.2.1.43.9.2.1.12.1.1">
+      <!-- Responding, but not installed so response is different at this moment -->
+      <Conversion Contains="Output Inner Tray" Value="Installed" />
+      <Conversion Contains="Inner bin" Value="Installed" />
+    </DataItem>
+
+    <!--
+		IF  = Inner Finisher
+		SF  = Standard Finisher
+		BF  = Booklet Finisher
+		1B  = 1-Bin Finisher
+		2B  = 2-Bin Finisher
+		1S  = 1-staple
+		2S  = 2-staple
+		EU  = 2-3-holes
+		US  = 2-4-holes
+		SW  = SW-4-holes
+		BM  = Booklet Maker
+		CF  = C-Fold Unit
+		VF  = V-Fold Unit
+		4B  = MailBox
+    -->
+
+    <DataItem Name="SPS_Finisher" OID="1.3.6.1.2.1.43.30.1.1.10.1.1">
+      <!-- Responding -->
+      <Conversion Equals="Output Tray Stacker subunit (2 bin EU punch, straight, offset), 500 pages capacity" Value="IF_2S_EU"/>
+      <Conversion Equals="Output Tray Stacker subunit (2 bin US punch, straight, offset), 500 pages capacity" Value="IF_2S_US"/>
+      <Conversion Equals="Output Tray Stacker subunit (2 bin SW punch, straight, offset), 500 pages capacity" Value="IF_2S_SW"/>
+      <Conversion Equals="Output Tray Stacker subunit (2 bin, straight, offset), 500 pages capacity" Value="IF_2S"/>
+
+      <Conversion Equals="Output Tray Stacker subunit (2 bin EU punch, straight, offset), 3K capacity" Value="SF_2S_EU"/>
+      <Conversion Equals="Output Tray Stacker subunit (2 bin US punch, straight, offset), 3K capacity" Value="SF_2S_US"/>
+      <Conversion Equals="Output Tray Stacker subunit (2 bin SW punch, straight, offset), 3K capacity" Value="SF_2S_SW"/>
+      <Conversion Equals="Output Tray Stacker subunit (2 bin, straight, offset), 3K capacity" Value="SF_2S"/>
+
+      <Conversion Equals="Output Tray Stacker subunit (3 bin EU punch, Booklet, straight, offset), 2K capacity" Value="BF_2S_BM_CF_VF_EU"/>
+      <Conversion Equals="Output Tray Stacker subunit (3 bin US punch, Booklet, straight, offset), 2K capacity" Value="BF_2S_BM_CF_VF_US"/>
+      <Conversion Equals="Output Tray Stacker subunit (3 bin Swedish punch, Booklet, straight, offset), 2K capacity" Value="BF_2S_BM_CF_VF_SW"/>
+      <Conversion Equals="Output Tray Stacker subunit (3 bin, Booklet, straight, offset), 2K capacity" Value="BF_2S_BM_CF_VF"/>
+
+      <Conversion Equals="Output Tray Stacker subunit (straight, offset)" Value="1B_1S"/>
+      <Conversion Equals="Output Tray Stapler subunit (single, slanted)" Value="1B_1S"/>
+
+      <Conversion Equals="Output Tray Stacker subunit (2 bin, straight, offset)" Value="2B_1S"/>
+      <Conversion Equals="Output Tray Stapler subunit (2 bin, single, slanted)" Value="2B_1S"/>
+	  
+	  <Conversion Equals="Output Tray Mail Box" Value="4B"/>
+    </DataItem>
+
+    <DataItem Name="SPS_MailBox" OID="1.3.6.1.2.1.43.30.1.1.10.1.2">
+      <Conversion Contains="Output Tray Mail Box" Value="4B"/>
+    </DataItem>
+
+    <!-- NextDataItem => this is not possible.
+	<NextDataItem Name="MailBox" OID="1.3.6.1.2.1.43.30.1.1.10.1" Count="2">
+		<Conversion Value="4-Bin(??)" Contains="Output Tray Mail Box"/>
+	</NextDataItem>
+    -->
+	
+	<!-- Optional Tray -->
+	<!-- current UDM doesn't work okay without Count attribute -->
+	<!--
+	<NextDataItem Name="InputTray" OID="1.3.6.1.2.1.43.8.2.1.13.1" Count="6">
+	  <Conversion Contains="Tray 1" Value="Tray1_Installed" />
+	  <Conversion Contains="MP Tray" Value="MPTray_Installed" />
+      <Conversion Contains="Tray 2" Value="Tray2_Installed" />
+	  <Conversion Contains="Tray 3" Value="Tray3_Installed" />
+	  <Conversion Contains="Tray 4" Value="Tray4_Installed" />
+	  <Conversion Contains="Tray 5" Value="Tray5_Installed" />
+    </NextDataItem> -->
+
+  </OIDDataMap>
+
+</DataMaps>

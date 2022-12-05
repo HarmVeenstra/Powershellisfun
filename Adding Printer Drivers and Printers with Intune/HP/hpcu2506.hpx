@@ -1,0 +1,13 @@
+[RegEntries]
+MystStdInstall=1
+DemFileName=hpcu250.dem
+VerifyPDL=PCL6
+ExtensionDlls=hpmux250.dll
+RealCfgDll=UNIDRVUI.DLL
+EnableIE7Launch=0
+UIExtensionDll=hpcui250.dll
+
+[RegType]
+;dword=1, string=0
+EnableIE7Launch=1
+MystStdInstall=1
