@@ -5,6 +5,7 @@ $programs = @{
     "Firefox Private Browsing" = "C:\Program Files\Mozilla Firefox\private_browsing.exe"
     "Firefox"                  = "C:\Program Files\Mozilla Firefox\firefox.exe"
     "Google Chrome"            = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+    "Microsoft Edge"           = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
     "Notepad++"                = "C:\Program Files\Notepad++\notepad++.exe"
     "OneNote"                  = "C:\Program Files\Microsoft Office\root\Office16\ONENOTE.EXE"
     "Outlook"                  = "C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE"
