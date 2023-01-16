@@ -12,7 +12,7 @@ function Start-WinGetUpdate {
     #Check if WinGet is installed, install it if not or skip when SkipVersionCheck was used
     #https://learn.microsoft.com/en-us/windows/package-manager/winget/#install-winget-on-windows-sandbox
     if (-not $SkipVersionCheck) {
-        if ((Get-AppxPackage -Name Microsoft.DesktopAppInstaller).version -lt '1.19.3531.0') {
+        if ([version](Get-AppxPackage -Name Microsoft.DesktopAppInstaller).version -lt [version]'1.19.3531.0') {
             try {
                 Write-Warning ("Required Winget version 1.4.3531 or higher was not found and installing now")
                 Write-Host ("Downloading required files....") -ForegroundColor Green
