@@ -132,7 +132,7 @@ function Start-WinGetUpdate {
     }
 
     # Starts to check if you have any softwares that needs to be updated
-    Write-OutPut "Checks if any softwares needs to be updated"
+    Write-OutPut "Checks if any software needs to be updated"
     try {
         WinGet.exe upgrade --all --silent --force --accept-source-agreements --disable-interactivity --include-unknown
         Write-Output "Everything is now completed, you can close this window"
@@ -145,5 +145,3 @@ function Start-WinGetUpdate {
     }
 
 }
-
-Start-WinGetUpdate
