@@ -1,14 +1,14 @@
 $programs = @{
-    "Adobe Acrobat"            = "C:\Program Files\Adobe\Acrobat DC\Acrobat\Acrobat.exe"
-    "Excel"                    = "C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE"
-    "Firefox"                  = "C:\Program Files\Mozilla Firefox\firefox.exe"
-    "Google Chrome"            = "C:\Program Files\Google\Chrome\Application\chrome.exe"
-    "Microsoft Edge"           = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
-    "OneNote"                  = "C:\Program Files\Microsoft Office\root\Office16\ONENOTE.EXE"
-    "Outlook"                  = "C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE"
-    "Remote Desktop"           = "C:\Program Files\Remote Desktop\msrdcw.exe"
-    "TeamViewer"               = "C:\Program Files\TeamViewer\TeamViewer.exe"
-    "Word"                     = "C:\Program Files\Microsoft Office\root\Office16\WINWORD.exe"
+    "Adobe Acrobat"  = "C:\Program Files\Adobe\Acrobat DC\Acrobat\Acrobat.exe"
+    "Excel"          = "C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE"
+    "Firefox"        = "C:\Program Files\Mozilla Firefox\firefox.exe"
+    "Google Chrome"  = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+    "Microsoft Edge" = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+    "OneNote"        = "C:\Program Files\Microsoft Office\root\Office16\ONENOTE.EXE"
+    "Outlook"        = "C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE"
+    "Remote Desktop" = "C:\Program Files\Remote Desktop\msrdcw.exe"
+    "TeamViewer"     = "C:\Program Files\TeamViewer\TeamViewer.exe"
+    "Word"           = "C:\Program Files\Microsoft Office\root\Office16\WINWORD.exe"
 }
 
 
