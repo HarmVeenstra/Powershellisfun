@@ -76,17 +76,14 @@ function Start-WinGetUpdate {
             Write-Output = "Checking if it's any newer version of WinGet to download and install..."
         }
 
-        # Looking what version of PowerShell your running and if your running over 7.3.1 it will use http 3.0 to access the GitHub API if not it will fallback to http 2.0
-        if ($PSVersionTable.PSVersion.Major -ge 7 -and $PSVersionTable.PSVersion.Minor -ge 3 -and $PSVersionTable.PSVersion.Patch -ge 1) {
-            [string]$httpVersion = "3.0"
-        }
-        else {
-            [string]$httpVersion = "2.0"
-        }
-
         # Collecting information from GitHub regarding latest version of WinGet
         try {
-            [System.Object]$GithubInfoRestData = Invoke-RestMethod -Uri $GitHubUrl -Method Get -Headers $GithubHeaders -TimeoutSec 10 -HttpVersion $httpVersion | Select-Object -Property assets, tag_name
+            if ($PSVersionTable.PSVersion.Major -ge 7) {
+                [System.Object]$GithubInfoRestData = Invoke-RestMethod -Uri $GitHubUrl -Method Get -Headers $GithubHeaders -TimeoutSec 10 -HttpVersion 3.0 | Select-Object -Property assets, tag_name
+            }
+            else {
+                [System.Object]$GithubInfoRestData = Invoke-RestMethod -Uri $GitHubUrl -Method Get -Headers $GithubHeaders -TimeoutSec 10 | Select-Object -Property assets, tag_name
+            }
             [string]$latestVersion = $GithubInfoRestData.tag_name.Substring(1)
 
             [System.Object]$GitHubInfo = [PSCustomObject]@{
@@ -148,3 +145,5 @@ function Start-WinGetUpdate {
     }
 
 }
+
+Start-WinGetUpdate
