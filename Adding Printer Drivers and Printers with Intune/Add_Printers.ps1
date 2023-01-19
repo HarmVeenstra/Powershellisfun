@@ -10,7 +10,8 @@ $currentnumber = 1
 Write-Host ("[Install printer driver(s)]`n") -ForegroundColor Green
 Foreach ($inf in $infs) {
     Write-Host ("[{0}/{1}] Adding inf file {2}" -f $currentnumber, $totalnumberofinfs, $inf) -ForegroundColor Green
-    C:\windows\system32\Pnputil.exe /a $inf | Out-Null
+    Pnputil.exe /a $inf | Out-Null
+    $currentnumber++
 }
 
 #Add all installed drivers to Windows using the CSV list for the correct names

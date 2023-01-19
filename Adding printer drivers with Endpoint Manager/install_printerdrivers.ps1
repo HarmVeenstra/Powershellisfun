@@ -1,6 +1,6 @@
 $drivers = Import-Csv .\Drivers.csv -Delimiter ','
 foreach ($driver in $drivers) {
-    c:\windows\system32\pnputil.exe -a $driver.Path
+    pnputil.exe -a $driver.Path
     Start-Sleep -Seconds 5
     Add-PrinterDriver -Name $driver.name
 }

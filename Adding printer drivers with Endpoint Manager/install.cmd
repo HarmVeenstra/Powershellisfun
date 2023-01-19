@@ -1,1 +1,1 @@
-powershell.exe -executionpolicy bypass .\install_printerdrivers.ps1
+C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe -executionpolicy bypass .\install_printerdrivers.ps1
