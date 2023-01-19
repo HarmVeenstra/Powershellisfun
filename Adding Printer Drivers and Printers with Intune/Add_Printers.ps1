@@ -10,7 +10,17 @@ $currentnumber = 1
 Write-Host ("[Install printer driver(s)]`n") -ForegroundColor Green
 Foreach ($inf in $infs) {
     Write-Host ("[{0}/{1}] Adding inf file {2}" -f $currentnumber, $totalnumberofinfs, $inf) -ForegroundColor Green
-    c:\windows\system32\pnputil.exe /a $inf | Out-Null
+    try {
+        c:\windows\sysnative\Pnputil.exe /a $inf | Out-Null
+    }
+    catch {
+        try {
+            c:\windows\system32\Pnputil.exe /a $inf | Out-Null
+        }
+        catch {
+            C:\Windows\SysWOW64\pnputil.exe /a $inf | Out-Null
+        }
+    }
     $currentnumber++
 }
 
