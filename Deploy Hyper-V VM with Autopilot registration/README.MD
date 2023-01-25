@@ -1,1 +1,0 @@
-Script(s) used in blog post located at https://powershellisfun.com/2022/07/09/upload-windows-autopilot-hardware-hash/

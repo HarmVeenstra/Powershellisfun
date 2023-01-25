@@ -1,1 +1,0 @@
-Script(s) used in blog post located at https://powershellisfun.com/2022/05/12/adding-mobile-phone-authentication-method-for-azure-ad-multi-factor-authentication-using-powershell/

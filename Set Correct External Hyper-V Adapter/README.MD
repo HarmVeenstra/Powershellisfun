@@ -1,1 +1,0 @@
-Script(s) used in blog post located at https://powershellisfun.com/2022/10/08/reconfigure-hyper-v-external-switch-to-the-correct-network-adapter/

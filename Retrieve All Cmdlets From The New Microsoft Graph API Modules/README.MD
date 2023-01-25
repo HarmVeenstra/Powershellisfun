@@ -1,1 +1,0 @@
-Script(s) used in blog post located at https://powershellisfun.com/2022/06/06/retrieving-all-cmdlets-and-help-urls-from-the-new-microsoft-graph-modules/

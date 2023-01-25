@@ -1,1 +1,0 @@
-Script(s) used in blog post located at https://powershellisfun.com/2022/05/16/microsoft-365-license-overview-per-user/

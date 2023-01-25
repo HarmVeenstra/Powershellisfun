@@ -1,1 +1,0 @@
-Script(s) used in blog post located at https://powershellisfun.com/2023/01/02/update-your-software-using-winget-and-powershell/

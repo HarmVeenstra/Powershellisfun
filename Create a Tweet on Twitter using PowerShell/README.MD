@@ -1,1 +1,0 @@
-Script(s) used in blog post located at https://powershellisfun.com/2022/08/01/create-a-tweet-on-twitter-using-powershell/

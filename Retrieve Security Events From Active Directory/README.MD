@@ -1,1 +1,0 @@
-Script(s) used in blog post located at https://powershellisfun.com/2022/07/19/retrieve-security-events-from-active-directory-using-powershell/

@@ -1,1 +1,0 @@
-Script(s) used in blog post located at https://powershellisfun.com/2022/04/21/its-a-lot-of-work-reinstalling-your-system/

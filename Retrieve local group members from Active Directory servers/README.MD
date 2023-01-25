@@ -1,1 +1,0 @@
-Script(s) used in blog post located at https://powershellisfun.com/2022/10/21/retrieve-all-local-group-members-of-active-directory-member-servers/

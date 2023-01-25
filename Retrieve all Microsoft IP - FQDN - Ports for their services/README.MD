@@ -1,1 +1,0 @@
-Script(s) used in blog post located at https://powershellisfun.com/2022/09/22/get-all-microsoft-ip-and-fqdns-for-their-services/

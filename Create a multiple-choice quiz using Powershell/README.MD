@@ -1,1 +1,0 @@
-Script(s) used in blog post located at https://powershellisfun.com/2022/10/30/create-a-multiple-choice-quiz-using-powershell/

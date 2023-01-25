@@ -1,1 +1,0 @@
-Script(s) used in blog post located at https://powershellisfun.com/2022/05/25/get-all-download-links-from-microsoft-evaluation-center/

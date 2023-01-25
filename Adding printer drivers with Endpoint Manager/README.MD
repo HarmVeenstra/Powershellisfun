@@ -1,1 +1,0 @@
-Script(s) used in blog post located at https://powershellisfun.com/2022/06/21/adding-printer-drivers-with-endpoint-manager-and-powershell/
