@@ -54,6 +54,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Install Apps Using WinGet And PowerShell](https://powershellisfun.com/2022/04/21/its-a-lot-of-work-reinstalling-your-system/)
 
+[Install or update SysInternals Suite](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Install%20or%20update%20SysInternals%20Suite)
+
 [Message Of The Day](https://powershellisfun.com/2022/07/04/get-a-message-of-the-day-in-your-powershell-session/)
 
 [Microsoft 365 License Overview Per User](https://powershellisfun.com/2022/05/16/microsoft-365-license-overview-per-user/)
