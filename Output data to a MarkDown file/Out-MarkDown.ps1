@@ -47,7 +47,7 @@ Function Out-MarkDown {
         #Add time-stamp header to outputfile and the data from Pipeline in a codeblock
         ("{0}" -f $emptyline) | Out-File -FilePath $OutputFile -Encoding utf8 -Append -Width 1024
         ("{0}" -f $horizontalline) | Out-File -FilePath $OutputFile -Encoding utf8 -Append -Width 1024
-        ("# Data added using Out-MarkDown.ps1 on {0}" -f $(Get-Date -Format "dd-mm-yyyy HH:mm:ss")) | Out-File -FilePath $OutputFile -Encoding utf8 -Append -Width 1024
+        ("# Data added using Out-MarkDown.ps1 on {0}" -f $(Get-Date -Format "dd-MM-yyyy HH:mm:ss")) | Out-File -FilePath $OutputFile -Encoding utf8 -Append -Width 1024
         ("{0}" -f $codeblock) | Out-File -FilePath $OutputFile -Encoding utf8 -Append -Width 1024
 
     }
