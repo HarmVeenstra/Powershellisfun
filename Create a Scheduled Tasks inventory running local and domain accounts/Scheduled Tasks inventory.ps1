@@ -25,6 +25,7 @@ $total = foreach ($server in Get-ADComputer -Filter * -Properties OperatingSyste
                 -and $taskinfo.Task.Principals.Principal.Id -ne 'AnyUser' `
                 -and $taskinfo.Task.Principals.Principal.Id -ne 'Authenticated Users' `
                 -and $taskinfo.Task.Principals.Principal.Id -ne 'AllUsers' `
+                -and $taskinfo.Task.Principals.Principal.Id -ne 'Author' `
                 -and $taskinfo.Task.Principals.Principal.Id -ne 'LocalAdmin' `
                 -and $taskinfo.Task.Principals.Principal.Id -ne 'LocalService' `
                 -and $taskinfo.Task.Principals.Principal.Id -ne 'LocalSystem' `
@@ -52,4 +53,9 @@ $total = foreach ($server in Get-ADComputer -Filter * -Properties OperatingSyste
     }
 }
 
-$Total | Sort-Object Server, TaskName | Export-CSV -NoTypeInformation -Delimiter ';' -Encoding UTF8 -path $CSVlocation
+if ($total.count -gt 0) {
+    $Total | Sort-Object Server, TaskName | Export-CSV -NoTypeInformation -Delimiter ';' -Encoding UTF8 -path $CSVlocation
+}
+else {
+    Write-Warning ("No Scheduled Tasks were found running on local or Domain accounts")
+}
