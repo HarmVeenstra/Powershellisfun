@@ -21,19 +21,22 @@ catch {
 $ProgressPreference = "SilentlyContinue"
 Write-Host ("Downloading license overview from Microsoft") -ForegroundColor Green
 $csvlink = ((Invoke-WebRequest -Uri https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/licensing-service-plan-reference -UseBasicParsing).Links | where-Object Href -Match 'CSV').href
-Invoke-WebRequest -Uri $csvlink -OutFile $env:TEMP\licensing.csv
-$skucsv = Import-Csv -Path $env:TEMP\licensing.csv
+Invoke-WebRequest -Uri $csvlink -OutFile $env:TEMP\licensing.csv 
+$skucsv = Import-Csv -Path $env:TEMP\licensing.csv -Encoding Default
 $UsersLicenses = foreach ($user in Get-MgUser -All | Sort-Object UserPrincipalName) {
     if ((Get-MgUserLicenseDetail -UserId $user.UserPrincipalname).count -gt 0) {
         Write-Host ("Processing user {0}" -f $user.UserPrincipalName) -ForegroundColor Green
-        foreach ($License in Get-MgUserLicenseDetail -UserId $user.UserPrincipalname) {
+        $Licenses = Get-MgUserLicenseDetail -UserId $user.UserPrincipalname
+        foreach ($License in $Licenses) {
             $SKUfriendlyname = $skucsv | Where-Object String_Id -Contains $License.SkuPartNumber | Select-Object -First 1
             $SKUserviceplan = $skucsv | Where-Object GUID -Contains $License.SkuId | Sort-Object Service_Plans_Included_Friendly_Names
             foreach ($serviceplan in $SKUserviceplan) {
                 [PSCustomObject]@{
-                    User        = "$($User.UserPrincipalName)"
-                    LicenseSKU  = "$($SKUfriendlyname.Product_Display_Name)"
-                    Serviceplan = "$($serviceplan.Service_Plans_Included_Friendly_Names)"
+                    User               = "$($User.UserPrincipalName)"
+                    LicenseSKU         = "$($SKUfriendlyname.Product_Display_Name)"
+                    Serviceplan        = "$($serviceplan.Service_Plans_Included_Friendly_Names)"
+                    AppliesTo          = ($licenses.ServicePlans | Where-Object ServicePlanId -eq $serviceplan.Service_Plan_Id).AppliesTo | Select-Object -First 1
+                    ProvisioningStatus = ($licenses.ServicePlans | Where-Object ServicePlanId -eq $serviceplan.Service_Plan_Id).ProvisioningStatus | Select-Object -First 1
                 }
             }
         }
@@ -41,5 +44,5 @@ $UsersLicenses = foreach ($user in Get-MgUser -All | Sort-Object UserPrincipalNa
 }
  
 #Output all license information to c:\temp\userslicenses.csv and open it
-$UsersLicenses | Sort-Object User, LicenseSKU, Serviceplan | Export-Csv -NoTypeInformation -Delimiter ',' -Encoding UTF8 -Path c:\temp\userslicenses.csv
+$UsersLicenses | Sort-Object User, LicenseSKU, Serviceplan | Export-Csv -NoTypeInformation -Delimiter ';' -Encoding UTF8 -Path c:\temp\userslicenses.csv
 Invoke-Item c:\temp\userslicenses.csv
