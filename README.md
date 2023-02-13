@@ -66,6 +66,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Read RSS Feeds](https://powershellisfun.com/2022/05/30/reading-rss-feeds-in-powershell/)
 
+[Report on Exchange SMTP logfiles](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Report%20on%20Exchange%20SMTP%20logfiles)
+
 [Retrieve Active Directory Container permissions](https://powershellisfun.com/2022/08/22/report-on-active-directory-container-permissions-using-powershell/)
 
 [Retrieve Active Directory OU permissions](https://powershellisfun.com/2022/07/21/report-on-active-directory-ou-permissions-using-powershell/)
