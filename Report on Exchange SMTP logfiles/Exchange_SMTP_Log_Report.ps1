@@ -46,8 +46,18 @@ foreach ($logfile in $files) {
                 FileName       = $logfile.FullName
                 DateTime       = $connection.'date-time'
                 Connector      = $connection.'connector-id'
-                LocalEndpoint  = $connection.'local-endpoint'.Split(':')[0]
-                RemoteEndpoint = $connection.'remote-endpoint'.Split(':')[0]
+                LocalEndpoint  = if ((Resolve-DnsName -ErrorAction SilentlyContinue $connection.'local-endpoint'.Split(':')[0]).NameHost) { 
+                    "$((Resolve-DnsName $connection.'local-endpoint'.Split(':')[0]).NameHost)" 
+                }
+                else {
+                    "$($connection.'local-endpoint'.Split(':')[0])"
+                }
+                RemoteEndpoint = if ((Resolve-DnsName -ErrorAction SilentlyContinue $connection.'remote-endpoint'.Split(':')[0]).NameHost) { 
+                    "$((Resolve-DnsName $connection.'remote-endpoint'.Split(':')[0]).NameHost)" 
+                }
+                else {
+                    "$($connection.'remote-endpoint'.Split(':')[0])"
+                }
                 Event          = $EventField
                 Data           = $connection.data                
             }
