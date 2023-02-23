@@ -2,12 +2,13 @@ function Get-LocalGroupMembers {
     param (
         [parameter(Mandatory = $true)][string]$Outfile,
         [parameter(Mandatory = $false)][string]$ComputerNameFilter,
+        [parameter(Mandatory = $false)][string[]]$GroupNameFilter,
         [parameter(Mandatory = $false)][string]$OUfilter
     )
-    
+
     #Check if both ComputerNameFilter and OUfilter where used
     if ($ComputerNameFilter -and $OUfilter) {
-        Write-Warning ("Both COmputerNameFilter and OUfilter were used, these can't be combined. Exiting...")
+        Write-Warning ("Both ComputerNameFilter and OUfilter were used, these can't be combined. Exiting...")
         return
     }
 
@@ -17,7 +18,7 @@ function Get-LocalGroupMembers {
         return
     }
     
-    #Check is ActiveDirectory module is intalled
+    #Check is ActiveDirectory module is installed
     if (-not (Get-Module -ListAvailable | Where-Object Name -Match ActiveDirectory)) {
         Write-Warning ("ActiveDirectory PowerShell Module was not found, please install before running script...")
         return
@@ -57,15 +58,30 @@ function Get-LocalGroupMembers {
     $total = foreach ($server in $servers) {
     
         #Retrieve all local groups on the server and their members
-        try {
-            $groupmembers = Get-CimInstance -ClassName Win32_GroupUser -ComputerName $server.name -ErrorAction Stop | Where-Object GroupComponent -Match $server.Name
-            Write-Host ("`nRetrieving local groups and their members on server {0}" -f $server.name) -ForeGroundColor Green    
+        if (-not ($GroupNameFilter)) {
+            try {
+                $groupmembers = Get-CimInstance -ClassName Win32_GroupUser -ComputerName $server.name -ErrorAction Stop | Where-Object GroupComponent -Match $server.Name
+                Write-Host ("`nRetrieving local groups and their members on server {0}" -f $server.name) -ForeGroundColor Green    
+            }
+            catch {
+                Write-Warning ("Could not connect to {0}, skipping..." -f $server.Name)
+                Continue
+            }
         }
-        catch {
-            Write-Warning ("Could not connect to {0}, skipping..." -f $server.Name)
-            Continue
+        else {
+            Write-Host ("Retrieving members of the groups {0} on server {1}" -f "$($GroupNameFilter)".replace(' ', ', '), $server.name) -ForeGroundColor Green
+            foreach ($group in $GroupNameFilter) {
+                try {
+                    $groupmember = Get-CimInstance -ClassName Win32_GroupUser -ComputerName $server.name -ErrorAction Stop | Where-Object { $_.GroupComponent -Match $server.Name -and $_.GroupComponent.Name -eq $group }    
+                    $groupmembers += $groupmember
+                }
+                catch {
+                    Write-Warning ("Could not connect to {0} or find group {1}, skipping..." -f $server.Name, $group)
+                    Continue
+                }
+            }
         }
-    
+
         #Loop through all groupmembers and add them to the $total variable
         foreach ($member in $groupmembers) {
             Write-Host ("[{0}] Adding {1} from domain or server {2} which is member of the local group '{3}'" -f $member.PSComputerName, $member.PartComponent.Name, $member.PartComponent.Domain, $member.GroupComponent.Name) -ForegroundColor Green
@@ -76,6 +92,7 @@ function Get-LocalGroupMembers {
                 Member = $member.PartComponent.Name
             }
         }
+    
     }
 
     #Output to report is resuls where found
@@ -89,6 +106,7 @@ function Get-LocalGroupMembers {
             }
             catch {
                 Write-Warning ("`nCould not export results to {0}, check path and permissions" -f $Outfile)
+                return
             }
         }
 
@@ -110,10 +128,12 @@ function Get-LocalGroupMembers {
             }
             catch {
                 Write-Warning ("`nCould not export results to {0}, check path and permissions" -f $Outfile)
+                return
             }
         }
     }
     else {
         Write-Warning ("Could not find any members, please check acces or filter...")
+        return
     }
 }
