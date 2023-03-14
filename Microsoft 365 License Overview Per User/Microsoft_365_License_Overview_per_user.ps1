@@ -78,5 +78,10 @@ $UsersLicenses = foreach ($user in Get-MgUser -All | Sort-Object UserPrincipalNa
 }
  
 #Output all license information to c:\temp\userslicenses.csv and open it
-$UsersLicenses | Sort-Object User, LicenseSKU, Serviceplan | Export-Csv -NoTypeInformation -Delimiter ';' -Encoding UTF8 -Path c:\temp\userslicenses.csv
-Invoke-Item c:\temp\userslicenses.csv
+if ($UsersLicenses.count -gt 0) {
+    $UsersLicenses | Sort-Object User, LicenseSKU, Serviceplan | Export-Csv -NoTypeInformation -Delimiter ';' -Encoding UTF8 -Path c:\temp\userslicenses.csv
+    Invoke-Item c:\temp\userslicenses.csv
+}
+else {
+    Write-Warning ("No licenses found, check permissions and/or -Filter value")
+}
