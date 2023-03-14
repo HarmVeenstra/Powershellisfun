@@ -1,3 +1,13 @@
+#Use -Filter parameter to only search for specific licenses. 
+#For example .\Microsoft_365_License_Overview_per_user.ps1' -FilterLicenseSKU 'Windows 10 Enterprise E3' or
+#For example .\Microsoft_365_License_Overview_per_user.ps1' -FilterServicePlan 'Universal Print'
+#If -Filter is not used, #all licenses will be reported
+[CmdletBinding(DefaultParameterSetName = 'All')]
+param (
+    [parameter(parameterSetName = "LicenseSKU")][string]$FilterLicenseSKU,
+    [parameter(parameterSetName = "ServicePlan")][string]$FilterServicePlan
+)
+
 #Connect to MSGraph if not connected
 Write-Host ("Checking MSGraph module") -ForegroundColor Green
 try {
@@ -31,12 +41,36 @@ $UsersLicenses = foreach ($user in Get-MgUser -All | Sort-Object UserPrincipalNa
             $SKUfriendlyname = $skucsv | Where-Object String_Id -Contains $License.SkuPartNumber | Select-Object -First 1
             $SKUserviceplan = $skucsv | Where-Object GUID -Contains $License.SkuId | Sort-Object Service_Plans_Included_Friendly_Names
             foreach ($serviceplan in $SKUserviceplan) {
-                [PSCustomObject]@{
-                    User               = "$($User.UserPrincipalName)"
-                    LicenseSKU         = "$($SKUfriendlyname.Product_Display_Name)"
-                    Serviceplan        = "$($serviceplan.Service_Plans_Included_Friendly_Names)"
-                    AppliesTo          = ($licenses.ServicePlans | Where-Object ServicePlanId -eq $serviceplan.Service_Plan_Id).AppliesTo | Select-Object -First 1
-                    ProvisioningStatus = ($licenses.ServicePlans | Where-Object ServicePlanId -eq $serviceplan.Service_Plan_Id).ProvisioningStatus | Select-Object -First 1
+                if ($FilterLicenseSKU) {
+                    if ("$($SKUfriendlyname.Product_Display_Name)" -match $FilterLicenseSKU) {
+                        [PSCustomObject]@{
+                            User               = "$($User.UserPrincipalName)"
+                            LicenseSKU         = "$($SKUfriendlyname.Product_Display_Name)"
+                            Serviceplan        = "$($serviceplan.Service_Plans_Included_Friendly_Names)"
+                            AppliesTo          = ($licenses.ServicePlans | Where-Object ServicePlanId -eq $serviceplan.Service_Plan_Id).AppliesTo | Select-Object -First 1
+                            ProvisioningStatus = ($licenses.ServicePlans | Where-Object ServicePlanId -eq $serviceplan.Service_Plan_Id).ProvisioningStatus | Select-Object -First 1
+                        }
+                    }
+                }
+                elseif ($FilterServicePlan) {
+                    if ("$($serviceplan.Service_Plans_Included_Friendly_Names)" -match $FilterServicePlan) {
+                        [PSCustomObject]@{
+                            User               = "$($User.UserPrincipalName)"
+                            LicenseSKU         = "$($SKUfriendlyname.Product_Display_Name)"
+                            Serviceplan        = "$($serviceplan.Service_Plans_Included_Friendly_Names)"
+                            AppliesTo          = ($licenses.ServicePlans | Where-Object ServicePlanId -eq $serviceplan.Service_Plan_Id).AppliesTo | Select-Object -First 1
+                            ProvisioningStatus = ($licenses.ServicePlans | Where-Object ServicePlanId -eq $serviceplan.Service_Plan_Id).ProvisioningStatus | Select-Object -First 1
+                        }
+                    }
+                }
+                else {
+                    [PSCustomObject]@{
+                        User               = "$($User.UserPrincipalName)"
+                        LicenseSKU         = "$($SKUfriendlyname.Product_Display_Name)"
+                        Serviceplan        = "$($serviceplan.Service_Plans_Included_Friendly_Names)"
+                        AppliesTo          = ($licenses.ServicePlans | Where-Object ServicePlanId -eq $serviceplan.Service_Plan_Id).AppliesTo | Select-Object -First 1
+                        ProvisioningStatus = ($licenses.ServicePlans | Where-Object ServicePlanId -eq $serviceplan.Service_Plan_Id).ProvisioningStatus | Select-Object -First 1
+                    }
                 }
             }
         }
