@@ -2,7 +2,7 @@
 
 Repository with the scripts that I have used in my blogs on [PowerShellisfun.com](https://powershellisfun.com)
 
-## Directory and links to the corresponding Blogpost
+## Directory and links to the corresponding blog post with more information about the script(s)
 
 [365 Health Status](https://powershellisfun.com/2022/05/23/get-365-service-health-status-using-powershell/)
 
