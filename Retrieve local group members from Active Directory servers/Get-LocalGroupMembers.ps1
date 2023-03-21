@@ -1,16 +1,13 @@
 function Get-LocalGroupMembers {
+    [CmdletBinding(DefaultParameterSetName = 'All')]
     param (
         [parameter(Mandatory = $true)][string]$Outfile,
-        [parameter(Mandatory = $false)][string]$ComputerNameFilter,
-        [parameter(Mandatory = $false)][string[]]$GroupNameFilter,
-        [parameter(Mandatory = $false)][string]$OUfilter
+        [parameter(Mandatory = $false, parameterSetName = "ComputerNameFilter")][string]$ComputerNameFilter,
+        [parameter(Mandatory = $false, parameterSetName = "OUFilter")][string]$OUfilter,
+        [parameter(Mandatory = $false, parameterSetName = "FileName")][string]$FileName,
+        [parameter(Mandatory = $false)][string[]]$GroupNameFilter
+        
     )
-
-    #Check if both ComputerNameFilter and OUfilter where used
-    if ($ComputerNameFilter -and $OUfilter) {
-        Write-Warning ("Both ComputerNameFilter and OUfilter were used, these can't be combined. Exiting...")
-        return
-    }
 
     #Check file extension, if it's not .csv or .xlsx exit
     if (-not ($Outfile.EndsWith('.csv') -or $Outfile.EndsWith('.xlsx'))) {
@@ -25,7 +22,8 @@ function Get-LocalGroupMembers {
     }
 
     #Retrieve all enabled computer accounts of Domain Member servers which updated their computer account the last 30 days, skip Domain Controllers
-
+    #Skip checks if -FileName parameter was used
+        
     #Using $ComputerNameFilter
     if ($ComputerNameFilter) {
         $servers = Get-ADComputer -Filter { (OperatingSystem -like 'Windows Server*') -and (PrimaryGroupID -ne '516') -and (Enabled -eq $TRUE) } -Properties LastLogonDate `
@@ -48,17 +46,27 @@ function Get-LocalGroupMembers {
         | Where-Object LastLogonDate -gt (Get-Date).AddDays(-31) `
         | Sort-Object Name
     }
+    
+    #From specified filename
+    if ($FileName) {
+        try {
+            $servers = get-content -Path $FileName -ErrorAction Stop
+        }
+        catch {
+            Write-Warning ("Error accessing/reading {0}. Exiting" -f $FileName)
+            return
+        }
+    }
 
     #Exit if no computer accounts were found
     if ($servers.count -eq 0) {
-        Write-Warning ("No Computer Accounts were found, check access or filters. Exiting...")
+        Write-Warning ("No Computer Accounts were found. Check access, filters or contents of file. Exiting...")
         return
     }
 
     $total = foreach ($server in $servers) {
-    
         #Retrieve all local groups on the server and their members
-        if (-not ($GroupNameFilter)) {
+        if (-not $FileName -and -not $GroupNameFilter) {
             try {
                 $groupmembers = Get-CimInstance -ClassName Win32_GroupUser -ComputerName $server.name -ErrorAction Stop | Where-Object GroupComponent -Match $server.Name
                 Write-Host ("`nRetrieving local groups and their members on server {0}" -f $server.name) -ForeGroundColor Green    
@@ -68,7 +76,33 @@ function Get-LocalGroupMembers {
                 Continue
             }
         }
-        else {
+        
+        if ($FileName -and -not $GroupNameFilter) {
+            try {
+                $groupmembers = Get-CimInstance -ClassName Win32_GroupUser -ComputerName $server -ErrorAction Stop | Where-Object GroupComponent -Match $server
+                Write-Host ("`nRetrieving local groups and their members on server {0}" -f $server) -ForeGroundColor Green    
+            }
+            catch {
+                Write-Warning ("Could not connect to {0}, skipping..." -f $server)
+                Continue
+            }
+        }
+
+        if ($FileName -and $GroupNameFilter) {
+            Write-Host ("Retrieving members of the groups {0} on server {1}" -f "$($GroupNameFilter)".replace(' ', ', '), $server) -ForeGroundColor Green
+            foreach ($group in $GroupNameFilter) {
+                try {
+                    $groupmember = Get-CimInstance -ClassName Win32_GroupUser -ComputerName $server -ErrorAction Stop | Where-Object { $_.GroupComponent -Match $server -and $_.GroupComponent.Name -eq $group }    
+                    $groupmembers += $groupmember
+                }
+                catch {
+                    Write-Warning ("Could not connect to {0} or find group {1}, skipping..." -f $server, $group)
+                    Continue
+                }
+            }
+        }
+
+        if (-not $FileName -and $GroupNameFilter) {
             Write-Host ("Retrieving members of the groups {0} on server {1}" -f "$($GroupNameFilter)".replace(' ', ', '), $server.name) -ForeGroundColor Green
             foreach ($group in $GroupNameFilter) {
                 try {
