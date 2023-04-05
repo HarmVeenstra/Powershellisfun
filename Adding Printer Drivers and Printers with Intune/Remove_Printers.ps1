@@ -1,4 +1,6 @@
-﻿#Read printers.csv as input
+﻿Start-Transcript -Path c:\windows\temp\remove_printers.log
+
+#Read printers.csv as input
 $Printers = Import-Csv .\printers.csv
 
 #Loop through all printers in the csv-file and remove the printers listed
@@ -31,3 +33,5 @@ foreach ($driver in $printers.drivername | Select-Object -Unique) {
     }
     Remove-PrinterDriver @PrinterDriverRemoveOptions
 }
+
+Stop-Transcript
