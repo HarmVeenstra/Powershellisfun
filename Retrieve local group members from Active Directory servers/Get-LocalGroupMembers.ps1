@@ -64,7 +64,8 @@ function Get-LocalGroupMembers {
         return
     }
 
-    $total = foreach ($server in $servers) {
+    $total = @()
+    foreach ($server in $servers) {
         #Retrieve all local groups on the server and their members
         if (-not $FileName -and -not $GroupNameFilter) {
             try {
@@ -89,7 +90,7 @@ function Get-LocalGroupMembers {
         }
 
         if ($FileName -and $GroupNameFilter) {
-            Write-Host ("Retrieving members of the groups {0} on server {1}" -f "$($GroupNameFilter)".replace(' ', ', '), $server) -ForeGroundColor Green
+            Write-Host ("Retrieving members of the groups {0} on server {1}" -f "$($GroupNameFilter)", $server) -ForeGroundColor Green
             foreach ($group in $GroupNameFilter) {
                 try {
                     $groupmember = Get-CimInstance -ClassName Win32_GroupUser -ComputerName $server -ErrorAction Stop | Where-Object { $_.GroupComponent -Match $server -and $_.GroupComponent.Name -eq $group }    
@@ -103,7 +104,7 @@ function Get-LocalGroupMembers {
         }
 
         if (-not $FileName -and $GroupNameFilter) {
-            Write-Host ("Retrieving members of the groups {0} on server {1}" -f "$($GroupNameFilter)".replace(' ', ', '), $server.name) -ForeGroundColor Green
+            Write-Host ("Retrieving members of the groups {0} on server {1}" -f "$($GroupNameFilter)", $server.name) -ForeGroundColor Green
             foreach ($group in $GroupNameFilter) {
                 try {
                     $groupmember = Get-CimInstance -ClassName Win32_GroupUser -ComputerName $server.name -ErrorAction Stop | Where-Object { $_.GroupComponent -Match $server.Name -and $_.GroupComponent.Name -eq $group }    
@@ -119,14 +120,14 @@ function Get-LocalGroupMembers {
         #Loop through all groupmembers and add them to the $total variable
         foreach ($member in $groupmembers) {
             Write-Host ("[{0}] Adding {1} from domain or server {2} which is member of the local group '{3}'" -f $member.PSComputerName, $member.PartComponent.Name, $member.PartComponent.Domain, $member.GroupComponent.Name) -ForegroundColor Green
-            [PSCustomObject]@{
+            $members = [PSCustomObject]@{
                 Server = $member.PSComputerName
                 Group  = $member.GroupComponent.Name
                 Domain = $member.PartComponent.Domain
                 Member = $member.PartComponent.Name
             }
+            $total += $members
         }
-    
     }
 
     #Output to report is resuls where found
