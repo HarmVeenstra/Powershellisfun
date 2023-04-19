@@ -15,7 +15,7 @@ function Get-MailDomainInfo {
     $dkim1 = Resolve-DnsName -Name "selector1._domainkey.$($domainname)" -Type CNAME -Server $DNSserver -ErrorAction SilentlyContinue
     $dkim2 = Resolve-DnsName -Name "selector2._domainkey.$($domainname)" -Type CNAME -Server $DNSserver -ErrorAction SilentlyContinue
     $domain = Resolve-DnsName -Name $DomainName -Server $DNSserver -ErrorAction SilentlyContinue
-    $dmarc = (Resolve-DnsName -Name "_dmarc.$($DomainName)" -Type TXT -Server $DNSserver -ErrorAction SilentlyContinue).Strings
+    $dmarc = (Resolve-DnsName -Name "_dmarc.$($DomainName)" -Type TXT -Server $DNSserver -ErrorAction SilentlyContinue | Where-Object Strings -Match 'DMARC').Strings
     $mx = (Resolve-DnsName -Name $DomainName -Type MX -Server $DNSserver -ErrorAction SilentlyContinue).NameExchange
     $spf = (Resolve-DnsName -Name $DomainName -Type TXT -Server $DNSserver -ErrorAction SilentlyContinue | Where-Object Strings -Match 'v=spf').Strings
  
