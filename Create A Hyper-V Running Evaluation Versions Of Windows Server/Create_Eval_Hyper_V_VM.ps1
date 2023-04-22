@@ -38,7 +38,7 @@ $totalfound = foreach ($url in $urls) {
             [PSCustomObject]@{
                 Title  = $content.ParsedHtml.title.Split('|')[0]
                 Name   = $DownloadLink.'aria-label'.Replace('Download ', '')
-                Tag    = $DownloadLink.'data-bi-tags'.Split('"')[3].split('-')[0]
+                Tag    = $DownloadLink.'data-bi-tags'.Split('&')[3].split(';')[1]
                 Format = $DownloadLink.'data-bi-tags'.Split('-')[1].ToUpper()
                 Link   = $DownloadLink.href
             }
