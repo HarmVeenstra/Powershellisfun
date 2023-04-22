@@ -36,7 +36,6 @@ $totalfound = foreach ($url in $urls) {
         Write-host ("Processing {0}, Found {1} Download(s)..." -f $url, $count) -ForegroundColor Green
         foreach ($DownloadLink in $DownloadLinks) {
             [PSCustomObject]@{
-                Title  = $content.ParsedHtml.title.Split('|')[0]
                 Name   = $DownloadLink.'aria-label'.Replace('Download ', '')
                 Tag    = $DownloadLink.'data-bi-tags'.Split('&')[3].split(';')[1]
                 Format = $DownloadLink.'data-bi-tags'.Split('-')[1].ToUpper()
