@@ -5,7 +5,8 @@
 [CmdletBinding(DefaultParameterSetName = 'All')]
 param (
     [parameter(parameterSetName = "LicenseSKU")][string]$FilterLicenseSKU,
-    [parameter(parameterSetName = "ServicePlan")][string]$FilterServicePlan
+    [parameter(parameterSetName = "ServicePlan")][string]$FilterServicePlan,
+    [parameter(Mandatory = $false)][string]$FilterUser
 )
 
 #Connect to MSGraph if not connected
@@ -23,7 +24,7 @@ catch {
         Import-Module Microsoft.Graph.Identity.DirectoryManagement
         Import-Module Microsoft.Graph.Users
     }
-    Connect-Graph -Scopes User.ReadWrite.All, Organization.Read.All
+    Connect-Graph -Scopes User.Read.All, Organization.Read.All
 }
  
 #Create table of users and licenses (https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/licensing-service-plan-reference)
@@ -33,7 +34,13 @@ Write-Host ("Downloading license overview from Microsoft") -ForegroundColor Gree
 $csvlink = ((Invoke-WebRequest -Uri https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/licensing-service-plan-reference -UseBasicParsing).Links | where-Object Href -Match 'CSV').href
 Invoke-WebRequest -Uri $csvlink -OutFile $env:TEMP\licensing.csv 
 $skucsv = Import-Csv -Path $env:TEMP\licensing.csv -Encoding Default
-$UsersLicenses = foreach ($user in Get-MgUser -All | Sort-Object UserPrincipalName) {
+if ($null -eq $FilterUser) {
+    $users = Get-MgUser -All | Sort-Object UserPrincipalName
+}
+else {
+    $users = Get-MgUser -All | Where-Object UserPrincipalName -Match $FilterUser | Sort-Object UserPrincipalName
+}
+$UsersLicenses = foreach ($user in $users) {
     if ((Get-MgUserLicenseDetail -UserId $user.UserPrincipalname).count -gt 0) {
         Write-Host ("Processing user {0}" -f $user.UserPrincipalName) -ForegroundColor Green
         $Licenses = Get-MgUserLicenseDetail -UserId $user.UserPrincipalname
