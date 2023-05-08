@@ -56,6 +56,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Install or update SysInternals Suite](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Install%20or%20update%20SysInternals%20Suite)
 
+[Intune Remediation for unquoted service path vulnerability](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Intune%20Remediation%20for%20unquoted%20service%20path%20vulnerability)
+
 [Message Of The Day](https://powershellisfun.com/2022/07/04/get-a-message-of-the-day-in-your-powershell-session/)
 
 [Output data to a MarkDown file](https://powershellisfun.com/2023/02/01/export-pipeline-output-to-a-markdown-file-using-powershell/)
