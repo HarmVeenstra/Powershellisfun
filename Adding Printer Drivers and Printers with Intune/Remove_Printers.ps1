@@ -1,7 +1,7 @@
 ﻿Start-Transcript -Path c:\windows\temp\remove_printers.log
 
 #Read printers.csv as input
-$Printers = Import-Csv .\printers.csv
+$Printers = Import-Csv .\printers.csv -Delimiter ';'
 
 #Loop through all printers in the csv-file and remove the printers listed
 foreach ($printer in $printers) {

@@ -1,4 +1,4 @@
-"Name","DriverName","PortName","Comment","Location"
-"Contoso-General","TOSHIBA Universal Printer 2","192.1.2.3","Contoso","Hallway"
-"Contoso-HP","HP Universal Printing PCL 6 (v7.0.0)","192.4.5.6","HR","HR Office"
-"Contoso-MFP","Canon Generic Plus PCL6","192.7.8.9","MFP","Finance Office"
+Name;DriverName;PortName;Comment;Location
+Contoso-General;TOSHIBA Universal Printer 2;192.1.2.3;Contoso;Hallway
+Contoso-HP;HP Universal Printing PCL 6 (v7.0.0);192.4.5.6;HR;HR Office
+Contoso-MFP;Canon Generic Plus PCL6;192.7.8.9;MFP;Finance Office

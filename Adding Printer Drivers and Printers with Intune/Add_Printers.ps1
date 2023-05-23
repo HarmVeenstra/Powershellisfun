@@ -1,9 +1,9 @@
 ﻿Start-Transcript -Path c:\windows\temp\printers.log
 #Read printers.csv as input
-$Printers = Import-Csv .\printers.csv
+$Printers = Import-Csv .\printers.csv -Delimiter ';'
 
 #Add all printer drivers by scanning for the .inf files and installing them using pnputil.exe
-$infs = get-childitem -Path . -Filter "*.inf" -Recurse -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Fullname
+$infs = Get-ChildItem -Path . -Filter "*.inf" -Recurse -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Fullname
 
 $totalnumberofinfs = $infs.Count
 $currentnumber = 1
@@ -61,7 +61,6 @@ foreach ($printer in $printers) {
         Name               = $Printer.Name
         PrinterHostAddress = $Printer.PortName
         PortNumber         = '9100'
-
     }
 
     #Add Printerport, remove existing one and the corresponding printer if it already exists 
