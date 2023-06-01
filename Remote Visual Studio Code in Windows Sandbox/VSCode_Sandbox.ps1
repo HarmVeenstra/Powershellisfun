@@ -12,7 +12,7 @@ catch {
 
 # Check if VSCode is installed, exit if not
 if (code --help) {
-    Write-Host ("Visual Studio Code is already installed, continuing...")
+    Write-Host ("Visual Studio Code is already installed, continuing...") -ForegroundColor Green
 }
 else {
     Write-Warning ("Visual Studio Code is not installed, exiting...")
