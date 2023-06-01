@@ -10,6 +10,14 @@ catch {
     break
 }
 
+# Check if VSCode is installed, exit if not
+try {
+    code --help | out-null
+}
+catch {
+    Write-Warning ("Visual Studio Code is not installed, exiting...")
+}
+
 # Check if Remote-SSH extension is installed, install if not
 if ((code --list-extensions | Select-String 'ms-vscode-remote.remote-ssh').Length -gt 0) {
     Write-Host ("Remote-SSH extension is already installed. Continuing...") -ForegroundColor Green
@@ -19,7 +27,7 @@ else {
     code --install-extension ms-vscode-remote.remote-ssh | Out-Null
 }
 
-#Create a C:\VSCodeSandbox folder if it does not exist
+# Create a C:\VSCodeSandbox folder if it does not exist
 if (-not (Test-Path -Path C:\VSCodeSandbox)) {
     New-Item -Type Directory -Path C:\VSCodeSandbox -Force:$true -Confirm:$false | Out-Null
     Write-Host ("Created C:\VSCodeSandbox folder") -ForegroundColor Green
@@ -28,7 +36,7 @@ else {
     Write-Host ("Folder C:\VSCodeSandbox already exists, continuing...") -ForegroundColor Green
 }
 
-#Install OpenSSH Client if needed
+# Install OpenSSH Client if needed
 if (-not (Test-Path -Path C:\Windows\System32\OpenSSH\ssh-keygen.exe)) {
     Add-WindowsCapability -Online -Name OpenSSH.Client* -ErrorAction Stop
     Get-Service ssh-agent | Set-Service -StartupType Automatic
@@ -39,7 +47,7 @@ else {
     Write-Host ("OpenSSH client found, continuing...") -ForegroundColor Green
 }
 
-#Create SSH keys for connecting to Windows Sandbox
+# Create SSH keys for connecting to Windows Sandbox
 if (-not (Test-Path -Path $env:USERPROFILE\.ssh\vscodesshfile*)) {
     try {
         if (-not (Test-Path -Path $env:USERPROFILE\.ssh)) {
@@ -61,12 +69,12 @@ else {
     Write-Host ("SSH keys found, continuing...") -ForegroundColor Green
 }
 
-#Remove previous ip.txt
+# Remove previous ip.txt
 if (Test-Path -Path C:\VSCodeSandbox\IP.txt) {
     Remove-Item -Path C:\VSCodeSandbox\IP.txt -Force:$true -Confirm:$false
 }
 
-#Create a VSCode.wsb file in C:\Windows\Temp\VSCodeSandbox
+# Create a VSCode.wsb file in C:\Windows\Temp\VSCodeSandbox
 $wsb = @"
 <Configuration>
     <VGpu>Enable</VGpu>
@@ -84,8 +92,8 @@ $wsb = @"
 "@
 $wsb | Out-File C:\VSCodeSandbox\vscode.wsb -Force:$true -Confirm:$false
 
-#Create the vscode_sandbox.ps1 for installation of OpenSSH Server, creation of local vscode admin account and vscodesshfile SSH Key
-#Logging can be found in C:\Users\WDAGUtilityAccount\Desktop\VSCodeSandbox\sandbox_transcript.txt if needed in the Windows Sandbox VM
+# Create the vscode_sandbox.ps1 for installation of OpenSSH Server, creation of local vscode admin account and vscodesshfile SSH Key
+# Logging can be found in C:\Users\WDAGUtilityAccount\Desktop\VSCodeSandbox\sandbox_transcript.txt if needed in the Windows Sandbox VM
 $vscode_sandbox = @"
 Start-Transcript C:\Users\WDAGUtilityAccount\Desktop\VSCodeSandbox\sandbox_transcript.txt
 Invoke-Webrequest -Uri https://github.com/PowerShell/Win32-OpenSSH/releases/download/v9.2.2.0p1-Beta/OpenSSH-Win64-v9.2.2.0.msi -OutFile C:\Windows\Temp\OpenSSH-Win64.msi
@@ -99,18 +107,18 @@ Stop-Transcript
 "@
 $vscode_sandbox | Out-File C:\VSCodeSandbox\vscode_sandbox.ps1 -Force:$true -Confirm:$false
 
-#start Windows Sandbox using the VSCode.wsb file
+# Start Windows Sandbox using the VSCode.wsb file
 Write-Host ("Starting Windows Sandbox...") -ForegroundColor Green
 C:\VSCodeSandbox\vscode.wsb
 
-#Wait for installation of OpenSSH server and creation of IP.txt
+# Wait for installation of OpenSSH server and creation of IP.txt
 while (-not (Test-Path -Path C:\VSCodeSandbox\IP.txt)) {
     Write-Host ("Waiting for installation of OpenSSH in Windows Sandbox...") -ForegroundColor Green
     Start-Sleep 10
 }
 Write-Host ("Installation done, continuing...") -ForegroundColor Green
 
-#Start new VSCode session to Sandbox using SSH key, retrieve current IP of Sandbox from C:\VSCodeSandbox\IP.txt for connection
+# Start new VSCode session to Sandbox using SSH key, retrieve current IP of Sandbox from C:\VSCodeSandbox\IP.txt for connection
 $ip = get-content C:\VSCodeSandbox\IP.txt
 Write-Host ("Starting Visual Studio Code and connecting to Windows Sandbox...") -ForegroundColor Green
 code --remote ssh-remote+vscode@$($ip) C:\Users\WDAGUtilityAccount\Desktop\VSCodeSandbox
