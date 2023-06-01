@@ -42,6 +42,9 @@ else {
 #Create SSH keys for connecting to Windows Sandbox
 if (-not (Test-Path -Path $env:USERPROFILE\.ssh\vscodesshfile*)) {
     try {
+        if (-not (Test-Path -Path $env:USERPROFILE\.ssh)) {
+            New-Item -ItemType Directory -Path $env:USERPROFILE\.ssh | Out-Null
+        }
         C:\Windows\System32\OpenSSH\ssh-keygen.exe -t ed25519 -f $env:USERPROFILE\.ssh\vscodesshfile -q -N """"
         Get-Service ssh-agent | Set-Service -StartupType Automatic
         Start-Service ssh-agent
