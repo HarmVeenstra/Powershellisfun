@@ -68,6 +68,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Read RSS Feeds](https://powershellisfun.com/2022/05/30/reading-rss-feeds-in-powershell/)
 
+[Remote Visual Studio Code in Windows Sandbox](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Remote%20Visual%20Studio%20Code%20in%20Windows%20Sandbox)
+
 [Report on Exchange SMTP logfiles](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Report%20on%20Exchange%20SMTP%20logfiles)
 
 [Retrieve Active Directory Container permissions](https://powershellisfun.com/2022/08/22/report-on-active-directory-container-permissions-using-powershell/)
