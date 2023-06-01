@@ -16,6 +16,7 @@ if (code --help) {
 }
 else {
     Write-Warning ("Visual Studio Code is not installed, exiting...")
+    break
 }
 
 # Check if Remote-SSH extension is installed, install if not
