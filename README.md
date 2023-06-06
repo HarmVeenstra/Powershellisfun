@@ -90,6 +90,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Set Correct External Hyper-V Adapter](https://powershellisfun.com/2022/10/08/reconfigure-hyper-v-external-switch-to-the-correct-network-adapter/)
 
+[Set Windows Terminal Background Image](https://powershellisfun.com/2023/06/06/changing-your-windows-terminal-background-image/)
+
 [Show Intune Management Extension Logs](https://powershellisfun.com/2022/09/12/read-intunemanagementextension-logs-using-powershell/)
 
 [Start Windows Sandbox With Parameters](https://powershellisfun.com/2022/06/25/start-windows-sandbox-with-parameters/)
