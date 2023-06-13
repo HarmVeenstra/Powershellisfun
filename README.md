@@ -18,6 +18,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [ASRmageddon Create Common Shortcuts Start Menu](https://powershellisfun.com/2023/01/13/recreate-start-menu-shortcuts-asrmageddon/)
 
+[Change Primary and Secondary DNS](https://powershellisfun.com/2023/06/13/changing-dns-settings-on-windows-devices/)
+
 [Compact Hyper-V VHDX files](https://powershellisfun.com/2022/08/19/compact-hyper-v-vhdx-files-using-powershell/)
 
 [Copy Exchange Receive Connector Settings](https://powershellisfun.com/2022/06/09/copying-exchange-receive-connector-settings-using-powershell/)
