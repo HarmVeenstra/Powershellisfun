@@ -1,7 +1,5 @@
 # Powershellisfun
 
-![Metrics](https://metrics.lecoq.io/HarmVeenstra?template=classic&rss=1&base=header%2C%20activity%2C%20community%2C%20repositories%2C%20metadata&base.indepth=false&base.hireable=false&base.skip=false&rss=false&rss.source=https%3A%2F%2Fpowershellisfun.com%2Ffeed%2F&rss.limit=25&config.timezone=Europe%2FAmsterdam)
-
 Repository with the scripts that I have used in my blogs on [PowerShellisfun.com](https://powershellisfun.com)
 
 ## Directory and links to the corresponding blog post with more information about the script(s)
