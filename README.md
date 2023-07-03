@@ -92,6 +92,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Retrieve Security Events From Active Directory](https://powershellisfun.com/2022/07/19/retrieve-security-events-from-active-directory-using-powershell/)
 
+[Search Windows Event log](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Search%20Windows%20Event%20log)
+
 [Set Correct External Hyper-V Adapter](https://powershellisfun.com/2022/10/08/reconfigure-hyper-v-external-switch-to-the-correct-network-adapter/)
 
 [Set Windows Terminal Background Image](https://powershellisfun.com/2023/06/06/changing-your-windows-terminal-background-image/)
