@@ -74,7 +74,7 @@ function Search-Eventlog {
             }
 
             foreach ($event in $events) {
-                if (-not $Filter) {
+                if (-not $Filter -or $event.Message -match $Filter) {
                     [PSCustomObject]@{
                         Time         = $event.TimeCreated.ToString('dd-MM-yyy HH:mm')
                         Computer     = $ComputerName
@@ -91,26 +91,6 @@ function Search-Eventlog {
                         Message      = $event.Message
                     }
                     $foundevents++
-                }
-                if ($Filter) {
-                    if ($event.Message -match $Filter) {
-                        [PSCustomObject]@{
-                            Time         = $event.TimeCreated.ToString('dd-MM-yyy HH:mm')
-                            Computer     = $ComputerName
-                            LogName      = $event.LogName
-                            ProviderName = $event.ProviderName
-                            Level        = $event.LevelDisplayName
-                            User         = if ($event.UserId) {
-                                "$($event.UserId)"
-                            }
-                            else {
-                                "N/A"
-                            }
-                            EventID      = $event.ID
-                            Message      = $event.Message
-                        }
-                        $foundevents++
-                    }
                 }
             }
         }
