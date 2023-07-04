@@ -1,19 +1,15 @@
 #-Requires RunAsAdministrator
 function Search-Eventlog {
+    
     param (
-        [Parameter(Mandatory = $false, HelpMessage = "Name of remote computer")][string]$ComputerName,
-        [Parameter(Mandatory = $false, HelpMessage = "Number of hours to search back for")][string]$Hours,
+        [Parameter(Mandatory = $false, HelpMessage = "Name of remote computer")][string]$ComputerName = $env:COMPUTERNAME,
+        [Parameter(Mandatory = $false, HelpMessage = "Number of hours to search back for")][double]$Hours,
         [Parameter(Mandatory = $false, HelpMessage = "EventID number")][string]$EventID,
         [Parameter(Mandatory = $false, HelpMessage = "The name of the eventlog to search in")][string[]]$EventLogName,
         [Parameter(Mandatory = $false, HelpMessage = "Output results in a gridview")][switch]$Gridview,
         [Parameter(Mandatory = $false, HelpMessage = "String to search for")][string]$Filter,
         [Parameter(Mandatory = $false, HelpMessage = "Output path, e.g. c:\data\events.csv")][string]$Output
     )
-
-    #Set Computername to localhost if not specified
-    if (-not $ComputerName) {
-        $ComputerName = $env:COMPUTERNAME
-    }
 
     #Set $hours to -1 to $hours if not specified
     if (-not $Hours) {
@@ -26,11 +22,11 @@ function Search-Eventlog {
     #Test if EventLogName is available
     if ($EventLogName) {
         try {
-            Get-WinEvent -ListLog * -ComputerName $ComputerName | Where-Object name -EQ $EventLogName -ErrorAction Stop
-            Write-Host ("Specified EventLog name {0} is valid on {1}, continuing..." -f $EventLogName, $ComputerName) -ForegroundColor Green
+            Get-WinEvent -ListLog $EventLogName -ComputerName $ComputerName -ErrorAction Stop | Out-Null
+            Write-Host ("Specified EventLog name {0} is valid on {1}, continuing..." -f $($EventLogName), $ComputerName) -ForegroundColor Green
         }
         catch {
-            Write-Warning ("Specified EventLog name {0} is not valid or can't access {1}, exiting..." -f $EventLogName, $ComputerName)
+            Write-Warning ("Specified EventLog name {0} is not valid or can't access {1}, exiting..." -f $($EventLogName), $ComputerName)
             return
         }
     }
