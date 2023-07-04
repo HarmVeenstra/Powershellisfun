@@ -1,32 +1,36 @@
 #-Requires RunAsAdministrator
 function Search-Eventlog {
-    
+    [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $false, HelpMessage = "Name of remote computer")][string]$ComputerName = $env:COMPUTERNAME,
-        [Parameter(Mandatory = $false, HelpMessage = "Number of hours to search back for")][double]$Hours,
-        [Parameter(Mandatory = $false, HelpMessage = "EventID number")][string]$EventID,
-        [Parameter(Mandatory = $false, HelpMessage = "The name of the eventlog to search in")][string[]]$EventLogName,
-        [Parameter(Mandatory = $false, HelpMessage = "Output results in a gridview")][switch]$Gridview,
-        [Parameter(Mandatory = $false, HelpMessage = "String to search for")][string]$Filter,
-        [Parameter(Mandatory = $false, HelpMessage = "Output path, e.g. c:\data\events.csv")][string]$Output
+        [Parameter(Mandatory = $false, HelpMessage = "Name of remote computer")]
+        [string]$ComputerName=$env:COMPUTERNAME,
+        [Parameter(Mandatory = $false, HelpMessage = "Number of hours to search back for")]
+        [string]$Hours = -1 ,
+        [Parameter(Mandatory = $false, HelpMessage = "EventID number")]
+        [string]$EventID,
+        [Parameter(Mandatory = $false, HelpMessage = "The name of the eventlog to search in")]
+        [string[]]$EventLogName,
+        [Parameter(Mandatory = $false, HelpMessage = "Output results in a gridview")]
+        [switch]$Gridview,
+        [Parameter(Mandatory = $false, HelpMessage = "String to search for")]
+        [string]$Filter,
+        [Parameter(Mandatory = $false, HelpMessage = "Output path, e.g. c:\data\events.csv")]
+        [string]$OutCSV
     )
 
     #Set $hours to -1 to $hours if not specified
-    if (-not $Hours) {
-        [DateTime]$hours = (Get-Date).AddHours(-1)
-    }
-    else {
-        [DateTime]$hours = (Get-Date).AddHours(-$hours)
-    }
+    [DateTime]$hours = (Get-Date).AddHours(-$hours)
 
-    #Test if EventLogName is available
+    #Set EventLogName if available
     if ($EventLogName) {
         try {
-            Get-WinEvent -ListLog $EventLogName -ComputerName $ComputerName -ErrorAction Stop | Out-Null
-            Write-Host ("Specified EventLog name {0} is valid on {1}, continuing..." -f $($EventLogName), $ComputerName) -ForegroundColor Green
+            $EventLogNames = Get-WinEvent -ListLog $EventLogName -ErrorAction Stop
+            Write-Host ("Specified EventLog name {0} is valid on {1}, continuing..." -f 
+                $EventLogName, $ComputerName) -ForegroundColor Green
         }
         catch {
-            Write-Warning ("Specified EventLog name {0} is not valid or can't access {1}, exiting..." -f $($EventLogName), $ComputerName)
+            Write-Warning ("Specified EventLog name {0} is not valid or can't access {1}, exiting..." -f 
+                $EventLogName, $ComputerName)
             return
         }
     }
@@ -42,35 +46,31 @@ function Search-Eventlog {
         }
     }
 
-    #set Eventlogname
-    if ($EventLogName) {
-        $EventLogNames = Get-WinEvent -ListLog $EventLogName
-    }
-
     #Retrieve events
     $lognumber = 1
-    $total = foreach ($log in $EventLogNames | Sort-Object LogName) {
+    $total = foreach ($log in $EventLogNames) {
         $foundevents = 0
-        Write-Host ("[Eventlog {0}/{1}] - Retrieving events from the {2} Event log on {3}..." -f $lognumber, $EventLogNames.count, $log.LogName, $ComputerName) -ForegroundColor Green
-        #Specify different type of filters
+        Write-Host ("[Eventlog {0}/{1}] - Retrieving events from the {2} Event log on {3}..." -f 
+            $lognumber, $EventLogNames.count, $log.LogName, $ComputerName) -ForegroundColor Green
+        
         try {
-            if (-not $EventID) {
-                $events = Get-WinEvent -FilterHashtable @{
-                    LogName   = $log.LogName
-                    StartTime = $hours
-                } -ErrorAction Stop
-            }
+            #Specify different type of filters
+            $FilterHashtable = @{
+                LogName   = $log.LogName
+                StartTime = $hours
+            } 
 
             if ($EventID) {
-                $events = Get-WinEvent -FilterHashtable @{
-                    LogName   = $log.LogName
-                    StartTime = $hours
-                    ID        = $EventID
-                } -ErrorAction Stop
+                $FilterHashtable.Add('ID',$EventID)
             }
 
+            Get-WinEvent -FilterHashtable $FilterHashtable -ErrorAction Stop
+
             foreach ($event in $events) {
-                if (-not $Filter -or $event.Message -match $Filter) {
+                #If $Filter parameter is not specified, it will equal $null and will match all values.
+                # ("Any string" -match $null) -eq $true
+                #Otherwise if $Filter has a value it will "filter" based on that.
+                if ($event.Message -match $Filter) {
                     [PSCustomObject]@{
                         Time         = $event.TimeCreated.ToString('dd-MM-yyy HH:mm')
                         Computer     = $ComputerName
@@ -91,10 +91,12 @@ function Search-Eventlog {
             }
         }
         catch {
-            Write-Host ("No events found in {0} within the specified time-frame (After {1}), EventID or Filter on {2}, skipping..." -f $log.LogName, $Hours, $ComputerName)
+            Write-Host ("No events found in {0} within the specified time-frame (After {1}), EventID or Filter on {2}, skipping..." -f 
+                $log.LogName, $Hours, $ComputerName)
         }
         $lognumber++
-        Write-Host ("{0} events found in the {1} Event log on {2}" -f $foundevents, $log.LogName, $ComputerName) -ForegroundColor Green
+        Write-Host ("{0} events found in the {1} Event log on {2}" -f 
+            $foundevents, $log.LogName, $ComputerName) -ForegroundColor Green
     }
 
     #Output results to GridView
@@ -103,10 +105,11 @@ function Search-Eventlog {
     }
 
     #Output results to specified file location
-    if ($Output -and $total) {
+    if ($OutCSV -and $total) {
         try {
-            $total | Sort-Object Time, LogName | export-csv -NoTypeInformation -Delimiter ';' -Encoding UTF8 -Path $Output -ErrorAction Stop
-            Write-Host ("Exported results to {0}" -f $Output) -ForegroundColor Green
+            $total | Sort-Object Time, LogName | 
+                export-csv -NoTypeInformation -Delimiter ';' -Encoding UTF8 -Path $OutCSV -ErrorAction Stop
+            Write-Host ("Exported results to {0}" -f $OutCSV) -ForegroundColor Green
         }
         catch {
             Write-Warning ("Error saving results to {0}, check path or permissions. Exiting...")
@@ -115,7 +118,7 @@ function Search-Eventlog {
     }
     
     #Output to screen is Gridview or Output were not specified
-    if (-not $Output -and -not $Gridview -and $total) {
+    if (-not $OutCSV -and -not $Gridview -and $total) {
         return $total | Sort-Object Time, LogName
     }
 
