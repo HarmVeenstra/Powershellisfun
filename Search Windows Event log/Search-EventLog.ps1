@@ -3,7 +3,7 @@ function Search-Eventlog {
     
     param (
         [Parameter(Mandatory = $false, HelpMessage = "Name of remote computer")][string]$ComputerName = $env:COMPUTERNAME,
-        [Parameter(Mandatory = $false, HelpMessage = "Number of hours to search back for")][double]$Hours,
+        [Parameter(Mandatory = $false, HelpMessage = "Number of hours to search back for")][double]$Hours = 1,
         [Parameter(Mandatory = $false, HelpMessage = "EventID number")][string]$EventID,
         [Parameter(Mandatory = $false, HelpMessage = "The name of the eventlog to search in")][string[]]$EventLogName,
         [Parameter(Mandatory = $false, HelpMessage = "Output results in a gridview")][switch]$Gridview,
@@ -11,13 +11,8 @@ function Search-Eventlog {
         [Parameter(Mandatory = $false, HelpMessage = "Output path, e.g. c:\data\events.csv")][string]$Output
     )
 
-    #Set $hours to -1 to $hours if not specified
-    if (-not $Hours) {
-        [DateTime]$hours = (Get-Date).AddHours(-1)
-    }
-    else {
-        [DateTime]$hours = (Get-Date).AddHours(-$hours)
-    }
+    #Set $hours 
+    [DateTime]$Hours = (Get-Date).AddHours(-$Hours)
 
     #Test if EventLogName is available
     if ($EventLogName) {
