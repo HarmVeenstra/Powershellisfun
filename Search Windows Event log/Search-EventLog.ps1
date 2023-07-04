@@ -18,7 +18,7 @@ function Search-Eventlog {
         [string]$OutCSV
     )
 
-    #Set $hours to -1 to $hours if not specified
+    #Convert $Hours to equivalent date value
     [DateTime]$hours = (Get-Date).AddHours(-$hours)
 
     #Set EventLogName if available
