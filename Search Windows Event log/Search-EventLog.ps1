@@ -4,7 +4,7 @@ function Search-Eventlog {
     param (
         [Parameter(Mandatory = $false, HelpMessage = "Name of remote computer")][string]$ComputerName = $env:COMPUTERNAME,
         [Parameter(Mandatory = $false, HelpMessage = "Number of hours to search back for")][double]$Hours = 1 ,
-        [Parameter(Mandatory = $false, HelpMessage = "EventID number")][string]$EventID,
+        [Parameter(Mandatory = $false, HelpMessage = "EventID number")][int[]]$EventID,
         [Parameter(Mandatory = $false, HelpMessage = "The name of the eventlog to search in")][string[]]$EventLogName,
         [Parameter(Mandatory = $false, HelpMessage = "Output results in a gridview", parameterSetName = "GridView")][switch]$Gridview,
         [Parameter(Mandatory = $false, HelpMessage = "String to search for")][string]$Filter,
