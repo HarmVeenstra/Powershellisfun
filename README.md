@@ -82,6 +82,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Retrieve all Microsoft IP - FQDN - Ports for their services](https://powershellisfun.com/2022/09/22/get-all-microsoft-ip-and-fqdns-for-their-services/)
 
+[Retrieve cmdlets and functions info](retrieve-synopsis-and-help-urls-for-all-powershell-cmdlets-functions-in-your-modules)
+
 [Retrieve CoinMarketCap information](https://powershellisfun.com/2022/11/28/retrieve-coinmarketcap-information-using-powershell/)
 
 [Retrieve Email DNS Records](https://powershellisfun.com/2022/06/19/retrieve-email-dns-records-using-powershell/)
