@@ -14,21 +14,21 @@ function Get-WhoisInfo {
         if (-not ($PublicIPaddressOrName)) {
             $ProgressPreference = "SilentlyContinue"
             $PublicIPaddressOrName = (Invoke-WebRequest -uri https://api.ipify.org?format=json | ConvertFrom-Json -ErrorAction Stop).ip
-            $whoiswebresult = Invoke-Restmethod -Uri "https://who.is/whois-ip/ip-address/$($PublicIPaddressOrName)" -ErrorAction SilentlyContinue
-            $whoisinfo = ConvertFrom-HTMLClass -Class 'col-md-12 queryResponseBodyKey' -Content $whoiswebresult -ErrorAction SilentlyContinue
+            $whoiswebresult = Invoke-Restmethod -Uri "https://www.whois.com/whois/$($PublicIPaddressOrName)" -TimeoutSec 15 -ErrorAction SilentlyContinue
+            $whoisinfo = ConvertFrom-HTMLClass -Class 'whois-data' -Content $whoiswebresult -ErrorAction SilentlyContinue
             write-host ("Getting WHOIS details for {0}" -f $PublicIPaddressOrName) -ForegroundColor Green
         }
         #Get results from the Public IP or name specified
         else {
             $ProgressPreference = "SilentlyContinue"
             if ((($PublicIPaddressOrName).Split('.').Length -eq 4)) {
-                $whoiswebresult = Invoke-Restmethod -Uri "https://who.is/whois-ip/ip-address/$($PublicIPaddressOrName)" -ErrorAction SilentlyContinue
-                $whoisinfo = ConvertFrom-HTMLClass -Class 'col-md-12 queryResponseBodyKey' -Content $whoiswebresult -ErrorAction SilentlyContinue
+                $whoiswebresult = Invoke-Restmethod -Uri "https://www.whois.com/whois/$($PublicIPaddressOrName)" -TimeoutSec 15 -ErrorAction SilentlyContinue
+                $whoisinfo = ConvertFrom-HTMLClass -Class 'whois-data' -Content $whoiswebresult -ErrorAction SilentlyContinue
                 write-host ("Getting WHOIS details for {0}" -f $PublicIPaddressOrName) -ForegroundColor Green
             }
             else {
-                $whoiswebresult = Invoke-Restmethod -Uri "https://www.who.is/whois/$($PublicIPaddressOrName)" -ErrorAction SilentlyContinue
-                $whoisinfo = ConvertFrom-HTMLClass -Class 'col-md-12 queryResponseBodyValue' -Content $whoiswebresult -ErrorAction SilentlyContinue
+                $whoiswebresult = Invoke-Restmethod -Uri "https://www.who.is/whois/$($PublicIPaddressOrName)" -TimeoutSec 30 -ErrorAction SilentlyContinue
+                $whoisinfo = ConvertFrom-HTMLClass -Class 'df-raw' -Content $whoiswebresult -ErrorAction SilentlyContinue
                 write-host ("Getting WHOIS details for {0}" -f $PublicIPaddressOrName) -ForegroundColor Green
             }
         }
