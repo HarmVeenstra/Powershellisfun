@@ -8,7 +8,8 @@ function Search-Eventlog {
         [Parameter(Mandatory = $false, HelpMessage = "The name of the eventlog to search in")][string[]]$EventLogName,
         [Parameter(Mandatory = $false, HelpMessage = "Output results in a gridview", parameterSetName = "GridView")][switch]$Gridview,
         [Parameter(Mandatory = $false, HelpMessage = "String to search for")][string]$Filter,
-        [Parameter(Mandatory = $false, HelpMessage = "Output path, e.g. c:\data\events.csv", parameterSetName = "CSV")][string]$OutCSV
+        [Parameter(Mandatory = $false, HelpMessage = "Output path, e.g. c:\data\events.csv", parameterSetName = "CSV")][string]$OutCSV,
+        [Parameter(Mandatory = $false, HelpMessage = "Exclude specific logs, e.g. security or application, security")][string[]]$ExcludeLog
     )
 
     #Convert $Hours to equivalent date value
@@ -17,7 +18,7 @@ function Search-Eventlog {
     #Set EventLogName if available
     if ($EventLogName) {
         try {
-            $EventLogNames = Get-WinEvent -ListLog $EventLogName -ErrorAction Stop
+            $EventLogNames = Get-WinEvent -ListLog $EventLogName -ErrorAction Stop | Where-Object LogName -NotIn $ExcludeLog
             Write-Host ("Specified EventLog name {0} is valid on {1}, continuing..." -f $($EventLogName), $ComputerName) -ForegroundColor Green
         }
         catch {
@@ -26,10 +27,10 @@ function Search-Eventlog {
         }
     }
 
-    #Create array of logs for Eventlogname if not specified
+    #Create array of logs for Eventlogname if not specified, exclude specific EventLogs if specified by Excludelog parameter
     if (-not $EventLogName) {
         try {
-            $EventLogNames = Get-WinEvent -ListLog * -ComputerName $ComputerName
+            $EventLogNames = Get-WinEvent -ListLog * -ComputerName $ComputerName | Where-Object LogName -NotIn $ExcludeLog
         }
         catch {
             Write-Warning ("Can't retrieve Eventlogs on {0}, exiting..." -f $ComputerName)
