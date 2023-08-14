@@ -41,7 +41,10 @@ function Update-Modules {
 		$CounterLength = $Counter.Length
 		Write-Host ('{0} Checking for updated version of module {1} ...' -f $Counter, $Module.Name) -ForegroundColor Green
 		try {
-			Update-Module -Name $Module.Name -AllowPrerelease:$AllowPrerelease -AcceptLicense -Scope:AllUsers -ErrorAction Stop
+			$latest = Find-Module $Module.Name -ErrorAction Stop
+			if ($Module.Version -lt $latest.version) {
+				Update-Module -Name $Module.Name -AllowPrerelease:$AllowPrerelease -AcceptLicense -Scope:AllUsers -Force:$True -ErrorAction Stop
+			}
 		}
 		catch {
 			Write-Host ("{0$CounterLength} Error updating module {1}!" -f ' ', $Module.Name) -ForegroundColor Red
