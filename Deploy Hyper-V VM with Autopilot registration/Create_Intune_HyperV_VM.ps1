@@ -26,9 +26,10 @@ if ((Get-VM -Name $VMname -ErrorAction SilentlyContinue).count -ge 1) {
 $VMCores = Read-Host 'Please enter the amount of cores, for example 2'
 [int64]$VMRAM = 1GB * (read-host "Enter Memory in Gb's, for example 4")
 [int64]$VMDISK = 1GB * (read-host "Enter HDD size in Gb's, for example 40")
-$VMdir = (get-vmhost).VirtualMachinePath + $VMname
+$VMdir = (get-vmhost).VirtualMachinePath + "\Virtual Machines\" + $VMname
+$VMDiskDir = (get-vmhost).VirtualHardDiskPath
 
-$ISO = Get-Childitem $ISOPath *.ISO | Out-GridView -OutputMode Single -Title 'Please select the ISO from the list and click OK' 
+$ISO = Get-Childitem $ISOPath *.ISO | Out-GridView -OutputMode Single -Title 'Please select the ISO from the list and click OK'
 if (($ISO.FullName).Count -ne '1') {
     Write-Warning ("No ISO, script aborted...")
     return
@@ -49,7 +50,7 @@ catch {
     return
 }
 finally {
-    if (test-path -Path $VMdir -ErrorAction SilentlyContinue) { 
+    if (test-path -Path $VMdir -ErrorAction SilentlyContinue) {
         Write-Host ("Using {0} as Virtual Machine location..." -f $VMdir) -ForegroundColor Green
     }
 }
@@ -61,10 +62,10 @@ try {
     -Path $VMdir `
     -Generation 2 `
     -Confirm:$false `
-    -NewVHDPath "$($vmdir)\$($VMname).vhdx" `
+    -NewVHDPath "$($VMDiskDir)\$($VMname).vhdx" `
     -NewVHDSizeBytes ([math]::Round($vmdisk * 1024) / 1KB) `
     -ErrorAction Stop `
-    | Out-Null  
+    | Out-Null
 }
 catch {
     Write-Warning ("Error creating {0}, please check logs and make sure {0} doesn't already exist..." -f $VMname)
@@ -79,7 +80,7 @@ finally {
 #Configure settings on the VM, CPU/Memory/Disk/BootOrder/TPM/Checkpoints
 try {
     Write-Host ("Configuring settings on {0}..." -f $VMname) -ForegroundColor Green
-    
+
     #VM Settings
     Set-VM -name $VMname `
         -ProcessorCount $VMCores `
@@ -88,11 +89,11 @@ try {
         -CheckpointType ProductionOnly `
         -AutomaticCheckpointsEnabled:$false `
         -ErrorAction SilentlyContinue `
-    | Out-Null 
-    
+    | Out-Null
+
     #Add Harddisk
-    Add-VMHardDiskDrive -VMName $VMname -Path "$($vmdir)\$($VMname).vhdx" -ControllerType SCSI -ErrorAction SilentlyContinue | Out-Null
-    
+    Add-VMHardDiskDrive -VMName $VMname -Path "$($VMDiskDir)\$($VMname).vhdx" -ControllerType SCSI -ErrorAction SilentlyContinue | Out-Null
+
     #Add DVD with iso and set it as bootdevice
     Add-VMDvdDrive -VMName $VMName -Path $ISO.FullName -Passthru -ErrorAction SilentlyContinue | Out-Null
     $DVD = Get-VMDvdDrive -VMName $VMname
@@ -101,15 +102,13 @@ try {
     Set-VMFirmware -VMName $VMName -FirstBootDevice $DVD
     Set-VMFirmware -VMName $VMname -EnableSecureBoot:On
 
-    #Enable TPM and secure boot
-    $owner = Get-HgsGuardian UntrustedGuardian
-    $kp = New-HgsKeyProtector -Owner $owner -AllowUntrustedRoot
-    Set-VMKeyProtector -VMName $VMname -KeyProtector $kp.RawData
-    Enable-VMTPM -VMName $VMname 
+    #Enable TPM
+    Set-VMKeyProtector -VMName $VMname -NewLocalKeyProtector
+    Enable-VMTPM -VMName $VMname
 
     #Enable all integration services
     Enable-VMIntegrationService -VMName $VMname -Name 'Guest Service Interface' , 'Heartbeat', 'Key-Value Pair Exchange', 'Shutdown', 'Time Synchronization', 'VSS'
-    
+
 }
 catch {
     Write-Warning ("Error setting VM parameters, check settings of VM {0} ..." -f $VMname)
