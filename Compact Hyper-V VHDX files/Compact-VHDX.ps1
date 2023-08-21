@@ -1,3 +1,4 @@
+#Requires -RunAsAdministrator
 function Compact-VHDX {
     param (
         [Parameter(Mandatory = $false, HelpMessage = "Enter the name of the machine from which space of the VHDX(s) should be recovered")][string]$VMName
