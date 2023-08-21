@@ -1,21 +1,16 @@
 function New-Portlistener {
+    [CmdletBinding(DefaultParameterSetName = 'All')]
     param (
-        [parameter(Mandatory = $false, HelpMessage = "Enter the tcp port you want to use to listen on, for example 3389")]
+        [parameter(Mandatory = $false, HelpMessage = "Enter the tcp port you want to use to listen on, for example 3389", parameterSetName = "TCP")]
         [ValidatePattern('^[0-9]+$')]
         [ValidateRange(0, 65535)]
         [int]$TCPPort,
 
-        [parameter(Mandatory = $false, HelpMessage = "Enter the udp port you want to use to listen on, for example 3389")]
+        [parameter(Mandatory = $false, HelpMessage = "Enter the udp port you want to use to listen on, for example 3389", parameterSetName = "UDP")]
         [ValidatePattern('^[0-9]+$')]
         [ValidateRange(0, 65535)]
         [int]$UDPPort
     )
-    
-    #Exit if both options were used
-    if ($TCPPort -and $UDPPort) {
-        Write-Warning ("You can only specify one option, use either TCPPort or UDPPort. Aborting...")
-        return
-    }
 
     #Test if TCP port is already listening port before starting listener
     if ($TCPPort) {
