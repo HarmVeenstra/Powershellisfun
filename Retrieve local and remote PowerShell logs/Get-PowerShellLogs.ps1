@@ -44,7 +44,15 @@ if (-not (Get-Module -ListAvailable -Name ImportExcel)) {
     }
 }
 else {
-    Write-Host ("The ImportExcel module was found on the system, continuing...") -ForegroundColor Green
+    try {
+        Import-Module -Name ImportExcel -Scope Local -ErrorAction Stop
+        Write-Host ("The ImportExcel module was found on the system, continuing...") -ForegroundColor Green
+    }
+    catch {
+        Write-Warning ("Error importing the ImportExcel module, exiting...")
+        return  
+    }
+    
 }
 
 #List of PowerShell event logs to search in
@@ -56,6 +64,9 @@ $Eventlogs = @(
     'Microsoft-Windows-PowerShell-DesiredStateConfiguration-FileDownloadManager/Operational'
     'Microsoft-Windows-WinRM/Operational'
 )
+
+#Set dateformat for the Excel tabs
+$date = Get-Date -Format ddMMyyhhmm
 
 #Loop through all computers specified in $ComputerName. If not specified, it will use your local computer
 foreach ($computer in $ComputerName | Sort-Object) {
@@ -90,7 +101,7 @@ foreach ($computer in $ComputerName | Sort-Object) {
             #Create an Excel file and add an Eventlog tab containing the events for the computer
             if ($TotalEventLogs.count -gt 0) {
                 try {
-                    $TotalEventLogs | Export-Excel -Path $Filename -WorksheetName 'PowerShell_EventLog' -AutoFilter -AutoSize -Append
+                    $TotalEventLogs | Export-Excel -Path $Filename -WorksheetName "PowerShell_EventLog_$($date)" -AutoFilter -AutoSize -Append
                     Write-Host ("Exported Eventlog data to {0}" -f $Filename) -ForegroundColor Green
                 }
                 catch {
@@ -159,7 +170,7 @@ foreach ($computer in $ComputerName | Sort-Object) {
                 #Create an Excel file and add the PSReadLineHistory tab containing PowerShell history
                 if ($TotalHistoryLogs.count -gt 0) {
                     try {
-                        $TotalHistoryLogs | Export-Excel -Path $Filename -WorksheetName 'PSReadLine_History' -AutoFilter -AutoSize -Append
+                        $TotalHistoryLogs | Export-Excel -Path $Filename -WorksheetName "PSReadLine_History_$($date)" -AutoFilter -AutoSize -Append
                         Write-Host ("Exported PSReadLine history to {0}" -f $Filename) -ForegroundColor Green
                     }
                     catch {
