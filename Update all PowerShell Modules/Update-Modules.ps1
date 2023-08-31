@@ -1,6 +1,8 @@
 function Update-Modules {
 	param (
-		[switch]$AllowPrerelease
+		[switch]$AllowPrerelease,
+		[string]$Name = '*',
+		[switch]$WhatIf
 	)
 
 	# Test admin privileges without using -Requires RunAsAdministrator,
@@ -12,14 +14,14 @@ function Update-Modules {
 
 	# Get all installed modules
 	Write-Host ("Retrieving all installed modules ...") -ForegroundColor Green
-	$CurrentModules = Get-InstalledModule | Select-Object Name, Version | Sort-Object Name
+	$CurrentModules = Get-InstalledModule -Name $Name -ErrorAction SilentlyContinue | Select-Object Name, Version | Sort-Object Name
 
 	if (-not $CurrentModules) {
 		Write-Host ("No modules found.") -ForegroundColor Gray
 		return
 	}
 	else {
-		$ModulesCount = $CurrentModules.Count
+		$ModulesCount = $CurrentModules.Name.Count
 		$DigitsLength = $ModulesCount.ToString().Length
 		Write-Host ("{0} modules found." -f $ModulesCount) -ForegroundColor Gray
 	}
@@ -42,8 +44,8 @@ function Update-Modules {
 		Write-Host ('{0} Checking for updated version of module {1} ...' -f $Counter, $Module.Name) -ForegroundColor Green
 		try {
 			$latest = Find-Module $Module.Name -ErrorAction Stop
-			if ($Module.Version -lt $latest.version) {
-				Update-Module -Name $Module.Name -AllowPrerelease:$AllowPrerelease -AcceptLicense -Scope:AllUsers -Force:$True -ErrorAction Stop
+			if ([version]$Module.Version -lt [version]$latest.version) {
+				Update-Module -Name $Module.Name -AllowPrerelease:$AllowPrerelease -AcceptLicense -Scope:AllUsers -Force:$True -ErrorAction Stop -WhatIf:$WhatIf.IsPresent
 			}
 		}
 		catch {
@@ -58,7 +60,7 @@ function Update-Modules {
 				if ($Version.Version -ne $MostRecentVersion) {
 					try {
 						Write-Host ("{0,$CounterLength} Uninstalling previous version {1} of module {2} ..." -f ' ', $Version.Version, $Module.Name) -ForegroundColor Gray
-						Uninstall-Module -Name $Module.Name -RequiredVersion $Version.Version -Force:$True -ErrorAction Stop -AllowPrerelease
+						Uninstall-Module -Name $Module.Name -RequiredVersion $Version.Version -Force:$True -ErrorAction Stop -AllowPrerelease -WhatIf:$WhatIf.IsPresent
 					}
 					catch {
 						Write-Warning ("{0,$CounterLength} Error uninstalling previous version {1} of module {2}!" -f ' ', $Version.Version, $Module.Name)
@@ -69,7 +71,7 @@ function Update-Modules {
 	}
 
 	# Get the new module versions for comparing them to to previous one if updated
-	$NewModules = Get-InstalledModule | Select-Object Name, Version | Sort-Object Name
+	$NewModules = Get-InstalledModule -Name $Name | Select-Object Name, Version | Sort-Object Name
 	if ($NewModules) {
 		''
 		Write-Host ("List of updated modules:") -ForegroundColor Green
