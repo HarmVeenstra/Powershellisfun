@@ -62,20 +62,26 @@ function Test-MicrosoftEndpoints {
                     else {
                         $notes = "No notes available"
                     }
-
-                    #Test connection and retrieve all information
-                    $test = Test-NetConnection -Port $tcpport -ComputerName $testurl -ErrorAction SilentlyContinue -InformationLevel Detailed 
-                    if ($test.TcpTestSucceeded -eq $true) {
-                        $Status = 'Succeeded'
-                        $ipaddress = $test.RemoteAddress
-                        Write-Host ("{0} is reachable on TCP port {1} ({2}) using IP-Address {3}" -f $testurl, $tcpport, $notes, $ipaddress) -ForegroundColor Green
-                        
-                    }
-                    else {
+                    #Skip wildcard adresses because these are note resolvable
+                    if ($testurl.Contains("*")) {
+                        Write-Warning ("Skipping {0} because it's a wildcard address" -f $testurl)
                         $Status = "Failed or couldn't resolve DNS name"
                         $ipaddress = "Not applicable"
                     }
-
+                    else {
+                        #Test connection and retrieve all information
+                        $test = Test-NetConnection -Port $tcpport -ComputerName $testurl -ErrorAction SilentlyContinue -InformationLevel Detailed 
+                        if ($test.TcpTestSucceeded -eq $true) {
+                            $Status = 'Succeeded'
+                            $ipaddress = $test.RemoteAddress
+                            Write-Host ("{0} is reachable on TCP port {1} ({2}) using IP-Address {3}" -f $testurl, $tcpport, $notes, $ipaddress) -ForegroundColor Green
+                        
+                        }
+                        else {
+                            $Status = "Failed or couldn't resolve DNS name"
+                            $ipaddress = "Not applicable"
+                        }
+                    }
                     #Set iprange variable if applicable
                     if ($TestEndpoint.ips) {
                         $iprange = $TestEndpoint.ips -join (', ')
@@ -83,7 +89,6 @@ function Test-MicrosoftEndpoints {
                     else {
                         $iprange = "Not applicable"
                     }
-                    
                     [PSCustomObject]@{
                         Status          = $Status
                         URL             = $testurl
