@@ -1,6 +1,5 @@
 $CSVlocation = 'C:\Temp\ScheduledTasks.csv'
 $total = foreach ($server in Get-ADComputer -Filter * -Properties OperatingSystem | Where-Object OperatingSystem -Match 'Windows Server' | Sort-Object Name) {
-
     try {
         $scheduledtasks = Get-ChildItem "\\$($Server.name)\c$\Windows\System32\Tasks" -Recurse -File -ErrorAction Stop
         Write-Host ("Retrieving Scheduled Tasks list for {0}" -f $server.Name) -ForegroundColor Green
@@ -9,7 +8,6 @@ $total = foreach ($server in Get-ADComputer -Filter * -Properties OperatingSyste
         Write-Warning ("Unable to retrieve Scheduled Tasks list for {0}" -f $server.Name)
         $scheduledtasks = $null
     }
-
     foreach ($task in $scheduledtasks | Sort-Object Name) {
         try {
             $taskinfo = [xml](Get-Content -Path $task.FullName -ErrorAction stop)
@@ -22,14 +20,7 @@ $total = foreach ($server in Get-ADComputer -Filter * -Properties OperatingSyste
         
         if ($taskinfo.Task.Settings.Enabled -eq 'true' `
                 -and $taskinfo.Task.Principals.Principal.GroupId -ne 'NT AUTHORITY\SYSTEM' `
-                -and $taskinfo.Task.Principals.Principal.Id -ne 'AnyUser' `
-                -and $taskinfo.Task.Principals.Principal.Id -ne 'Authenticated Users' `
-                -and $taskinfo.Task.Principals.Principal.Id -ne 'AllUsers' `
-                -and $taskinfo.Task.Principals.Principal.Id -ne 'Author' `
-                -and $taskinfo.Task.Principals.Principal.Id -ne 'LocalAdmin' `
-                -and $taskinfo.Task.Principals.Principal.Id -ne 'LocalService' `
-                -and $taskinfo.Task.Principals.Principal.Id -ne 'LocalSystem' `
-                -and $taskinfo.Task.Principals.Principal.Id -ne 'Users' `
+                -and $taskinfo.Task.Principals.Principal.GroupId -ne 'S-1-5-32-544' `
                 -and $taskinfo.Task.Principals.Principal.LogonType -ne 'InteractiveToken' `
                 -and $taskinfo.Task.Principals.Principal.UserId -ne 'Administrators' `
                 -and $taskinfo.Task.Principals.Principal.UserId -ne 'EVERYONE' `
@@ -52,9 +43,9 @@ $total = foreach ($server in Get-ADComputer -Filter * -Properties OperatingSyste
         }
     }
 }
-
 if ($total.count -gt 0) {
     $Total | Sort-Object Server, TaskName | Export-CSV -NoTypeInformation -Delimiter ';' -Encoding UTF8 -path $CSVlocation
+    Write-Host ("Saved results to {0}" -f $CSVlocation) -ForegroundColor Green
 }
 else {
     Write-Warning ("No Scheduled Tasks were found running on local or Domain accounts")
