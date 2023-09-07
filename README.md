@@ -88,6 +88,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Retrieve Email DNS Records](https://powershellisfun.com/2022/06/19/retrieve-email-dns-records-using-powershell/)
 
+[Retrieve Intune Primary User](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Retrieve%20Intune%20Primary%20User)
+
 [Retrieve local and remote PowerShell logs](retrieve-local-and-remote-powershell-logs)
 
 [Retrieve local group members from Active Directory servers](https://powershellisfun.com/2022/10/21/retrieve-all-local-group-members-of-active-directory-member-servers/)
