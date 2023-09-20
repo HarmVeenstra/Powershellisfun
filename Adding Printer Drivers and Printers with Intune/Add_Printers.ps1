@@ -51,7 +51,7 @@ foreach ($printer in $printers) {
     }
 
     $PrinterConfigOptions = @{
-        Color         = 0
+        Color         = $False
         DuplexingMode = 'TwoSidedLongEdge'
         PrinterName   = $Printer.Name
     }
