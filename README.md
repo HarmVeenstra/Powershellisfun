@@ -20,6 +20,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Change Primary and Secondary DNS](https://powershellisfun.com/2023/06/13/changing-dns-settings-on-windows-devices/)
 
+[Check for PowerShell modules updates](https://powershellisfun.com/2023/09/20/check-for-powershell-module-updates/)
+
 [Compact Hyper-V VHDX files](https://powershellisfun.com/2022/08/19/compact-hyper-v-vhdx-files-using-powershell/)
 
 [Copy Exchange Receive Connector Settings](https://powershellisfun.com/2022/06/09/copying-exchange-receive-connector-settings-using-powershell/)
