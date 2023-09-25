@@ -1,6 +1,6 @@
 # Parameter for filtering modules for specific pattern, e.g. *Graph*
 param (
-    [Parameter(Mandatory = $false)][string]$NameFilter
+    [Parameter(Mandatory = $false)][string]$NameFilter = '*'
 )
 
 #Retrieve all installed modules
