@@ -12,7 +12,7 @@ function Compact-VHDX {
 
     #Check if specified VMName is valid if specified
     if ($VMName) {
-        if (-not (Get-VM -Name $VMName -ErrorAction SilentlyContinue)) {
+        if (-not (Hyper-V\Get-VM -Name $VMName -ErrorAction SilentlyContinue)) {
             Write-Warning ("Specified VM {0} was not found, aborting..." -f $VMName)
             return
         }
@@ -20,7 +20,7 @@ function Compact-VHDX {
     
     #Validate if the Virtual machine specified is running, abort if yes
     if ($VMName) {
-        if ((Get-VM -Name $VMName).State -eq 'Running') {
+        if ((Hyper-V\Get-VM -Name $VMName).State -eq 'Running') {
             Write-Warning ("Specified VM {0} is found but is running, please shutdown VM first. Aborting..." -f $VMName)
             return
         }
@@ -28,20 +28,20 @@ function Compact-VHDX {
 
     #Validate if Virtual machines are running when $VMName was not specified, abort if yes
     if (-not ($VMName)) {
-        if (Hyper-V\Get-VM | Where-Object State -eq Running) {
+        if (Hyper-V\Get-VM  | Where-Object State -eq Running) {
             Write-Warning ("Hyper-V VM(s) are running, aborting...")
             Write-Host ("Shutdown VM(s):") -ForegroundColor Red
-            hyper-v\get-vm | Where-Object State -eq Running | Select-Object Name, State | Sort-Object Name | Format-Table
+            Hyper-V\Get-VM | Where-Object State -eq Running | Select-Object Name, State | Sort-Object Name | Format-Table
             return
         }
     }
     
     #Gather all VHDXs from the VMs (or VM is $VMName was specified which don't have a parent/snapshot
     if (-not ($VMName)) {
-        $vhds = Get-VM | Get-VMHardDiskDrive | Where-Object Path -Match '.vhdx' | Sort-Object VMName, Path
+        $vhds = Hyper-V\Get-VM | Hyper-V\Get-VMHardDiskDrive | Where-Object Path -Match '.vhdx' | Sort-Object VMName, Path
     }
     else {
-        $vhds = Get-VM $VMName | Get-VMHardDiskDrive | Where-Object Path -Match '.vhdx' | Sort-Object Path
+        $vhds = Hyper-V\Get-VM $VMName | Hyper-V\Get-VMHardDiskDrive | Where-Object Path -Match '.vhdx' | Sort-Object Path
     }
 
     if ($null -eq $vhds) {
@@ -50,7 +50,7 @@ function Compact-VHDX {
 
     #Gather current size of VHDX files
     $oldsize = foreach ($vhd in $vhds) {
-        if ((get-vhd $vhd.path).VhdType -eq 'Dynamic') {
+        if ((Hyper-V\Get-VHD $vhd.path).VhdType -eq 'Dynamic') {
             [PSCustomObject]@{
                 VHD     = $vhd.Path
                 OldSize = [math]::round((Get-Item $vhd.Path).Length / 1GB, 3)
@@ -60,10 +60,10 @@ function Compact-VHDX {
 
     #Compress all files
     foreach ($vhd in $vhds) {
-        if ((get-vhd $vhd.path).VhdType -eq 'Dynamic') {
+        if ((Hyper-V\Get-VHD  $vhd.path).VhdType -eq 'Dynamic') {
             Write-Host ("`nProcessing {0} from VM {1}..." -f $vhd.Path, $vhd.VMName) -ForegroundColor Gray
             try {
-                Mount-VHD -Path $vhd.Path -ReadOnly -ErrorAction Stop
+                Hyper-V\Mount-VHD -Path $vhd.Path -ReadOnly -ErrorAction Stop
                 Write-Host "Mounting VHDX" -ForegroundColor Green
             }
             catch {
@@ -72,17 +72,17 @@ function Compact-VHDX {
             }
 
             try {
-                Optimize-VHD -Path $vhd.Path -Mode Full
+                Hyper-V\Optimize-VHD -Path $vhd.Path -Mode Full
                 Write-Host ("Compacting VHDX") -ForegroundColor Green
             }
             catch {
                 Write-Warning ("Error compacting {0}, dismounting..." -f $vhd.Path)
-                Dismount-VHD $vhd.Path
+                Hyper-V\Dismount-VHD $vhd.Path
                 return
             }
 
             try { 
-                Dismount-VHD $vhd.Path -ErrorAction Stop
+                Hyper-V\Dismount-VHD $vhd.Path -ErrorAction Stop
                 Write-Host ("Dismounting VHDX`n") -ForegroundColor Green
             }
             catch {
@@ -94,7 +94,7 @@ function Compact-VHDX {
 
     #Report on new VHDX sizes
     $report = foreach ($vhd in $vhds) {
-        if ((get-vhd $vhd.path).VhdType -eq 'Dynamic') {
+        if ((Hyper-V\Get-VHD  $vhd.path).VhdType -eq 'Dynamic') {
             [PSCustomObject]@{
                 'Old Size (Gb))'       = ($oldsize | Where-Object VHD -eq $vhd.Path).OldSize
                 'New Size (Gb)'        = [math]::round((Get-Item $vhd.Path).Length / 1GB, 3)
