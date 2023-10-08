@@ -2,6 +2,19 @@ param(
     [parameter(Mandatory = $true)][string]$OutputFileName
 )
 
+#Check if necessary modules are installed, install missing modules if not
+if (-not ((Get-Module Microsoft.Graph.Authentication, Microsoft.Graph.Beta.DeviceManagement, Microsoft.Graph.Users -ListAvailable).count -eq 3)) {
+    Write-Warning ("One or more required modules were not found, installing now...")
+    try {
+        Install-Module Microsoft.Graph.Authentication, Microsoft.Graph.Beta.DeviceManagement, Microsoft.Graph.Users -Confirm:$false -SkipPublisherCheck -Scope CurrentUser -ErrorAction Stop
+    }
+    catch {
+        Write-Warning ("Error installing required modules, exiting...")
+        return
+    }
+}
+
+
 #Connect MgGraph
 try {
     Connect-MgGraph -Scopes 'DeviceManagementManagedDevices.Read.All, User.Read.All' | Out-Null
