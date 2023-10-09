@@ -4,7 +4,7 @@ function Update-Modules {
 		[string]$Name = '*',
 		[switch]$WhatIf
 	)
-
+	
 	# Test admin privileges without using -Requires RunAsAdministrator,
 	# which causes a nasty error message, if trying to load the function within a PS profile but without admin privileges
 	if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
@@ -35,6 +35,24 @@ function Update-Modules {
 		Write-Host ("Updating installed modules to the latest Production version ...") -ForegroundColor Green
 	}
 
+	#Retrieve current versions of modules (63 at a time because of PSGallery limit) if $InstalledModules is greater than 0
+	if ($CurrentModules.Count -gt 0) {
+		$startnumber = 0
+		$endnumber = 62
+		$onlineversions = $null
+		while ($CurrentModules.Count -gt $onlineversions.Count) {
+			Write-Host ("Checking online versions for installed modules [{0}..{1}/{2}]" -f $startnumber, $endnumber, $CurrentModules.Count) -ForegroundColor Green
+			$currentversions = Find-Module -Name $CurrentModules.name[$startnumber..$endnumber]
+			$startnumber = $startnumber + 63
+			$endnumber = $endnumber + 63
+			$onlineversions = $onlineversions + $currentversions
+		}
+	}
+	else {
+		Write-Warning ("No modules were found to check for updates, please check your NameFilter. Exiting...")
+		return
+	}
+
 	# Loop through the installed modules and update them if a newer version is available
 	$i = 0
 	foreach ($Module in $CurrentModules) {
@@ -43,7 +61,7 @@ function Update-Modules {
 		$CounterLength = $Counter.Length
 		Write-Host ('{0} Checking for updated version of module {1} ...' -f $Counter, $Module.Name) -ForegroundColor Green
 		try {
-			$latest = Find-Module $Module.Name -ErrorAction Stop
+			$latest = $onlineversions | Where-Object name -eq $module.Name -ErrorAction Stop
 			if ([version]$Module.Version -lt [version]$latest.version) {
 				Update-Module -Name $Module.Name -AllowPrerelease:$AllowPrerelease -AcceptLicense -Scope:AllUsers -Force:$True -ErrorAction Stop -WhatIf:$WhatIf.IsPresent
 			}
