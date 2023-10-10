@@ -25,7 +25,7 @@ catch {
 }
 
 #Loop through the devices and the logged on users per device 
-$total = Foreach ($device in (Get-MgBetaDeviceManagementManagedDevice | Where-Object OperatingSystem -eq Windows)) {
+$total = Foreach ($device in (Get-MgBetaDeviceManagementManagedDevice -All:$true | Where-Object OperatingSystem -eq Windows)) {
     Write-Host ("Processing {0}..." -f $device.DeviceName) -ForegroundColor Green
     foreach ($user in $device.UsersLoggedOn.UserId | Select-Object -Unique  ) {
         [PSCustomObject]@{
