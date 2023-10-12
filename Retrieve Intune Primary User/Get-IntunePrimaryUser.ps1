@@ -1,5 +1,6 @@
 param(
-    [parameter(Mandatory = $true)][string]$OutputFileName
+    [parameter(Mandatory = $true)][string]$OutputFileName,
+    [parameter(Mandatory = $false)][string]$Filter = '*'
 )
 
 #Check if necessary modules are installed, install missing modules if not
@@ -25,7 +26,7 @@ catch {
 }
 
 #Loop through the devices and the logged on users per device 
-$total = Foreach ($device in (Get-MgBetaDeviceManagementManagedDevice -All:$true | Where-Object OperatingSystem -eq Windows)) {
+$total = Foreach ($device in (Get-MgBetaDeviceManagementManagedDevice -All:$true -Filter "contains(DeviceName,'$($filter)')" | Where-Object OperatingSystem -eq Windows)) {
     Write-Host ("Processing {0}..." -f $device.DeviceName) -ForegroundColor Green
     foreach ($user in $device.UsersLoggedOn.UserId | Select-Object -Unique  ) {
         [PSCustomObject]@{
