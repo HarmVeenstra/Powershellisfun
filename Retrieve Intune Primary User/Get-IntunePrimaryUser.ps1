@@ -1,6 +1,6 @@
 param(
     [parameter(Mandatory = $true)][string]$OutputFileName,
-    [parameter(Mandatory = $false)][string]$Filter = '*'
+    [parameter(Mandatory = $false)][string]$Filter = ''
 )
 
 #Check if necessary modules are installed, install missing modules if not
