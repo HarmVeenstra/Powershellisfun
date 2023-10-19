@@ -115,3 +115,5 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 [Update all PowerShell Modules](https://powershellisfun.com/2022/07/11/updating-your-powershell-modules-to-the-latest-version-plus-cleaning-up-older-versions/)
 
 [Update your software using WinGet and PowerShell](https://powershellisfun.com/2023/01/02/update-your-software-using-winget-and-powershell/)
+
+[Windows Autopilot Report](https://powershellisfun.com/2023/10/19/intune-autopilot-report-using-microsoft-graph/)
