@@ -52,7 +52,7 @@ $total = $null
 $total = foreach ($Computer in $ComputerName) {
     try {
         $count = 0
-        $services = Get-CimInstance -Class Win32_Service -ComputerName $Computer -ErrorAction Stop | Select-Object Displayname, Name, PathName, State, StartName, StartMode | Sort-Object DisplayName
+        $services = Get-WmiObject -Class Win32_Service -ComputerName $Computer -ErrorAction Stop | Select-Object Displayname, Name, PathName, State, StartName, StartMode | Sort-Object DisplayName
         Write-Host ("Retrieving information for {0} services on {1}" -f $services.count, $($Computer)) -ForegroundColor Green
         foreach ($service in $services) {
             $count++
@@ -60,15 +60,17 @@ $total = foreach ($Computer in $ComputerName) {
             if ($null -ne $service.PathName) {
                 $servicepath = $service.PathName -replace '^(?:"(.+?)"|([^ ]+)).*', '$1$2'
                 $servicepath = "\\$($computer)\$($servicepath.Substring(0,1))$" + "$($servicepath.Substring(2))"
-                if (-not ((Get-AuthenticodeSignature $servicepath).SignerCertificate.Subject -match 'O=Microsoft Corporation')) {
-                    [PSCustomObject]@{
-                        ComputerName = $Computer
-                        DisplayName  = $service.DisplayName
-                        Name         = $service.Name
-                        'Log on as'  = $service.StartName
-                        StartMode    = $service.StartMode
-                        State        = $service.State
-                        Path         = $service.PathName
+                if (Test-Path -Path $servicepath) {
+                    if (-not ((Get-AuthenticodeSignature $($servicepath)).SignerCertificate.Subject -match 'O=Microsoft Corporation')) {
+                        [PSCustomObject]@{
+                            ComputerName = $Computer
+                            DisplayName  = $service.DisplayName
+                            Name         = $service.Name
+                            'Log on as'  = $service.StartName
+                            StartMode    = $service.StartMode
+                            State        = $service.State
+                            Path         = $service.PathName
+                        }
                     }
                 }
             }
