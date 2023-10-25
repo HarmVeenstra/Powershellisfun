@@ -22,6 +22,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Check for PowerShell modules updates](https://powershellisfun.com/2023/09/20/check-for-powershell-module-updates/)
 
+[Check for non-Microsoft signed Windows Services](https://powershellisfun.com/2023/10/25/check-for-non-microsoft-signed-windows-services/)
+
 [Compact Hyper-V VHDX files](https://powershellisfun.com/2022/08/19/compact-hyper-v-vhdx-files-using-powershell/)
 
 [Copy Exchange Receive Connector Settings](https://powershellisfun.com/2022/06/09/copying-exchange-receive-connector-settings-using-powershell/)
