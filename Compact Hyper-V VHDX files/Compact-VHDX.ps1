@@ -1,7 +1,7 @@
 #Requires -RunAsAdministrator
 function Compact-VHDX {
     param (
-        [Parameter(Mandatory = $false, HelpMessage = "Enter the name of the machine from which space of the VHDX(s) should be recovered")][string]$VMName
+        [Parameter(Mandatory = $false, HelpMessage = "Enter the name of the machine(s) from which space of the VHDX(s) should be recovered")][string[]]$VMName
     )
       
     #Validate if hyper-v module is available, install when needed
@@ -20,19 +20,11 @@ function Compact-VHDX {
     
     #Validate if the Virtual machine specified is running, abort if yes
     if ($VMName) {
-        if ((Hyper-V\Get-VM -Name $VMName).State -eq 'Running') {
-            Write-Warning ("Specified VM {0} is found but is running, please shutdown VM first. Aborting..." -f $VMName)
-            return
-        }
-    }
-
-    #Validate if Virtual machines are running when $VMName was not specified, abort if yes
-    if (-not ($VMName)) {
-        if (Hyper-V\Get-VM  | Where-Object State -eq Running) {
-            Write-Warning ("Hyper-V VM(s) are running, aborting...")
-            Write-Host ("Shutdown VM(s):") -ForegroundColor Red
-            Hyper-V\Get-VM | Where-Object State -eq Running | Select-Object Name, State | Sort-Object Name | Format-Table
-            return
+        foreach ($vm in $VMName) {
+            if ((Hyper-V\Get-VM -Name $VM).State -eq 'Running') {
+                Write-Warning ("One or more of the specified VM(s) {0} were found but are running, please shutdown VM(s) first. Aborting..." -f $VM)
+                return
+            }
         }
     }
     
@@ -60,35 +52,40 @@ function Compact-VHDX {
 
     #Compress all files
     foreach ($vhd in $vhds) {
-        if ((Hyper-V\Get-VHD  $vhd.path).VhdType -eq 'Dynamic') {
-            Write-Host ("`nProcessing {0} from VM {1}..." -f $vhd.Path, $vhd.VMName) -ForegroundColor Gray
-            try {
-                Hyper-V\Mount-VHD -Path $vhd.Path -ReadOnly -ErrorAction Stop
-                Write-Host "Mounting VHDX" -ForegroundColor Green
-            }
-            catch {
-                Write-Warning ("Error mounting {0}, please check access or if file is locked..." -f $vhd.Path )
-                continue
-            }
+        if (-not (Hyper-V\Get-VM $vhd.VMName  | Where-Object State -eq Running)) {
+            if ((Hyper-V\Get-VHD  $vhd.path).VhdType -eq 'Dynamic') {
+                Write-Host ("`nProcessing {0} from VM {1}..." -f $vhd.Path, $vhd.VMName) -ForegroundColor Gray
+                try {
+                    Hyper-V\Mount-VHD -Path $vhd.Path -ReadOnly -ErrorAction Stop
+                    Write-Host "Mounting VHDX" -ForegroundColor Green
+                }
+                catch {
+                    Write-Warning ("Error mounting {0}, please check access or if file is locked..." -f $vhd.Path )
+                    continue
+                }
 
-            try {
-                Hyper-V\Optimize-VHD -Path $vhd.Path -Mode Full
-                Write-Host ("Compacting VHDX") -ForegroundColor Green
-            }
-            catch {
-                Write-Warning ("Error compacting {0}, dismounting..." -f $vhd.Path)
-                Hyper-V\Dismount-VHD $vhd.Path
-                return
-            }
+                try {
+                    Hyper-V\Optimize-VHD -Path $vhd.Path -Mode Full
+                    Write-Host ("Compacting VHDX") -ForegroundColor Green
+                }
+                catch {
+                    Write-Warning ("Error compacting {0}, dismounting..." -f $vhd.Path)
+                    Hyper-V\Dismount-VHD $vhd.Path
+                    return
+                }
 
-            try { 
-                Hyper-V\Dismount-VHD $vhd.Path -ErrorAction Stop
-                Write-Host ("Dismounting VHDX`n") -ForegroundColor Green
+                try { 
+                    Hyper-V\Dismount-VHD $vhd.Path -ErrorAction Stop
+                    Write-Host ("Dismounting VHDX`n") -ForegroundColor Green
+                }
+                catch {
+                    Write-Warning ("Error dismounting {0}, please check Disk Management and manually dismount..." -f $vhd.Path)
+                    return
+                }        
             }
-            catch {
-                Write-Warning ("Error dismounting {0}, please check Disk Management and manually dismount..." -f $vhd.Path)
-                return
-            }        
+        }
+        else {
+            Write-Warning ("VM {0} is Running, skipping..." -f $vhd.VMName)
         }
     }
 
