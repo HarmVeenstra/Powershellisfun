@@ -26,6 +26,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Compact Hyper-V VHDX files](https://powershellisfun.com/2022/08/19/compact-hyper-v-vhdx-files-using-powershell/)
 
+[Copy Exchange Full Access and Send As permissions](https://powershellisfun.com/2023/11/15/copying-exchange-full-access-and-send-as-permissions-to-other-users/)
+
 [Copy Exchange Receive Connector Settings](https://powershellisfun.com/2022/06/09/copying-exchange-receive-connector-settings-using-powershell/)
 
 [Create a Focus Time countdown clock](https://powershellisfun.com/2022/08/14/create-a-focus-time-countdown-clock-using-powershell/)
