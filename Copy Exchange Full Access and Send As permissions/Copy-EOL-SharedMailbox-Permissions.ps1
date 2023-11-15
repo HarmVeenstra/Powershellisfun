@@ -33,10 +33,10 @@ catch {
 #Check if Source and TargetUser are valid
 try {
     Get-Mailbox -Identity $SourceUser -ErrorAction Stop | Out-Null
-    Write-Host ("Source user {0} is valid, contiuing..." -f $SourceUser) -ForegroundColor Green
+    Write-Host ("Source user {0} is valid, continuing..." -f $SourceUser) -ForegroundColor Green
 }
 catch {
-    Write-Warning ("Source user {0} is not valid, exiing..." -f $SourceUser)
+    Write-Warning ("Source user {0} is not valid, exiting..." -f $SourceUser)
     return
 }
 
@@ -46,7 +46,7 @@ foreach ($user in $TargetUser) {
         Write-Host ("Source user {0} is valid, continuing..." -f $user) -ForegroundColor Green
     }
     catch {
-        Write-Warning ("Source user {0} is not valid, exiing..." -f $user)
+        Write-Warning ("Source user {0} is not valid, exiting..." -f $user)
         return
     }
 }
