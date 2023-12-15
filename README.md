@@ -68,9 +68,11 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Message Of The Day](https://powershellisfun.com/2022/07/04/get-a-message-of-the-day-in-your-powershell-session/)
 
+[Microsoft 365 License Overview Per User](https://powershellisfun.com/2022/05/16/microsoft-365-license-overview-per-user/)
+
 [Output data to a MarkDown file](https://powershellisfun.com/2023/02/01/export-pipeline-output-to-a-markdown-file-using-powershell/)
 
-[Microsoft 365 License Overview Per User](https://powershellisfun.com/2022/05/16/microsoft-365-license-overview-per-user/)
+[PowerShell Welcome Message](https://powershellisfun.com/2023/12/15/powershell-welcome-message/)
 
 [Random 9GAG Item In Your Browser](https://powershellisfun.com/2022/05/19/382/)
 
