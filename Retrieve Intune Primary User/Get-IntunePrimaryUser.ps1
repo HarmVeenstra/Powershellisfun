@@ -32,6 +32,7 @@ $total = Foreach ($device in (Get-MgBetaDeviceManagementManagedDevice -All:$true
         [PSCustomObject]@{
             Device            = $device.DeviceName
             Model             = $device.Model
+            SerialNumber      = $device.SerialNumber
             "Users logged in" = (Get-MgUser -UserId $user).DisplayName
             LastLogon         = ($device.UsersLoggedOn | Where-Object Userid -eq $user | Sort-Object LastLogonDateTime | Select-Object -Last 1).LastLogOnDateTime
             PrimaryUser       = if ((Get-MgBetaDeviceManagementManagedDeviceUser -ManagedDeviceId $device.Id).DisplayName) {
