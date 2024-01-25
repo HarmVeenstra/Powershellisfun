@@ -66,6 +66,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Intune Remediation for unquoted service path vulnerability](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Intune%20Remediation%20for%20unquoted%20service%20path%20vulnerability)
 
+[Intune Timezone](https://powershellisfun.com/2024/01/25/intune-automatic-timezone-configuration-using-powershell/)
+
 [Message Of The Day](https://powershellisfun.com/2022/07/04/get-a-message-of-the-day-in-your-powershell-session/)
 
 [Microsoft 365 License Overview Per User](https://powershellisfun.com/2022/05/16/microsoft-365-license-overview-per-user/)
