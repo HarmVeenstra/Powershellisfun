@@ -473,6 +473,6 @@ if ($timezone.Value -eq $CurrentTimeZone.Id) {
     exit 0
 }
 else {
-    Write-Host ("The currently configured timezone {0} doesn't match the timezone {1} which was being matched by the clients IP Location, changing it now..." -f $InternetTimeZone.timezone, $CurrentTimeZone.Id)
+    Write-Host ("The currently configured timezone {0} doesn't match the timezone {1} which was being matched by the clients IP Location, changing it now..." -f $CurrentTimeZone.Id, $InternetTimeZone.timezone)
     exit 1
 }
