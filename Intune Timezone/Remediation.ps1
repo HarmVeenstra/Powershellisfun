@@ -1,6 +1,5 @@
 #Variables and current TimeZone
-$token = 'XXXXX'
-$InternetTimeZone = Invoke-RestMethod "https://ipinfo.io?token=$($token)" -UseBasicParsing
+$InternetTimeZone = Invoke-RestMethod https://ident.me/json
 $CurrentTimeZone = Get-TimeZone
 $timezones = [PSCustomObject]@{ #https://secure.jadeworld.com/JADETech/JADE2020/OnlineDocumentation/content/resources/encyclosys2/jadetimezone_class/ianawindowstimezonemapping.htm
     "Etc/GMT+12"                     = "Dateline Standard Time"
@@ -465,6 +464,6 @@ $timezones = [PSCustomObject]@{ #https://secure.jadeworld.com/JADETech/JADE2020/
 }
 
 #Change the current timezone to match the one found by ipinfo.io
-$timezone = $timezones.psobject.Properties.Item($InternetTimeZone.timezone)
-Write-Host ("Changing the TimeZone setting from {0} to {1} which was detected by querying ipinfo.io" -f $CurrentTimeZone.Id, $timezone.Value)
+$timezone = $timezones.psobject.Properties.Item($InternetTimeZone.tz)
+Write-Host ("Changing the TimeZone setting from {0} to {1} which was detected by querying ident.me" -f $CurrentTimeZone.Id, $timezone.Value)
 Set-TimeZone -Name $timezone.Value
