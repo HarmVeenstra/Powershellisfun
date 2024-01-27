@@ -1,5 +1,5 @@
 $CSVlocation = 'C:\Temp\ScheduledTasks.csv'
-$total = foreach ($server in Get-ADComputer -Filter * -Properties OperatingSystem | Where-Object OperatingSystem -Match 'Windows Server' | Sort-Object Name) {
+$total = foreach ($server in Get-ADComputer -Filter 'OperatingSystem -like "Windows Server*"' | Sort-Object Name) {
     try {
         $scheduledtasks = Get-ChildItem "\\$($Server.name)\c$\Windows\System32\Tasks" -Recurse -File -ErrorAction Stop
         Write-Host ("Retrieving Scheduled Tasks list for {0}" -f $server.Name) -ForegroundColor Green
