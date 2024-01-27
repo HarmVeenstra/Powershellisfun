@@ -463,7 +463,7 @@ $timezones = [PSCustomObject]@{      #https://secure.jadeworld.com/JADETech/JADE
     "Etc/GMT-14"                     = "Line Islands Standard Time"
 }
 
-#Check if the timezone from ipinfo.io matches the current setting. 
+#Check if the timezone from ident.me matches the current setting. 
 #If not, exit 1 and start remediation
 #If it matches, exit 0 and don't start remediation
 $timezone = $timezones.psobject.Properties.Item($InternetTimeZone.tz)
