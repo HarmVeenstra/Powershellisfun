@@ -466,4 +466,4 @@ $timezones = [PSCustomObject]@{ #https://secure.jadeworld.com/JADETech/JADE2020/
 #Change the current timezone to match the one found by ident.me
 $timezone = $timezones.psobject.Properties.Item($InternetTimeZone.tz)
 Write-Host ("Changing the TimeZone setting from {0} to {1} which was detected by querying ident.me" -f $CurrentTimeZone.Id, $timezone.Value)
-Set-TimeZone -Name $timezone.Value
+Set-TimeZone -Id $timezone.Value
