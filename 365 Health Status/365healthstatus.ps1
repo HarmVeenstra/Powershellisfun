@@ -19,7 +19,7 @@ catch {
  
 #Display non-resolved Issues sorted on StartDateTime, display error when unable to retrieve
 try {
-    $issues = Get-MgServiceAnnouncementIssue | Where-Object IsResolved -ne True | Select-Object StartDateTime, Id, ImpactDescription, Feature, Classification, Status | Sort-Object StartDateTime
+    $issues = Get-MgServiceAnnouncementIssue -Filter 'isresolved ne true' | Select-Object StartDateTime, Id, ImpactDescription, Feature, Classification, Status | Sort-Object StartDateTime | Format-Table -AutoSize
 }
 catch {
     Write-Warning ("Error retrieving Announcements, try again later...")
