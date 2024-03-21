@@ -48,6 +48,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Deploy Hyper-V VM with Autopilot registration](https://powershellisfun.com/2022/07/09/upload-windows-autopilot-hardware-hash/)
 
+[Disable Idle Power Save](https://powershellisfun.com/2024/03/21/disabling-idle-power-save-using-intune-and-powershell/)
+
 [Export Registry](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Export%20Registry)
 
 [Exporting Passwords For WLAN Profiles](https://powershellisfun.com/2022/05/08/exporting-passwords-for-wlan-profiles-using-powershell-and-netsh/)
