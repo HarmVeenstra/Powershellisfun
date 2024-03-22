@@ -1,5 +1,5 @@
 try {
-    $adapters = Get-NetAdapterAdvancedProperty -DisplayName 'Idle Power Saving' -ErrorAction SilentlyContinue | Where-Object DisplayValue -eq 'Enabled'
+    $adapters = Get-NetAdapterAdvancedProperty -DisplayName 'Idle Power Saving' -ErrorAction SilentlyContinue | Where-Object RegistryValue -eq '1'
     if ($null -eq $adapters) {
         Write-Output 'No adapter(s) found with Idle Power Saving enabled, nothing to do...'
         exit 0
