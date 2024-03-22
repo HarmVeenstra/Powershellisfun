@@ -36,7 +36,14 @@ function Update-Modules {
 	}
 
 	#Retrieve current versions of modules (63 at a time because of PSGallery limit) if $InstalledModules is greater than 0
-	if ($CurrentModules.Count -gt 0) {
+	if ($CurrentModules.Count -eq 1) {
+		$onlineversions = $null
+		Write-Host ("Checking online versions for installed module {0}" -f $name) -ForegroundColor Green
+		$currentversions = Find-Module -Name $CurrentModules.name
+		$onlineversions = $onlineversions + $currentversions
+	}
+
+	if ($CurrentModules.Count -gt 1) {
 		$startnumber = 0
 		$endnumber = 62
 		$onlineversions = $null
@@ -48,7 +55,8 @@ function Update-Modules {
 			$onlineversions = $onlineversions + $currentversions
 		}
 	}
-	else {
+	
+	if (-not $CurrentModules) {
 		Write-Warning ("No modules were found to check for updates, please check your NameFilter. Exiting...")
 		return
 	}
