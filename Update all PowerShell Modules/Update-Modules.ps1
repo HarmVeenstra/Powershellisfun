@@ -14,7 +14,7 @@ function Update-Modules {
 
 	# Get all installed modules
 	Write-Host ("Retrieving all installed modules ...") -ForegroundColor Green
-	$CurrentModules = Get-InstalledModule -Name $Name -ErrorAction SilentlyContinue | Select-Object Name, Version | Sort-Object Name
+	[array]$CurrentModules = Get-InstalledModule -Name $Name -ErrorAction SilentlyContinue | Select-Object Name, Version | Sort-Object Name
 
 	if (-not $CurrentModules) {
 		Write-Host ("No modules found.") -ForegroundColor Gray
