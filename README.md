@@ -36,6 +36,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Create a multiple-choice quiz using Powershell](https://powershellisfun.com/2022/10/30/create-a-multiple-choice-quiz-using-powershell/)
 
+[Create a report of a DTS NPS logfile](https://powershellisfun.com/2024/03/28/use-powershell-to-create-report-of-a-dts-compliant-nps-log/)
+
 [Create a Report on DNS lookups](https://powershellisfun.com/2022/08/29/create-a-report-on-local-dns-lookups-using-powershell/)
 
 [Create A Report On PST Files](https://powershellisfun.com/2022/05/22/create-a-report-on-pst-files/)
