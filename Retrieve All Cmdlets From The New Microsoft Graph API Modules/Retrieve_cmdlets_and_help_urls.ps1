@@ -1,5 +1,5 @@
 #Set CSV location
-$csvlocation = 'd:\temp\Microsoft.Graph.Cmdlets.csv'
+$csvlocation = 'c:\temp\Microsoft.Graph.Cmdlets.csv'
  
 #Get a list of all available Microsoft.Graph modules
 Write-host ("Getting a list of available online Microsoft.Graph modules...") -ForegroundColor Green
@@ -13,7 +13,7 @@ $InstalledMicrosoftGraphModules = Get-InstalledModule -Name Microsoft.Graph*
 Write-Host ("Installing all Microsoft.Graph Modules but skipping is already installed...") -ForegroundColor Green
 foreach ($module in $OnlineMicrosoftGraphModules) {
     if (-not ($InstalledMicrosoftGraphModules -match $module.Name)) {
-        write-host ("Installing {0})..." -f $module.Name)-ForegroundColor Green
+        write-host ("Installing {0}..." -f $module.Name)-ForegroundColor Green
         Install-Module -Name $module.Name -ErrorAction SilentlyContinue
     }
 }
