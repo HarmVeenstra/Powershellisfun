@@ -129,3 +129,5 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 [Update your software using WinGet and PowerShell](https://powershellisfun.com/2023/01/02/update-your-software-using-winget-and-powershell/)
 
 [Windows Autopilot Report](https://powershellisfun.com/2023/10/19/intune-autopilot-report-using-microsoft-graph/)
+
+[Windows Update all Hyper-V VMs](https://powershellisfun.com/2024/04/04/installing-windows-updates-on-all-your-hyper-v-lab-vms-using-powershell-and-pswindowsupdate/)
