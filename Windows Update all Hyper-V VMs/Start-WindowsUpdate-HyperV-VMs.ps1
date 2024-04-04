@@ -1,5 +1,5 @@
 param (
-    [parameter(Mandatory = $true, parameterSetname = "VMs")][string[]]$VMs = '*', 
+    [parameter(Mandatory = $true, parameterSetname = "VMs")][string[]]$VMs, 
     [parameter(Mandatory = $true)][string]$AdminAccountName,
     [parameter(Mandatory = $false)][int]$DelayafterStartInSeconds = 15,
     [parameter(Mandatory = $false)][int]$DelayafterRestartInMinutes = 5,
