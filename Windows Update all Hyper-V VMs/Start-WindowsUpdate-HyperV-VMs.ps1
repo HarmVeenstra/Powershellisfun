@@ -17,7 +17,7 @@ $password = Read-Host "Please enter password for the specified admin account" -A
 $AdminCredential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $AdminAccountName, $password
 
 #Validate if specified VM(s) is/are valid and running
-foreach ($VM in Hyper-V\Get-VM $VMs) {
+foreach ($VM in Hyper-V\Get-VM $VMs | Sort-Object Name) {
     if (-not (Hyper-V\Get-VM -VMName $VM.Name -ErrorAction SilentlyContinue)) {
         Write-Warning ("Specified VM {0} can't be found, check spelling/name. Exiting..." -f $VM.Name)
         return
@@ -41,16 +41,20 @@ foreach ($VM in Hyper-V\Get-VM $VMs) {
             Install-Module PSWindowsUpdate -Scope CurrentUser -AllowClobber -Force
             Import-Module PSWindowsUpdate
             Write-Host ("Installing Update(s) if any... System will reboot afterwards if needed!") -ForegroundColor Green
-            Install-WindowsUpdate -Install -ForceInstall -AcceptAll -AutoReboot 
+            Install-WindowsUpdate -Install -ForceInstall -AcceptAll -AutoReboot
         } 
     }
     catch {
         Write-Warning ("Couldn't connect to {0}, check credentials! Skipping..." -f $VM.Name)
     }
 
+    #Wait for VM to restart after updates
+    Write-Host ("Waiting for 15 seconds before continuing....") -ForegroundColor Green
+    Start-Sleep -Seconds 15
+
     #Wait for the VM to have an uptime of more than one minute and shutdown the VM if $NoShutdown was not specified
     if (-not $NoShutdown) {
-        while ((Hyper-V\Get-VM $VM.Name).Uptime.Minutes -le $DelayafterRestartInMinutes) {
+        while ((Hyper-V\Get-VM $VM.Name).Uptime.TotalMinutes -le $DelayafterRestartInMinutes) {
             Write-Host ("Waiting for {0} to be online for more than {1} minute(s), sleeping for 15 seconds...(Current uptime is {2} minutes and {3} seconds)" -f $VM.Name, $DelayafterRestartInMinutes, $(Hyper-V\Get-VM $VM.Name).Uptime.Minutes, $(Hyper-V\Get-VM $VM.Name).Uptime.Seconds) -ForegroundColor Green
             Start-Sleep -Seconds 15
         }
