@@ -35,6 +35,7 @@ foreach ($VM in Hyper-V\Get-VM $VMs) {
     try {
         Invoke-Command -VMName $VM.Name -Credential $AdminCredential -ScriptBlock {
             Write-Host ("Installing NuGet provider") -ForegroundColor Green
+            Set-ExecutionPolicy Bypass
             Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Confirm:$false -Force:$true | Out-Null
             Write-Host ("Installing PSWindowsUpdate module") -ForegroundColor Green
             Install-Module PSWindowsUpdate -Scope CurrentUser -AllowClobber -Force
