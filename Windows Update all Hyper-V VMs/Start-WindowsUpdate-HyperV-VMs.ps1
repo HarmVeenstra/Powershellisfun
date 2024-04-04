@@ -50,16 +50,15 @@ foreach ($VM in Hyper-V\Get-VM $VMs) {
 
     #Wait for the VM to have an uptime of more than one minute and shutdown the VM if $NoShutdown was not specified
     if (-not $NoShutdown) {
-        while ((Hyper-V\Get-VM $VM.Name).Uptime.Minutes -lt $DelayafterRestartInMinutes) {
+        while ((Hyper-V\Get-VM $VM.Name).Uptime.Minutes -le $DelayafterRestartInMinutes) {
             Write-Host ("Waiting for {0} to be online for more than {1} minute(s), sleeping for 15 seconds...(Current uptime is {2} minutes and {3} seconds)" -f $VM.Name, $DelayafterRestartInMinutes, $(Hyper-V\Get-VM $VM.Name).Uptime.Minutes, $(Hyper-V\Get-VM $VM.Name).Uptime.Seconds) -ForegroundColor Green
             Start-Sleep -Seconds 15
         }
-
         #Stop VM after waiting to $DelayafterRestartInMinutes
         Write-Host ("Shutting down {0} now..." -f $VM.Name) -ForegroundColor Green
         Hyper-V\Stop-VM -VMName $VM.Name
     }
     else {
         Write-Host ("The -NoShutdown parameter was used, not shutting down {0}..." -f $VM.Name)
-    }       
+    }        
 }
