@@ -60,7 +60,7 @@ foreach ($VM in Hyper-V\Get-VM $VMs | Sort-Object Name) {
         }
         #Stop VM after waiting to $DelayafterRestartInMinutes
         Write-Host ("Shutting down {0} now..." -f $VM.Name) -ForegroundColor Green
-        Hyper-V\Stop-VM -VMName $VM.Name
+        Hyper-V\Stop-VM -VMName $VM.Name -Force:$true
     }
     else {
         Write-Host ("The -NoShutdown parameter was used, not shutting down {0}..." -f $VM.Name)
