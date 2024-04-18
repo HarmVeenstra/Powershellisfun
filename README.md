@@ -110,6 +110,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Retrieve Security Events From Active Directory](https://powershellisfun.com/2022/07/19/retrieve-security-events-from-active-directory-using-powershell/)
 
+[Report from which PowerShell modules the cmdlets are from](https://powershellisfun.com/2024/04/18/report-from-which-powershell-module-the-cmdlets-are-from/)
+
 [Search Windows Event log](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Search%20Windows%20Event%20log)
 
 [Set Correct External Hyper-V Adapter](https://powershellisfun.com/2022/10/08/reconfigure-hyper-v-external-switch-to-the-correct-network-adapter/)
