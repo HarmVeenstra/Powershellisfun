@@ -66,6 +66,12 @@ $total = foreach ($AutopilotDevice in $AutopilotDevices | Sort-Object serialNumb
     [PSCustomObject]@{
         DeviceId                               = $AutopilotDevice.azureActiveDirectoryDeviceId
         IntuneId                               = $AutopilotDevice.id
+        DeviceName                             = if ((Get-MgBetaDeviceManagementManagedDevice -ManagedDeviceId $AutopilotDevice.managedDeviceId).DeviceName) {
+            (Get-MgBetaDeviceManagementManagedDevice -ManagedDeviceId $AutopilotDevice.managedDeviceId).DeviceName
+        }
+        else {
+            "None"
+        }
         GroupTag                               = if ($AutopilotDevice.groupTag) { 
             "$($AutopilotDevice.groupTag)" 
         }
