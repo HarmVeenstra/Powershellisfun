@@ -1,5 +1,11 @@
 #Variables and current TimeZone
-$InternetTimeZone = Invoke-RestMethod https://ident.me/json
+try {
+    $InternetTimeZone = Invoke-RestMethod https://ident.me/json
+}
+catch {
+    Write-Output ("Error accessing https://ident.me/json website, will try again later...")
+    exit 0
+}
 $CurrentTimeZone = Get-TimeZone
 $timezones = [PSCustomObject]@{      #https://secure.jadeworld.com/JADETech/JADE2020/OnlineDocumentation/content/resources/encyclosys2/jadetimezone_class/ianawindowstimezonemapping.htm
     "Etc/GMT+12"                     = "Dateline Standard Time"
@@ -468,10 +474,10 @@ $timezones = [PSCustomObject]@{      #https://secure.jadeworld.com/JADETech/JADE
 #If it matches, exit 0 and don't start remediation
 $timezone = $timezones.psobject.Properties.Item($InternetTimeZone.tz)
 if ($timezone.Value -eq $CurrentTimeZone.Id) {
-    Write-Host ("Current timezone {0} is configured correctly for the clients IP Location {1}" -f $CurrentTimeZone.Id, $InternetTimeZone.tz)
+    Write-Output ("Current timezone {0} is configured correctly for the clients IP Location {1}" -f $CurrentTimeZone.Id, $InternetTimeZone.tz)
     exit 0
 }
 else {
-    Write-Host ("The currently configured timezone {0} doesn't match the timezone {1} which was being matched by the clients IP Location using ident.me, changing it now..." -f $CurrentTimeZone.Id, $InternetTimeZone.tz)
+    Write-Output ("The currently configured timezone {0} doesn't match the timezone {1} which was being matched by the clients IP Location using ident.me, changing it now..." -f $CurrentTimeZone.Id, $InternetTimeZone.tz)
     exit 1
 }
