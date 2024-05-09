@@ -1,6 +1,7 @@
 param (
-    [parameter(Mandatory = $true, parameterSetname = "VMs")][string[]]$VMs, 
+    [parameter(Mandatory = $true)][string[]]$VMs, 
     [parameter(Mandatory = $true)][string]$AdminAccountName,
+    [parameter(Mandatory = $false)][string]$AdminAccountPassword,
     [parameter(Mandatory = $false)][int]$DelayafterStartInSeconds = 15,
     [parameter(Mandatory = $false)][int]$DelayafterRestartInMinutes = 5,
     [parameter(Mandatory = $false)][switch]$NoShutdown
@@ -12,8 +13,13 @@ if (-not (Get-Module -listAvailable -Name Hyper-V)) {
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Management-PowerShell -NoRestart:$true
 }
 
-#Prompt for admin password for the account specified in $AdminAccountName
-$password = Read-Host "Please enter password for the specified admin account" -AsSecureString
+#Set credentials, prompt for admin password for the account specified in $AdminAccountName if not specified in $AdminAccountPassowrd
+if (-not $AdminAccountPassword) {
+    $password = Read-Host "Please enter password for the specified admin account" -AsSecureString
+}
+else {
+    $password = $AdminAccountPassword | ConvertTo-SecureString -AsPlainText -Force
+}
 $AdminCredential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $AdminAccountName, $password
 
 #Validate if specified VM(s) is/are valid and running
