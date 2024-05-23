@@ -72,6 +72,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Intune Timezone](https://powershellisfun.com/2024/01/25/intune-automatic-timezone-configuration-using-powershell/)
 
+[Keep Microsoft Teams status on Available](https://powershellisfun.com/2024/05/23/keep-microsoft-teams-status-available-instead-of-away-using-powershell/)
+
 [Message Of The Day](https://powershellisfun.com/2022/07/04/get-a-message-of-the-day-in-your-powershell-session/)
 
 [Microsoft 365 License Overview Per User](https://powershellisfun.com/2022/05/16/microsoft-365-license-overview-per-user/)
