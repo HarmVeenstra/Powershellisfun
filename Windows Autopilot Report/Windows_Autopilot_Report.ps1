@@ -38,7 +38,7 @@ if (-not ((Get-Module Microsoft.Graph.Authentication, Microsoft.Graph.Beta.Devic
 
 #Connect MgGraph
 try {
-    Connect-MgGraph -Scopes 'DeviceManagementManagedDevices.Read.All' -NoWelcome
+    Connect-MgGraph -Scopes 'DeviceManagementManagedDevices.Read.All, DeviceManagementServiceConfig.Read.All' -NoWelcome
     Write-Host ("Connected to Microsoft Graph, continuing...") -ForegroundColor Green
 } 
 catch {
