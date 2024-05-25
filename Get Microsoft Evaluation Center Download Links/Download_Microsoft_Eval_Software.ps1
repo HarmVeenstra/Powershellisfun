@@ -41,7 +41,7 @@ $urls = @(
 $ProgressPreference = "SilentlyContinue"
 $totalfound = foreach ($url in $urls) {
     try {
-        $content = Invoke-WebRequest -Uri $url -ErrorAction Stop
+        $content = Invoke-WebRequest -Uri $url -UseBasicParsing -ErrorAction Stop 
         $downloadlinks = $content.links | Where-Object { `
                 $_.'aria-label' -match 'Download' `
                 -and $_.outerHTML -match 'fwlink' `
