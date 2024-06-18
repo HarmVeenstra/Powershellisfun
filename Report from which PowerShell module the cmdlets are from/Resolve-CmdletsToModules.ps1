@@ -50,110 +50,13 @@ function Resolve-CmdletsToModules {
     }
 
     #$Verbs variable with valid PowerShell verbs to search for
-    #https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands?view=powershell-7.4
-    #Add your own if needed.
-    $verbs = @(
-        "Add-" 
-        "Approve-"
-        "Assert-"
-        "Backup-"
-        "Block-"
-        "Build-"
-        "Checkpoint-"
-        "Clear-"
-        "Close-"
-        "Compare-"
-        "Complete-"
-        "Compress-"
-        "Confirm-"
-        "Connect-"
-        "Convert-"
-        "ConvertFrom-"
-        "ConvertTo-"
-        "Copy-"
-        "Debug-"
-        "Deny-"
-        "Deploy-"
-        "Disable-"
-        "Disconnect-"
-        "Dismount-"
-        "Edit-"
-        "Enable-"
-        "Enter-"
-        "Exit-"
-        "Expand-"
-        "Export-"
-        "Find-"
-        "Format-"
-        "Get-"
-        "Grant-"
-        "Group-"
-        "Hide-"
-        "Import-"
-        "Initialize-"
-        "Install-"
-        "Invoke-"
-        "Join-"
-        "Limit-"
-        "Lock-"
-        "Measure-"
-        "Merge-"
-        "Mount-"
-        "Move-"
-        "New-"
-        "Open-"
-        "Optimize-"
-        "Out-"
-        "Ping-"
-        "Pop-"
-        "Protect-"
-        "Publish-"
-        "Push-"
-        "Read-"
-        "Receive-"
-        "Redo-"
-        "Register-"
-        "Remove-"
-        "Rename-"
-        "Repair-"
-        "Request-"
-        "Reset-"
-        "Resize-"
-        "Resolve-"
-        "Restart-"
-        "Restore-"
-        "Resume-"
-        "Revoke-"
-        "Save-"
-        "Search-"
-        "Select-"
-        "Send-"
-        "Set-"
-        "Show-"
-        "Skip-"
-        "Split-"
-        "Start-"
-        "Step-"
-        "Stop-"
-        "Submit-"
-        "Suspend-"
-        "Switch-"
-        "Sync-"
-        "Test-"
-        "Trace-"
-        "Unblock-"
-        "Undo-"
-        "Uninstall-"
-        "Unlock-"
-        "Unprotect-"
-        "Unpublish-"
-        "Unregister-"
-        "Update-"
-        "Use-"
-        "Wait-"
-        "Watch-"
-        "Write-"
+    #https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands?view=powershell-7.4 / Get-Verb
+    #Add your own if needed to $customverbs
+    $verbs = (Get-Verb).Verb
+    $customverbs = @(
+        "powershellisfun"
     )
+    $verbs += $customverbs
 
     #loop through each line in the script and get all the cmdlets being used
     #that are based on the approved verbs above
@@ -161,7 +64,7 @@ function Resolve-CmdletsToModules {
         if (-not $line.StartsWith('#')) {
             foreach ($word in $line.Split(' ')) {
                 foreach ($verb in $verbs) {
-                    if ($word.ToLower().StartsWith($verb.ToLower())) {
+                    if ($word.ToLower().StartsWith($verb.ToLower() + '-') ) {
                         [PSCustomObject]@{
                             Cmdlet = $word -Replace '[\{\}\(\)\\]', ''
                         }
@@ -170,6 +73,7 @@ function Resolve-CmdletsToModules {
             }
         }
     }
+    
     
     #Search for the module(s) that the cmdlet is from
     $results = foreach ($cmdlet in ($cmdletstocheck | Sort-Object -Property * -Unique).Cmdlet | Sort-Object) {
