@@ -28,7 +28,7 @@ function Get-IntuneNonCompliantDevices {
     }
 
     #Check if necessary modules are installed, install missing modules if not
-    if (-not ((Get-Module Microsoft.Graph.Authentication, Microsoft.Graph.Beta.DeviceManagement -ListAvailable).count -eq 2)) {
+    if (-not ((Get-Module Microsoft.Graph.Authentication, Microsoft.Graph.Beta.DeviceManagement -ListAvailable).count -ge 2)) {
         Write-Warning ("One or more required modules were not found, installing now...")
         try {
             Install-Module Microsoft.Graph.Authentication, Microsoft.Graph.Beta.DeviceManagement -Confirm:$false -SkipPublisherCheck -Scope CurrentUser -ErrorAction Stop

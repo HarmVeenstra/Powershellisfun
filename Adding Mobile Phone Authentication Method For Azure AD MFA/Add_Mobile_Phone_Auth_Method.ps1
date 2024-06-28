@@ -1,6 +1,6 @@
 #Used https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-userdevicesettings for the method of setting a mobile number for MFA 
 #Check if necessary modules are installed, install missing modules if not
-if (-not ((Get-Module Microsoft.Graph.Authentication, Microsoft.Graph.Identity.Signins, Microsoft.Graph.Users -ListAvailable).count -eq 3)) {
+if (-not ((Get-Module Microsoft.Graph.Authentication, Microsoft.Graph.Identity.Signins, Microsoft.Graph.Users -ListAvailable).count -ge 3)) {
     Write-Warning ("One or more required modules were not found, installing now...")
     try {
         Install-Module Microsoft.Graph.Authentication, Microsoft.Graph.Identity.Signins, Microsoft.Graph.Users -Confirm:$false -SkipPublisherCheck -Scope CurrentUser -ErrorAction Stop

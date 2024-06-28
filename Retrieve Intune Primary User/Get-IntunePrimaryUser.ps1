@@ -4,7 +4,7 @@ param(
 )
 
 #Check if necessary modules are installed, install missing modules if not
-if (-not ((Get-Module Microsoft.Graph.Authentication, Microsoft.Graph.Beta.DeviceManagement, Microsoft.Graph.Users -ListAvailable).count -eq 3)) {
+if (-not ((Get-Module Microsoft.Graph.Authentication, Microsoft.Graph.Beta.DeviceManagement, Microsoft.Graph.Users -ListAvailable).count -ge 3 | Select-Object Name -Unique)) {
     Write-Warning ("One or more required modules were not found, installing now...")
     try {
         Install-Module Microsoft.Graph.Authentication, Microsoft.Graph.Beta.DeviceManagement, Microsoft.Graph.Users -Confirm:$false -SkipPublisherCheck -Scope CurrentUser -ErrorAction Stop
