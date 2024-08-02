@@ -30,6 +30,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Copy Exchange Receive Connector Settings](https://powershellisfun.com/2022/06/09/copying-exchange-receive-connector-settings-using-powershell/)
 
+[Create a development Windows Sandbox](https://powershellisfun.com/2024/08/02/creating-a-development-windows-sandbox-using-powershell-and-winget/)
+
 [Create a Focus Time countdown clock](https://powershellisfun.com/2022/08/14/create-a-focus-time-countdown-clock-using-powershell/)
 
 [Create A Hyper-V Running Evaluation Versions Of Windows Server](https://powershellisfun.com/2022/06/01/creating-a-hyper-v-vm-running-evaluation-versions-of-windows-server-using-powershell/)
