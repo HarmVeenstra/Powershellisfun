@@ -2,7 +2,7 @@
 function Start-Sandbox {
     param(
         [parameter(Mandatory = $false)][string]$MappedFolder,
-        [parameter(Mandatory = $false)][string]$MemoryInMB,
+        [parameter(Mandatory = $false)][int]$MemoryInMB = '2048',
         [parameter(Mandatory = $false)][string]$LogonCommand,
         [switch]$vGPUdisable,
         [switch]$AudioInputDisable,
@@ -20,7 +20,7 @@ function Start-Sandbox {
             Write-Host ("Specified {0} path exists, continuing..." -f $MappedFolder) -ForegroundColor Green
         }
         else {
-            Write-Host ("Specified {0} path doesn't exist, exiting..." -f $MappedFolder) -ForegroundColor Red
+            Write-Warning ("Specified {0} path doesn't exist, exiting..." -f $MappedFolder)
             return
         }
     }
@@ -58,8 +58,8 @@ function Start-Sandbox {
 
     if ($null -ne $MemoryInMB) {
         $wsb += "<MemoryInMB>$($MemoryInMB)</MemoryInMB>"
-        if ($MemoryInMB -le 2048) {
-            Write-Host "$($MemoryInMB) Mb(s) specified, Windows Sandbox will automatically allocate more if needed..." -ForegroundColor Yellow
+        if ($MemoryInMB -lt 2048) {
+            Write-Warning ("{0} Mb(s) specified, Windows Sandbox will automatically allocate more if needed..." -f $MemoryInMB)
         }
     }
 
