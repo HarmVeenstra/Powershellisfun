@@ -2,14 +2,17 @@ function Update-Modules {
 	param (
 		[switch]$AllowPrerelease,
 		[string]$Name = '*',
+		[ValidateSet('AllUsers', 'CurrentUser')][string]$Scope = 'AllUsers',
 		[switch]$WhatIf
 	)
 	
-	# Test admin privileges without using -Requires RunAsAdministrator,
+	#Test admin privileges without using -Requires RunAsAdministrator,
 	# which causes a nasty error message, if trying to load the function within a PS profile but without admin privileges
-	if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
-		Write-Warning ("Function {0} needs admin privileges. Break now." -f $MyInvocation.MyCommand)
-		return
+	if ($Scope -eq 'AllUsers') {
+		if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
+			Write-Warning ("Function {0} needs admin privileges. Break now." -f $MyInvocation.MyCommand)
+			return
+		}
 	}
 
 	# Get all installed modules
@@ -71,7 +74,7 @@ function Update-Modules {
 		try {
 			$latest = $onlineversions | Where-Object name -eq $module.Name -ErrorAction Stop
 			if ([version]$Module.Version -lt [version]$latest.version) {
-				Update-Module -Name $Module.Name -AllowPrerelease:$AllowPrerelease -AcceptLicense -Scope:AllUsers -Force:$True -ErrorAction Stop -WhatIf:$WhatIf.IsPresent
+				Update-Module -Name $Module.Name -AllowPrerelease:$AllowPrerelease -AcceptLicense -Scope:$Scope -Force:$True -ErrorAction Stop -WhatIf:$WhatIf.IsPresent
 			}
 		}
 		catch {
