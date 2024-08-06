@@ -16,6 +16,7 @@ function Get-MailDomainInfo {
             $dkim1 = Resolve-DnsName -Name "selector1._domainkey.$($domain)" -Type CNAME -Server $DNSserver -ErrorAction SilentlyContinue
             $dkim2 = Resolve-DnsName -Name "selector2._domainkey.$($domain)" -Type CNAME -Server $DNSserver -ErrorAction SilentlyContinue
             $dmarc = (Resolve-DnsName -Name "_dmarc.$($domain)" -Type TXT -Server $DNSserver -ErrorAction SilentlyContinue | Where-Object Strings -Match 'DMARC').Strings
+            $dnssec = (Resolve-DnsName -Name $domain -Type DNSKEY -DnssecOk -ErrorAction SilentlyContinue).TypeCovered
             $mx = (Resolve-DnsName -Name $domain -Type MX -Server $DNSserver -ErrorAction SilentlyContinue).NameExchange
             $spf = (Resolve-DnsName -Name $domain -Type TXT -Server $DNSserver -ErrorAction SilentlyContinue | Where-Object Strings -Match 'v=spf').Strings
             $includes = (Resolve-DnsName -Name $domain -Type TXT -Server $DNSserver -ErrorAction SilentlyContinue | Where-Object Strings -Match 'v=spf').Strings -split ' ' | Select-String 'Include:'
@@ -68,6 +69,13 @@ function Get-MailDomainInfo {
                     }
                 }
             }
+
+            if ($null -eq $dnssec) {
+                $dnssec = 'Not enabled'
+            }
+            else {
+                $dnssec = 'Enabled'
+            }
  
             [PSCustomObject]@{
                 'Domain Name'             = $domain
@@ -75,6 +83,7 @@ function Get-MailDomainInfo {
                 'Autodiscover CNAME '     = $autodiscoverCNAME
                 'DKIM Record'             = $dkim
                 'DMARC Record'            = "$($dmarc)"
+                'DNSSEC'                  = $dnssec
                 'MX Record(s)'            = $mx -join ', '
                 'SPF Record'              = "$($spf)"
                 'SPF Include values'      = "$($foundincludes.SPFIncludes)" -replace "all", "all`n`b"
