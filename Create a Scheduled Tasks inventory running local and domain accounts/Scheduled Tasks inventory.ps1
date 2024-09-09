@@ -1,5 +1,5 @@
 $CSVlocation = 'C:\Temp\ScheduledTasks.csv'
-$total = foreach ($server in Get-ADComputer -Filter 'OperatingSystem -like "Windows Server*"' | Sort-Object Name) {
+$total = foreach ($server in Get-ADComputer -Filter 'OperatingSystem -like "Windows Server*" -and Enabled -ne $False' | Sort-Object Name) {
     try {
         $scheduledtasks = Get-ChildItem "\\$($Server.name)\c$\Windows\System32\Tasks" -Recurse -File -ErrorAction Stop
         Write-Host ("Retrieving Scheduled Tasks list for {0}" -f $server.Name) -ForegroundColor Green
@@ -11,7 +11,6 @@ $total = foreach ($server in Get-ADComputer -Filter 'OperatingSystem -like "Wind
     foreach ($task in $scheduledtasks | Sort-Object Name) {
         try {
             $taskinfo = [xml](Get-Content -Path $task.FullName -ErrorAction stop)
-            Write-Host ("Processing Task {0} on {1}" -f $task.Name, $server.name)
         }
         catch {
             Write-Warning ("Could not read {0}" -f $task.FullName)
@@ -33,7 +32,8 @@ $total = foreach ($server in Get-ADComputer -Filter 'OperatingSystem -like "Wind
                 -and $taskinfo.Task.Principals.Principal.UserId -ne 'S-1-5-19' `
                 -and $taskinfo.Task.Principals.Principal.UserId -ne 'S-1-5-20' `
                 -and $taskinfo.Task.Principals.Principal.UserId -ne 'USERS' `
-                -and $taskinfo.Task.Triggers.LogonTrigger.Enabled -ne 'True' 
+                -and $taskinfo.Task.Triggers.LogonTrigger.Enabled -ne 'True' `
+                -and $null -ne $taskinfo.Task.Principals.Principal.UserId
         ) {
             [PSCustomObject]@{
                 Server    = $Server.name
@@ -44,7 +44,7 @@ $total = foreach ($server in Get-ADComputer -Filter 'OperatingSystem -like "Wind
     }
 }
 if ($total.count -gt 0) {
-    $Total | Sort-Object Server, TaskName | Export-CSV -NoTypeInformation -Delimiter ';' -Encoding UTF8 -path $CSVlocation
+    $Total | Sort-Object Server, TaskName | Export-Csv -NoTypeInformation -Delimiter ';' -Encoding UTF8 -Path $CSVlocation
     Write-Host ("Saved results to {0}" -f $CSVlocation) -ForegroundColor Green
 }
 else {
