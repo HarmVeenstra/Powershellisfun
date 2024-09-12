@@ -66,7 +66,7 @@ $total = foreach ($AutopilotDevice in $AutopilotDevices | Sort-Object serialNumb
     [PSCustomObject]@{
         DeviceId                               = $AutopilotDevice.azureActiveDirectoryDeviceId
         IntuneId                               = $AutopilotDevice.id
-        DeviceName                             = if ((Get-MgBetaDeviceManagementManagedDevice -ManagedDeviceId $AutopilotDevice.managedDeviceId).DeviceName) {
+        DeviceName                             = if ((Get-MgBetaDeviceManagementManagedDevice -ManagedDeviceId $AutopilotDevice.managedDeviceId -ErrorAction SilentlyContinue).DeviceName) {
             (Get-MgBetaDeviceManagementManagedDevice -ManagedDeviceId $AutopilotDevice.managedDeviceId).DeviceName
         }
         else {
