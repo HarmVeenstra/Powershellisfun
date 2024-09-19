@@ -62,6 +62,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Get Microsoft Evaluation Center Download Links](https://powershellisfun.com/2022/05/25/get-all-download-links-from-microsoft-evaluation-center/)
 
+[Get Microsoft Graph Permissions](https://powershellisfun.com/2024/09/19/query-the-required-permissions-of-a-microsoft-graph-cmdlet/)
+
 [Get WHOIS Information](https://powershellisfun.com/2022/06/12/get-whois-information-using-powershell/)
 
 [Import Receive Connector IP-Addresses into IIS SMTP](https://powershellisfun.com/2022/10/24/import-exchange-relay-connector-ip-addresses-to-iis-smtp-instance/)
