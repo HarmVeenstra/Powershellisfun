@@ -46,7 +46,7 @@ $Applications = foreach ($Application in $ApplicationName) {
 }
     
 #Loop through the applications and collect the details, exit if no applications were found or selected
-if ($null -ne $Applications.count) {    
+if ($null -ne $Applications) {    
     $total = foreach ($item in $Applications | Sort-Object ID) {
         Write-Host ("Processing {0}..." -f $item.ID) -ForegroundColor Green
         try {
@@ -79,7 +79,7 @@ else {
 }
     
 #If $total has items, output it to display or file
-if ($null -ne $total.count) {
+if ($null -ne $total) {
     #Display $total to the chosen $ouput value if $FileName was not used
     if ($Output) {
         switch ($Output) {
