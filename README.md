@@ -86,6 +86,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [PowerShell Welcome Message](https://powershellisfun.com/2023/12/15/powershell-welcome-message/)
 
+[Query WinGet software installer data](https://powershellisfun.com/2024/10/17/query-winget-software-installer-data-with-powershell/)
+
 [Random 9GAG Item In Your Browser](https://powershellisfun.com/2022/05/19/382/)
 
 [Read RSS Feeds](https://powershellisfun.com/2022/05/30/reading-rss-feeds-in-powershell/)
