@@ -5,11 +5,11 @@ param (
 )
     
 #Check if the required modules are installed
-foreach ($module in 'Microsoft.WinGet.Client', 'Microsoft.PowerShell.ConsoleGuiTools', 'powershell-yaml') {
+foreach ($module in 'Microsoft.WinGet.Client', 'Microsoft.PowerShell.ConsoleGuiTools', 'powershell-yaml', 'cobalt') {
     if (-not (Get-Module -Name $module -ListAvailable)) {
         try {
             Write-Warning ("The required module {0} was not found, installing now..." -f $module) 
-            Install-Module -Name $module -Scope CurrentUser -ErrorAction Stop
+            Install-Module -Name $module -Scope CurrentUser -AllowClobber:$true -ErrorAction Stop
             Import-Module -Name $module -ErrorAction Stop
         }
         catch {
@@ -25,6 +25,28 @@ foreach ($module in 'Microsoft.WinGet.Client', 'Microsoft.PowerShell.ConsoleGuiT
             Write-Warning ("Error importing required $module module, exiting...")
             return
         }
+    }
+}
+
+#Check if WinGet is installed, install if not
+if (-not (Get-AppxPackage -Name Microsoft.DesktopAppInstaller)) {
+    try {
+        $progressPreference = 'silentlyContinue'
+        Write-Warning ("WinGet client was not found, installing now...")
+        Invoke-WebRequest -Uri https://aka.ms/getwinget -OutFile $env:temp\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle -ErrorAction Stop
+        Invoke-WebRequest -Uri https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx -OutFile $env:temp\Microsoft.VCLibs.x64.14.00.Desktop.appx -ErrorAction Stop
+        Invoke-WebRequest -Uri https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.8.6/Microsoft.UI.Xaml.2.8.x64.appx -OutFile $env:temp\Microsoft.UI.Xaml.2.8.x64.appx -ErrorAction Stop
+        Add-AppxPackage $env:temp\Microsoft.VCLibs.x64.14.00.Desktop.appx -ErrorAction Stop
+        Add-AppxPackage $env:temp\Microsoft.UI.Xaml.2.8.x64.appx -ErrorAction Stop
+        Add-AppxPackage $env:temp\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle -ErrorAction Stop
+        Remove-Item $env:temp\Microsoft.VCLibs.x64.14.00.Desktop.appx -Force:$true -Confirm:$false -ErrorAction Stop
+        Remove-Item $env:temp\Microsoft.UI.Xaml.2.8.x64.appx -Force:$true -Confirm:$false -ErrorAction Stop
+        Remove-Item $env:temp\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle -Force:$true -Confirm:$false -ErrorAction Stop
+        $progressPreference = 'silentlyContinue'
+    }
+    catch {
+        Write-Warning ("Error installing WinGet client, exiting...")
+        return
     }
 }
     
