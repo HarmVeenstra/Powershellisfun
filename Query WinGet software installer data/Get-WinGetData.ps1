@@ -3,6 +3,12 @@ param (
     [Parameter(Mandatory = $false)][validateset('ConsoleGridView', 'GridView', 'List')][string]$Output = 'List',
     [Parameter(Mandatory = $false)][string]$Filename
 )
+
+#Check if running in PowerShell 7
+if (-not ($PSVersionTable.PSVersion.Major -ge 7)) {
+    Write-Warning ("Script is not running in required PowerShell version 7, exiting...")
+    return
+}
     
 #Check if the required modules are installed
 foreach ($module in 'Microsoft.WinGet.Client', 'Microsoft.PowerShell.ConsoleGuiTools', 'powershell-yaml', 'cobalt') {
