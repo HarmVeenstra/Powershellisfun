@@ -1,6 +1,6 @@
 
 param (
-    [Parameter(Mandatory = $false)][string]$APIKEY = '6c29d623-a045-487c-9551-e1c07432da43',
+    [Parameter(Mandatory = $false)][string]$APIKEY = 'XXX-XXX-XXX',
     [Parameter(Mandatory = $false)][int]$Seconds = 30,
     [Parameter(Mandatory = $true)][string[]]$URL,
     [Parameter(Mandatory = $false)][validateset("public", "unlisted", "private")][string]$Type = 'private'
