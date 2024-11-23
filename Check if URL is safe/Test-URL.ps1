@@ -1,4 +1,3 @@
-
 param (
     [Parameter(Mandatory = $false)][string]$APIKEY = 'XXX-XXX-XXX',
     [Parameter(Mandatory = $false)][int]$Seconds = 30,
