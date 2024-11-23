@@ -20,6 +20,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Change Primary and Secondary DNS](https://powershellisfun.com/2023/06/13/changing-dns-settings-on-windows-devices/)
 
+[Check if URL is safe](https://powershellisfun.com/2024/11/22/use-powershell-to-check-if-shortened-url-link-is-safe/)
+
 [Check for PowerShell modules updates](https://powershellisfun.com/2023/09/20/check-for-powershell-module-updates/)
 
 [Check for non-Microsoft signed Windows Services](https://powershellisfun.com/2023/10/25/check-for-non-microsoft-signed-windows-services/)
