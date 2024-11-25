@@ -43,7 +43,7 @@ if ($null -ne $ExpandedURLs) {
             Write-Host ("Submitted specified {0} Short URL to be scanned as {1}..." -f $ExpandedURL.ShortURL, $ExpandedURL.LongURL) -ForegroundColor Green
         }
         catch {
-            Write-Warning ("Error submitting {0}, check URL..." -f $ExpandedURL.ShortURL)
+            Write-Warning ("Error submitting {0}, check URL manually on urlscan.io because it might be blocked from scanning)..." -f $ExpandedURL.ShortURL)
             return
         }
     }
