@@ -49,7 +49,7 @@ if ($null -ne $ExpandedURLs) {
     }
 
     #Retrieve results for submitted urls, wait for the amount of seconds specified in $Seconds (Default is 30)
-    Write-Host ("Sleeping for 30 seconds to wait on results...") -ForegroundColor Green
+    Write-Host ("Sleeping for {0} seconds to wait on results..." -f $Seconds) -ForegroundColor Green
     Start-Sleep -Seconds 10
     $results = foreach ($response in $submits) {
         try {
