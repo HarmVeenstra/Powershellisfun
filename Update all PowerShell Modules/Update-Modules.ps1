@@ -3,7 +3,8 @@ function Update-Modules {
 		[switch]$AllowPrerelease,
 		[string]$Name = '*',
 		[ValidateSet('AllUsers', 'CurrentUser')][string]$Scope = 'AllUsers',
-		[switch]$WhatIf
+		[switch]$WhatIf,
+		[switch]$Verbose
 	)
 	
 	#Test admin privileges without using -Requires RunAsAdministrator,
@@ -72,9 +73,9 @@ function Update-Modules {
 		$CounterLength = $Counter.Length
 		Write-Host ('{0} Checking for updated version of module {1} ...' -f $Counter, $Module.Name) -ForegroundColor Green
 		try {
-			$latest = $onlineversions | Where-Object name -eq $module.Name -ErrorAction Stop
+			$latest = $onlineversions | Where-Object Name -EQ $module.Name -ErrorAction Stop
 			if ([version]$Module.Version -lt [version]$latest.version) {
-				Update-Module -Name $Module.Name -AllowPrerelease:$AllowPrerelease -AcceptLicense -Scope:$Scope -Force:$True -ErrorAction Stop -WhatIf:$WhatIf.IsPresent
+				Update-Module -Name $Module.Name -AllowPrerelease:$AllowPrerelease -AcceptLicense -Scope:$Scope -Force:$True -ErrorAction Stop -WhatIf:$WhatIf.IsPresent -Verbose:$Verbose.IsPresent
 			}
 		}
 		catch {
@@ -89,7 +90,7 @@ function Update-Modules {
 				if ($Version.Version -ne $MostRecentVersion) {
 					try {
 						Write-Host ("{0,$CounterLength} Uninstalling previous version {1} of module {2} ..." -f ' ', $Version.Version, $Module.Name) -ForegroundColor Gray
-						Uninstall-Module -Name $Module.Name -RequiredVersion $Version.Version -Force:$True -ErrorAction Stop -AllowPrerelease -WhatIf:$WhatIf.IsPresent
+						Uninstall-Module -Name $Module.Name -RequiredVersion $Version.Version -Force:$True -ErrorAction Stop -AllowPrerelease -WhatIf:$WhatIf.IsPresent -Verbose:$Verbose.IsPresent
 					}
 					catch {
 						Write-Warning ("{0,$CounterLength} Error uninstalling previous version {1} of module {2}!" -f ' ', $Version.Version, $Module.Name)
