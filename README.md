@@ -84,6 +84,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Microsoft 365 License Overview Per User](https://powershellisfun.com/2022/05/16/microsoft-365-license-overview-per-user/)
 
+[Open links from the cmd.ms website](https://powershellisfun.com/2024/12/12/powershell-function-for-the-cmd-ms-website/)
+
 [Output data to a MarkDown file](https://powershellisfun.com/2023/02/01/export-pipeline-output-to-a-markdown-file-using-powershell/)
 
 [PowerShell Welcome Message](https://powershellisfun.com/2023/12/15/powershell-welcome-message/)
