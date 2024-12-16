@@ -1,18 +1,10 @@
 function Invoke-CmdMS {
-    [CmdletBinding(DefaultParameterSetName = 'Browser')]
+    [CmdletBinding(DefaultParameterSetName='Filter')]
     param (
-        [Parameter(Mandatory = $false, ParameterSetName = 'Alias')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'AliasBrowser')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'Browser')]
-        [string[]]$Alias,
-        [Parameter(Mandatory = $false, ParameterSetName = 'AliasBrowser')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'Browser')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'FilterBrowser')]
-        [ValidateSet('Brave', 'Chrome', 'FireFox', 'MSEdge')][string]$Browser,
-        [Parameter(Mandatory = $false, ParameterSetName = 'Browser')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'Filter')]
-        [Parameter(Mandatory = $false, ParameterSetName = 'FilterBrowser')]
-        [string]$Filter = ''
+        [Parameter(Mandatory = $false, ParameterSetName = ('Alias'))][string[]]$Alias,
+        [Parameter(Mandatory = $false)][ValidateSet('Brave', 'Chrome', 'FireFox', 'MSEdge')][string]$Browser,
+        [Parameter(Mandatory = $false, ParameterSetName = ('Command'))][string[]]$Command,
+        [Parameter(Mandatory = $false, ParameterSetName = ('Filter'))][string]$Filter = ''
     )
 
     #Retrieve commands.csv from Merill's GitHub page, use $filter if specified or '' when not specified to retrieve all URLs
@@ -25,7 +17,7 @@ function Invoke-CmdMS {
         return
     }
 
-    #If $alias(es) were specified, check if they are valid
+    #If $alias(es) or $Command(s) were specified, check if they are valid
     if ($Alias) {
         $aliases = foreach ($shortname in $Alias) {
             try {
@@ -45,8 +37,31 @@ function Invoke-CmdMS {
                 Write-Warning ("Error displaying/selecting Alias {0} from https://cmd.ms, check https://raw.githubusercontent.com/merill/cmd/refs/heads/main/website/config/commands.csv for the correct name(s)..." -f $shortname)
             }
         }
-    } 
-    else {
+    }
+    
+    if ($Command) {
+        $Commands = foreach ($portal in $Command) {
+            try {
+                $commandcmds = Invoke-RestMethod -Uri https://raw.githubusercontent.com/merill/cmd/refs/heads/main/website/config/commands.csv -ErrorAction Stop | ConvertFrom-Csv -ErrorAction Stop | Where-Object Command -EQ $portal
+                if ($null -ne $commandcmds) {
+                    Write-Host ("Specified {0} Command was found..." -f $portal) -ForegroundColor Green
+                    [PSCustomObject]@{
+                        Command = $portal
+                        URL     = $commandcmds.Url
+                    }
+                }
+                else {
+                    Write-Warning ("Specified Command {0} was not found, check https://raw.githubusercontent.com/merill/cmd/refs/heads/main/website/config/commands.csv for the correct name(s)..." -f $portal)
+                }
+            }
+            catch {
+                Write-Warning ("Error displaying/selecting Command {0} from https://cmd.ms, check https://raw.githubusercontent.com/merill/cmd/refs/heads/main/website/config/commands.csv for the correct name(s)..." -f $portal)
+            }
+        }
+    }
+
+    #If $Alias or $Command was not specified, display all items in a GridView
+    if (-not ($Alias) -and -not ($Command)) {
         #Output $cmds to Out-ConsoleGridView. If the PowerShell version is 7 or higher, install Microsoft.PowerShell.ConsoleGuiTools if needed
         if ($host.Version.Major -ge 7) {
             if (-not (Get-Module Microsoft.PowerShell.ConsoleGuiTools -ListAvailable )) {
@@ -65,42 +80,66 @@ function Invoke-CmdMS {
                 return
             }
         }
-    }
-
-    #Output $cmds to Out-GridView if the PowerShell version is 5 or lower
-    if ($host.Version.Major -le 5) {
-        $cmds = $cmds | Sort-Object Category | Out-GridView -PassThru -Title 'Select the site(s) by selecting them with the spacebar while holding CTRL, hit Enter to continue...' -ErrorAction Stop
-        if ($null -eq $cmds) {
-            Write-Warning ("No site(s) selected / Pressed Escape...")
-            return
+        #Output $cmds to Out-GridView if the PowerShell version is 5 or lower
+        if ($host.Version.Major -le 5) {
+            $cmds = $cmds | Sort-Object Category | Out-GridView -PassThru -Title 'Select the site(s) by selecting them with the spacebar while holding CTRL, hit Enter to continue...' -ErrorAction Stop
+            if ($null -eq $cmds) {
+                Write-Warning ("No site(s) selected / Pressed Escape...")
+                return
+            }
         }
-    }
+    }  
 
-    #Try to open the selected URLs from either $alias or $cmds
+    #Try to open the selected URLs from either $alias, $Command or $cmds
     if ($Alias) {
         foreach ($url in $aliases) {
             if ($Browser) {
                 #Open in specified Browser using -Browser
                 try {
                     Start-Process "$($Browser).exe" -ArgumentList $url.URL -ErrorAction Stop
-                    Write-Host ("Opening selected URL {0} in {1} browser for alias {2}..." -f $url.url, $Browser, $url.Alias) -ForegroundColor Green
+                    Write-Host ("Opening selected URL {0} in {1} browser for Alias {2}..." -f $url.url, $Browser, $url.Alias) -ForegroundColor Green
                 }
                 catch {
-                    Write-Warning ("Error opening selected URL {0} in {1} browser for alias {2}" -f $url.url, $Browser, $url.Alias)
+                    Write-Warning ("Error opening selected URL {0} in {1} browser for Alias {2}" -f $url.url, $Browser, $url.Alias)
                 }
             }
             else {
                 try {
                     Start-Process $url.URL -ErrorAction Stop
-                    Write-Host ("Opening selected URL {0} for alias {1} in the default browser..." -f $url.url, $url.Alias) -ForegroundColor Green
+                    Write-Host ("Opening selected URL {0} for Alias {1} in the default browser..." -f $url.url, $url.Alias) -ForegroundColor Green
                 }
                 catch {
-                    Write-Warning ("Error opening selected URL {0} for alias {1} in the default browser" -f $url.url, $url.Alias)
+                    Write-Warning ("Error opening selected URL {0} for Alias {1} in the default browser" -f $url.url, $url.Alias)
                 }
             } 
         }
     }
-    else {
+
+    if ($Command) {
+        foreach ($url in $commands) {
+            if ($Browser) {               
+                #Open in specified Browser using -Browser
+                try {
+                    Start-Process "$($Browser).exe" -ArgumentList $url.URL -ErrorAction Stop
+                    Write-Host ("Opening selected URL {0} in {1} browser for Command {2}..." -f $url.url, $Browser, $url.command) -ForegroundColor Green
+                }
+                catch {
+                    Write-Warning ("Error opening selected URL {0} in {1} browser for Command {2}" -f $url.url, $Browser, $url.command)
+                }
+            }
+            else {
+                try {
+                    Start-Process $url.URL -ErrorAction Stop
+                    Write-Host ("Opening selected URL {0} for Command {1} in the default browser..." -f $url.url, $url.command) -ForegroundColor Green
+                }
+                catch {
+                    Write-Warning ("Error opening selected URL {0} for Command {1} in the default browser" -f $url.url, $url.command)
+                }
+            } 
+        }
+    }
+
+    if (-not ($Alias) -and -not ($Commands)) {
         foreach ($cmd in $cmds) {
             #Open in Default Browser (Without using -Browser)
             if ($Browser) {
