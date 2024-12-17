@@ -1,5 +1,5 @@
 function Invoke-CmdMS {
-    [CmdletBinding(DefaultParameterSetName='Filter')]
+    [CmdletBinding(DefaultParameterSetName = 'Filter')]
     param (
         [Parameter(Mandatory = $false, ParameterSetName = ('Alias'))][string[]]$Alias,
         [Parameter(Mandatory = $false)][ValidateSet('Brave', 'Chrome', 'FireFox', 'MSEdge')][string]$Browser,
@@ -22,7 +22,7 @@ function Invoke-CmdMS {
         $aliases = foreach ($shortname in $Alias) {
             try {
                 $aliascmds = Invoke-RestMethod -Uri https://raw.githubusercontent.com/merill/cmd/refs/heads/main/website/config/commands.csv -ErrorAction Stop | ConvertFrom-Csv -ErrorAction Stop | Where-Object Alias -EQ $shortname
-                if ($null -ne $aliascmds) {
+                if ($aliascmds) {
                     Write-Host ("Specified {0} alias was found..." -f $shortname) -ForegroundColor Green
                     [PSCustomObject]@{
                         Alias = $shortname
@@ -43,7 +43,7 @@ function Invoke-CmdMS {
         $Commands = foreach ($portal in $Command) {
             try {
                 $commandcmds = Invoke-RestMethod -Uri https://raw.githubusercontent.com/merill/cmd/refs/heads/main/website/config/commands.csv -ErrorAction Stop | ConvertFrom-Csv -ErrorAction Stop | Where-Object Command -EQ $portal
-                if ($null -ne $commandcmds) {
+                if ($commandcmds) {
                     Write-Host ("Specified {0} Command was found..." -f $portal) -ForegroundColor Green
                     [PSCustomObject]@{
                         Command = $portal
@@ -75,7 +75,7 @@ function Invoke-CmdMS {
                 }
             }
             $cmds = $cmds | Sort-Object Category | Out-ConsoleGridView -Title 'Select the site(s) by selecting them with the spacebar and hit Enter to continue...' -ErrorAction Stop
-            if ($null -eq $cmds) {
+            if (-not ($cmds)) {
                 Write-Warning ("No site(s) selected / Pressed Escape, exiting...")
                 return
             }
@@ -83,7 +83,7 @@ function Invoke-CmdMS {
         #Output $cmds to Out-GridView if the PowerShell version is 5 or lower
         if ($host.Version.Major -le 5) {
             $cmds = $cmds | Sort-Object Category | Out-GridView -PassThru -Title 'Select the site(s) by selecting them with the spacebar while holding CTRL, hit Enter to continue...' -ErrorAction Stop
-            if ($null -eq $cmds) {
+            if (-not ($cmds)) {
                 Write-Warning ("No site(s) selected / Pressed Escape...")
                 return
             }
@@ -139,7 +139,7 @@ function Invoke-CmdMS {
         }
     }
 
-    if (-not ($Alias) -and -not ($Commands)) {
+    if (-not ($Alias) -and -not ($Command)) {
         foreach ($cmd in $cmds) {
             #Open in Default Browser (Without using -Browser)
             if ($Browser) {
