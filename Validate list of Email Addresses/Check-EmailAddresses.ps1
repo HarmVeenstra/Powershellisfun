@@ -15,10 +15,16 @@ if ($InputFile) {
 }
 
 #Test if output file location is accessible
-try { 
-    New-Item -Path $OutputFile -Force -ErrorAction Stop | Out-Null
-    Write-Host ("Specified output file location {0} is valid, continuing..." -f $OutputFile) -ForegroundColor Green
-    Remove-Item -Path $OutputFile -Force -ErrorAction Stop | Out-Null
+try {
+    if (($OutputFile.EndsWith('.csv')) -or ($OutputFile.EndsWith('.xlsx'))) {
+        New-Item -Path $OutputFile -Force -ErrorAction Stop | Out-Null
+        Write-Host ("Specified output file location {0} is valid, continuing..." -f $OutputFile) -ForegroundColor Green
+        Remove-Item -Path $OutputFile -Force -ErrorAction Stop | Out-Null
+    }
+    else {
+        Write-Warning ("Specified output file location {0} has wrong extension, exiting..." -f $OutputFile)
+        return
+    }
 }
 catch {
     Write-Warning ("Specified output file location {0} is invalid or inaccessible, exiting..." -f $OutputFile)
