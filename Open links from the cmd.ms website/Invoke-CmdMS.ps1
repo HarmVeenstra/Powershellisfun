@@ -4,7 +4,8 @@ function Invoke-CmdMS {
         [Parameter(Mandatory = $false, ParameterSetName = ('Alias'))][string[]]$Alias,
         [Parameter(Mandatory = $false)][ValidateSet('Brave', 'Chrome', 'FireFox', 'MSEdge')][string]$Browser,
         [Parameter(Mandatory = $false, ParameterSetName = ('Command'))][string[]]$Command,
-        [Parameter(Mandatory = $false, ParameterSetName = ('Filter'))][string]$Filter = ''
+        [Parameter(Mandatory = $false, ParameterSetName = ('Filter'))][string]$Filter = '',
+        [Parameter(Mandatory = $false)][ValidateNotNullOrEmpty()][string]$RunAs
     )
 
     #Retrieve commands.csv from Merill's GitHub page, use $filter if specified or '' when not specified to retrieve all URLs
@@ -16,6 +17,67 @@ function Invoke-CmdMS {
         Write-Warning ("Error retrieving commands from https://raw.githubusercontent.com/merill/cmd/refs/heads/main/website/config/commands.csv, check internet access! Exiting..." -f $shortname)
         return
     }
+
+    # build params to splat for start-process when we have a Browser and/or are using RunAs
+    $paramCmdStartProcess = @{}
+    if ($Browser) { $paramCmdStartProcess.FilePath = "$($Browser).exe" }
+    if ($PSBoundParameters.RunAs) {
+        $paramCmdStartProcess.Credential = (Get-Credential $RunAs)
+        
+        # // to use Credential with Start-Process we need the full file path for the Browser
+        # // we can read this with Get-Process
+       
+        if (-not $Browser) {
+            Write-Verbose 'Fetching Default Browser'
+            # get the default browser based on the ones in the validateset
+            $thisCommand = Get-Command $MyInvocation.MyCommand.Name
+            $thisCommandBrowsers = $thisCommand.Parameters.Browser.Attributes.ValidValues
+            [regex] $browserList =  $thisCommandBrowsers -join "|"
+            $defaultBrowserPath = 'HKCU:\SOFTWARE\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice'
+            $defaultBrowser = (Get-Item $defaultBrowserPath | Get-ItemProperty).ProgId
+            try {
+                $Browser = $browserList.Match($defaultBrowser).Value
+            }
+            catch {
+                "Couldn't find the Browser we were looking for, re-try the command using -Browser" | Write-Warning
+                return
+            }
+        }
+
+        Write-Verbose 'Fetching Browser File Path'
+        if (Get-Process $Browser -ErrorAction SilentlyContinue) {
+            # if we're already have the browser open
+            $proc = Get-Process $Browser | Where-Object { -not [string]::IsNullOrEmpty($_.Path) } | Select-Object -First 1
+        }
+        else {
+            try {
+                # launch the browser to obtain the file path using Get-Process
+                Start-Process $Browser -ErrorAction Stop
+                # this ensures we wait for the process to spawn with a MainWindowHandle to pass later on to hide
+                while (-not (Get-Process $Browser | Where-Object { -not [string]::IsNullOrEmpty($_.MainWindowTitle.ToString()) }))
+                {
+                    Start-Sleep -Milliseconds 200
+                }   
+                $proc = Get-Process $Browser | Where-Object { -not [string]::IsNullOrEmpty($_.MainWindowTitle.ToString()) }
+
+                # hide the launched browser window so it doesnt get in the way
+                Add-Type -Name Window -Namespace Console -MemberDefinition '
+                [DllImport("Kernel32.dll")]
+                public static extern IntPtr GetConsoleWindow();
+                [DllImport("user32.dll")]
+                public static extern bool ShowWindow(IntPtr hWnd, Int32 nCmdShow);
+                '
+                [void] [Console.Window]::ShowWindow($proc.MainWindowHandle, 0)
+            }
+            catch {
+                'Failed to launch {0} : {1} ' -f $Browser, $_.Exception.Message | Write-Warning
+                return 
+            }
+        }
+
+        $paramCmdStartProcess.FilePath = $proc.Path
+
+    } #if
 
     #If $alias(es) or $Command(s) were specified, check if they are valid
     if ($Alias) {
@@ -96,7 +158,7 @@ function Invoke-CmdMS {
             if ($Browser) {
                 #Open in specified Browser using -Browser
                 try {
-                    Start-Process "$($Browser).exe" -ArgumentList $url.URL -ErrorAction Stop
+                    Start-Process @paramCmdStartProcess -ArgumentList $url.URL -ErrorAction Stop
                     Write-Host ("Opening selected URL {0} in {1} browser for Alias {2}..." -f $url.url, $Browser, $url.Alias) -ForegroundColor Green
                 }
                 catch {
@@ -120,7 +182,7 @@ function Invoke-CmdMS {
             if ($Browser) {               
                 #Open in specified Browser using -Browser
                 try {
-                    Start-Process "$($Browser).exe" -ArgumentList $url.URL -ErrorAction Stop
+                    Start-Process @paramCmdStartProcess -ArgumentList $url.URL -ErrorAction Stop
                     Write-Host ("Opening selected URL {0} in {1} browser for Command {2}..." -f $url.url, $Browser, $url.command) -ForegroundColor Green
                 }
                 catch {
@@ -145,7 +207,7 @@ function Invoke-CmdMS {
             if ($Browser) {
                 #Open in specified Browser using -Browser
                 try {
-                    Start-Process "$($Browser).exe" -ArgumentList $cmd.URL -ErrorAction Stop
+                    Start-Process @paramCmdStartProcess -ArgumentList $cmd.URL -ErrorAction Stop
                     Write-Host ("Opening selected URL {0} in {1} browser..." -f $cmd.url, $Browser) -ForegroundColor Green
                 }
                 catch {
