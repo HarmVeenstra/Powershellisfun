@@ -1,4 +1,5 @@
 param (
+    [Parameter(Mandatory = $false)][ValidateNotNull()][string]$DNSServer,
     [Parameter(Mandatory = $true)][ValidateNotNull()][string]$InputFile,
     [Parameter(Mandatory = $true)][ValidateNotNull()][string]$OutputFile
 )
@@ -68,20 +69,45 @@ if ($InputFile.EndsWith('.xlsx')) {
 
 
 #Continue if emailadresses were imported, and validate if formatted correctly and domain name is valid
+#Skip already tested Domains and use $DNSServer is specified, it not the script will use your default DNS server.
 if ($null -ne $EmailAddresses) {
     $Regex = '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    $ReachableEmailServers = @()
+    $UnreachableEmailServers = @()
+    $ProgressPreference = 'SilentlyContinue'
     $total = foreach ($EmailAddress in $EmailAddresses | Select-Object emailaddresses -Unique | Sort-Object emailaddresses) {
         if (($EmailAddress.emailaddresses -match $Regex) -eq $true) {
             Write-Host ("{0} is formatted correctly, checking email server...." -f $EmailAddress.emailaddresses) -ForegroundColor Green
             try {
-                $mx = (Resolve-DnsName -Name $EmailAddress.Emailaddresses.Split('@')[1] -Type MX -ErrorAction Stop).NameExchange | Select-Object -First 1
+                if ($DNSServer) {
+                    $mx = (Resolve-DnsName -Name $EmailAddress.Emailaddresses.Split('@')[1] -Type MX -Server $DNSServer -ErrorAction Stop).NameExchange | Select-Object -First 1
+                }
+                else {
+                    $mx = (Resolve-DnsName -Name $EmailAddress.Emailaddresses.Split('@')[1] -Type MX -ErrorAction Stop).NameExchange | Select-Object -First 1
+                }
                 if ($null -ne $mx) {
-                    [PSCustomObject]@{
+                    if (($mx -split ',')[0] -in $ReachableEmailServers) {
                         CorrectlyFormatted = 'True'
-                        EmailAddress       = $EmailAddress.Emailaddresses
-                        EmailServer        = ($mx -split ',')[0]
-                        PingReply          = if (Test-NetConnection $mx -InformationLevel Quiet) { "True" } else { "False" }
-                        Valid              = 'True'
+                        EmailAddress = $EmailAddress.Emailaddresses
+                        EmailServer = ($mx -split ',')[0]
+                        PingReply = 'True'
+                        Valid = 'True'
+                    }
+                    if (($mx -split ',')[0] -in $UnreachableEmailServers) {
+                        CorrectlyFormatted = 'True'
+                        EmailAddress = $EmailAddress.Emailaddresses
+                        EmailServer = ($mx -split ',')[0]
+                        PingReply = 'False'
+                        Valid = 'True'
+                    }
+                    if (($mx -split ',')[0] -notin $ReachableEmailServers -and ($mx -split ',')[0] -notin $UnreachableEmailServers ) {
+                        [PSCustomObject]@{
+                            CorrectlyFormatted = 'True'
+                            EmailAddress       = $EmailAddress.Emailaddresses
+                            EmailServer        = ($mx -split ',')[0]
+                            PingReply          = if (Test-NetConnection $mx -InformationLevel Quiet) { "True" ; $ReachableEmailServers += $mx } else { "False" ; $UnreachableEmailServers += $mx }
+                            Valid              = 'True'
+                        }
                     }
                 }
                 else {
