@@ -148,6 +148,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Validate list of Email Addresses](https://powershellisfun.com/2024/12/20/validate-list-of-email-addresses-using-powershell/)
 
+[Wi-Fi 24H2 Remediation](https://powershellisfun.com/2025/01/23/fixing-windows-11-24h2-no-internet-access-issue-using-powershell-and-intune-remediation/)
+
 [Windows Autopilot Report](https://powershellisfun.com/2023/10/19/intune-autopilot-report-using-microsoft-graph/)
 
 [Windows Update all Hyper-V VMs](https://powershellisfun.com/2024/04/04/installing-windows-updates-on-all-your-hyper-v-lab-vms-using-powershell-and-pswindowsupdate/)
