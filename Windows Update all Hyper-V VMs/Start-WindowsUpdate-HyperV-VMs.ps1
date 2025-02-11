@@ -1,14 +1,14 @@
 param (
     [parameter(Mandatory = $true)][string[]]$VMs, 
     [parameter(Mandatory = $true)][string]$AdminAccountName,
-    [parameter(Mandatory = $false)][string]$AdminAccountPassword,
+    [parameter(Mandatory = $false)][securestring]$AdminAccountPassword,
     [parameter(Mandatory = $false)][int]$DelayafterStartInSeconds = 15,
     [parameter(Mandatory = $false)][int]$DelayafterRestartInMinutes = 5,
     [parameter(Mandatory = $false)][switch]$NoShutdown
 )
 
 #Validate if hyper-v module is available, install when needed
-if (-not (Get-Module -listAvailable -Name Hyper-V)) {
+if (-not (Get-Module -ListAvailable -Name Hyper-V)) {
     Write-Warning "Hyper-V module is not installed, installing now..."
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Management-PowerShell -NoRestart:$true
 }
@@ -40,11 +40,15 @@ foreach ($VM in Hyper-V\Get-VM $VMs | Sort-Object Name) {
     Write-Host ("Checking/Installing updates on {0}" -f $VM.Name) -ForegroundColor Green
     try {
         Invoke-Command -VMName $VM.Name -Credential $AdminCredential -ScriptBlock {
-            Write-Host ("Installing NuGet provider") -ForegroundColor Green
             Set-ExecutionPolicy Bypass
-            Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Confirm:$false -Force:$true | Out-Null
-            Write-Host ("Installing PSWindowsUpdate module") -ForegroundColor Green
-            Install-Module PSWindowsUpdate -Scope CurrentUser -AllowClobber -Force
+            if (-not (Get-PackageProvider -Name Nuget | Where-Object Version -GT 2.8.5.201)) { 
+                Write-Host ("Installing NuGet provider") -ForegroundColor Green
+                Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Confirm:$false -Force:$true | Out-Null
+            }
+            if (-not (Get-Module -Name PSWindowsUpdate -ListAvailable)) {
+                Write-Host ("Installing PSWindowsUpdate module") -ForegroundColor Green
+                Install-Module PSWindowsUpdate -Scope CurrentUser -AllowClobber -Force                
+            }
             Import-Module PSWindowsUpdate
             Write-Host ("Installing Update(s) if any... System will reboot afterwards if needed!") -ForegroundColor Green
             Install-WindowsUpdate -Install -ForceInstall -AcceptAll -AutoReboot
@@ -66,9 +70,25 @@ foreach ($VM in Hyper-V\Get-VM $VMs | Sort-Object Name) {
         }
         #Stop VM after waiting to $DelayafterRestartInMinutes
         Write-Host ("Shutting down {0} now..." -f $VM.Name) -ForegroundColor Green
-        Hyper-V\Stop-VM -VMName $VM.Name -Force:$true
+        try {
+        Hyper-V\Stop-VM -VMName $VM.Name -Force:$true -ErrorAction Stop
+        }
+        catch {
+            Write-Warning ("Could not stop VM {0}, will try again at end of script!" -f $VM.Name)
+        }
     }
     else {
         Write-Host ("The -NoShutdown parameter was used, not shutting down {0}..." -f $VM.Name)
     }        
+}
+
+#After waiting for the amount of minutes specified in #DelayafterRestartInMinutes,
+#shutdown all running VMs if $NoShutdown was not specified
+if (-not $NoShutdown) {
+    Write-Host ("Waiting for {0} minutes before shutting down any remaining running VM" -f $DelayafterRestartInMinutes) -ForegroundColor Green
+    Start-Sleep -Seconds $($DelayafterRestartInMinutes * 60)
+    foreach ($VM in Get-VM | Where-Object State -EQ Running ) {
+        Write-Host ("Shutting down {0} now..." -f $VM.Name) -ForegroundColor Green
+        Hyper-V\Stop-VM -VMName $VM.Name -Force:$true
+    }
 }
