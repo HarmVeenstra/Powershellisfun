@@ -88,6 +88,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Output data to a MarkDown file](https://powershellisfun.com/2023/02/01/export-pipeline-output-to-a-markdown-file-using-powershell/)
 
+[Pihole Blocked Queries](https://powershellisfun.com/2025/02/14/retrieve-blocked-dns-queries-from-pihole-using-powershell/)
+
 [PowerShell Welcome Message](https://powershellisfun.com/2023/12/15/powershell-welcome-message/)
 
 [Query WinGet software installer data](https://powershellisfun.com/2024/10/17/query-winget-software-installer-data-with-powershell/)
