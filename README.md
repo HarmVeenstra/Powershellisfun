@@ -62,6 +62,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Get Active Directory Infra Information](https://powershellisfun.com/2022/12/01/active-directory-infra-check-using-powershell/)
 
+[Get End-Of-Life information](https://powershellisfun.com/2025/03/07/retrieve-end-of-life-information-using-powershell/)
+
 [Get Microsoft Evaluation Center Download Links](https://powershellisfun.com/2022/05/25/get-all-download-links-from-microsoft-evaluation-center/)
 
 [Get Microsoft Graph Permissions](https://powershellisfun.com/2024/09/19/query-the-required-permissions-of-a-microsoft-graph-cmdlet/)
