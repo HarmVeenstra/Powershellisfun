@@ -82,6 +82,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Keep Microsoft Teams status on Available](https://powershellisfun.com/2024/05/23/keep-microsoft-teams-status-available-instead-of-away-using-powershell/)
 
+[Launching Start Menu Shortcuts](https://powershellisfun.com/2025/03/21/launching-start-menu-apps-using-powershell/)
+
 [Message Of The Day](https://powershellisfun.com/2022/07/04/get-a-message-of-the-day-in-your-powershell-session/)
 
 [Microsoft 365 License Overview Per User](https://powershellisfun.com/2022/05/16/microsoft-365-license-overview-per-user/)
