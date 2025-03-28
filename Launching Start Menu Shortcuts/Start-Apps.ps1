@@ -5,11 +5,11 @@ param (
 
 #Retrieve list of applications based on $Filter
 foreach ($Item in $Filter) {
-    if (Get-ChildItem -Path "C:\ProgramData\Microsoft\Windows\Start Menu\*.lnk" -Recurse | Where-Object Name -Match $Item) {
-        $Apps += Get-ChildItem -Path "C:\ProgramData\Microsoft\Windows\Start Menu\*.lnk" -Recurse | Where-Object Name -Match $Item
+    if (Get-ChildItem -Path "C:\ProgramData\Microsoft\Windows\Start Menu\*.lnk" -Recurse -ErrorAction SilentlyContinue | Where-Object Name -Match $Item) {
+        $Apps += Get-ChildItem -Path "C:\ProgramData\Microsoft\Windows\Start Menu\*.lnk" -Recurse -ErrorAction SilentlyContinue | Where-Object Name -Match $Item
     }
-    if (Get-ChildItem -Path "$($ENV:APPDATA)\Microsoft\Windows\Start Menu\Programs\*.lnk" -Recurse | Where-Object Name -Match $Item) {
-        $Apps += Get-ChildItem -Path "$($ENV:APPDATA)\Microsoft\Windows\Start Menu\Programs\*.lnk" -Recurse | Where-Object Name -Match $Item
+    if (Get-ChildItem -Path "$($ENV:APPDATA)\Microsoft\Windows\Start Menu\Programs\*.lnk" -Recurse -ErrorAction SilentlyContinue | Where-Object Name -Match $Item) {
+        $Apps += Get-ChildItem -Path "$($ENV:APPDATA)\Microsoft\Windows\Start Menu\Programs\*.lnk" -Recurse -ErrorAction SilentlyContinue | Where-Object Name -Match $Item
     }
 }
 
