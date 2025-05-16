@@ -52,6 +52,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Create TCP or UDP listener](https://powershellisfun.com/2022/08/10/create-tcp-udp-port-listener-using-powershell/)
 
+[Deploy and automatically update WinGet apps in Intune](https://powershellisfun.com/2025/05/16/deploy-and-automatically-update-winget-apps-in-intune-using-powershell-without-remediation-or-3rd-party-tools/)
+
 [Deploy Hyper-V VM with Autopilot registration](https://powershellisfun.com/2022/07/09/upload-windows-autopilot-hardware-hash/)
 
 [Disable Idle Power Save](https://powershellisfun.com/2024/03/21/disabling-idle-power-save-using-intune-and-powershell/)
