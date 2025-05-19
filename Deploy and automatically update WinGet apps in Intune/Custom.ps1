@@ -15,11 +15,11 @@ Start-Transcript -Path "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\
 if ($Install) {
     try {
         
-        Write-Host ("Executed Custom install command")
+        Write-Host ("Executed Custom install command(s)")
         Stop-Transcript
     }
     catch {
-        Write-Warning ("Error executing Custom install command, check spelling/permissions!")
+        Write-Warning ("Error executing Custom install command(s), check syntax/permissions!")
         Stop-Transcript
     }
 }
@@ -28,11 +28,11 @@ if ($Install) {
 if ($Uninstall) {
     try {
         
-        Write-Host ("Executed Custom Unistall command")
+        Write-Host ("Executed Custom uninstall command(s)")
         Stop-Transcript
     }
     catch {
-        Write-Warning ("Error executing Custom uninstall command, check spelling/permissions!")
+        Write-Warning ("Error executing Custom uninstall command(s), check syntax/permissions!")
         Stop-Transcript
     }
 }
