@@ -17,13 +17,27 @@ Write-Host ("Imported the Microsoft.WinGet.Client module")
 try {
     if ($install -and $version -eq 'Latest') {
         Write-Host ("Installing latest version of {0}" -f $Id)
-        Install-WinGetPackage -Id $Id -Force:$true -Mode Silent -Scope System -MatchOption EqualsCaseInsensitive -ErrorAction Stop
-        Write-Host ("Installed latest version of {0}" -f $Id)
+        Install-WinGetPackage -Id $Id -Force:$true -Mode Silent -Scope System -MatchOption EqualsCaseInsensitive -Source WinGet -ErrorAction Stop
+        if (Get-WinGetPackage -Id $Id -MatchOption EqualsCaseInsensitive -Source WinGet -ErrorAction Stop) {
+            Write-Host ("Installed latest version of {0}" -f $Id)
+        }
+        else {
+            Write-Host ("Error installing {0} with version {1} (Id or version not found?), exiting..." -f $id, $Version)
+            Stop-Transcript
+            exit 1
+        }
     }
     if ($install -and $version -ne 'Latest') {
         Write-Host ("Installing version {0} of {1}" -f $Version, $Id)
-        Install-WinGetPackage -Id $Id -Version $Version -Force:$true -Mode Silent -MatchOption EqualsCaseInsensitive -Scope System -ErrorAction Stop
-        Write-Host ("Installed version {0} of {1}" -f $Version, $Id)
+        Install-WinGetPackage -Id $Id -Version $Version -Force:$true -Mode Silent -MatchOption EqualsCaseInsensitive -Scope System -Source WinGet -ErrorAction Stop
+        if (Get-WinGetPackage -Id $Id -MatchOption EqualsCaseInsensitive -Source WinGet -ErrorAction Stop) {
+            Write-Host ("Installed version {0} of {1}" -f $Version, $Id)
+        }
+        else {
+            Write-Host ("Error installing {0} with version {1} (Id or version not found?), exiting..." -f $id, $Version)
+            Stop-Transcript
+            exit 1
+        }
     }
 }
 catch {
