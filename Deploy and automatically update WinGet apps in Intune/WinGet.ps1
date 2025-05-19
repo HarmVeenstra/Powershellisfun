@@ -17,7 +17,7 @@ Write-Host ("Imported the Microsoft.WinGet.Client module")
 try {
     if ($install -and $version -eq 'Latest') {
         Write-Host ("Installing latest version of {0}" -f $Id)
-        Install-WinGetPackage -Id $Id -Force:$true -Mode Silent -Scope System -MatchOption EqualsCaseInsensitive -Source WinGet -ErrorAction Stop
+        Install-WinGetPackage -Id $Id -Force:$true -Mode Silent -MatchOption EqualsCaseInsensitive -Scope SystemOrUnknown -Source WinGet -ErrorAction Stop
         if (Get-WinGetPackage -Id $Id -MatchOption EqualsCaseInsensitive -Source WinGet -ErrorAction Stop) {
             Write-Host ("Installed latest version of {0}" -f $Id)
         }
@@ -29,7 +29,7 @@ try {
     }
     if ($install -and $version -ne 'Latest') {
         Write-Host ("Installing version {0} of {1}" -f $Version, $Id)
-        Install-WinGetPackage -Id $Id -Version $Version -Force:$true -Mode Silent -MatchOption EqualsCaseInsensitive -Scope System -Source WinGet -ErrorAction Stop
+        Install-WinGetPackage -Id $Id -Version $Version -Force:$true -Mode Silent -MatchOption EqualsCaseInsensitive -Scope SystemOrUnknown -Source WinGet -ErrorAction Stop
         if (Get-WinGetPackage -Id $Id -MatchOption EqualsCaseInsensitive -Source WinGet -ErrorAction Stop) {
             Write-Host ("Installed version {0} of {1}" -f $Version, $Id)
         }
