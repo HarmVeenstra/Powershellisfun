@@ -6,8 +6,8 @@ param (
     [parameter(Mandatory = $true, ParameterSetName = 'Uninstall')][switch]$Uninstall
 )
 
-#Start Transcript logging to c:\program data\wingetintune\$id.txt
-Start-Transcript -Path "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\$($id).txt" -Append:$true -Force:$true
+#Start Transcript logging to C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\$Id.txt
+Start-Transcript -Path "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\$($Id).txt" -Append:$true -Force:$true
 
 #Import the Microsoft.WinGet.Client module
 Import-Module Microsoft.WinGet.Client
@@ -15,39 +15,39 @@ Write-Host ("Imported the Microsoft.WinGet.Client module")
 
 #Install specified software with the latest or specified version
 try {
-    if ($install -and $version -eq 'Latest') {
+    if ($Install -and $Version -eq 'Latest') {
         Write-Host ("Installing latest version of {0}" -f $Id)
         Install-WinGetPackage -Id $Id -Force:$true -Mode Silent -MatchOption EqualsCaseInsensitive -Scope SystemOrUnknown -Source WinGet -ErrorAction Stop
         if (Get-WinGetPackage -Id $Id -MatchOption EqualsCaseInsensitive -Source WinGet -ErrorAction Stop) {
             Write-Host ("Installed latest version of {0}" -f $Id)
         }
         else {
-            Write-Host ("Error installing {0} with version {1} (Id or version not found?), exiting..." -f $id, $Version)
+            Write-Host ("Error installing {0} with version {1} (Id or version not found?), exiting..." -f $Id, $Version)
             Stop-Transcript
             exit 1
         }
     }
-    if ($install -and $version -ne 'Latest') {
+    if ($Install -and $Version -ne 'Latest') {
         Write-Host ("Installing version {0} of {1}" -f $Version, $Id)
         Install-WinGetPackage -Id $Id -Version $Version -Force:$true -Mode Silent -MatchOption EqualsCaseInsensitive -Scope SystemOrUnknown -Source WinGet -ErrorAction Stop
         if (Get-WinGetPackage -Id $Id -MatchOption EqualsCaseInsensitive -Source WinGet -ErrorAction Stop) {
             Write-Host ("Installed version {0} of {1}" -f $Version, $Id)
         }
         else {
-            Write-Host ("Error installing {0} with version {1} (Id or version not found?), exiting..." -f $id, $Version)
+            Write-Host ("Error installing {0} with version {1} (Id or version not found?), exiting..." -f $Id, $Version)
             Stop-Transcript
             exit 1
         }
     }
 }
 catch {
-    Write-Host ("Error installing {0} with version {1} (Id or version not found?), exiting..." -f $id, $Version)
+    Write-Host ("Error installing {0} with version {1} (Id or version not found?), exiting..." -f $Id, $Version)
     Stop-Transcript
     exit 1
 }
 
 #If the file .\Custom.ps1 exists, it will be used to run additional commands after Install.
-#Check c:\program data\wingetintune\$id_custom.txt for logs
+#Check c:\program data\wingetintune\$Id_custom.txt for logs
 if ((Test-Path .\Custom.ps1) -and $Install) {
     Write-Host ("Executing Custom install command from .\Custom.ps1")
     .\Custom.ps1 -Id $Id -Install
@@ -62,20 +62,20 @@ if ($uninstall) {
         Write-Host ("Uninstalled {0}" -f $Id)
     }
     catch {
-        Write-Host ("Error uninstalling {0}, exiting..." -f $id)
+        Write-Host ("Error uninstalling {0}, exiting..." -f $Id)
         Stop-Transcript
         exit 1
     }
 }
 
 #If the file .\Custom.ps1 exists, it will be used to run additional commands after Uninstall.
-#Check c:\program data\wingetintune\$id_custom.txt for logs
+#Check C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\$Id_custom.txt for logs
 if ((Test-Path .\Custom.ps1) -and $Uninstall) {
     Write-Host ("Executing Custom uninstall command from .\Custom.ps1")
     .\Custom.ps1 -Id $Id -Uninstall
     Write-Host ("Executed Custom uninstall command from .\Custom.ps1")
 }
 
-#Stop Transcript logging to c:\program data\wingetintune\$id.txt
+#Stop Transcript logging to C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\$Id.txt
 Stop-Transcript
 exit 0

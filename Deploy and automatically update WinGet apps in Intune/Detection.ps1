@@ -5,8 +5,8 @@
 $Id = 'insert_package_id_here'
 $Version = 'Latest'
 
-#Start Transcript logging to c:\program data\wingetintune\$id.txt
-Start-Transcript -Path "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\$($id).txt" -Append:$true -Force:$true
+#Start Transcript logging to C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\$Id.txt
+Start-Transcript -Path "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\$($Id).txt" -Append:$true -Force:$true
 
 #Check if PowerShell v7 is installed before continuing the Detection
 if (-not (Test-Path -LiteralPath 'C:\Program Files\PowerShell\7\pwsh.exe')) {
@@ -39,7 +39,7 @@ $software = & 'C:\Program Files\PowerShell\7\pwsh.exe' -MTA -Command {
     }
     #Get all WinGetPackages
     Get-WinGetPackage -Source WinGet
-} | Where-Object Id -EQ $id
+} | Where-Object Id -EQ $Id
 
 #If $Id was not found, stop and exit, and let Intune install it, or do nothing if it was uninstalled
 if ($null -eq $software) {
