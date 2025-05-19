@@ -6,7 +6,7 @@ $Id = 'insert_package_id_here'
 $Version = 'Latest'
 
 #Start Transcript logging to c:\program data\wingetintune\$id.txt
-Start-Transcript -Path "C:\ProgramData\WinGetIntune\$($id).txt" -Append:$true -Force:$true
+Start-Transcript -Path "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\$($id).txt" -Append:$true -Force:$true
 
 #Check if PowerShell v7 is installed before continuing the Detection
 if (-not (Test-Path -LiteralPath 'C:\Program Files\PowerShell\7\pwsh.exe')) {

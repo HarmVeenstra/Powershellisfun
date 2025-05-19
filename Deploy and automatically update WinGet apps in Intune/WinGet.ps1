@@ -7,7 +7,7 @@ param (
 )
 
 #Start Transcript logging to c:\program data\wingetintune\$id.txt
-Start-Transcript -Path "C:\ProgramData\WinGetIntune\$($id).txt" -Append:$true -Force:$true
+Start-Transcript -Path "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\$($id).txt" -Append:$true -Force:$true
 
 #Import the Microsoft.WinGet.Client module
 Import-Module Microsoft.WinGet.Client

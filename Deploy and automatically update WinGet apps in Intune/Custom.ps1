@@ -5,7 +5,7 @@ param (
 )
 
 #Start Transcript logging to c:\program data\wingetintune\$id_Custom.txt
-Start-Transcript -Path "C:\ProgramData\WinGetIntune\$($id)_Custom.txt" -Append:$true -Force:$true
+Start-Transcript -Path "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\$($id)_Custom.txt" -Append:$true -Force:$true
 
 #Add the command in the try section and use -ErrorAction Stop behind the command(s)
 # For example, "Remove-Item "C:\Users\Public\Desktop\Firefox.lnk" -Force:$true -Confirm:$false -ErrorAction Stop"
