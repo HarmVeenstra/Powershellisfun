@@ -17,8 +17,11 @@ if (-not (Test-Path -LiteralPath 'C:\Program Files\PowerShell\7\pwsh.exe')) {
 
 #Check if software is installed
 $software = & 'C:\Program Files\PowerShell\7\pwsh.exe' -MTA -Command {
-    #Import the Microsoft.WinGet.Client module, install it if it's not found
+    #Import the Microsoft.WinGet.Client module, install it if it's not found or update if outdated
     try {
+        if ((Get-Module Microsoft.WinGet.Client -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1).Version -lt (Find-Module Microsoft.WinGet.Client).Version) {
+            Update-Module Microsoft.WinGet.Client -Force:$true -Confirm:$false -Scope AllUsers
+        }
         Import-Module Microsoft.WinGet.Client -ErrorAction Stop
     }
     catch {
@@ -30,10 +33,10 @@ $software = & 'C:\Program Files\PowerShell\7\pwsh.exe' -MTA -Command {
         Assert-WinGetPackageManager -ErrorAction Stop
     }
     catch {
-        Repair-WinGetPackageManager -AllUsers -Force -Latest
+        Repair-WinGetPackageManager -AllUsers -Force:$true -Latest:$true
     }
     #Get all WinGetPackages
-    Get-WinGetPackage
+    Get-WinGetPackage -Source WinGet
 } | Where-Object Id -EQ $id
 
 #If $Id was not found, stop and exit, and let Intune install it, or do nothing if it was uninstalled
