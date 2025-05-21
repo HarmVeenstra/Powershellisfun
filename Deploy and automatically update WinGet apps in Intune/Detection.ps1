@@ -43,7 +43,7 @@ $software = & 'C:\Program Files\PowerShell\7\pwsh.exe' -MTA -Command {
 
 #If $Id was not found, stop and exit, and let Intune install it, or do nothing if it was uninstalled
 if ($null -eq $software) {
-    Write-Host ("{0} - {1} was not found on this system, installing now or doing nothing if it was uninstalled..." -f $(Get-Date -Format "dd-MM-yy HH:MM", $Id))
+    Write-Host ("{0} - {1} was not found on this system, installing now or doing nothing if it was uninstalled..." -f $(Get-Date -Format "dd-MM-yy HH:MM"), $Id)
     Stop-Transcript
     exit 1
 }
