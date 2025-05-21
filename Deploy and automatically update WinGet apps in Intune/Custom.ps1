@@ -15,11 +15,11 @@ Start-Transcript -Path "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\
 if ($Install) {
     try {
         
-        Write-Host ("Executed Custom install command(s)")
+        Write-Host ("{0} - Executed Custom install command(s)" -f $(Get-Date -Format "dd-MM-yy HH:MM") )
         Stop-Transcript
     }
     catch {
-        Write-Warning ("Error executing Custom install command(s), check syntax/permissions!")
+        Write-Warning ("{0} - Error executing Custom install command(s), check syntax/permissions!" -f $(Get-Date -Format "dd-MM-yy HH:MM"))
         Stop-Transcript
     }
 }
@@ -28,11 +28,11 @@ if ($Install) {
 if ($Uninstall) {
     try {
         
-        Write-Host ("Executed Custom uninstall command(s)")
+        Write-Host ("{0} - Executed Custom uninstall command(s)" -f $(Get-Date -Format "dd-MM-yy HH:MM"))
         Stop-Transcript
     }
     catch {
-        Write-Warning ("Error executing Custom uninstall command(s), check syntax/permissions!")
+        Write-Warning ("{0} - Error executing Custom uninstall command(s), check syntax/permissions!" -f $(Get-Date -Format "dd-MM-yy HH:MM"))
         Stop-Transcript
     }
 }
