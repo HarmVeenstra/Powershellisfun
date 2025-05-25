@@ -22,7 +22,7 @@ while ($true) {
   try {
     $Recent = (Invoke-RestMethod -Uri "http://$($Address):$($Port)/api/stats/recent_blocked?sid=$($API)" -ErrorAction Stop).blocked
     if ($Recent -ne $Previous) {
-      Write-Host ("PiHole blocked {0} at {1}" -f $($Recent), $(Get-Date -Format "dd-MM-yy HH:MM:ss:ff")) 
+      Write-Host ("PiHole blocked {0} at {1}" -f $($Recent), $(Get-Date -Format "dd-MM-yy HH:mm:ss:ff")) 
       $Previous = $Recent
     }
   }

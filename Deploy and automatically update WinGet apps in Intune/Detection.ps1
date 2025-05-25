@@ -10,7 +10,7 @@ Start-Transcript -Path "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\
 
 #Check if PowerShell v7 is installed before continuing the Detection
 if (-not (Test-Path -LiteralPath 'C:\Program Files\PowerShell\7\pwsh.exe')) {
-    Write-Host ("{0} - PowerShell v7 was not found at 'C:\Program Files\PowerShell\7\pwsh.exe', exiting..." -f $(Get-Date -Format "dd-MM-yy HH:MM"))
+    Write-Host ("{0} - PowerShell v7 was not found at 'C:\Program Files\PowerShell\7\pwsh.exe', exiting..." -f $(Get-Date -Format "dd-MM-yy HH:mm"))
     Stop-Transcript
     exit 1
 }
@@ -43,7 +43,7 @@ $software = & 'C:\Program Files\PowerShell\7\pwsh.exe' -MTA -Command {
 
 #If $Id was not found, stop and exit, and let Intune install it, or do nothing if it was uninstalled
 if ($null -eq $software) {
-    Write-Host ("{0} - {1} was not found on this system, installing now or doing nothing if it was uninstalled..." -f $(Get-Date -Format "dd-MM-yy HH:MM"), $Id)
+    Write-Host ("{0} - {1} was not found on this system, installing now or doing nothing if it was uninstalled..." -f $(Get-Date -Format "dd-MM-yy HH:mm"), $Id)
     Stop-Transcript
     exit 1
 }
@@ -51,12 +51,12 @@ if ($null -eq $software) {
 #Check version and exit 1 if the version is not the same as the installed version or when there's an update available
 if ($Version -ne 'Latest') {
     if ([version]$version -le [version]$software.InstalledVersion) {
-        Write-Host ("{0} - Installed version {1} of {2} is higher or equal than specified version {3}, nothing to do..." -f $(Get-Date -Format "dd-MM-yy HH:MM"), [version]$software.InstalledVersion, $Id, [version]$Version)
+        Write-Host ("{0} - Installed version {1} of {2} is higher or equal than specified version {3}, nothing to do..." -f $(Get-Date -Format "dd-MM-yy HH:mm"), [version]$software.InstalledVersion, $Id, [version]$Version)
         Stop-Transcript
         exit 0
     }
     if ([version]$version -gt [version]$software.InstalledVersion) {
-        Write-Host ("{0} - {1} version is {2}, which is lower than specified {3} version, updating now..." -f $(Get-Date -Format "dd-MM-yy HH:MM"), $Id, $software.InstalledVersion, $Version)
+        Write-Host ("{0} - {1} version is {2}, which is lower than specified {3} version, updating now..." -f $(Get-Date -Format "dd-MM-yy HH:mm"), $Id, $software.InstalledVersion, $Version)
         Stop-Transcript
         exit 1
     }
@@ -64,12 +64,12 @@ if ($Version -ne 'Latest') {
 
 if ($version -eq 'Latest') {
     if ($software.IsUpdateAvailable -eq $false) {
-        Write-Host ("{0} - {1} version is current (Version {2}), nothing to do..." -f $(Get-Date -Format "dd-MM-yy HH:MM"), $Id, $software.InstalledVersion)
+        Write-Host ("{0} - {1} version is current (Version {2}), nothing to do..." -f $(Get-Date -Format "dd-MM-yy HH:mm"), $Id, $software.InstalledVersion)
         Stop-Transcript
         exit 0
     }
     else {
-        Write-Host ("{0} - {1} was found with version {2}, but there's an update available for it ({3}), updating now..." -f $(Get-Date -Format "dd-MM-yy HH:MM"), $Id, $software.InstalledVersion, $($software.AvailableVersions | Select-Object -First 1))
+        Write-Host ("{0} - {1} was found with version {2}, but there's an update available for it ({3}), updating now..." -f $(Get-Date -Format "dd-MM-yy HH:mm"), $Id, $software.InstalledVersion, $($software.AvailableVersions | Select-Object -First 1))
         Stop-Transcript
         exit 1
     }
