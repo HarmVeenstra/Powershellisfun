@@ -56,6 +56,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Deploy Hyper-V VM with Autopilot registration](https://powershellisfun.com/2022/07/09/upload-windows-autopilot-hardware-hash/)
 
+[Download Windows Themes from Microsoft](https://powershellisfun.com/2025/06/13/download-windows-themes-using-powershell/)
+
 [Disable Idle Power Save](https://powershellisfun.com/2024/03/21/disabling-idle-power-save-using-intune-and-powershell/)
 
 [Export Registry](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Export%20Registry)
