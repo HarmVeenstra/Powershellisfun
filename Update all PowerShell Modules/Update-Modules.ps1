@@ -2,11 +2,12 @@ function Update-Modules {
     param (
         [switch]$AllowPrerelease,
         [string]$Name = '*',
+        [string[]]$Exclude,
         [ValidateSet('AllUsers', 'CurrentUser')][string]$Scope = 'AllUsers',
         [switch]$WhatIf,
         [switch]$Verbose
     )
-	
+
     #Test admin privileges without using -Requires RunAsAdministrator,
     # which causes a nasty error message, if trying to load the function within a PS profile but without admin privileges
     if ($Scope -eq 'AllUsers') {
@@ -16,14 +17,30 @@ function Update-Modules {
         }
     }
 
-    # Get all installed modules
+    # Get all installed modules minus excludes modules from $Exclude
     Write-Host ("Retrieving all installed modules ...") -ForegroundColor Green
-    [array]$CurrentModules = Get-InstalledModule -Name $Name -ErrorAction SilentlyContinue | Select-Object Name, Version | Sort-Object Name
+    $CurrentModules = foreach ($Installedmodule in Get-InstalledModule -Name $Name -ErrorAction SilentlyContinue) {
+        if ($null -ne $Exclude) {
+            if (-not ($Installedmodule.Name | Select-String $Exclude)) {
+                [PSCustomObject]@{
+                    Name    = $Installedmodule.Name
+                    Version = $Installedmodule.Version
+                }
+            }
+        }
+        else {
+            [PSCustomObject]@{
+                Name    = $Installedmodule.Name
+                Version = $Installedmodule.Version
+            }
+        }
+    }
 
     if (-not $CurrentModules) {
         Write-Host ("No modules found.") -ForegroundColor Gray
         return
-    } else {
+    }
+    else {
         $ModulesCount = $CurrentModules.Name.Count
         $DigitsLength = $ModulesCount.ToString().Length
         Write-Host ("{0} modules found." -f $ModulesCount) -ForegroundColor Gray
@@ -33,7 +50,8 @@ function Update-Modules {
     ''
     if ($AllowPrerelease) {
         Write-Host ("Updating installed modules to the latest PreRelease version ...") -ForegroundColor Green
-    } else {
+    }
+    else {
         Write-Host ("Updating installed modules to the latest Production version ...") -ForegroundColor Green
     }
 
@@ -65,7 +83,7 @@ function Update-Modules {
 
     # Loop through the installed modules and update them if a newer version is available
     $i = 0
-    foreach ($Module in $CurrentModules) {
+    foreach ($Module in $CurrentModules | Sort-Object Name) {
         $i++
         $Counter = ("[{0,$DigitsLength}/{1,$DigitsLength}]" -f $i, $ModulesCount)
         $CounterLength = $Counter.Length
@@ -75,7 +93,8 @@ function Update-Modules {
             if ([version]$Module.Version -lt [version]$latest.version) {
                 Update-Module -Name $Module.Name -AllowPrerelease:$AllowPrerelease -AcceptLicense -Scope:$Scope -Force:$True -ErrorAction Stop -WhatIf:$WhatIf.IsPresent -Verbose:$Verbose.IsPresent
             }
-        } catch {
+        }
+        catch {
             Write-Host ("{0,$CounterLength} Error updating module {1}!" -f ' ', $Module.Name) -ForegroundColor Red
         }
 
@@ -88,7 +107,8 @@ function Update-Modules {
                     try {
                         Write-Host ("{0,$CounterLength} Uninstalling previous version {1} of module {2} ..." -f ' ', $Version.Version, $Module.Name) -ForegroundColor Gray
                         Uninstall-Module -Name $Module.Name -RequiredVersion $Version.Version -Force:$True -ErrorAction Stop -AllowPrerelease -WhatIf:$WhatIf.IsPresent -Verbose:$Verbose.IsPresent
-                    } catch {
+                    }
+                    catch {
                         Write-Warning ("{0,$CounterLength} Error uninstalling previous version {1} of module {2}!" -f ' ', $Version.Version, $Module.Name)
                     }
                 }
