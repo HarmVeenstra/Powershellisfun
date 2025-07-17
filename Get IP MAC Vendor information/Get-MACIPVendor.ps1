@@ -55,7 +55,7 @@ function Get-MACIPVendor {
     if ($NMAP) {
         if ($Info.IP -ne "Not found") {
             try {
-                $NMAPINFO = nmap.exe $Info.IP
+                $NMAPINFO = & "C:\Program Files (x86)\Nmap\nmap.exe" $Info.IP
             }
             catch {
                 Write-Warning ("NMAP.exe could not be started, is it installed on your system / in your PATH? https://nmap.org/download")
