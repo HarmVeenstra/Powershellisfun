@@ -35,6 +35,7 @@ $urls = @(
     'https://www.microsoft.com/en-us/evalcenter/download-windows-server-2019',
     'https://www.microsoft.com/en-us/evalcenter/download-windows-server-2019-essentials',
     'https://www.microsoft.com/en-us/evalcenter/download-windows-server-2022'
+    'https://www.microsoft.com/en-us/evalcenter/download-windows-server-2025'
 )
  
 #Loop through the urls, search for download links and add to totalfound array and display number of downloads
