@@ -9,12 +9,17 @@ param (
 $ProgressPreference = "SilentlyContinue"
 $ExpandedURLs = foreach ($Site in $URL) {
     try {
-        $LongURL = (Invoke-WebRequest -Uri $Site -MaximumRedirection 0 -ErrorAction SilentlyContinue).Headers.Location
+        # Use .NET WebRequest to follow redirects automatically
+        $request = [System.Net.WebRequest]::Create($Site)
+        $response = $request.GetResponse()
+        $LongURL = $response.ResponseUri.ToString()
+        $response.Close()
+
         [PSCustomObject]@{
             ShortURL = $Site
-            LongURL  = if ($LongURL) { $LongURL } else { $site }
+            LongURL  = $LongURL
         }
-        Write-Host ("Processed {0}..." -f $Site ) -ForegroundColor Green
+        Write-Host ("Processed {0}..." -f $Site) -ForegroundColor Green
     }
     catch {
         Write-Warning ("Specified {0} URL could not be found or expanded, skipping..." -f $Site)
