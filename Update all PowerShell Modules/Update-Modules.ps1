@@ -8,13 +8,20 @@ function Update-Modules {
         [switch]$Verbose
     )
 
-    #Test admin privileges without using -Requires RunAsAdministrator,
+    # Test admin privileges without using -Requires RunAsAdministrator on Windows,
     # which causes a nasty error message, if trying to load the function within a PS profile but without admin privileges
-    if ($Scope -eq 'AllUsers') {
-        if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
-            Write-Warning ("Function {0} needs admin privileges. Break now." -f $MyInvocation.MyCommand)
-            return
+    if ($IsWindows) {
+        if ($Scope -eq 'AllUsers') {
+            if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
+                Write-Warning ("Function {0} needs admin privileges. Break now." -f $MyInvocation.MyCommand)
+                return
+            }
         }
+    }
+
+    # Set scope to CurrentUser if not running on Windows
+    if (-not $IsWindows) {
+        $Scope = 'CurrentUser'
     }
 
     # Get all installed modules minus excludes modules from $Exclude
@@ -55,7 +62,7 @@ function Update-Modules {
         Write-Host ("Updating installed modules to the latest Production version ...") -ForegroundColor Green
     }
 
-    #Retrieve current versions of modules (63 at a time because of PSGallery limit) if $InstalledModules is greater than 0
+    # Retrieve current versions of modules (63 at a time because of PSGallery limit) if $InstalledModules is greater than 0
     if ($CurrentModules.Count -eq 1) {
         $onlineversions = $null
         Write-Host ("Checking online versions for installed module {0}" -f $name) -ForegroundColor Green
@@ -102,7 +109,7 @@ function Update-Modules {
         $AllVersions = Get-InstalledModule -Name $Module.Name -AllVersions | Sort-Object PublishedDate -Descending
         $MostRecentVersion = $AllVersions[0].Version
         if ($AllVersions.Count -gt 1 ) {
-            Foreach ($Version in $AllVersions) {
+            foreach ($Version in $AllVersions) {
                 if ($Version.Version -ne $MostRecentVersion) {
                     try {
                         Write-Host ("{0,$CounterLength} Uninstalling previous version {1} of module {2} ..." -f ' ', $Version.Version, $Module.Name) -ForegroundColor Gray
