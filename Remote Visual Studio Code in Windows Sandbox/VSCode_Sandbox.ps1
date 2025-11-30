@@ -52,13 +52,13 @@ else {
 if (-not (Test-Path -Path $env:USERPROFILE\.ssh\vscodesshfile*)) {
     try {
         if (-not (Test-Path -Path $env:USERPROFILE\.ssh)) {
-            New-Item -ItemType Directory -Path $env:USERPROFILE\.ssh | Out-Null
+            New-Item -ItemType Directory -Path $env:USERPROFILE\.ssh -ErrorAction Stop | Out-Null
         }
-        C:\Windows\System32\OpenSSH\ssh-keygen.exe -t ed25519 -f $env:USERPROFILE\.ssh\vscodesshfile -q -N """"
-        Get-Service ssh-agent | Set-Service -StartupType Automatic
-        Start-Service ssh-agent
+        C:\Windows\System32\OpenSSH\ssh-keygen.exe -t ed25519 -f $env:USERPROFILE\.ssh\vscodesshfile -q -N '""'
+        Get-Service ssh-agent -ErrorAction Stop | Set-Service -StartupType Automatic -ErrorAction Stop
+        Start-Service ssh-agent -ErrorAction Stop
         C:\Windows\System32\OpenSSH\ssh-add.exe $env:USERPROFILE\.ssh\vscodesshfile *> $null
-        Copy-Item $env:USERPROFILE\.ssh\vscodesshfile.pub C:\VSCodeSandbox -Force:$true -Confirm:$false
+        Copy-Item $env:USERPROFILE\.ssh\vscodesshfile.pub C:\VSCodeSandbox -Force:$true -Confirm:$false -ErrorAction Stop
         Write-Host ("Creating SSH Keys, importing private key and copying .pub file to C:\VSCodeSandbox...") -ForegroundColor Green
     }
     catch {
@@ -67,6 +67,9 @@ if (-not (Test-Path -Path $env:USERPROFILE\.ssh\vscodesshfile*)) {
     }
 }
 else {
+    if (-not (Test-Path C:\VSCodeSandbox\vscodesshfile.pub )) {
+        Copy-Item $env:USERPROFILE\.ssh\vscodesshfile.pub C:\VSCodeSandbox -Force:$true -Confirm:$false
+    }
     Write-Host ("SSH keys found, continuing...") -ForegroundColor Green
 }
 
@@ -97,8 +100,8 @@ $wsb | Out-File C:\VSCodeSandbox\vscode.wsb -Force:$true -Confirm:$false
 # Logging can be found in C:\Users\WDAGUtilityAccount\Desktop\VSCodeSandbox\sandbox_transcript.txt if needed in the Windows Sandbox VM
 $vscode_sandbox = @"
 Start-Transcript C:\Users\WDAGUtilityAccount\Desktop\VSCodeSandbox\sandbox_transcript.txt
-Invoke-Webrequest -Uri https://github.com/PowerShell/Win32-OpenSSH/releases/download/v9.2.2.0p1-Beta/OpenSSH-Win64-v9.2.2.0.msi -OutFile C:\Windows\Temp\OpenSSH-Win64.msi
-msiexec.exe /i C:\Windows\Temp\OpenSSH-Win64.msi /qn
+Invoke-Webrequest -Uri https://github.com/PowerShell/Win32-OpenSSH/releases/download/10.0.0.0p2-Preview/OpenSSH-Win64-v10.0.0.0.msi -OutFile C:\Windows\Temp\OpenSSH-Win64.msi
+Start-Process C:\Windows\System32\msiexec.exe -ArgumentList '/i "C:\Windows\Temp\OpenSSH-Win64.msi" /qn' -NoNewWindow -Wait
 New-LocalUser -Name vscode -Password ("vscode" | ConvertTo-SecureString -AsPlainText -Force)
 Add-LocalGroupMember -Group Administrators -Member vscode
 if (-not (Test-Path C:\ProgramData\ssh)) {New-Item -Type Directory -Path C:\ProgramData\ssh}
@@ -120,6 +123,8 @@ while (-not (Test-Path -Path C:\VSCodeSandbox\IP.txt)) {
 Write-Host ("Installation done, continuing...") -ForegroundColor Green
 
 # Start new VSCode session to Sandbox using SSH key, retrieve current IP of Sandbox from C:\VSCodeSandbox\IP.txt for connection
-$ip = get-content C:\VSCodeSandbox\IP.txt
+# Wait until SSH port 22 is reachable
+$ip = Get-Content C:\VSCodeSandbox\IP.txt
 Write-Host ("Starting Visual Studio Code and connecting to Windows Sandbox...") -ForegroundColor Green
+
 code --remote ssh-remote+vscode@$($ip) C:\Users\WDAGUtilityAccount\Desktop\VSCodeSandbox
