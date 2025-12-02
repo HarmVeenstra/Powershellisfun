@@ -98,8 +98,11 @@ $wsb | Out-File C:\VSCodeSandbox\vscode.wsb -Force:$true -Confirm:$false
 
 # Create the vscode_sandbox.ps1 for installation of OpenSSH Server, creation of local vscode admin account and vscodesshfile SSH Key
 # Logging can be found in C:\Users\WDAGUtilityAccount\Desktop\VSCodeSandbox\sandbox_transcript.txt if needed in the Windows Sandbox VM
+# Comment out / change the Set-DnsClientServerAddress line if needed of to specify another specific DNS Server
+# Reason fot the Set-DnsClientServerAddress is to solve the DNS issue that Windows Sandbox sometimes has
 $vscode_sandbox = @"
 Start-Transcript C:\Users\WDAGUtilityAccount\Desktop\VSCodeSandbox\sandbox_transcript.txt
+Set-DnsClientServerAddress -InterfaceAlias Ethernet -ServerAddresses 1.1.1.1
 Invoke-Webrequest -Uri https://github.com/PowerShell/Win32-OpenSSH/releases/download/10.0.0.0p2-Preview/OpenSSH-Win64-v10.0.0.0.msi -OutFile C:\Windows\Temp\OpenSSH-Win64.msi
 Start-Process C:\Windows\System32\msiexec.exe -ArgumentList '/i "C:\Windows\Temp\OpenSSH-Win64.msi" /qn' -NoNewWindow -Wait
 New-LocalUser -Name vscode -Password ("vscode" | ConvertTo-SecureString -AsPlainText -Force)
