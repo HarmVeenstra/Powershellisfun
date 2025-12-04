@@ -11,7 +11,7 @@ Write-Host ("Retrieving installed PowerShell modules") -ForegroundColor Green
 if ($InstalledModules.Count -eq 1) {
     $onlineversions = $null
     Write-Host ("Checking online versions for installed module {0}" -f $name) -ForegroundColor Green
-    $currentversions = Find-Module -Name $CurrentModules.name
+    $currentversions = Find-Module -Name $InstalledModules.name
     $onlineversions = $onlineversions + $currentversions
 }
 
