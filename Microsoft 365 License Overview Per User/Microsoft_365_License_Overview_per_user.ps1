@@ -32,7 +32,7 @@ catch {
 $ProgressPreference = "SilentlyContinue"
 Write-Host ("Downloading license overview from Microsoft") -ForegroundColor Green
 $csvlink = ((Invoke-WebRequest -Uri https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/licensing-service-plan-reference -UseBasicParsing).Links | where-Object Href -Match 'CSV').href
-Invoke-WebRequest -Uri $csvlink -OutFile $env:TEMP\licensing.csv 
+Invoke-WebRequest -Uri $csvlink -OutFile $env:TEMP\licensing.csv -UseBasicParsing
 $skucsv = Import-Csv -Path $env:TEMP\licensing.csv -Encoding Default
 if ($null -eq $FilterUser) {
     $users = Get-MgUser -All | Sort-Object UserPrincipalName

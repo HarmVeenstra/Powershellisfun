@@ -15,7 +15,7 @@ function Get-MicrosoftEndpoints {
     }
 
     try {
-        $Endpoints = Invoke-WebRequest -Uri $jsonlink -ErrorAction Stop | ConvertFrom-Json
+        $Endpoints = Invoke-WebRequest -Uri $jsonlink -ErrorAction Stop -UseBasicParsing | ConvertFrom-Json
         Write-Host ("Downloading worldwide Microsoft Endpoints") -ForegroundColor Green
     }
     catch {

@@ -103,7 +103,7 @@ $wsb | Out-File C:\VSCodeSandbox\vscode.wsb -Force:$true -Confirm:$false
 $vscode_sandbox = @"
 Start-Transcript C:\Users\WDAGUtilityAccount\Desktop\VSCodeSandbox\sandbox_transcript.txt
 Set-DnsClientServerAddress -InterfaceAlias Ethernet -ServerAddresses 1.1.1.1
-Invoke-Webrequest -Uri https://github.com/PowerShell/Win32-OpenSSH/releases/download/10.0.0.0p2-Preview/OpenSSH-Win64-v10.0.0.0.msi -OutFile C:\Windows\Temp\OpenSSH-Win64.msi
+Invoke-Webrequest -Uri https://github.com/PowerShell/Win32-OpenSSH/releases/download/10.0.0.0p2-Preview/OpenSSH-Win64-v10.0.0.0.msi -OutFile C:\Windows\Temp\OpenSSH-Win64.msi -UseBasicParsing
 Start-Process C:\Windows\System32\msiexec.exe -ArgumentList '/i "C:\Windows\Temp\OpenSSH-Win64.msi" /qn' -NoNewWindow -Wait
 New-LocalUser -Name vscode -Password ("vscode" | ConvertTo-SecureString -AsPlainText -Force)
 Add-LocalGroupMember -Group Administrators -Member vscode

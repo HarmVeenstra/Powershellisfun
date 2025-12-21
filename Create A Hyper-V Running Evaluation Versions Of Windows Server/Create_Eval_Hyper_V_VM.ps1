@@ -26,14 +26,14 @@ $urls = @(
 $ProgressPreference = "SilentlyContinue"
 $totalfound = foreach ($url in $urls) {
     try {
-        $content = Invoke-WebRequest -Uri $url -ErrorAction Stop
+        $content = Invoke-WebRequest -Uri $url -UseBasicParsing -ErrorAction Stop
         $downloadlinks = $content.links | Where-Object { `
                 $_.'aria-label' -match 'Download' `
                 -and $_.'aria-label' -match 'VHD'
         }
         $count = $DownloadLinks.href.Count
         $totalcount += $count
-        Write-host ("Processing {0}, Found {1} Download(s)..." -f $url, $count) -ForegroundColor Green
+        Write-Host ("Processing {0}, Found {1} Download(s)..." -f $url, $count) -ForegroundColor Green
         foreach ($DownloadLink in $DownloadLinks) {
             [PSCustomObject]@{
                 Name   = $DownloadLink.'aria-label'.Replace('Download ', '')
@@ -63,8 +63,8 @@ if ((Get-VM -Name $VMname -ErrorAction SilentlyContinue).count -ge 1) {
     return
 } 
 $VMCores = Read-Host 'Please enter the amount of cores, for example 2'
-[int64]$VMRAM = 1GB * (read-host "Enter Maximum Memory in Gb's, for example 4")
-$VMdir = (get-vmhost).VirtualMachinePath + $VMname
+[int64]$VMRAM = 1GB * (Read-Host "Enter Maximum Memory in Gb's, for example 4")
+$VMdir = (Get-VMHost).VirtualMachinePath + $VMname
 $SwitchName = Get-VMSwitch | Out-GridView -OutputMode Single -Title 'Please select the VM Switch and click OK' | Select-Object Name
 if (($SwitchName.Name).Count -ne '1') {
     Write-Warning ("No Virtual Switch selected, script aborted...")
@@ -80,16 +80,16 @@ catch {
     return
 }
 finally {
-    if (test-path -Path $VMdir -ErrorAction SilentlyContinue) { 
+    if (Test-Path -Path $VMdir -ErrorAction SilentlyContinue) { 
         Write-Host ("Using {0} as Virtual Machine location..." -f $VMdir) -ForegroundColor Green
     }
 }
  
 #Download VHD file to the VirtualMachinePath\VMname
-write-host ("Downloading {0} to {1}..." -f $vhd.Name, $VMdir) -ForegroundColor Green
+Write-Host ("Downloading {0} to {1}..." -f $vhd.Name, $VMdir) -ForegroundColor Green
 $VHDFile = "$($VMdir)\$($VMname)" + ".vhd"
 $VMPath = (Get-VMHost).VirtualMachinePath + '\'
-Invoke-WebRequest -Uri $vhd.Link -OutFile $VHDFile
+Invoke-WebRequest -UseBasicParsing -Uri $vhd.Link -OutFile $VHDFile
  
 #Create VM with the specified values
 try {
@@ -100,14 +100,14 @@ catch {
 }
 finally {
     if (Get-VM -Name $VMname -ErrorAction SilentlyContinue | Out-Null) {
-        write-host ("Created {0}..." -f $VMname) -ForegroundColor Green
+        Write-Host ("Created {0}..." -f $VMname) -ForegroundColor Green
     }
 }
  
 #Configure settings on the VM, Checkpoints, CPU/Memory/Disk/BootOrder, Integration Services
 try {
     Write-Host ("Configuring settings on {0}..." -f $VMname) -ForegroundColor Green
-    Set-VM -name $VMname -ProcessorCount $VMCores -DynamicMemory -MemoryMinimumBytes 64MB -MemoryMaximumBytes $VMRAM -MemoryStartupBytes 512MB -CheckpointType ProductionOnly -AutomaticCheckpointsEnabled:$false 
+    Set-VM -Name $VMname -ProcessorCount $VMCores -DynamicMemory -MemoryMinimumBytes 64MB -MemoryMaximumBytes $VMRAM -MemoryStartupBytes 512MB -CheckpointType ProductionOnly -AutomaticCheckpointsEnabled:$false 
     Add-VMHardDiskDrive -VMName $VMname -Path $VHDFile -ControllerType IDE -ErrorAction SilentlyContinue | Out-Null
     Enable-VMIntegrationService -VMName $VMname -Name 'Guest Service Interface' , 'Heartbeat', 'Key-Value Pair Exchange', 'Shutdown', 'Time Synchronization', 'VSS'
 }

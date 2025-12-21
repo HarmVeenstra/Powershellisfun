@@ -39,9 +39,9 @@ if (-not (Get-AppxPackage -Name Microsoft.DesktopAppInstaller)) {
     try {
         $progressPreference = 'silentlyContinue'
         Write-Warning ("WinGet client was not found, installing now...")
-        Invoke-WebRequest -Uri https://aka.ms/getwinget -OutFile $env:temp\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle -ErrorAction Stop
-        Invoke-WebRequest -Uri https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx -OutFile $env:temp\Microsoft.VCLibs.x64.14.00.Desktop.appx -ErrorAction Stop
-        Invoke-WebRequest -Uri https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.8.6/Microsoft.UI.Xaml.2.8.x64.appx -OutFile $env:temp\Microsoft.UI.Xaml.2.8.x64.appx -ErrorAction Stop
+        Invoke-WebRequest -Uri https://aka.ms/getwinget -OutFile $env:temp\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle -UseBasicParsing -ErrorAction Stop
+        Invoke-WebRequest -Uri https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx -OutFile $env:temp\Microsoft.VCLibs.x64.14.00.Desktop.appx -UseBasicParsing -ErrorAction Stop
+        Invoke-WebRequest -Uri https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.8.6/Microsoft.UI.Xaml.2.8.x64.appx -OutFile $env:temp\Microsoft.UI.Xaml.2.8.x64.appx -UseBasicParsing -ErrorAction Stop
         Add-AppxPackage $env:temp\Microsoft.VCLibs.x64.14.00.Desktop.appx -ErrorAction Stop
         Add-AppxPackage $env:temp\Microsoft.UI.Xaml.2.8.x64.appx -ErrorAction Stop
         Add-AppxPackage $env:temp\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle -ErrorAction Stop

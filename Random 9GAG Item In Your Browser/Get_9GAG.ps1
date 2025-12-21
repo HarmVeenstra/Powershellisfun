@@ -52,9 +52,9 @@ param (
 )
 $selection = $PSCmdlet.ParameterSetName
 $ProgressPreference = "SilentlyContinue"
-$contents = Invoke-WebRequest -Uri "https://9gagrss.xyz/json.php?channel=$($selection)&limit=100"
+$contents = Invoke-WebRequest -Uri "https://9gagrss.xyz/json.php?channel=$($selection)&limit=100" -UseBasicParsing
 $number = Get-Random -Minimum 1 -Maximum 101
-$9gag = ($contents | convertfrom-json).data.posts[$number]
+$9gag = ($contents | ConvertFrom-Json).data.posts[$number]
  
 if ($9gag.nsfw -eq '1' ) {
     Write-Host ("Get_9GAG found a NSFW Picture/Movieclip, skipping because NSFW ;)") -ForegroundColor Yellow

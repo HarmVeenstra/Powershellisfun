@@ -12,7 +12,7 @@ $ProgressPreference = 'SilentlyContinue'
 $Response = Invoke-WebRequest -Uri $URL -UseBasicParsing
 
 # Extract all links ending with .themepack or .deskthemepack
-$ThemeLinks = ($Response.Links | Where-Object { $_.href -Match "\.themepack$" -or $_.href -Match "\.deskthemepack$" }).href
+$ThemeLinks = ($Response.Links | Where-Object { $_.href -match "\.themepack$" -or $_.href -match "\.deskthemepack$" }).href
 
 # Remove duplicate links and sort
 $UniqueLinks = $ThemeLinks | Select-Object -Unique
@@ -33,7 +33,7 @@ foreach ($url in $UniqueLinks) {
     $FileName = Split-Path -Path $URL -Leaf
     $DestinationPath = Join-Path -Path $destinationFolder -ChildPath $FileName
     try {
-        Invoke-WebRequest -Uri $URL -OutFile $destinationPath -ErrorAction Stop
+        Invoke-WebRequest -Uri $URL -OutFile $destinationPath -UseBasicParsing -ErrorAction Stop
         Write-Host ("Downloading {0} to {1}" -f $FileName, $DestinationPath) -ForegroundColor Green
     }
     catch {

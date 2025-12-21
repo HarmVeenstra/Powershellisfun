@@ -13,7 +13,7 @@ function Get-WhoisInfo {
         #Get results from your own Public IP Address
         if (-not ($PublicIPaddressOrName)) {
             $ProgressPreference = "SilentlyContinue"
-            $PublicIPaddressOrName = (Invoke-WebRequest -uri https://api.ipify.org?format=json | ConvertFrom-Json -ErrorAction Stop).ip
+            $PublicIPaddressOrName = (Invoke-WebRequest -uri https://api.ipify.org?format=json -UseBasicParsing | ConvertFrom-Json -ErrorAction Stop).ip
             $whoiswebresult = Invoke-Restmethod -Uri "https://www.whois.com/whois/$($PublicIPaddressOrName)" -TimeoutSec 15 -ErrorAction SilentlyContinue
             $whoisinfo = ConvertFrom-HTMLClass -Class 'whois-data' -Content $whoiswebresult -ErrorAction SilentlyContinue
             write-host ("Getting WHOIS details for {0}" -f $PublicIPaddressOrName) -ForegroundColor Green

@@ -106,8 +106,8 @@ $json = Get-Content "$($PSScriptRoot)\Install_apps.json" | ConvertFrom-Json
 if ($Apps -or $MicrosftVCRuntime -or $All) {
     if (!(Get-AppxPackage -Name Microsoft.Winget.Source)) {
         Write-Host ("Winget was not found and installing now") -ForegroundColor Yellow
-        Invoke-Webrequest -uri https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx -Outfile $ENV:TEMP\Microsoft.VCLibs.x64.14.00.Desktop.appx
-        Invoke-Webrequest -uri https://aka.ms/getwinget -Outfile $ENV:TEMP\winget.msixbundle    
+        Invoke-Webrequest -uri https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx -Outfile $ENV:TEMP\Microsoft.VCLibs.x64.14.00.Desktop.appx -UseBasicParsing
+        Invoke-Webrequest -uri https://aka.ms/getwinget -Outfile $ENV:TEMP\winget.msixbundle -UseBasicParsing
         Add-AppxPackage $ENV:TEMP\Microsoft.VCLibs.x64.14.00.Desktop.appx -ErrorAction SilentlyContinue
         Add-AppxPackage -Path $ENV:TEMP\winget.msixbundle -ErrorAction SilentlyContinue
     }
@@ -169,7 +169,7 @@ if ($SysInternalsSuite -or $All) {
     Write-Host ("Checking if SysInternals Suite is present") -ForegroundColor Green
     if (!(Test-Path 'C:\Program Files (x86)\SysInterals Suite')) {
         Write-Host ("SysInternalsSuite was not found and installing now") -ForegroundColor Yellow
-        Invoke-Webrequest -uri https://download.sysinternals.com/files/SysinternalsSuite.zip -Outfile $ENV:TEMP\SysInternalsSuite.zip
+        Invoke-Webrequest -uri https://download.sysinternals.com/files/SysinternalsSuite.zip -Outfile $ENV:TEMP\SysInternalsSuite.zip -UseBasicParsing
         Expand-Archive -LiteralPath $ENV:TEMP\SysInternalsSuite.zip -DestinationPath 'C:\Program Files (x86)\SysInterals Suite'
         $OldPath = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).Path
         $NewPath = $OldPath + ';C:\Program Files (x86)\SysInterals Suite\'
@@ -182,7 +182,7 @@ if ($IntuneWinAppUtil -or $All) {
     Write-Host ("Checking if IntuneWinAppUtil Suite is present") -ForegroundColor Green
     if (!(Test-Path 'c:\windows\system32\IntuneWinAppUtil.exe')) {
         Write-Host ("IntuneWinAppUtil was not found and installing now") -ForegroundColor Yellow
-        Invoke-Webrequest -uri https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/raw/master/IntuneWinAppUtil.exe -Outfile c:\windows\system32\intunewinapputil.exe
+        Invoke-Webrequest -uri https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/raw/master/IntuneWinAppUtil.exe -Outfile c:\windows\system32\intunewinapputil.exe -UseBasicParsing
     }
 }
  
