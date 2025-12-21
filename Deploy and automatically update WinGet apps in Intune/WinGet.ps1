@@ -58,7 +58,7 @@ if ((Test-Path .\Custom.ps1) -and $Install) {
 if ($uninstall) {
     try {
         Write-Host ("{0} - Uninstalling {1}" -f $(Get-Date -Format "dd-MM-yy HH:mm"), $Id)
-        Uninstall-WinGetPackage -Id $Id -Force:$true -MatchOption EqualsCaseInsensitive -Mode Silent -ErrorAction Stop
+        Uninstall-WinGetPackage -Id $Id -Force:$true -MatchOption EqualsCaseInsensitive -Mode Silent -Source WinGet -ErrorAction Stop
         Write-Host ("{0} - Uninstalled {1}" -f $(Get-Date -Format "dd-MM-yy HH:mm"), $Id)
     }
     catch {
