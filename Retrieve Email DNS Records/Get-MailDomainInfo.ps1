@@ -4,32 +4,44 @@ function Get-MailDomainInfo {
         [parameter(Mandatory = $false)][string]$DNSserver = '1.1.1.1'
     )
      
-    $info = foreach ($domain in $DomainName) {
-        
+    $info = foreach ($domain in $DomainName) {        
         #Check if domain name is valid, output warning it not and continue to the next domain (if any)
-        try {
-            Resolve-DnsName -Name $domain -Server $DNSserver -ErrorAction Stop | Out-Null
+        try {      
+            #Check if DnsClient-PS module is installed
+            if (-not (Get-Module -Name DnsClient-PS -ListAvailable -ErrorAction SilentlyContinue)) {
+                try {
+                    Install-Module DnsClient-PS -Scope CurrentUser -Confirm:$false -Force:$true -ErrorAction Stop
+                    Import-Module DnsClient-PS -ErrorAction Stop
+                    Write-Host ("Installed required module DnsClient-PS, continuing...")
+                }
+                catch {
+                    Write-Warning ("Error installing required DnsClient-PS module for Linux/macOS DNS queries, exiting...")
+                    return
+                }
+            }
+
+            #Test if Domain name exists
+            Resolve-Dns -Query $domain -NameServer $DNSserver -ErrorAction Stop | Out-Null
+
+            #Set $erorfind to desired error output. 'not enabled', for example
+            $errorfinding = 'Not enabled'
 
             #Retrieve all mail DNS records
-            $autodiscoverA = (Resolve-DnsName -Name "autodiscover.$($domain)" -Type A -Server $DNSserver -ErrorAction SilentlyContinue).IPAddress
-            $autodiscoverCNAME = (Resolve-DnsName -Name "autodiscover.$($domain)" -Type CNAME -Server $DNSserver -ErrorAction SilentlyContinue).NameHost
-            $dkim1 = Resolve-DnsName -Name "selector1._domainkey.$($domain)" -Type CNAME -Server $DNSserver -ErrorAction SilentlyContinue
-            $dkim2 = Resolve-DnsName -Name "selector2._domainkey.$($domain)" -Type CNAME -Server $DNSserver -ErrorAction SilentlyContinue
-            $dmarc = (Resolve-DnsName -Name "_dmarc.$($domain)" -Type TXT -Server $DNSserver -ErrorAction SilentlyContinue | Where-Object Strings -Match 'DMARC').Strings
-            $dnssec = (Resolve-DnsName -Name $domain -Type DNSKEY -DnssecOk -ErrorAction SilentlyContinue).TypeCovered
-            $mx = (Resolve-DnsName -Name $domain -Type MX -Server $DNSserver -ErrorAction SilentlyContinue).NameExchange
-            $spf = (Resolve-DnsName -Name $domain -Type TXT -Server $DNSserver -ErrorAction SilentlyContinue | Where-Object Strings -Match 'v=spf').Strings
-            $includes = (Resolve-DnsName -Name $domain -Type TXT -Server $DNSserver -ErrorAction SilentlyContinue | Where-Object Strings -Match 'v=spf').Strings -split ' ' | Select-String 'Include:'
+            $autodiscoverA = (Resolve-Dns -Query "autodiscover.$($domain)" -QueryType A -NameServer $DNSserver -ErrorAction SilentlyContinue).IPAddress
+            $autodiscoverCNAME = if ((Resolve-Dns -Query "autodiscover.$($domain)" -QueryType CNAME -NameServer $DNSserver -ErrorAction SilentlyContinue).Answers) { (Resolve-Dns -Query "autodiscover.$($domain)" -QueryType CNAME -NameServer $DNSserver -ErrorAction SilentlyContinue).Answers.canonicalname.tostring() }
+            $dkim1 = (Resolve-Dns -Query "selector1._domainkey.$($domain)" -QueryType CNAME -NameServer $DNSserver -ErrorAction SilentlyContinue).AllRecords.domainname.original[0].tostring().TrimEnd('.')
+            $dkim2 = (Resolve-Dns -Query "selector2._domainkey.$($domain)" -QueryType CNAME -NameServer $DNSserver -ErrorAction SilentlyContinue).AllRecords.domainname.original[0].tostring().TrimEnd('.')
+            $dmarc = (Resolve-Dns -Query "_dmarc.$($domain)" -QueryType TXT -NameServer $DNSserver -ErrorAction SilentlyContinue).answers.escapedtext
+            $dnssec = (Resolve-Dns -Query $domain -QueryType DNSKEY -ErrorAction SilentlyContinue).Answers
+            $mx = (Resolve-Dns -Query $domain -QueryType MX -NameServer $DNSserver -ErrorAction SilentlyContinue).Answers.Exchange
+            $spf = (Resolve-Dns -Query $domain -QueryType TXT -NameServer $DNSserver -ErrorAction SilentlyContinue).Answers.escapedtext | Select-String 'v=spf'
+            $includes = ((Resolve-Dns -Query $domain -QueryType TXT -NameServer $DNSserver -ErrorAction SilentlyContinue).Answers.escapedtext | Select-String 'v=spf').line.split(' ') | Select-String -Pattern 'Include:'
  
-            #Set variables to Not enabled or found if they can't be retrieved
-            $errorfinding = 'Not enabled'
-           
- 
-            if ($null -eq $dkim1 -and $null -eq $dkim2) {
+            if ($dkim1.length -le 1 -and $dkim2.Length -le 1) {
                 $dkim = $errorfinding
             }
             else {
-                $dkim = "$($dkim1.Name) , $($dkim2.Name)"
+                $dkim = "$($dkim1), $($dkim2)"
             }
  
             if ($null -eq $dmarc) {
@@ -57,9 +69,9 @@ function Get-MailDomainInfo {
             }
             else {
                 $foundincludes = foreach ($include in $includes) {
-                    if ((Resolve-DnsName -Server $DNSserver -Name $include.ToString().Split(':')[1] -Type txt -ErrorAction SilentlyContinue).Strings) {
+                    if ((Resolve-Dns -NameServer $DNSserver -Query $include.ToString() -ErrorAction SilentlyContinue)) {
                         [PSCustomObject]@{
-                            SPFIncludes = "$($include.ToString().Split(':')[1]) : " + $(Resolve-DnsName -Server $DNSserver -Name $include.ToString().Split(':')[1] -Type txt).Strings
+                            SPFIncludes = $include.ToString().Split(':')[1] + " : " + (Resolve-Dns -NameServer $DNSserver -Query $include.ToString().Split(':')[1] -QueryType txt).answers.escapedtext
                         }
                     }
                     else {
@@ -69,9 +81,9 @@ function Get-MailDomainInfo {
                     }
                 }
             }
-
-            if ($null -eq $dnssec) {
-                $dnssec = 'Not enabled'
+    
+            if ($dnssec.length -lt 1) {
+                $dnssec = $errorfinding
             }
             else {
                 $dnssec = 'Enabled'
@@ -80,13 +92,13 @@ function Get-MailDomainInfo {
             [PSCustomObject]@{
                 'Domain Name'             = $domain
                 'Autodiscover IP-Address' = $autodiscoverA
-                'Autodiscover CNAME '     = $autodiscoverCNAME
+                'Autodiscover CNAME '     = "$($autodiscoverCNAME.TrimEnd('.'))"
                 'DKIM Record'             = $dkim
                 'DMARC Record'            = "$($dmarc)"
                 'DNSSEC'                  = $dnssec
-                'MX Record(s)'            = $mx -join ', '
+                'MX Record(s)'            = if ($mx -ne $errorfinding) { ($mx).Value.TrimEnd('.') -join ', ' } else { $errorfinding }
                 'SPF Record'              = "$($spf)"
-                'SPF Include values'      = "$($foundincludes.SPFIncludes)" -replace "all", "all`n`b"
+                'SPF Include values'      = if ("$($foundincludes.SPFIncludes)") { "$($foundincludes.SPFIncludes)" -replace "all", "all`n`b" } else { $errorfinding }
             }
         }
         catch {
