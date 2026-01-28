@@ -17,9 +17,9 @@ $totalcount = $null
  
 $urls = @(
     'https://www.microsoft.com/en-us/evalcenter/download-windows-server-2012-r2',
-    'https://www.microsoft.com/en-us/evalcenter/download-windows-server-2016',
     'https://www.microsoft.com/en-us/evalcenter/download-windows-server-2019',
-    'https://www.microsoft.com/en-us/evalcenter/download-windows-server-2022'
+    'https://www.microsoft.com/en-us/evalcenter/download-windows-server-2022',
+    'https://www.microsoft.com/en-us/evalcenter/download-windows-server-2025'
 )
   
 #Loop through the urls, search for VHD download links and add to totalfound array and display number of downloads
