@@ -14,26 +14,26 @@ Write-Host ("Checking MSGraph module") -ForegroundColor Green
 try {
     Import-Module Microsoft.Graph.Identity.DirectoryManagement -ErrorAction Stop
     Import-Module Microsoft.Graph.Users -ErrorAction Stop
-    Connect-Graph -Scopes User.ReadWrite.All, Organization.Read.All -ErrorAction Stop | Out-Null
+    Connect-MgGraph -Scopes User.ReadWrite.All, Organization.Read.All -ErrorAction Stop | Out-Null
 }
 catch {
-    if (-not (get-module -ListAvailable | Where-Object Name -Match 'Microsoft.Graph.Identity.DirectoryManagement')) {
-        Write-Host Installing Microsoft.Graph.Identity.DirectoryManagement module.. -ForegroundColor Green
+    if (-not (Get-Module -ListAvailable | Where-Object Name -Match 'Microsoft.Graph.Identity.DirectoryManagement')) {
+        Write-Host ("Installing Microsoft.Graph.Identity.DirectoryManagement module...") -ForegroundColor Green
         Install-Module Microsoft.Graph.Identity.DirectoryManagement, Microsoft.Graph.Users
         Install-Module Microsoft.Graph.Users
         Import-Module Microsoft.Graph.Identity.DirectoryManagement
         Import-Module Microsoft.Graph.Users
     }
-    Connect-Graph -Scopes User.Read.All, Organization.Read.All
+    Connect-MgGraph -Scopes User.Read.All, Organization.Read.All
 }
  
 #Create table of users and licenses (https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/licensing-service-plan-reference)
 #Download csv with all SKU's
 $ProgressPreference = "SilentlyContinue"
 Write-Host ("Downloading license overview from Microsoft") -ForegroundColor Green
-$csvlink = ((Invoke-WebRequest -Uri https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/licensing-service-plan-reference -UseBasicParsing).Links | where-Object Href -Match 'CSV').href
-Invoke-WebRequest -Uri $csvlink -OutFile $env:TEMP\licensing.csv -UseBasicParsing
-$skucsv = Import-Csv -Path $env:TEMP\licensing.csv -Encoding Default
+$csvlink = ((Invoke-WebRequest -Uri https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/licensing-service-plan-reference -UseBasicParsing).Links | Where-Object Href -Match 'CSV').href
+Invoke-WebRequest -Uri $csvlink -OutFile "$([System.IO.Path]::GetTempPath())licensing.csv" -UseBasicParsing
+$skucsv = Import-Csv -Path "$([System.IO.Path]::GetTempPath())licensing.csv" -Encoding Default
 if ($null -eq $FilterUser) {
     $users = Get-MgUser -All | Sort-Object UserPrincipalName
 }
@@ -54,8 +54,8 @@ $UsersLicenses = foreach ($user in $users) {
                             User               = "$($User.UserPrincipalName)"
                             LicenseSKU         = "$($SKUfriendlyname.Product_Display_Name)"
                             Serviceplan        = "$($serviceplan.Service_Plans_Included_Friendly_Names)"
-                            AppliesTo          = ($licenses.ServicePlans | Where-Object ServicePlanId -eq $serviceplan.Service_Plan_Id).AppliesTo | Select-Object -First 1
-                            ProvisioningStatus = ($licenses.ServicePlans | Where-Object ServicePlanId -eq $serviceplan.Service_Plan_Id).ProvisioningStatus | Select-Object -First 1
+                            AppliesTo          = ($licenses.ServicePlans | Where-Object ServicePlanId -EQ $serviceplan.Service_Plan_Id).AppliesTo | Select-Object -First 1
+                            ProvisioningStatus = ($licenses.ServicePlans | Where-Object ServicePlanId -EQ $serviceplan.Service_Plan_Id).ProvisioningStatus | Select-Object -First 1
                         }
                     }
                 }
@@ -65,8 +65,8 @@ $UsersLicenses = foreach ($user in $users) {
                             User               = "$($User.UserPrincipalName)"
                             LicenseSKU         = "$($SKUfriendlyname.Product_Display_Name)"
                             Serviceplan        = "$($serviceplan.Service_Plans_Included_Friendly_Names)"
-                            AppliesTo          = ($licenses.ServicePlans | Where-Object ServicePlanId -eq $serviceplan.Service_Plan_Id).AppliesTo | Select-Object -First 1
-                            ProvisioningStatus = ($licenses.ServicePlans | Where-Object ServicePlanId -eq $serviceplan.Service_Plan_Id).ProvisioningStatus | Select-Object -First 1
+                            AppliesTo          = ($licenses.ServicePlans | Where-Object ServicePlanId -EQ $serviceplan.Service_Plan_Id).AppliesTo | Select-Object -First 1
+                            ProvisioningStatus = ($licenses.ServicePlans | Where-Object ServicePlanId -EQ $serviceplan.Service_Plan_Id).ProvisioningStatus | Select-Object -First 1
                         }
                     }
                 }
@@ -75,8 +75,8 @@ $UsersLicenses = foreach ($user in $users) {
                         User               = "$($User.UserPrincipalName)"
                         LicenseSKU         = "$($SKUfriendlyname.Product_Display_Name)"
                         Serviceplan        = "$($serviceplan.Service_Plans_Included_Friendly_Names)"
-                        AppliesTo          = ($licenses.ServicePlans | Where-Object ServicePlanId -eq $serviceplan.Service_Plan_Id).AppliesTo | Select-Object -First 1
-                        ProvisioningStatus = ($licenses.ServicePlans | Where-Object ServicePlanId -eq $serviceplan.Service_Plan_Id).ProvisioningStatus | Select-Object -First 1
+                        AppliesTo          = ($licenses.ServicePlans | Where-Object ServicePlanId -EQ $serviceplan.Service_Plan_Id).AppliesTo | Select-Object -First 1
+                        ProvisioningStatus = ($licenses.ServicePlans | Where-Object ServicePlanId -EQ $serviceplan.Service_Plan_Id).ProvisioningStatus | Select-Object -First 1
                     }
                 }
             }
@@ -84,10 +84,10 @@ $UsersLicenses = foreach ($user in $users) {
     }   
 }
  
-#Output all license information to c:\temp\userslicenses.csv and open it
+#Output all license information to userslicenses.csv in the temp folder, and open it
 if ($UsersLicenses.count -gt 0) {
-    $UsersLicenses | Sort-Object User, LicenseSKU, Serviceplan | Export-Csv -NoTypeInformation -Delimiter ';' -Encoding UTF8 -Path c:\temp\userslicenses.csv
-    Invoke-Item c:\temp\userslicenses.csv
+    $UsersLicenses | Sort-Object User, LicenseSKU, Serviceplan | Export-Csv -NoTypeInformation -Delimiter ';' -Encoding UTF8 -Path "$([System.IO.Path]::GetTempPath())userslicenses.csv"
+    Invoke-Item "$([System.IO.Path]::GetTempPath())userslicenses.csv"
 }
 else {
     Write-Warning ("No licenses found, check permissions and/or -Filter value")
