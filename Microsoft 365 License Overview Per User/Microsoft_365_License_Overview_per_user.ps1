@@ -1,94 +1,134 @@
-#Use -Filter parameter to only search for specific licenses. 
-#For example .\Microsoft_365_License_Overview_per_user.ps1' -FilterLicenseSKU 'Windows 10 Enterprise E3' or
-#For example .\Microsoft_365_License_Overview_per_user.ps1' -FilterServicePlan 'Universal Print'
-#If -Filter is not used, #all licenses will be reported
-[CmdletBinding(DefaultParameterSetName = 'All')]
+<#
+.SYNOPSIS
+This script will download the license overview from Microsoft and then create a table of users and licenses.
+
+.DESCRIPTION
+Use -Filter* parameter to only search for specific licenses.
+If -Filter* is not used, all licenses will be reported.
+
+.PARAMETER FilterLicenseSKU
+The SKU of the license to search for. If not used, all licenses will be reported.
+
+.PARAMETER FilterServicePlan
+The name of the service plan to search for. If not used, all licenses will be reported.
+
+.PARAMETER FilterUser
+The username of the user to search for. If not used, all users will be reported.
+
+.EXAMPLE
+.\Microsoft_365_License_Overview_per_user.ps1
+
+.EXAMPLE
+.\Microsoft_365_License_Overview_per_user.ps1' -FilterLicenseSKU 'Windows 10 Enterprise E3'
+
+.EXAMPLE
+.\Microsoft_365_License_Overview_per_user.ps1' -FilterServicePlan 'Universal Print'
+
+.EXAMPLE
+.\Microsoft_365_License_Overview_per_user.ps1' -FilterUser 'joe.smith'
+#>
+
+[CmdletBinding()]
 param (
-    [parameter(parameterSetName = "LicenseSKU")][string]$FilterLicenseSKU,
-    [parameter(parameterSetName = "ServicePlan")][string]$FilterServicePlan,
-    [parameter(Mandatory = $false)][string]$FilterUser
+    [Parameter(ParameterSetName = 'LicenseSKU')][string]$FilterLicenseSKU,
+    [Parameter(ParameterSetName = 'ServicePlan')][string]$FilterServicePlan,
+    [Parameter()][string]$FilterUser
 )
 
-#Connect to MSGraph if not connected
-Write-Host ("Checking MSGraph module") -ForegroundColor Green
 try {
-    Import-Module Microsoft.Graph.Identity.DirectoryManagement -ErrorAction Stop
-    Import-Module Microsoft.Graph.Users -ErrorAction Stop
-    Connect-MgGraph -Scopes User.ReadWrite.All, Organization.Read.All -ErrorAction Stop | Out-Null
-}
-catch {
-    if (-not (Get-Module -ListAvailable | Where-Object Name -Match 'Microsoft.Graph.Identity.DirectoryManagement')) {
-        Write-Host ("Installing Microsoft.Graph.Identity.DirectoryManagement module...") -ForegroundColor Green
-        Install-Module Microsoft.Graph.Identity.DirectoryManagement, Microsoft.Graph.Users
-        Install-Module Microsoft.Graph.Users
-        Import-Module Microsoft.Graph.Identity.DirectoryManagement
-        Import-Module Microsoft.Graph.Users
+    # Load required Graph modules (install if missing)
+    $required = @('Microsoft.Graph.Identity.DirectoryManagement', 'Microsoft.Graph.Users')
+    foreach ($mod in $required) {
+        if (-not (Get-Module -ListAvailable -Name $mod)) {
+            Write-Verbose "Installing $mod module..." -Verbose
+            Install-Module $mod -Scope CurrentUser -Force -AllowClobber
+        }
+        Import-Module $mod -ErrorAction Stop
     }
-    Connect-MgGraph -Scopes User.Read.All, Organization.Read.All
-}
- 
-#Create table of users and licenses (https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/licensing-service-plan-reference)
-#Download csv with all SKU's
-$ProgressPreference = "SilentlyContinue"
-Write-Host ("Downloading license overview from Microsoft") -ForegroundColor Green
-$csvlink = ((Invoke-WebRequest -Uri https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/licensing-service-plan-reference -UseBasicParsing).Links | Where-Object Href -Match 'CSV').href
-Invoke-WebRequest -Uri $csvlink -OutFile "$([System.IO.Path]::GetTempPath())licensing.csv" -UseBasicParsing
-$skucsv = Import-Csv -Path "$([System.IO.Path]::GetTempPath())licensing.csv" -Encoding Default
-if ($null -eq $FilterUser) {
-    $users = Get-MgUser -All | Sort-Object UserPrincipalName
-}
-else {
-    $users = Get-MgUser -All | Where-Object UserPrincipalName -Match $FilterUser | Sort-Object UserPrincipalName
-}
-$UsersLicenses = foreach ($user in $users) {
-    if ((Get-MgUserLicenseDetail -UserId $user.UserPrincipalname).count -gt 0) {
-        Write-Host ("Processing user {0}" -f $user.UserPrincipalName) -ForegroundColor Green
-        $Licenses = Get-MgUserLicenseDetail -UserId $user.UserPrincipalname
-        foreach ($License in $Licenses) {
-            $SKUfriendlyname = $skucsv | Where-Object String_Id -Contains $License.SkuPartNumber | Select-Object -First 1
-            $SKUserviceplan = $skucsv | Where-Object GUID -Contains $License.SkuId | Sort-Object Service_Plans_Included_Friendly_Names
-            foreach ($serviceplan in $SKUserviceplan) {
-                if ($FilterLicenseSKU) {
-                    if ("$($SKUfriendlyname.Product_Display_Name)" -match $FilterLicenseSKU) {
-                        [PSCustomObject]@{
-                            User               = "$($User.UserPrincipalName)"
-                            LicenseSKU         = "$($SKUfriendlyname.Product_Display_Name)"
-                            Serviceplan        = "$($serviceplan.Service_Plans_Included_Friendly_Names)"
-                            AppliesTo          = ($licenses.ServicePlans | Where-Object ServicePlanId -EQ $serviceplan.Service_Plan_Id).AppliesTo | Select-Object -First 1
-                            ProvisioningStatus = ($licenses.ServicePlans | Where-Object ServicePlanId -EQ $serviceplan.Service_Plan_Id).ProvisioningStatus | Select-Object -First 1
-                        }
-                    }
+
+    # Connect to Graph (reuse existing session if possible)
+    if (-not (Get-MgContext)) {
+        Connect-MgGraph -Scopes 'User.Read.All', 'Organization.Read.All' -NoWelcome -ContextScope Process -ErrorAction Stop
+    }
+
+    # Download and cache the SKU reference CSV as a hashtable
+    Write-Verbose 'Downloading SKU reference CSV…'
+    [string]$csvLink = (Invoke-WebRequest -DisableKeepAlive -Uri 'https://learn.microsoft.com/en-us/azure/active-directory/enterprise-users/licensing-service-plan-reference' -UseBasicParsing).Links.href -match '\.csv$'
+    $tempCsv = [IO.Path]::ChangeExtension((New-TemporaryFile).FullName, '.csv')
+    Invoke-WebRequest -Uri $csvLink -OutFile $tempCsv -UseBasicParsing
+
+    # Build two lookup tables: SKU‑>DisplayName and ServicePlan‑>SKU object
+    $skuLookup = @{}
+    $planLookup = @{}
+    Import-Csv -Path $tempCsv -Encoding Default | ForEach-Object {
+        $skuLookup[$_.String_Id] = $_.Product_Display_Name
+        $planLookup[$_.GUID] = $_   # keep the whole row for later Service_Plans
+    }
+    Remove-Item $tempCsv
+
+    # Stream users from Graph
+    Write-Verbose 'Fetching users from Graph…'
+    $userQuery = @{
+        All      = $true
+        Property = @('id', 'userPrincipalName')
+    }
+    if ($FilterUser) {
+        # Graph supports simple OData filter on UPN; adjust as needed
+        $userQuery.Filter = "startswith(userPrincipalName,'$FilterUser')"
+    }
+    $users = Get-MgUser @userQuery
+
+    $outFile = [IO.Path]::ChangeExtension((New-TemporaryFile).FullName, '.csv')
+
+    # Process each user
+    foreach ($user in $users) {
+        Write-Verbose "Processing $($user.UserPrincipalName)..."
+        $licenseDetails = Get-MgUserLicenseDetail -UserId $user.Id
+        if (-not $licenseDetails) { continue }
+        else {
+            # Write header once to the outFile
+            'User;LicenseSKU;Serviceplan;AppliesTo;ProvisioningStatus' | Out-File -FilePath $outFile -Encoding utf8
+        }
+
+        foreach ($detail in $licenseDetails) {
+            $skuName = $skuLookup[$detail.SkuPartNumber]
+            if (-not $skuName) { $skuName = $detail.SkuPartNumber }
+
+            # Pre‑filter on SKU name if requested
+            if ($FilterLicenseSKU -and $skuName -notmatch $FilterLicenseSKU) { continue }
+
+            foreach ($plan in $detail.ServicePlans) {
+                $planInfo = $planLookup[$plan.ServicePlanId]
+
+                # Pre‑filter on ServicePlan name if requested
+                if ($FilterServicePlan -and $planInfo.Service_Plans_Included_Friendly_Names -notmatch $FilterServicePlan) {
+                    continue
                 }
-                elseif ($FilterServicePlan) {
-                    if ("$($serviceplan.Service_Plans_Included_Friendly_Names)" -match $FilterServicePlan) {
-                        [PSCustomObject]@{
-                            User               = "$($User.UserPrincipalName)"
-                            LicenseSKU         = "$($SKUfriendlyname.Product_Display_Name)"
-                            Serviceplan        = "$($serviceplan.Service_Plans_Included_Friendly_Names)"
-                            AppliesTo          = ($licenses.ServicePlans | Where-Object ServicePlanId -EQ $serviceplan.Service_Plan_Id).AppliesTo | Select-Object -First 1
-                            ProvisioningStatus = ($licenses.ServicePlans | Where-Object ServicePlanId -EQ $serviceplan.Service_Plan_Id).ProvisioningStatus | Select-Object -First 1
-                        }
-                    }
-                }
-                else {
-                    [PSCustomObject]@{
-                        User               = "$($User.UserPrincipalName)"
-                        LicenseSKU         = "$($SKUfriendlyname.Product_Display_Name)"
-                        Serviceplan        = "$($serviceplan.Service_Plans_Included_Friendly_Names)"
-                        AppliesTo          = ($licenses.ServicePlans | Where-Object ServicePlanId -EQ $serviceplan.Service_Plan_Id).AppliesTo | Select-Object -First 1
-                        ProvisioningStatus = ($licenses.ServicePlans | Where-Object ServicePlanId -EQ $serviceplan.Service_Plan_Id).ProvisioningStatus | Select-Object -First 1
-                    }
-                }
+
+                $line = '{0};{1};{2};{3};{4}' -f `
+                    $user.UserPrincipalName,
+                $skuName,
+                $planInfo.Service_Plans_Included_Friendly_Names,
+                $plan.AppliesTo,
+                $plan.ProvisioningStatus
+                $line | Out-File -FilePath $outFile -Append -Encoding utf8
             }
         }
-    }   
+    }
+
+    # Open the CSV (optional – only if running interactively)
+    if ($Host.UI.SupportsVirtualTerminal) {
+        Invoke-Item $outFile
+    }
+    else {
+        Write-Output "CSV written to $outFile"
+    }
 }
- 
-#Output all license information to userslicenses.csv in the temp folder, and open it
-if ($UsersLicenses.count -gt 0) {
-    $UsersLicenses | Sort-Object User, LicenseSKU, Serviceplan | Export-Csv -NoTypeInformation -Delimiter ';' -Encoding UTF8 -Path "$([System.IO.Path]::GetTempPath())userslicenses.csv"
-    Invoke-Item "$([System.IO.Path]::GetTempPath())userslicenses.csv"
+catch {
+    Write-Error $_.Exception.Message
+    exit 1
 }
-else {
-    Write-Warning ("No licenses found, check permissions and/or -Filter value")
+finally {
+    # Disconnect from Graph
+    Disconnect-MgGraph | Out-Null
 }
