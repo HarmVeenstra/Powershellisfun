@@ -13,7 +13,7 @@ The SKU of the license to search for. If not used, all licenses will be reported
 The name of the service plan to search for. If not used, all licenses will be reported.
 
 .PARAMETER FilterUser
-The username of the user to search for. If not used, all users will be reported.
+The username (UPN/userPrincipalName) of the user to search for. If not used, all users will be reported.
 
 .EXAMPLE
 .\Microsoft_365_License_Overview_per_user.ps1
@@ -28,7 +28,7 @@ The username of the user to search for. If not used, all users will be reported.
 .\Microsoft_365_License_Overview_per_user.ps1' -FilterUser 'joe.smith'
 #>
 
-[CmdletBinding()]
+[CmdletBinding(DefaultParameterSetName = 'None')]
 param (
     [Parameter(ParameterSetName = 'LicenseSKU')][string]$FilterLicenseSKU,
     [Parameter(ParameterSetName = 'ServicePlan')][string]$FilterServicePlan,
@@ -80,17 +80,17 @@ try {
 
     $outFile = [IO.Path]::ChangeExtension((New-TemporaryFile).FullName, '.csv')
 
+    # Write header once to the outFile
+    'User;LicenseSKU;Serviceplan;AppliesTo;ProvisioningStatus' | Out-File -FilePath $outFile -Encoding utf8
+
     # Process each user
     foreach ($user in $users) {
         Write-Verbose "Processing $($user.UserPrincipalName)..."
         $licenseDetails = Get-MgUserLicenseDetail -UserId $user.Id
         if (-not $licenseDetails) { continue }
-        else {
-            # Write header once to the outFile
-            'User;LicenseSKU;Serviceplan;AppliesTo;ProvisioningStatus' | Out-File -FilePath $outFile -Encoding utf8
-        }
 
         foreach ($detail in $licenseDetails) {
+            Clear-Variable skuName -ErrorAction SilentlyContinue
             $skuName = $skuLookup[$detail.SkuPartNumber]
             if (-not $skuName) { $skuName = $detail.SkuPartNumber }
 
@@ -116,12 +116,21 @@ try {
         }
     }
 
-    # Open the CSV (optional – only if running interactively)
-    if ($Host.UI.SupportsVirtualTerminal) {
-        Invoke-Item $outFile
+    $outputLength = (Get-Content $outFile).Count
+    if ($outputLength -eq 1) {
+        Remove-Item $outFile
+        Write-Output "No matching licenses found."
+        exit 0
     }
-    else {
-        Write-Output "CSV written to $outFile"
+    elseif ($outputLength -gt 1) {
+        Write-Output "$($outputLength - 1) matching licenses found."
+        # Open the CSV (optional – only if running interactively)
+        if ($Host.UI.SupportsVirtualTerminal) {
+            Invoke-Item $outFile
+        }
+        else {
+            Write-Output "CSV written to $outFile"
+        }
     }
 }
 catch {
