@@ -140,6 +140,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Report on Non-Compliant Intune Devices](https://powershellisfun.com/2024/04/26/report-on-non-compliant-intune-devices/)
 
+[Scan for deprecated Cmdlets](https://powershellisfun.com/2026/04/03/check-powershell-scripts-for-deprecated-azure-ad-or-msonline-cmdlets/)
+
 [Search Windows Event log](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Search%20Windows%20Event%20log)
 
 [Set Correct External Hyper-V Adapter](https://powershellisfun.com/2022/10/08/reconfigure-hyper-v-external-switch-to-the-correct-network-adapter/)
