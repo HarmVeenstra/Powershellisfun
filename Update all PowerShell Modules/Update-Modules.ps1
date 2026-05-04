@@ -1,15 +1,16 @@
 function Update-Modules {
     param (
-        [switch]$AllowPrerelease,
+        [switch]$Prerelease,
         [string]$Name = '*',
         [string[]]$Exclude,
         [ValidateSet('AllUsers', 'CurrentUser')][string]$Scope = 'AllUsers',
+        [switch]$UpgradeToPSResource,
         [switch]$WhatIf,
         [switch]$Verbose
     )
 
     # Test admin privileges without using -Requires RunAsAdministrator on Windows,
-    # which causes a nasty error message, if trying to load the function within a PS profile but without admin privileges
+    # which causes a nasty error message if trying to load the function within a PS profile but without admin privileges
     if ($IsWindows) {
         if ($Scope -eq 'AllUsers') {
             if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
@@ -24,9 +25,53 @@ function Update-Modules {
         $Scope = 'CurrentUser'
     }
 
-    # Get all installed modules minus excludes modules from $Exclude
+    # Install the Microsoft.PowerShell.PSResourceGet Module if not available (PowerShell v5 doesn't ship with it by default like in v7)
+    if (-not (Get-Module -Name Microsoft.PowerShell.PSResourceGet -ListAvailable)) {
+        try {
+            Install-Module -Name Microsoft.PowerShell.PSResourceGet -Scope:$Scope -Force:$true -Confirm:$false -SkipPublisherCheck:$true -ErrorAction Stop
+            Write-Host ("Installed required Microsoft.PowerShell.PSResourceGet Module") -ForegroundColor Green
+        }
+        catch {
+            Write-Warning ("Could not install required Module Microsoft.PowerShell.PSResourceGet, check permissions! Exiting...")
+            return
+        }
+    }
+
+    # Configure PSGallery as Trusted if it was not configurd as Trusted
+    if (-not (Get-PSResourceRepository -Name PSGallery).Trusted -eq $true) {
+        try {
+            Set-PSResourceRepository -Name PSGallery -Trusted:$true -Confirm:$false
+            Write-Host ("Configured PSGallery as Trusted Repository") -ForegroundColor Green
+        }
+        catch {
+            Write-Warning ("Error configuring PSGallery as Trusted Repository, exiting...")
+            return
+        }
+    }
+
+    # Install all modules which were installed using Install-Module to PSResourceGet
+    if ($UpgradeToPSResource) {
+        $InstalledModules = Get-Module -ListAvailable | Select-Object Name -Unique | Sort-Object Name
+        foreach ($Module in $InstalledModules) {
+            Write-Host ("Checking if module {0} was installed from PSGallery, installing it using PSResourceGet if needed" -f $module.Name) -ForegroundColor Green
+            if (-not (Get-InstalledPSResource -Name $Module.Name -Scope:$Scope -ErrorAction SilentlyContinue)) {
+                if (Find-Module -Name $module.name -ErrorAction SilentlyContinue) {
+                    try {
+                        Install-PSResource $Module.Name -Prerelease:$Prerelease.IsPresent -AcceptLicense:$true -Scope:$Scope -ErrorAction Stop -WhatIf:$WhatIf.IsPresent -Verbose:$Verbose.IsPresent -SkipDependencyCheck:$true -Reinstall:$true
+                        Write-Host ("- Installed {0} using PSResourceGet" -f $module.Name) -ForegroundColor Gray
+                    }
+                    catch {
+                        Write-Warning ("Could not install {0} using PSResourceGet, skipping..." -f $module.Name)
+                    }
+                }
+            }
+        }
+    }
+
+
+    # Get all installed modules minus excluded modules from $Exclude
     Write-Host ("Retrieving all installed modules ...") -ForegroundColor Green
-    $CurrentModules = foreach ($Installedmodule in Get-InstalledModule -Name $Name -ErrorAction SilentlyContinue) {
+    $CurrentModules = foreach ($Installedmodule in Get-PSResource -Name $Name -Scope:$Scope -ErrorAction SilentlyContinu ) {
         if ($null -ne $Exclude) {
             if (-not ($Installedmodule.Name | Select-String $Exclude)) {
                 [PSCustomObject]@{
@@ -50,39 +95,26 @@ function Update-Modules {
     else {
         $ModulesCount = $CurrentModules.Name.Count
         $DigitsLength = $ModulesCount.ToString().Length
-        Write-Host ("{0} modules found." -f $ModulesCount) -ForegroundColor Gray
     }
 
-    # Show status of AllowPrerelease Switch
-    ''
-    if ($AllowPrerelease) {
+    # Show status of Prerelease Switch
+    if ($Prerelease) {
         Write-Host ("Updating installed modules to the latest PreRelease version ...") -ForegroundColor Green
     }
     else {
         Write-Host ("Updating installed modules to the latest Production version ...") -ForegroundColor Green
     }
 
-    # Retrieve current versions of modules (63 at a time because of PSGallery limit) if $InstalledModules is greater than 0
+    # Retrieve current versions of modules if $CurrentModules is greater than 0
     if ($CurrentModules.Count -eq 1) {
-        $onlineversions = $null
         Write-Host ("Checking online versions for installed module {0}" -f $name) -ForegroundColor Green
-        $currentversions = Find-Module -Name $CurrentModules.name
-        $onlineversions = $onlineversions + $currentversions
+        $Onlineversions = Find-PSResource -Name $CurrentModules.name
+    }
+    if ($CurrentModules.Count -gt 1) {
+        Write-Host ("Checking online version for the {0} installed modules" -f $CurrentModules.Count) -ForegroundColor Green
+        $Onlineversions = Find-PSResource -Name $CurrentModules.name
     }
 
-    if ($CurrentModules.Count -gt 1) {
-        $startnumber = 0
-        $endnumber = 62
-        $onlineversions = $null
-        while ($CurrentModules.Count -gt $onlineversions.Count) {
-            Write-Host ("Checking online versions for installed modules [{0}..{1}/{2}]" -f $startnumber, $endnumber, $CurrentModules.Count) -ForegroundColor Green
-            $currentversions = Find-Module -Name $CurrentModules.name[$startnumber..$endnumber]
-            $startnumber = $startnumber + 63
-            $endnumber = $endnumber + 63
-            $onlineversions = $onlineversions + $currentversions
-        }
-    }
-	
     if (-not $CurrentModules) {
         Write-Warning ("No modules were found to check for updates, please check your NameFilter. Exiting...")
         return
@@ -96,35 +128,35 @@ function Update-Modules {
         $CounterLength = $Counter.Length
         Write-Host ('{0} Checking for updated version of module {1} ...' -f $Counter, $Module.Name) -ForegroundColor Green
         try {
-            $latest = $onlineversions | Where-Object Name -EQ $module.Name -ErrorAction Stop
+            $latest = $Onlineversions | Where-Object Name -EQ $module.Name -ErrorAction Stop
             if ([version]$Module.Version -lt [version]$latest.version) {
-                Update-Module -Name $Module.Name -AllowPrerelease:$AllowPrerelease -AcceptLicense -Scope:$Scope -Force:$True -ErrorAction Stop -WhatIf:$WhatIf.IsPresent -Verbose:$Verbose.IsPresent
+                Update-PSResource -Name $Module.Name -Prerelease:$Prerelease.IsPresent -AcceptLicense:$true -Scope:$Scope -Force:$True -ErrorAction Stop -WhatIf:$WhatIf.IsPresent -Verbose:$Verbose.IsPresent -SkipDependencyCheck:$true
             }
         }
         catch {
-            Write-Host ("{0,$CounterLength} Error updating module {1}!" -f ' ', $Module.Name) -ForegroundColor Red
+            Write-Host ("{0,$CounterLength} Error updating module {1}! (In use?)" -f ' ', $Module.Name) -ForegroundColor Red
         }
 
         # Retrieve newest version number and remove old(er) version(s) if any
-        $AllVersions = Get-InstalledModule -Name $Module.Name -AllVersions | Sort-Object PublishedDate -Descending
+        $AllVersions = Get-PSResource -Name $Module.Name -Scope:$Scope | Sort-Object PublishedDate -Descending
         $MostRecentVersion = $AllVersions[0].Version
         if ($AllVersions.Count -gt 1 ) {
             foreach ($Version in $AllVersions) {
                 if ($Version.Version -ne $MostRecentVersion) {
                     try {
                         Write-Host ("{0,$CounterLength} Uninstalling previous version {1} of module {2} ..." -f ' ', $Version.Version, $Module.Name) -ForegroundColor Gray
-                        Uninstall-Module -Name $Module.Name -RequiredVersion $Version.Version -Force:$True -ErrorAction Stop -AllowPrerelease -WhatIf:$WhatIf.IsPresent -Verbose:$Verbose.IsPresent
+                        Uninstall-PSResource -Name $Module.Name -Version $Version.Version -ErrorAction Stop -Prerelease:$Prerelease.IsPresent -WhatIf:$WhatIf.IsPresent -Verbose:$Verbose.IsPresent -SkipDependencyCheck:$true -Scope:$Scope
                     }
                     catch {
-                        Write-Warning ("{0,$CounterLength} Error uninstalling previous version {1} of module {2}!" -f ' ', $Version.Version, $Module.Name)
+                        Write-Warning ("{0,$CounterLength} Error uninstalling previous version {1} of module {2}! (In use?)" -f ' ', $Version.Version, $Module.Name)
                     }
                 }
             }
         }
     }
 
-    # Get the new module versions for comparing them to to previous one if updated
-    $NewModules = Get-InstalledModule -Name $Name | Select-Object Name, Version | Sort-Object Name
+    # Get the new module versions for comparing them to the previous one if updated
+    $NewModules = Get-PSResource -Name $Name -Scope:$Scope | Where-Object Name -NotMatch $Exclude | Select-Object Name, Version | Sort-Object Name
     if ($NewModules) {
         ''
         Write-Host ("List of updated modules:") -ForegroundColor Green
@@ -133,7 +165,7 @@ function Update-Modules {
             $CurrentVersion = $CurrentModules | Where-Object Name -EQ $Module.Name
             if ($CurrentVersion.Version -notlike $Module.Version) {
                 $NoUpdatesFound = $false
-                Write-Host ("- Updated module {0} from version {1} to {2}" -f $Module.Name, $CurrentVersion.Version, $Module.Version) -ForegroundColor Green
+                Write-Host ("- Updated module {0} from version {1} to {2} and/or removed older version(s) if any..." -f $Module.Name, ($CurrentVersion.Version | Sort-Object Ascending | Select-Object -First 1), $Module.Version) -ForegroundColor Green
             }
         }
 
