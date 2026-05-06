@@ -25,6 +25,9 @@ function Update-Modules {
         $Scope = 'CurrentUser'
     }
 
+    # Set ProgressPreference to Silentlycontinue to prevent progress indicators of module installation/update
+    $ProgressPreference = 'SilentlyContinue'
+
     # Install the Microsoft.PowerShell.PSResourceGet Module if not available (PowerShell v5 doesn't ship with it by default like in v7)
     if (-not (Get-Module -Name Microsoft.PowerShell.PSResourceGet -ListAvailable)) {
         try {
@@ -156,16 +159,27 @@ function Update-Modules {
     }
 
     # Get the new module versions for comparing them to the previous one if updated
-    $NewModules = Get-PSResource -Name $Name -Scope:$Scope | Where-Object Name -NotMatch $Exclude | Select-Object Name, Version | Sort-Object Name
+    $NewModules = Get-PSResource -Name $Name -Scope:$Scope | Select-Object Name, Version | Sort-Object Name
     if ($NewModules) {
         ''
         Write-Host ("List of updated modules:") -ForegroundColor Green
         $NoUpdatesFound = $true
         foreach ($Module in $NewModules) {
-            $CurrentVersion = $CurrentModules | Where-Object Name -EQ $Module.Name
-            if ($CurrentVersion.Version -notlike $Module.Version) {
-                $NoUpdatesFound = $false
-                Write-Host ("- Updated module {0} from version {1} to {2} and/or removed older version(s) if any..." -f $Module.Name, ($CurrentVersion.Version | Sort-Object Ascending | Select-Object -First 1), $Module.Version) -ForegroundColor Green
+            if ($null -ne $Exclude) {
+                if (-not ($Module.Name | Select-String $Exclude)) {
+                    $CurrentVersion = $CurrentModules | Where-Object Name -EQ $Module.Name
+                    if ($CurrentVersion.Version -notlike $Module.Version) {
+                        $NoUpdatesFound = $false
+                        Write-Host ("- Updated module {0} from version {1} to {2} and/or removed older version(s) if any..." -f $Module.Name, ($CurrentVersion.Version | Sort-Object Ascending | Select-Object -First 1), $Module.Version) -ForegroundColor Green
+                    }
+                }
+            }
+            else {
+                $CurrentVersion = $CurrentModules | Where-Object Name -EQ $Module.Name
+                if ($CurrentVersion.Version -notlike $Module.Version) {
+                    $NoUpdatesFound = $false
+                    Write-Host ("- Updated module {0} from version {1} to {2} and/or removed older version(s) if any..." -f $Module.Name, ($CurrentVersion.Version | Sort-Object Ascending | Select-Object -First 1), $Module.Version) -ForegroundColor Green
+                }
             }
         }
 
