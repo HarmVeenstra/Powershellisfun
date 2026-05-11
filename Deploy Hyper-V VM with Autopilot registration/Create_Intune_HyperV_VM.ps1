@@ -12,7 +12,7 @@ if ((Get-WindowsOptionalFeature -FeatureName Microsoft-Hyper-V-All -Online).Stat
     Write-Warning ("Hyper-V Role and/or required PowerShell module is not installed, please install before running this script...")
 }
 else {
-    Write-host ("Hyper-V Role is installed, continuing...") -ForegroundColor Green
+    Write-Host ("Hyper-V Role is installed, continuing...") -ForegroundColor Green
 }
 
 
@@ -24,12 +24,12 @@ if ((Get-VM -Name $VMname -ErrorAction SilentlyContinue).count -ge 1) {
 }
 
 $VMCores = Read-Host 'Please enter the amount of cores, for example 2'
-[int64]$VMRAM = 1GB * (read-host "Enter Memory in Gb's, for example 4")
-[int64]$VMDISK = 1GB * (read-host "Enter HDD size in Gb's, for example 40")
-$VMdir = (get-vmhost).VirtualMachinePath + "\Virtual Machines\" + $VMname
-$VMDiskDir = (get-vmhost).VirtualHardDiskPath
+[int64]$VMRAM = 1GB * (Read-Host "Enter Memory in Gb's, for example 4")
+[int64]$VMDISK = 1GB * (Read-Host "Enter HDD size in Gb's, for example 40")
+$VMdir = (Get-VMHost).VirtualMachinePath + "\Virtual Machines\" + $VMname
+$VMDiskDir = (Get-VMHost).VirtualHardDiskPath
 
-$ISO = Get-Childitem $ISOPath *.ISO | Out-GridView -OutputMode Single -Title 'Please select the ISO from the list and click OK'
+$ISO = Get-ChildItem $ISOPath *.ISO | Out-GridView -OutputMode Single -Title 'Please select the ISO from the list and click OK'
 if (($ISO.FullName).Count -ne '1') {
     Write-Warning ("No ISO, script aborted...")
     return
@@ -50,22 +50,24 @@ catch {
     return
 }
 finally {
-    if (test-path -Path $VMdir -ErrorAction SilentlyContinue) {
+    if (Test-Path -Path $VMdir -ErrorAction SilentlyContinue) {
         Write-Host ("Using {0} as Virtual Machine location..." -f $VMdir) -ForegroundColor Green
     }
 }
 
 #Create VM with the specified values
 try {
-    New-VM -Name $VMname `
-    -SwitchName $SwitchName.Name `
-    -Path $VMdir `
-    -Generation 2 `
-    -Confirm:$false `
-    -NewVHDPath "$($VMDiskDir)\$($VMname).vhdx" `
-    -NewVHDSizeBytes ([math]::Round($vmdisk * 1024) / 1KB) `
-    -ErrorAction Stop `
-    | Out-Null
+    $NewVMParameters = @{
+        Name            = $VMname
+        SwitchName      = $SwitchName.Name 
+        Path            = $VMdir
+        Generation      = 2
+        Confirm         = $false
+        NewVHDPath      = "$($VMDiskDir)\$($VMname).vhdx"
+        NewVHDSizeBytes = ([math]::Round($vmdisk * 1024) / 1KB)
+        ErrorAction     = 'Stop'
+    }
+    New-VM @NewVMParameters | Out-Null
 }
 catch {
     Write-Warning ("Error creating {0}, please check logs and make sure {0} doesn't already exist..." -f $VMname)
@@ -73,23 +75,24 @@ catch {
 }
 finally {
     if (Get-VM -Name $VMname -ErrorAction SilentlyContinue | Out-Null) {
-        write-host ("Created {0})..." -f $VMname) -ForegroundColor Green
+        Write-Host ("Created {0})..." -f $VMname) -ForegroundColor Green
     }
 }
 
 #Configure settings on the VM, CPU/Memory/Disk/BootOrder/TPM/Checkpoints
 try {
     Write-Host ("Configuring settings on {0}..." -f $VMname) -ForegroundColor Green
-
+    $VMSettings = @{
+        name                        = $VMname
+        ProcessorCount              = $VMCores
+        StaticMemory                = $true
+        MemoryStartupBytes          = $VMRAM
+        CheckpointType              = 'ProductionOnly'
+        AutomaticCheckpointsEnabled = $false
+        ErrorAction                 = 'SilentlyContinue'
+    }
     #VM Settings
-    Set-VM -name $VMname `
-        -ProcessorCount $VMCores `
-        -StaticMemory `
-        -MemoryStartupBytes $VMRAM `
-        -CheckpointType ProductionOnly `
-        -AutomaticCheckpointsEnabled:$false `
-        -ErrorAction SilentlyContinue `
-    | Out-Null
+    Set-VM @VMSettings | Out-Null
 
     #Add Harddisk
     Add-VMHardDiskDrive -VMName $VMname -Path "$($VMDiskDir)\$($VMname).vhdx" -ControllerType SCSI -ErrorAction SilentlyContinue | Out-Null
@@ -125,7 +128,7 @@ Pause
 Set-VMDvdDrive -VMName $VMname -Path $IntuneISO
 Write-Host ("Press Shift-F10 on the console of VM {0}, switch to d:\ and run d:\autopilot.cmd to upload hardware hash to Intune. The VM will shutdown when done!" -f $VMname) -ForegroundColor Green
 Write-Host ("Press Enter when the VM has shutdown to stop this script and disconnect the Intune ISO file from VM {0}" -f $VMname) -ForegroundColor Green
-pause
+Pause
 Write-Host ("Ejecting Intune ISO file from VM {0}" -f $VMname) -ForegroundColor Green
 Set-VMDvdDrive -VMName $VMname -Path $null
 
