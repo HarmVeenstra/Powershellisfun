@@ -9,9 +9,14 @@ function Update-Modules {
         [switch]$Verbose
     )
 
+    # Set $IsWindowsPS5 variable for PowerShell v5 detection ($IsWindows is not available in v5)
+    if ($PSVersionTable.PSVersion.Major -eq 5) {
+        $IsWindowsPS5 = $true
+    }
+
     # Test admin privileges without using -Requires RunAsAdministrator on Windows,
     # which causes a nasty error message if trying to load the function within a PS profile but without admin privileges
-    if ($IsWindows) {
+    if ($IsWindows -or $IsWindowsPS5) {
         if ($Scope -eq 'AllUsers') {
             if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
                 Write-Warning ("Function {0} needs admin privileges. Break now." -f $MyInvocation.MyCommand)
@@ -21,7 +26,7 @@ function Update-Modules {
     }
 
     # Set scope to CurrentUser if not running on Windows
-    if (-not $IsWindows) {
+    if (-not $IsWindows -and -not $IsWindowsPS5) {
         $Scope = 'CurrentUser'
     }
 
@@ -74,7 +79,7 @@ function Update-Modules {
 
     # Get all installed modules minus excluded modules from $Exclude
     Write-Host ("Retrieving all installed modules ...") -ForegroundColor Green
-    $CurrentModules = foreach ($Installedmodule in Get-PSResource -Name $Name -Scope:$Scope -ErrorAction SilentlyContinu ) {
+    $CurrentModules = foreach ($Installedmodule in Get-PSResource -Name $Name -Scope:$Scope -ErrorAction SilentlyContinue ) {
         if ($null -ne $Exclude) {
             if (-not ($Installedmodule.Name | Select-String $Exclude)) {
                 [PSCustomObject]@{
@@ -111,11 +116,21 @@ function Update-Modules {
     # Retrieve current versions of modules if $CurrentModules is greater than 0
     if ($CurrentModules.Count -eq 1) {
         Write-Host ("Checking online versions for installed module {0}" -f $name) -ForegroundColor Green
-        $Onlineversions = Find-PSResource -Name $CurrentModules.name
+        if (-not $Prerelease) {
+            $Onlineversions = Find-PSResource -Name $CurrentModules.name
+        }
+        else {
+            $Onlineversions = Find-PSResource -Name $CurrentModules.name -Prerelease
+        }
     }
     if ($CurrentModules.Count -gt 1) {
         Write-Host ("Checking online version for the {0} installed modules" -f $CurrentModules.Count) -ForegroundColor Green
-        $Onlineversions = Find-PSResource -Name $CurrentModules.name
+        if (-not $Prerelease) {
+            $Onlineversions = Find-PSResource -Name $CurrentModules.name
+        }
+        else {
+            $Onlineversions = Find-PSResource -Name $CurrentModules.name -Prerelease
+        }
     }
 
     if (-not $CurrentModules) {
@@ -141,7 +156,7 @@ function Update-Modules {
         }
 
         # Retrieve newest version number and remove old(er) version(s) if any
-        $AllVersions = Get-PSResource -Name $Module.Name -Scope:$Scope | Sort-Object PublishedDate -Descending
+        $AllVersions = Get-PSResource -Name $Module.Name -Scope:$Scope | Sort-Object Version -Descending
         $MostRecentVersion = $AllVersions[0].Version
         if ($AllVersions.Count -gt 1 ) {
             foreach ($Version in $AllVersions) {
