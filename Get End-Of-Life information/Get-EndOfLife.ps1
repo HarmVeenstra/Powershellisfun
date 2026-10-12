@@ -5,7 +5,7 @@ param (
 )
 
 #Check if Out-ConsoleGridView is installed if running from PowerShell v7
-if ($host.Version.Major -ge 7) {
+if ($host.Version.Major -ge 7 -and -not $File) {
     try {
         Import-Module Microsoft.PowerShell.ConsoleGuiTools -ErrorAction Stop
     }
@@ -86,7 +86,7 @@ if ($Product) {
 
 #Output all data to specified file
 if ($File) {
-    If (-not ($file.EndsWith('.xlsx'))) {
+    if (-not ($file.EndsWith('.xlsx'))) {
         Write-Warning ("Filename should end with .xlsx, exiting...")
         return
     }
@@ -95,6 +95,9 @@ if ($File) {
         if (-not (Get-Module -Name importexcel -ListAvailable)) {
             Write-Warning ("`nImportExcel PowerShell Module was not found, installing...")
             Install-Module ImportExcel -Scope CurrentUser -Force:$true -ErrorAction Stop
+            Import-Module ImportExcel -ErrorAction Stop
+        }
+        else {
             Import-Module ImportExcel -ErrorAction Stop
         }
     }
@@ -112,41 +115,44 @@ catch {
     Write-Warning ("Could not retrieve product details, check internet access. Exiting...")
     return
 }
-$total = foreach ($product in $results) {
-    foreach ($item in $Product) {
-        try {
-            $results = Invoke-RestMethod -Uri "https://endoflife.date/api/$($item).json" -Method Get -ContentType 'application/json' -ErrorAction Stop
-            foreach ($result in $results) {
-                [PSCustomObject]@{
-                    Product         = $item
-                    Cycle           = $result.cycle
-                    ReleaseDate     = $result.releaseDate
-                    EOL             = $result.eol
-                    Latest          = $result.Latest
-                    LTS             = $result.LTS
-                    Support         = $result.support
-                    ExtendedSupport = $result.extendedSupport
-                    Link            = $result.link
+
+if ($null -ne $results) {
+    $total = foreach ($product in $results) {
+        foreach ($item in $Product) {
+            try {
+                $results = Invoke-RestMethod -Uri "https://endoflife.date/api/$($item).json" -Method Get -ContentType 'application/json' -ErrorAction Stop
+                foreach ($result in $results) {
+                    [PSCustomObject]@{
+                        Product         = $item
+                        Cycle           = $result.cycle
+                        ReleaseDate     = $result.releaseDate
+                        EOL             = $result.eol
+                        Latest          = $result.Latest
+                        LTS             = $result.LTS
+                        Support         = $result.support
+                        ExtendedSupport = $result.extendedSupport
+                        Link            = $result.link
+                    }
                 }
             }
-        }
-        catch {
-            Write-Warning ("Could not retrieve details for product {0}, check spelling / internet access. Exiting..." -f $item)
-            return
+            catch {
+                Write-Warning ("Could not retrieve details for product {0}, check spelling / internet access. Exiting..." -f $item)
+                return
+            }
         }
     }
-}
 
-#Export all data to specified xlsx file
-try {
-    #Test path and remove empty file afterwards because xlsx is corrupted if not
-    New-Item -Path $File -ItemType File -Force:$true -Confirm:$false -ErrorAction Stop | Out-Null
-    Remove-Item -Path $File -Force:$true -Confirm:$false | Out-Null
-    $total | Export-Excel -AutoSize -BoldTopRow -FreezeTopRow -AutoFilter -Path $File
-    Write-Host ("`nExported results to {0}" -f $File) -ForegroundColor Green
-    return
-}
-catch {
-    Write-Warning ("`nCould not export results to {0}, check path and permissions" -f $File)
-    return
+    #Export all data to specified xlsx file
+    try {
+        #Test path and remove empty file afterwards because xlsx is corrupted if not
+        New-Item -Path $File -ItemType File -Force:$true -Confirm:$false -ErrorAction Stop | Out-Null
+        Remove-Item -Path $File -Force:$true -Confirm:$false | Out-Null
+        $total | Export-Excel -AutoSize -BoldTopRow -FreezeTopRow -AutoFilter -Path $File
+        Write-Host ("`nExported results to {0}" -f $File) -ForegroundColor Green
+        return
+    }
+    catch {
+        Write-Warning ("`nCould not export results to {0}, check path and permissions" -f $File)
+        return
+    }
 }
