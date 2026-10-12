@@ -13,17 +13,22 @@ if (-not (Get-Module -ListAvailable -Name Hyper-V)) {
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Management-PowerShell -NoRestart:$true
 }
 
-#Set credentials, prompt for admin password for the account specified in $AdminAccountName if not specified in $AdminAccountPassowrd
+#Set credentials, prompt for admin password for the account specified in $AdminAccountName if not specified in $AdminAccountPassword
 if (-not $AdminAccountPassword) {
     $password = Read-Host "Please enter password for the specified admin account" -AsSecureString
 }
 else {
-    $password = $AdminAccountPassword | ConvertTo-SecureString -AsPlainText -Force
+    $password = $AdminAccountPassword
 }
 $AdminCredential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $AdminAccountName, $password
 
+#Fill $VMS with all VM names if * was used
+if ($VMs -eq '*') {
+    $VMs = (Hyper-V\Get-VM | Sort-Object Name).Name
+}
+
 #Validate if specified VM(s) is/are valid and running
-foreach ($VM in Hyper-V\Get-VM $VMs | Sort-Object Name) {
+foreach ($VM in Hyper-V\Get-VM $VMs -ErrorAction SilentlyContinue | Sort-Object Name) {
     if (-not (Hyper-V\Get-VM -VMName $VM.Name -ErrorAction SilentlyContinue)) {
         Write-Warning ("Specified VM {0} can't be found, check spelling/name. Exiting..." -f $VM.Name)
         return
@@ -71,7 +76,7 @@ foreach ($VM in Hyper-V\Get-VM $VMs | Sort-Object Name) {
         #Stop VM after waiting to $DelayafterRestartInMinutes
         Write-Host ("Shutting down {0} now..." -f $VM.Name) -ForegroundColor Green
         try {
-        Hyper-V\Stop-VM -VMName $VM.Name -Force:$true -ErrorAction Stop
+            Hyper-V\Stop-VM -VMName $VM.Name -Force:$true -ErrorAction Stop
         }
         catch {
             Write-Warning ("Could not stop VM {0}, will try again at end of script!" -f $VM.Name)
@@ -87,8 +92,10 @@ foreach ($VM in Hyper-V\Get-VM $VMs | Sort-Object Name) {
 if (-not $NoShutdown) {
     Write-Host ("Waiting for {0} minutes before shutting down any remaining running VM" -f $DelayafterRestartInMinutes) -ForegroundColor Green
     Start-Sleep -Seconds $($DelayafterRestartInMinutes * 60)
-    foreach ($VM in Get-VM | Where-Object State -EQ Running ) {
-        Write-Host ("Shutting down {0} now..." -f $VM.Name) -ForegroundColor Green
-        Hyper-V\Stop-VM -VMName $VM.Name -Force:$true
+    foreach ($VM in $VMs) {
+        if ((Get-VM -Name $VM).State -eq 'Running') {
+            Write-Host ("Shutting down {0} now..." -f $VM) -ForegroundColor Green
+            Hyper-V\Stop-VM -VMName $VM -Force:$true
+        }
     }
 }
