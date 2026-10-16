@@ -419,7 +419,7 @@ $Commands = @{
 
 #Check if specified file is correct and store path of $Filname in $ScriptFiles
 if ($Filename) {
-    if (Test-Path -Path $Filename) {
+    if (Test-Path -Path $Filename -PathType Leaf) {
         Write-Host ("The specified file {0} is valid, scanning now..." -f $Filename) -ForegroundColor Green
         $ScriptFiles = (Get-ChildItem -Path $Filename).FullName
     }
@@ -457,11 +457,11 @@ $Verbs = (Get-Verb).Verb
 $Total = foreach ($ScriptFile in $ScriptFiles) {
     $Scriptcontents = Get-Content -Path $ScriptFile | Select-String . | Select-Object Line, Linenumber
     foreach ($Line in $ScriptContents) {
-        if (-not ($Line.Line.StartsWith('#'))) {
+        if (-not ($Line.Line.replace(" ", "").replace("`t", "").StartsWith("#"))) {
             foreach ($Word in $Line.line.Split(' ')) {
                 foreach ($Verb in $Verbs) {
-                    if ($Word.ToLower().StartsWith($Verb.ToLower() + '-') ) {
-                        $CmdLet = $Word -replace '[\{\}\(\)\\]', ''
+                    if ($Word.ToLower().StartsWith($Verb.ToLower() + "-") ) {
+                        $CmdLet = $Word -replace '[\{\}\(\)\\\;\=]\,', ''
                         if ($Commands[$CmdLet]) {
                             [PSCustomObject]@{
                                 Filename            = $ScriptFile
@@ -488,7 +488,7 @@ else {
 
 #Output results to specified .csv of .xlsx, install ImportExcel Module if needed
 if ($OutFile) {
-    if ($Outfile.EndsWith('.csv')) {
+    if ($Outfile.ToLower().EndsWith('.csv')) {
         try {
             New-Item -Path $Outfile -ItemType File -Force:$true -Confirm:$false -ErrorAction Stop | Out-Null
             $total | Sort-Object Name, Property | Export-Csv -Path $Outfile -Encoding UTF8 -Delimiter ';' -NoTypeInformation
@@ -500,7 +500,7 @@ if ($OutFile) {
         }
     }
     
-    if ($Outfile.EndsWith('.xlsx')) {
+    if ($Outfile.ToLower().EndsWith('.xlsx')) {
         try {
             #Test path and remove empty file afterwards because xlsx is corrupted if not
             New-Item -Path $Outfile -ItemType File -Force:$true -Confirm:$false -ErrorAction Stop | Out-Null
@@ -523,7 +523,7 @@ if ($OutFile) {
         }
     }
 
-    if (-not $OutFile.EndsWith('.csv') -and -not $OutFile.EndsWith('.xlsx')) {
+    if (-not $OutFile.ToLower().EndsWith('.csv') -and -not $OutFile.ToLower().EndsWith('.xlsx')) {
         Write-Warning ("Specified file {0} does not end with either .csv or .xlsx, not exporting results because of that." -f $OutFile)
     }
 }
