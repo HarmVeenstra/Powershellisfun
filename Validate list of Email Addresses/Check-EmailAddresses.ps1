@@ -6,7 +6,7 @@ param (
 
 #Test if CSV Input File is valid
 if ($InputFile) {
-    If (Test-Path -Path $InputFile) {
+    if (Test-Path -Path $InputFile -PathType Leaf) {
         Write-Host ("Specified input file {0} is valid, continuing..." -f $InputFile) -ForegroundColor Green
     }
     else {
@@ -15,9 +15,9 @@ if ($InputFile) {
     }
 }
 
-#Test if output file location is accessible
+#Test if output file location is accessible, test this by creating and remove $OutputFile
 try {
-    if (($OutputFile.EndsWith('.csv')) -or ($OutputFile.EndsWith('.xlsx'))) {
+    if (($OutputFile.ToLower().EndsWith('.csv')) -or ($OutputFile.ToLower().EndsWith('.xlsx'))) {
         New-Item -Path $OutputFile -Force -ErrorAction Stop | Out-Null
         Write-Host ("Specified output file location {0} is valid, continuing..." -f $OutputFile) -ForegroundColor Green
         Remove-Item -Path $OutputFile -Force -ErrorAction Stop | Out-Null
@@ -33,7 +33,7 @@ catch {
 }
 
 #Import emailaddresses from CSV or XLSX
-if ($InputFile.EndsWith('.csv')) {
+if ($InputFile.ToLower().EndsWith('.csv')) {
     try {
         $EmailAddresses = Import-Csv -Path $InputFile -ErrorAction Stop
         Write-Host ("Imported CSV file {0}" -f $InputFile) -ForegroundColor Green
@@ -44,16 +44,18 @@ if ($InputFile.EndsWith('.csv')) {
     }
 }
 
-if ($InputFile.EndsWith('.xlsx')) {
+if ($InputFile.ToLower().EndsWith('.xlsx')) {
     try {
-        try {
-            Import-Module 'ImportExcel' -ErrorAction Stop
-        }
+        Import-Module 'ImportExcel' -ErrorAction Stop
+        $EmailAddresses = Import-Excel -Path $InputFile -ErrorAction Stop
+        Write-Host ("Imported Excel file {0}" -f $InputFile) -ForegroundColor Green
         catch {
             Write-Warning ("Required ImportExcel module is not installed, installing now...")
             try {
                 Install-Module -Name ImportExcel -SkipPublisherCheck:$true -Force:$true -ErrorAction Stop
                 Import-Module -Name ImportExcel
+                $EmailAddresses = Import-Excel -Path $InputFile -ErrorAction Stop
+                Write-Host ("Imported Excel file {0}" -f $InputFile) -ForegroundColor Green
             }
             catch {
                 Write-Warning ("Error installing required ImportExcel module, check permissions. Exiting...")
@@ -61,9 +63,9 @@ if ($InputFile.EndsWith('.xlsx')) {
             }
         }
     }
-    finally {
-        $EmailAddresses = Import-Excel -Path $InputFile -ErrorAction Stop
-        Write-Host ("Imported Excel file {0}" -f $InputFile) -ForegroundColor Green
+    catch {
+        Write-Warning ("Error installing required ImportExcel module, check permissions. Exiting...")
+        return
     }
 }
 
@@ -144,7 +146,7 @@ if ($null -ne $EmailAddresses) {
 
     #output results to selected $output location
     #CSV
-    if ($OutputFile.EndsWith('.csv')) {
+    if ($OutputFile.ToLower().EndsWith('.csv')) {
         try {
             $total | Export-Csv -Delimiter ';' -Encoding UTF8 -NoTypeInformation -Path $OutputFile -Force
             Write-Host ("Exported results to {0}" -f $OutputFile) -ForegroundColor Green
@@ -156,8 +158,9 @@ if ($null -ne $EmailAddresses) {
     }
 
     #Excel
-    if ($OutputFile.EndsWith('.xlsx')) {
+    if ($OutputFile.ToLower().EndsWith('.xlsx')) {
         try {
+            Import-Module ImportExcel
             $total | Export-Excel -AutoSize -AutoFilter -Path $OutputFile -ErrorAction Stop
             Write-Host ("Exported results to {0}" -f $OutputFile) -ForegroundColor Green
         }
