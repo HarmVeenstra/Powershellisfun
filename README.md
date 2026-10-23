@@ -60,7 +60,7 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Disable Idle Power Save](https://powershellisfun.com/2024/03/21/disabling-idle-power-save-using-intune-and-powershell/)
 
-[Export Registry](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Export%20Registry)
+[Export Registry](<https://github.com/HarmVeenstra/Powershellisfun/tree/main/Export%20Registry>)
 
 [Exporting Passwords For WLAN Profiles](https://powershellisfun.com/2022/05/08/exporting-passwords-for-wlan-profiles-using-powershell-and-netsh/)
 
@@ -80,9 +80,9 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Install Apps Using WinGet And PowerShell](https://powershellisfun.com/2022/04/21/its-a-lot-of-work-reinstalling-your-system/)
 
-[Install or update SysInternals Suite](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Install%20or%20update%20SysInternals%20Suite)
+[Install or update SysInternals Suite](<https://github.com/HarmVeenstra/Powershellisfun/tree/main/Install%20or%20update%20SysInternals%20Suite>)
 
-[Intune Remediation for unquoted service path vulnerability](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Intune%20Remediation%20for%20unquoted%20service%20path%20vulnerability)
+[Intune Remediation for unquoted service path vulnerability](<https://github.com/HarmVeenstra/Powershellisfun/tree/main/Intune%20Remediation%20for%20unquoted%20service%20path%20vulnerability>)
 
 [Intune Timezone](https://powershellisfun.com/2024/01/25/intune-automatic-timezone-configuration-using-powershell/)
 
@@ -108,9 +108,11 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Read RSS Feeds](https://powershellisfun.com/2022/05/30/reading-rss-feeds-in-powershell/)
 
-[Remote Visual Studio Code in Windows Sandbox](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Remote%20Visual%20Studio%20Code%20in%20Windows%20Sandbox)
+[Remote Visual Studio Code in Windows Sandbox](<https://github.com/HarmVeenstra/Powershellisfun/tree/main/Remote%20Visual%20Studio%20Code%20in%20Windows%20Sandbox>)
 
-[Report on Exchange SMTP logfiles](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Report%20on%20Exchange%20SMTP%20logfiles)
+[Report on Exchange SMTP logfiles](<https://github.com/HarmVeenstra/Powershellisfun/tree/main/Report%20on%20Exchange%20SMTP%20logfiles>)
+
+[Report on Feature Update Levels](https://powershellisfun.com/2026/10/23/report-on-the-feature-update-level-of-intune-devices-using-powershell/)
 
 [Retrieve Active Directory Container permissions](https://powershellisfun.com/2022/08/22/report-on-active-directory-container-permissions-using-powershell/)
 
@@ -128,7 +130,7 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Retrieve Expiring Certificates](https://powershellisfun.com/2025/01/10/show-expiring-local-certificates-using-powershell/)
 
-[Retrieve Intune Primary User](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Retrieve%20Intune%20Primary%20User)
+[Retrieve Intune Primary User](<https://github.com/HarmVeenstra/Powershellisfun/tree/main/Retrieve%20Intune%20Primary%20User>)
 
 [Retrieve local and remote PowerShell logs](retrieve-local-and-remote-powershell-logs)
 
@@ -142,7 +144,7 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Scan for deprecated Cmdlets](https://powershellisfun.com/2026/04/03/check-powershell-scripts-for-deprecated-azure-ad-or-msonline-cmdlets/)
 
-[Search Windows Event log](https://github.com/HarmVeenstra/Powershellisfun/tree/main/Search%20Windows%20Event%20log)
+[Search Windows Event log](<https://github.com/HarmVeenstra/Powershellisfun/tree/main/Search%20Windows%20Event%20log>)
 
 [Set Correct External Hyper-V Adapter](https://powershellisfun.com/2022/10/08/reconfigure-hyper-v-external-switch-to-the-correct-network-adapter/)
 
