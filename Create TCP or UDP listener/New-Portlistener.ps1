@@ -3,18 +3,18 @@ function New-Portlistener {
     param (
         [parameter(Mandatory = $false, HelpMessage = "Enter the tcp port you want to use to listen on, for example 3389", parameterSetName = "TCP")]
         [ValidatePattern('^[0-9]+$')]
-        [ValidateRange(0, 65535)]
+        [ValidateRange(1, 65535)]
         [int]$TCPPort,
 
         [parameter(Mandatory = $false, HelpMessage = "Enter the udp port you want to use to listen on, for example 3389", parameterSetName = "UDP")]
         [ValidatePattern('^[0-9]+$')]
-        [ValidateRange(0, 65535)]
+        [ValidateRange(1, 65535)]
         [int]$UDPPort
     )
 
     #Test if TCP port is already listening port before starting listener
     if ($TCPPort) {
-        $Global:ProgressPreference = 'SilentlyContinue' #Hide GUI output
+        $ProgressPreference = 'SilentlyContinue' #Hide GUI output
         $testtcpport = Test-NetConnection -ComputerName localhost -Port $TCPPort -WarningAction SilentlyContinue -ErrorAction Stop
         if ($testtcpport.TcpTestSucceeded -ne $True) {
             Write-Host ("TCP port {0} is available, continuing..." -f $TCPPort) -ForegroundColor Green
@@ -26,8 +26,8 @@ function New-Portlistener {
 
         #Start TCP Server
         #Used procedure from https://riptutorial.com/powershell/example/18117/tcp-listener
-        $ipendpoint = new-object System.Net.IPEndPoint([ipaddress]::any, $TCPPort) 
-        $listener = new-object System.Net.Sockets.TcpListener $ipendpoint
+        $ipendpoint = New-Object System.Net.IPEndPoint([ipaddress]::any, $TCPPort) 
+        $listener = New-Object System.Net.Sockets.TcpListener $ipendpoint
         $listener.start()
         Write-Host ("Now listening on TCP port {0}, press Escape to stop listening" -f $TCPPort) -ForegroundColor Green
         while ( $true ) {
@@ -70,8 +70,8 @@ function New-Portlistener {
 
         #Start UDP Server
         #Used procedure from https://github.com/sperner/PowerShell/blob/master/UdpServer.ps1
-        $endpoint = new-object System.Net.IPEndPoint( [IPAddress]::Any, $UDPPort)
-        $udpclient = new-object System.Net.Sockets.UdpClient $UDPPort
+        $endpoint = New-Object System.Net.IPEndPoint( [IPAddress]::Any, $UDPPort)
+        $udpclient = New-Object System.Net.Sockets.UdpClient $UDPPort
         Write-Host ("Now listening on UDP port {0}, press Escape to stop listening" -f $UDPPort) -ForegroundColor Green
         while ( $true ) {
             if ($host.ui.RawUi.KeyAvailable) {
