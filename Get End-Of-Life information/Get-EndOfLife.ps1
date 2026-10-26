@@ -5,17 +5,18 @@ param (
 )
 
 #Check if Out-ConsoleGridView is installed if running from PowerShell v7
-if ($host.Version.Major -ge 7 -and -not $File) {
+if ($PSVersionTable.PSVersion.Major -ge 7 -and -not $File) {
     try {
         Import-Module Microsoft.PowerShell.ConsoleGuiTools -ErrorAction Stop
     }
     catch {
         Write-Warning ("Microsoft.PowerShell.ConsoleGuiTools module was not installed, installing now...")
         try {
-            Install-Module Microsoft.PowerShell.ConsoleGuiTools -Scope CurrentUser -ErrorAction Stop
+            Install-Module Microsoft.PowerShell.ConsoleGuiTools -Scope CurrentUser -Force -ErrorAction Stop
+            Import-Module Microsoft.PowerShell.ConsoleGuiTools -ErrorAction Stop
         }
         catch {
-            Write-Warning ("Error installing Microsoft.PowerShell.ConsoleGuiTools module, exiting...")
+            Write-Warning ("Error installing/importing Microsoft.PowerShell.ConsoleGuiTools module, exiting...")
             return
         }
     }
@@ -31,7 +32,7 @@ if ($AllProducts) {
         return
     }
     if ($results.count -ge 1) {
-        if ($host.Version.Major -ge 7) {
+        if ($PSVersionTable.PSVersion.Major -ge 7) {
             $Product = $results | Out-ConsoleGridView -Title 'Select one or more products for determing End Of Life' -OutputMode Multiple -ErrorAction Stop
         }
         else {
@@ -70,7 +71,7 @@ if ($Product) {
 
     }
     if ($total.count -ge 1) {
-        if ($host.Version.Major -ge 7) {
+        if ($PSVersionTable.PSVersion.Major -ge 7) {
             $total | Out-ConsoleGridView -Title ("Details for End Of Life of product(s) {0}" -f $Product)
             return
         }
@@ -86,7 +87,7 @@ if ($Product) {
 
 #Output all data to specified file
 if ($File) {
-    if (-not ($file.EndsWith('.xlsx'))) {
+    if (-not ($file.ToLower().EndsWith('.xlsx'))) {
         Write-Warning ("Filename should end with .xlsx, exiting...")
         return
     }
@@ -149,7 +150,6 @@ if ($null -ne $results) {
         Remove-Item -Path $File -Force:$true -Confirm:$false | Out-Null
         $total | Export-Excel -AutoSize -BoldTopRow -FreezeTopRow -AutoFilter -Path $File
         Write-Host ("`nExported results to {0}" -f $File) -ForegroundColor Green
-        return
     }
     catch {
         Write-Warning ("`nCould not export results to {0}, check path and permissions" -f $File)
