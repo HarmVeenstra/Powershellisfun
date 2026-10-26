@@ -4,21 +4,23 @@ param(
 )
 
 #Check if necessary modules are installed, install missing modules if not
-if (-not ((Get-Module Microsoft.Graph.Authentication, Microsoft.Graph.Beta.DeviceManagement, Microsoft.Graph.Users -ListAvailable).count -ge 3 | Select-Object Name -Unique)) {
-    Write-Warning ("One or more required modules were not found, installing now...")
-    try {
-        Install-Module Microsoft.Graph.Authentication, Microsoft.Graph.Beta.DeviceManagement, Microsoft.Graph.Users -Confirm:$false -SkipPublisherCheck -Scope CurrentUser -ErrorAction Stop
-    }
-    catch {
-        Write-Warning ("Error installing required modules, exiting...")
-        return
+foreach ($Module in 'Microsoft.Graph.Authentication', 'Microsoft.Graph.Beta.DeviceManagement', 'Microsoft.Graph.Users') {
+    if (-not (Get-Module -Name $Module -ListAvailable)) {
+        Write-Warning ("{0} Module was not found, installing now..." -f $Module)
+        try {
+            Install-Module $Module -Confirm:$false -SkipPublisherCheck -Scope CurrentUser -ErrorAction Stop
+        }
+        catch {
+            Write-Warning ("Error installing required module {0}, exiting..." -f $Module)
+            return
+        }
     }
 }
 
 
 #Connect MgGraph
 try {
-    Connect-MgGraph -Scopes 'DeviceManagementManagedDevices.Read.All, User.Read.All' | Out-Null
+    Connect-MgGraph -Scopes 'DeviceManagementManagedDevices.Read.All', 'User.Read.All' | Out-Null
 } 
 catch {
     Write-Warning ("Error connecting Microsoft Graph, check Permissions/Accounts. Exiting...")
@@ -26,7 +28,7 @@ catch {
 }
 
 #Loop through the devices and the logged on users per device 
-$total = Foreach ($device in (Get-MgBetaDeviceManagementManagedDevice -All:$true -Filter "contains(DeviceName,'$($filter)')" | Where-Object OperatingSystem -eq Windows)) {
+$total = foreach ($device in (Get-MgBetaDeviceManagementManagedDevice -All:$true -Filter "contains(DeviceName,'$($filter)')" | Where-Object OperatingSystem -EQ Windows)) {
     Write-Host ("Processing {0}..." -f $device.DeviceName) -ForegroundColor Green
     foreach ($user in $device.UsersLoggedOn.UserId | Select-Object -Unique  ) {
         [PSCustomObject]@{
@@ -34,7 +36,7 @@ $total = Foreach ($device in (Get-MgBetaDeviceManagementManagedDevice -All:$true
             Model             = $device.Model
             SerialNumber      = $device.SerialNumber
             "Users logged in" = (Get-MgUser -UserId $user).DisplayName
-            LastLogon         = ($device.UsersLoggedOn | Where-Object Userid -eq $user | Sort-Object LastLogonDateTime | Select-Object -Last 1).LastLogOnDateTime
+            LastLogon         = ($device.UsersLoggedOn | Where-Object Userid -EQ $user | Sort-Object LastLogonDateTime | Select-Object -Last 1).LastLogOnDateTime
             PrimaryUser       = if ((Get-MgBetaDeviceManagementManagedDeviceUser -ManagedDeviceId $device.Id).DisplayName) {
                 $((Get-MgBetaDeviceManagementManagedDeviceUser -ManagedDeviceId $device.Id).DisplayName)
             }
