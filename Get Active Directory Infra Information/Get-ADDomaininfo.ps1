@@ -17,7 +17,7 @@ function Get-ADDomaininfo {
     }
 
     #Gather overview of Domain Controllers
-    $domainControllers = foreach ($domainController in (Get-ADDomain).ReplicaDirectoryServers) {
+    $domainControllers = foreach ($domainController in (Get-ADDomain -Identity $domain).ReplicaDirectoryServers) {
         $info = Get-ADDomainController -Identity $domainController
         [PSCustomObject]@{
             Name                    = $info.HostName
@@ -79,14 +79,14 @@ function Get-ADDomaininfo {
         else {
             "None"
         }
-        "Domain Functional Level"      = (Get-ADDomain).DomainMode
+        "Domain Functional Level"      = (Get-ADDomain -Identity $domain).DomainMode
         "Exchange Server(s)"           = if (Get-ADGroup -Filter { SamAccountName -eq "Exchange Servers" }) {
-            (Get-ADGroupMember -Identity "Exchange Servers" | Where-Object ObjectClass -eq 'Computer').Name -join ", "
+            (Get-ADGroupMember -Identity "Exchange Servers" | Where-Object ObjectClass -EQ 'Computer').Name -join ", "
         }
         else {
             "None"
         }
-        "Forest Functional Level"      = (Get-ADForest).ForestMode
+        "Forest Functional Level"      = (Get-ADForest -Identity $domain).ForestMode
         "FRS or DFSR for Sysvol"       = if ($searchFRS.FindAll().Count -eq '0') {
             "DFRS"
         }
@@ -99,8 +99,8 @@ function Get-ADDomaininfo {
         else {
             "None"
         }
-        "UPN Suffixes"                 = if ((Get-ADForest).UPNSuffixes) {
-            (Get-ADForest).UPNSuffixes -join ", "
+        "UPN Suffixes"                 = if ((Get-ADForest -Identity $domain).UPNSuffixes) {
+            (Get-ADForest -Identity $domain).UPNSuffixes -join ", "
         }
         else {
             "None"
