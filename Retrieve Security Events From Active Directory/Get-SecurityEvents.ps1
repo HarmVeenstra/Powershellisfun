@@ -1,6 +1,6 @@
 function Get-SecurityEvents {
       param (
-            [Parameter(Mandatory = $true, HelpMessage = "Number of hours to search back", Position = 1)][string]$hours,
+            [Parameter(Mandatory = $true, HelpMessage = "Number of hours to search back", Position = 1)][int]$hours,
             [Parameter(Mandatory = $true, HelpMessage = "Folder for storing found events", Position = 2)][string]$outputfolder,
             [Parameter(Mandatory = $False, HelpMessage = "Enter email-address to send the logs to", Position = 3)][string]$to_emailaddress,
             [Parameter(Mandatory = $False, HelpMessage = "Enter the From Address", Position = 4)][string]$from_emailaddress,
@@ -20,6 +20,7 @@ function Get-SecurityEvents {
       }
       catch {
             Write-Warning ("Unable to get Domain information, check ActiveDirectory module installation. Aborting...")
+            return
       }
 
       #Event id's from https://www.ultimatewindowssecurity.com/securitylog/book/page.aspx?spid=chapter8
@@ -151,20 +152,20 @@ function Get-SecurityEvents {
                   $filterapplicationgroupmanagement, `
                   $filterotheraccountmanagement ) {
             $events = Get-WinEvent -FilterHashtable $eventids -ComputerName $domaincontroller -ErrorAction SilentlyContinue 
-            foreach ($event in $events) {
-                  Write-Host ("- Found EventID {0} on {1} and adding to list..." -f $event.id, $event.TimeCreated) -ForegroundColor Green
+            foreach ($item in $events) {
+                  Write-Host ("- Found EventID {0} on {1} and adding to list..." -f $item.id, $item.TimeCreated) -ForegroundColor Green
                   [PSCustomObject]@{
                         DomainController = $domaincontroller
-                        Timestamp        = $event.TimeCreated
-                        LevelDisplayName = $event.LevelDisplayName
-                        EventId          = $event.Id
-                        Message          = $event.message -replace '\s+', " "
+                        Timestamp        = $item.TimeCreated
+                        LevelDisplayName = $item.LevelDisplayName
+                        EventId          = $item.Id
+                        Message          = $item.message -replace '\s+', " "
                   }
             }
       }
 
       if ($null -ne $collection) {
-            $filenametimestamp = Get-Date -Format 'dd-MM-yyyy-HHmm'
+            $filenametimestamp = Get-Date -Format 'dd-MM-yyyy-HHmm-ss'
             Write-Host ("- Saving the {0} events found to {1}..." -f $collection.count, "$($outputfolder)\events_$($filenametimestamp).csv") -ForegroundColor Green
             $collection | Sort-Object TimeStamp, DomainController, EventId | Export-Csv -Delimiter ';' -NoTypeInformation -Path "$($outputfolder)\events_$($filenametimestamp).csv"
       
