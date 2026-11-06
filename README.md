@@ -144,6 +144,8 @@ Repository with the scripts that I have used in my blogs on [PowerShellisfun.com
 
 [Scan for deprecated Cmdlets](https://powershellisfun.com/2026/04/03/check-powershell-scripts-for-deprecated-azure-ad-or-msonline-cmdlets/)
 
+[Search and execute items from your PowerShell History](https://powershellisfun.com/2026/11/06/search-your-powershell-command-line-history-and-execute-one-or-more-entries/)
+
 [Search Windows Event log](<https://github.com/HarmVeenstra/Powershellisfun/tree/main/Search%20Windows%20Event%20log>)
 
 [Set Correct External Hyper-V Adapter](https://powershellisfun.com/2022/10/08/reconfigure-hyper-v-external-switch-to-the-correct-network-adapter/)
