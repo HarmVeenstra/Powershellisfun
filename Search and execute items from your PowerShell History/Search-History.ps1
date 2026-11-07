@@ -10,9 +10,8 @@ function Search-History {
     }
 
     # Search History file, and sort reverse so that newest item is on top
-    $History = @(Get-Content (Get-PSReadLineOption).HistorySavePath)
+    $History = [Microsoft.PowerShell.PSConsoleReadLine]::GetHistoryItems() | Select-Object CommandLine -Unique
     [array]::Reverse($History)
-    $History = $History | Select-Object -Unique
 
     # Pre-apply the filter so the empty check is accurate
     if ($Filter) {
@@ -60,18 +59,18 @@ function Search-History {
     }
 
     # Display and execute selected item(s) with an empty line in between
-    if (-not [string]::IsNullOrWhiteSpace($History)) {
+    if ($History) {
         Write-Host ("Executing History item(s):") -ForegroundColor Green
         foreach ($SelectedItem in $History) {
-            Write-Host ("- {0}" -f $SelectedItem)
+            Write-Host ("- {0}" -f $SelectedItem.CommandLine)
         }
         foreach ($Item in $History) {
             Write-Host ("`n")
             try {
-                Invoke-Expression $Item -ErrorAction Stop
+                Invoke-Expression $Item.CommandLine -ErrorAction Stop
             }
             catch {
-                Write-Warning ("Error executing selected History item: {0}" -f $Item)
+                Write-Warning ("Error executing selected History item: {0}" -f $Item.CommandLine)
                 Write-Warning $_.Exception.Message
             }
         }
