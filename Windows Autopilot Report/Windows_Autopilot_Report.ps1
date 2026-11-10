@@ -3,13 +3,13 @@ param(
 )
 
 #Check if filename is correct
-if (-not ($OutputFileName.EndsWith('.xlsx'))) {
-    Write-Warning ("Specified filename {0} is not correct, should end with .xlsx. Exiting...")
+if (-not ($OutputFileName.ToLower().EndsWith('.xlsx'))) {
+    Write-Warning ("Specified filename {0} is not correct, should end with .xlsx. Exiting..." -f $OutputFileName)
     return
 }
 
 #Check access to the path, and if the file already exists, append if it does or test the creation of a new one
-if (-not (Test-Path -Path $OutputFileName)) {
+if (-not (Test-Path -Path $OutputFileName -PathType Leaf)) {
     try {
         New-Item -Path $OutputFileName -ItemType File -Force:$true -Confirm:$false -ErrorAction Stop | Out-Null
         Remove-Item -Path $OutputFileName -Force:$true -Confirm:$false | Out-Null
@@ -25,20 +25,22 @@ else {
 }
 
 #Check if necessary modules are installed, install missing modules if not
-if (-not ((Get-Module Microsoft.Graph.Authentication, Microsoft.Graph.Beta.DeviceManagement, ImportExcel, WindowsAutoPilotIntune -ListAvailable | Select-Object Name -Unique).count -eq 4)) {
-    Write-Warning ("One or more required modules were not found, installing now...")
-    try {
-        Install-Module Microsoft.Graph.Authentication, Microsoft.Graph.Beta.DeviceManagement, ImportExcel, WindowsAutoPilotIntune -Confirm:$false -SkipPublisherCheck -Scope CurrentUser -ErrorAction Stop
-    }
-    catch {
-        Write-Warning ("Error installing required modules, exiting...")
-        return
+foreach ($Module in 'Microsoft.Graph.Authentication', 'Microsoft.Graph.Beta.DeviceManagement', 'ImportExcel', 'WindowsAutoPilotIntune') {
+    if (-not (Get-Module -Name $Module -ListAvailable)) {
+        Write-Warning ("Required module {0} was not found, installing now..." -f $Module)
+        try {
+            Install-Module $Module -Confirm:$false -SkipPublisherCheck -Scope CurrentUser -ErrorAction Stop
+        }
+        catch {
+            Write-Warning ("Error installing required modules, exiting...")
+            return
+        }
     }
 }
 
 #Connect MgGraph
 try {
-    Connect-MgGraph -Scopes 'DeviceManagementManagedDevices.Read.All, DeviceManagementServiceConfig.Read.All' -NoWelcome
+    Connect-MgGraph -Scopes 'DeviceManagementManagedDevices.Read.All', 'DeviceManagementServiceConfig.Read.All' -NoWelcome -ErrorAction Stop
     Write-Host ("Connected to Microsoft Graph, continuing...") -ForegroundColor Green
 } 
 catch {
@@ -59,7 +61,7 @@ catch {
 }
 
 #Set dateformat for the Excel tabs
-$date = Get-Date -Format ddMMyyhhmm
+$date = Get-Date -Format ddMMyyHHmm
 
 #AutopilotDevices
 $total = foreach ($AutopilotDevice in $AutopilotDevices | Sort-Object serialNumber) {
@@ -139,7 +141,7 @@ $total = foreach ($AutopilotProfile in $AutopilotProfiles) {
     }
 }
 try {
-    $total | Export-Excel -Path $OutputFileName -WorksheetName "AutopilotProfiles_$($date)" -AutoFilter -AutoSize -Append
+    $total | Export-Excel -Path $OutputFileName -WorksheetName "AutopilotProfiles_$($date)" -AutoFilter -AutoSize -Append -ErrorAction Stop
     Write-Host ("Exported Autopilot Profiles to {0}" -f $OutputFileName) -ForegroundColor Green
 }
 catch {
@@ -153,7 +155,7 @@ $total = [PSCustomObject]@{
     'Last manual sync time' = $AutoPilotSyncInfo.lastManualSyncTriggerDateTime
 }
 try {
-    $total | Export-Excel -Path $OutputFileName -WorksheetName "AutopilotSyncInfo_$($date)" -AutoFilter -AutoSize -Append
+    $total | Export-Excel -Path $OutputFileName -WorksheetName "AutopilotSyncInfo_$($date)" -AutoFilter -AutoSize -Append -ErrorAction Stop
     Write-Host ("Exported Autopilot Sync Information to {0}" -f $OutputFileName) -ForegroundColor Green
 }
 catch {
